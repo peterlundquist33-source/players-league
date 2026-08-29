@@ -53,7 +53,7 @@ ANTHROPIC_URL = "https://api.anthropic.com/v1/messages"
 MODEL = os.environ.get("ANTHROPIC_MODEL", "claude-sonnet-5")
 
 
-def claude(system, user, max_tokens=1024, temperature=0.8):
+def claude(system, user, max_tokens=1024):
     headers = {
         "x-api-key": _get("ANTHROPIC_API_KEY"),
         "anthropic-version": "2023-06-01",
@@ -65,7 +65,6 @@ def claude(system, user, max_tokens=1024, temperature=0.8):
     body = json.dumps({
         "model": MODEL,
         "max_tokens": max_tokens,
-        "temperature": temperature,
         "system": system,
         "messages": [{"role": "user", "content": user}],
     }).encode()

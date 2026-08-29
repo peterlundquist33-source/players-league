@@ -1,5 +1,4 @@
 """Turn a normalized matchup into a Claude-written preview or recap."""
-import json
 from lib import claude
 from lore import LEAGUE_FACTS, NOTES, rivalry_between
 
@@ -11,11 +10,24 @@ the numbers, never corny. No hashtags, no emoji, no "folks", no fantasy-guru cli
 ("buckle up", "must-start", "smash play"). Reference league history and rivalries when
 they fit — don't force them. Use owners' first names.
 
-Return ONLY valid JSON: {"headline": "...", "body": "..."}
-- headline: 4-9 words, punchy, specific to this matchup. No colon-subtitle format.
-- body: 2 short paragraphs (preview) or 2-3 short paragraphs (recap), plain text,
-  no markdown. ~90-150 words.
+Output format — EXACTLY this, nothing before or after:
+HEADLINE: <4-9 words, punchy, specific to this matchup, no colon-subtitle format>
+
+<body: 2 short paragraphs for a preview, 2-3 for a recap. Plain prose, no markdown,
+no headers, ~90-150 words total. Separate paragraphs with one blank line.>
 """
+
+
+def _parse(raw):
+    raw = raw.strip()
+    head, _, body = raw.partition("\n")
+    head = head.strip()
+    if head.upper().startswith("HEADLINE:"):
+        head = head.split(":", 1)[1].strip()
+    else:                       # model skipped the label — take first line as headline
+        body = raw[len(head):]
+    return {"headline": head.strip(' "'),
+            "body": "\n".join(p.strip() for p in body.strip().split("\n") if p.strip())}
 
 
 def _matchup_facts(m, phase):
@@ -59,14 +71,10 @@ def write_matchup(m, week, phase):
         f"Write a Week {week} {kind} for this matchup.\n\n"
         f"{_matchup_facts(m, phase)}\n"
     )
-    raw = claude(SYSTEM, user, max_tokens=700, temperature=0.85)
-    try:
-        start, end = raw.index("{"), raw.rindex("}") + 1
-        obj = json.loads(raw[start:end])
-        return {"headline": obj["headline"].strip(), "body": obj["body"].strip()}
-    except Exception:
-        return {"headline": f'{m["away"]["owner"]} at {m["home"]["owner"]}',
-                "body": raw}
+    out = _parse(claude(SYSTEM, user, max_tokens=700))
+    if not out["headline"]:
+        out["headline"] = f'{m["away"]["owner"]} at {m["home"]["owner"]}'
+    return out
 
 
 def write_intro(league, week, phase):
@@ -83,6 +91,6 @@ def write_intro(league, week, phase):
         f"league, the game that matters most, the storyline to watch. Plain text only.\n\n"
         f"This week:\n{board}\n"
     )
-    return claude(SYSTEM.replace('Return ONLY valid JSON: {"headline": "...", "body": "..."}',
-                                 "Return plain text, no JSON, no headline."),
-                  user, max_tokens=300, temperature=0.8)
+    sys = SYSTEM.split("Output format")[0].rstrip() + \
+        "\n\nReturn 2-3 sentences of plain prose. No headline, no label, no markdown."
+    return claude(sys, user, max_tokens=300).strip()
