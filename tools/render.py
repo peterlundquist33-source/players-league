@@ -7,7 +7,8 @@ CSS = "../css/style.css?v=green-1"
 
 NAV_ITEMS = [("weekend.html", "Weekend"), ("home.html", "Home"), ("teams.html", "Teams"),
              ("awards.html", "Awards"), ("history.html", "History"),
-             ("analytics.html", "Analytics"), ("matchups/index.html", "Matchups")]
+             ("analytics.html", "Analytics"), ("matchups/index.html", "Matchups"),
+             ("rankings.html", "Rankings")]
 
 
 def _nav(active, depth=1):
@@ -60,6 +61,17 @@ def _page(title, active, body, depth=1):
    padding:1rem 1.2rem;margin-bottom:.7rem;transition:var(--transition)}}
  .mx-week-list a:hover{{border-color:var(--accent);transform:translateY(-2px)}}
  .mx-week-list .wk{{font-family:var(--font-display);font-weight:800;color:var(--text)}}
+ .gr-hd{{display:flex;align-items:center;gap:1rem;padding:1rem 1.3rem;border-bottom:1px solid var(--border)}}
+ .gr-grade{{font-family:var(--font-display);font-weight:900;font-size:2rem;line-height:1;
+   color:var(--accent);min-width:2.4ch;text-align:center}}
+ .gr-grade.lo{{color:var(--red)}}
+ .gr-rank{{font-size:.72rem;color:var(--text-muted);font-weight:700}}
+ .gr-pos{{display:flex;flex-wrap:wrap;gap:.35rem;padding:.7rem 1.3rem;border-bottom:1px solid var(--border)}}
+ .gr-chip{{font-family:var(--font-display);font-size:.66rem;font-weight:800;letter-spacing:.04em;
+   padding:.2rem .5rem;border-radius:4px;background:var(--surface-2);color:var(--text-muted)}}
+ .gr-chip b{{color:var(--text)}}
+ .gr-cite{{font-size:.78rem;color:var(--text-muted);padding:.6rem 1.3rem 0}}
+ .gr-cite .up{{color:var(--accent);font-weight:700}} .gr-cite .down{{color:var(--red);font-weight:700}}
 </style></head>
 <body class="polish">
 {_nav(active, depth)}
@@ -133,6 +145,52 @@ def week_page(league, copies, intro):
     path = OUT / f"{season}-week-{wk:02d}.html"
     path.write_text(_page(f"Week {wk} {badge}", "Matchups", body))
     return path
+
+
+def _grade_card(t, copy):
+    lo = " lo" if t["grade"][0] in "DF" else ""
+    chips = "".join(
+        '<span class="gr-chip">%s <b>%s</b></span>' % (pos, v["grade"])
+        for pos, v in t["pos_grades"].items() if v["grade"] != "—")
+    cite = ""
+    if t.get("best"):
+        b = t["best"]
+        cite += ('<div class="gr-cite">Best value: <span class="up">%s</span> '
+                 '— round %s, pick %d (%+.0f vs market)</div>'
+                 % (html.escape(b["name"]), b["round"], b["overall"], b["value"]))
+    if t.get("reach"):
+        r = t["reach"]
+        cite += ('<div class="gr-cite">Biggest reach: <span class="down">%s</span> '
+                 '— round %s, pick %d (%+.0f)</div>'
+                 % (html.escape(r["name"]), r["round"], r["overall"], r["value"]))
+    paras = "".join("<p>%s</p>" % html.escape(p.strip())
+                    for p in copy["body"].split("\n") if p.strip())
+    return ('<article class="mx-card reveal">'
+            '<div class="gr-hd"><div class="gr-grade%s">%s</div>'
+            '<div><div class="mx-owner">%s</div>'
+            '<div class="mx-sub">%s</div>'
+            '<div class="gr-rank">#%d of 12</div></div></div>'
+            '<div class="gr-pos">%s</div>'
+            '%s'
+            '<div class="mx-body"><div class="mx-head">%s</div>%s</div>'
+            '</article>' % (
+                lo, html.escape(t["grade"]), html.escape(t["owner"]),
+                html.escape(t["team"]), t["rank"], chips, cite,
+                html.escape(copy["headline"]), paras))
+
+
+def rankings_page(g, copies, intro):
+    """g from draft.build(); copies aligned to g['teams']."""
+    season = g["season"]
+    stamp = datetime.date.today().isoformat()
+    cards = "\n".join(_grade_card(t, copies[i]) for i, t in enumerate(g["teams"]))
+    body = ('<section class="page-header"><h1>%d DRAFT <span class="gold">GRADES</span></h1>'
+            '<p>Every pick vs a 4-source consensus (ESPN ADP, ESPN, FantasyCalc, Sleeper) '
+            '· graded on the curve · generated %s</p></section>'
+            '<div class="mx-wrap"><p class="mx-intro">%s</p>%s</div>'
+            % (season, stamp, html.escape(intro), cards))
+    (ROOT / "rankings.html").write_text(_page("Draft Grades", "Rankings", body, depth=0))
+    return ROOT / "rankings.html"
 
 
 def index_page(season):

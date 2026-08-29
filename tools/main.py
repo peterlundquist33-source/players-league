@@ -70,12 +70,39 @@ def run(phase_arg, season, week, dry, force=False):
     return page
 
 
+def run_rankings(season, dry=False):
+    load_env()
+    import draft as D
+    g = D.build(season)
+    print(f"{season} draft grades: " + ", ".join(f'{t["grade"]} {t["owner"]}' for t in g["teams"]))
+    if dry:
+        copies = [{"headline": f'{t["owner"]}: {t["grade"]}', "body": "[dry run]"} for t in g["teams"]]
+        intro = "[dry run] draft grades"
+    else:
+        import write as W
+        copies = []
+        for t in g["teams"]:
+            print(f"  grading {t['owner']} ({t['grade']})")
+            copies.append(W.grade_team(t, season))
+        intro = W.grade_intro(g)
+    page = R.rankings_page(g, copies, intro)
+    DATA.mkdir(parents=True, exist_ok=True)
+    (DATA / f"{season}-rankings.json").write_text(json.dumps(
+        {"generated": datetime.datetime.now().isoformat(timespec="seconds"),
+         "mode": g["mode"], "grades": g, "copies": copies, "intro": intro}, indent=2, default=str))
+    print(f"wrote {page.relative_to(ROOT)}")
+    return page
+
+
 if __name__ == "__main__":
     ap = argparse.ArgumentParser()
-    ap.add_argument("phase", choices=["auto", "preview", "recap"], nargs="?", default="auto")
+    ap.add_argument("phase", choices=["auto", "preview", "recap", "rankings"], nargs="?", default="auto")
     ap.add_argument("--season", type=int, default=2026)
     ap.add_argument("--week", type=int, default=None)
     ap.add_argument("--dry", action="store_true")
     ap.add_argument("--force", action="store_true")
     a = ap.parse_args()
-    run(a.phase, a.season, a.week, a.dry, a.force)
+    if a.phase == "rankings":
+        run_rankings(a.season, a.dry)
+    else:
+        run(a.phase, a.season, a.week, a.dry, a.force)

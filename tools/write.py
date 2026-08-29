@@ -152,6 +152,64 @@ def write_matchup(m, week, phase):
     return out
 
 
+SYSTEM_GRADE = _VOICE + """
+
+This is a DRAFT GRADE for one team. Weight it about 80/20:
+- 80% the actual roster they built — the picks that got real value, the reaches, the
+  positions they nailed or punted, roster construction (RB-heavy, zero-RB, waited on
+  QB), the bye-week and depth situation. Refer to NFL players by name.
+- 20% the owner — one line tying it to their history or the rivalry.
+The grade is already assigned; explain it, don't re-argue it.
+
+Output format — EXACTLY this, nothing before or after:
+HEADLINE: <4-9 words about this draft, punchy, no colon-subtitle>
+
+<body: 2 short paragraphs, plain prose, no markdown, ~100-140 words total,
+one blank line between paragraphs.>
+"""
+
+
+def grade_team(t, season):
+    picks = ", ".join(
+        f'R{p["round"]} #{p["overall"]} {p["name"]} ({p["pos"]}, {p["value"]:+.0f} vs market)'
+        for p in sorted(t["picks"], key=lambda p: p["overall"]) if p["counts"])
+    pg = ", ".join(f'{k} {v["grade"]}' for k, v in t["pos_grades"].items()
+                   if v["grade"] != "—")
+    lines = [
+        f'{t["owner"]} ("{t["team"]}") — draft grade {t["grade"]}, '
+        f'{t["rank"]} of {12} in the league.',
+        f'Positional grades: {pg}.',
+        f'All skill picks (value vs consensus/ADP): {picks}.',
+    ]
+    if t["best"]:
+        b = t["best"]
+        lines.append(f'Best value: {b["name"]} at #{b["overall"]} (round {b["round"]}), '
+                     f'{b["value"]:+.0f} vs where he normally goes.')
+    if t["reach"]:
+        r = t["reach"]
+        lines.append(f'Biggest reach: {r["name"]} at #{r["overall"]} (round {r["round"]}), '
+                     f'{r["value"]:+.0f}.')
+    note = NOTES.get(t["owner"])
+    if note:
+        lines.append(f'Owner angle (~20%): {t["owner"]}: {note}')
+    user = (f"League background:\n{LEAGUE_FACTS}\n\n"
+            f"Write the {season} draft grade for this team.\n\n" + "\n".join(lines) + "\n")
+    out = _parse(claude(SYSTEM_GRADE, user, max_tokens=900))
+    if not out["headline"]:
+        out["headline"] = f'{t["owner"]}: {t["grade"]}'
+    return out
+
+
+def grade_intro(g):
+    board = "\n".join(f'{t["rank"]}. {t["grade"]}  {t["owner"]} ("{t["team"]}")' for t in g["teams"])
+    sysmsg = _VOICE + (
+        "\n\nWrite a 3-4 sentence intro for the draft-grades page: who nailed it, who "
+        "whiffed, the theme of the draft. Mostly about the rosters. Plain prose, no "
+        "headline, no markdown.")
+    user = (f"{LEAGUE_FACTS}\n\n{g['season']} draft grades, best to worst:\n{board}\n")
+    return claude(sysmsg, user, max_tokens=320).strip()
+
+
 def write_intro(league, week, phase):
     kind = "preview" if phase == "preview" else "recap"
     board = "\n".join(
