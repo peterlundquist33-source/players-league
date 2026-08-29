@@ -26,6 +26,13 @@ def _placeholder(m, phase):
 def run(phase_arg, season, week, dry, force=False):
     load_env()
     phase = None if phase_arg == "auto" else phase_arg
+
+    # A recap with no explicit week targets the week that just finished, not the
+    # current one (ESPN rolls currentMatchupPeriod forward right after MNF).
+    if phase == "recap" and week is None:
+        probe = L.build(season, None, None)
+        week = max(1, probe["current_week"] - (0 if probe["phase"] == "recap" else 1))
+
     data = L.build(season, week, phase)
     wk, phase = data["week"], data["phase"]
     print(f"season {season} · week {wk} · phase {phase} · {len(data['matchups'])} matchups")
