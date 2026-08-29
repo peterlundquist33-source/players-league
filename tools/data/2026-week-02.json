@@ -1,0 +1,288 @@
+{
+  "generated": "2026-08-29T17:40:42",
+  "phase": "preview",
+  "data": {
+    "season": 2026,
+    "week": 2,
+    "phase": "preview",
+    "current_week": 1,
+    "latest_scoring_period": 1,
+    "standings": [
+      {
+        "name": "Burrowed Treasure",
+        "owner": "Cj Woda",
+        "record": "0-0",
+        "pf": 0.0,
+        "pa": 0.0,
+        "streak": ""
+      },
+      {
+        "name": "The Basement Of KK",
+        "owner": "Peter Lundquist",
+        "record": "0-0",
+        "pf": 0.0,
+        "pa": 0.0,
+        "streak": ""
+      },
+      {
+        "name": "Amon that inhaler",
+        "owner": "Grant Sawyer",
+        "record": "0-0",
+        "pf": 0.0,
+        "pa": 0.0,
+        "streak": ""
+      },
+      {
+        "name": "Uncut Cokerr",
+        "owner": "Adam Stockwell",
+        "record": "0-0",
+        "pf": 0.0,
+        "pa": 0.0,
+        "streak": ""
+      },
+      {
+        "name": "A Slap in the Face",
+        "owner": "Isaac Douglas",
+        "record": "0-0",
+        "pf": 0.0,
+        "pa": 0.0,
+        "streak": ""
+      },
+      {
+        "name": "Runnin' Rezac",
+        "owner": "logan rezac",
+        "record": "0-0",
+        "pf": 0.0,
+        "pa": 0.0,
+        "streak": ""
+      },
+      {
+        "name": "Ashton Powers",
+        "owner": "Mitchell Max",
+        "record": "0-0",
+        "pf": 0.0,
+        "pa": 0.0,
+        "streak": ""
+      },
+      {
+        "name": "Pukachu",
+        "owner": "John Lundquist",
+        "record": "0-0",
+        "pf": 0.0,
+        "pa": 0.0,
+        "streak": ""
+      },
+      {
+        "name": "The Aura Farm",
+        "owner": "Christian Massett",
+        "record": "0-0",
+        "pf": 0.0,
+        "pa": 0.0,
+        "streak": ""
+      },
+      {
+        "name": "Achane Smokin CiGarretts",
+        "owner": "Noah Thesing",
+        "record": "0-0",
+        "pf": 0.0,
+        "pa": 0.0,
+        "streak": ""
+      },
+      {
+        "name": "PA Dive Your Way",
+        "owner": "Kaleb Nelson",
+        "record": "0-0",
+        "pf": 0.0,
+        "pa": 0.0,
+        "streak": ""
+      },
+      {
+        "name": "Joey Lunchbox",
+        "owner": "Leif Engen",
+        "record": "0-0",
+        "pf": 0.0,
+        "pa": 0.0,
+        "streak": ""
+      }
+    ],
+    "matchups": [
+      {
+        "home": {
+          "teamId": 11,
+          "team": "Achane Smokin CiGarretts",
+          "owner": "Noah",
+          "owner_full": "Noah Thesing",
+          "record": "0-0",
+          "actual": 0.0,
+          "projected": 0.0,
+          "starters": []
+        },
+        "away": {
+          "teamId": 5,
+          "team": "A Slap in the Face",
+          "owner": "Isaac",
+          "owner_full": "Isaac Douglas",
+          "record": "0-0",
+          "actual": 0.0,
+          "projected": 0.0,
+          "starters": []
+        },
+        "played": false,
+        "margin": null,
+        "winner": null
+      },
+      {
+        "home": {
+          "teamId": 3,
+          "team": "Amon that inhaler",
+          "owner": "Grant",
+          "owner_full": "Grant Sawyer",
+          "record": "0-0",
+          "actual": 0.0,
+          "projected": 0.0,
+          "starters": []
+        },
+        "away": {
+          "teamId": 9,
+          "team": "Pukachu",
+          "owner": "John",
+          "owner_full": "John Lundquist",
+          "record": "0-0",
+          "actual": 0.0,
+          "projected": 0.0,
+          "starters": []
+        },
+        "played": false,
+        "margin": null,
+        "winner": null
+      },
+      {
+        "home": {
+          "teamId": 1,
+          "team": "Burrowed Treasure",
+          "owner": "CJ",
+          "owner_full": "Cj Woda",
+          "record": "0-0",
+          "actual": 0.0,
+          "projected": 0.0,
+          "starters": []
+        },
+        "away": {
+          "teamId": 12,
+          "team": "PA Dive Your Way",
+          "owner": "Kaleb",
+          "owner_full": "Kaleb Nelson",
+          "record": "0-0",
+          "actual": 0.0,
+          "projected": 0.0,
+          "starters": []
+        },
+        "played": false,
+        "margin": null,
+        "winner": null
+      },
+      {
+        "home": {
+          "teamId": 4,
+          "team": "Uncut Cokerr",
+          "owner": "Adam",
+          "owner_full": "Adam Stockwell",
+          "record": "0-0",
+          "actual": 0.0,
+          "projected": 0.0,
+          "starters": []
+        },
+        "away": {
+          "teamId": 10,
+          "team": "The Aura Farm",
+          "owner": "Christian",
+          "owner_full": "Christian Massett",
+          "record": "0-0",
+          "actual": 0.0,
+          "projected": 0.0,
+          "starters": []
+        },
+        "played": false,
+        "margin": null,
+        "winner": null
+      },
+      {
+        "home": {
+          "teamId": 13,
+          "team": "Joey Lunchbox",
+          "owner": "Leif",
+          "owner_full": "Leif Engen",
+          "record": "0-0",
+          "actual": 0.0,
+          "projected": 0.0,
+          "starters": []
+        },
+        "away": {
+          "teamId": 6,
+          "team": "Runnin' Rezac",
+          "owner": "Logan",
+          "owner_full": "logan rezac",
+          "record": "0-0",
+          "actual": 0.0,
+          "projected": 0.0,
+          "starters": []
+        },
+        "played": false,
+        "margin": null,
+        "winner": null
+      },
+      {
+        "home": {
+          "teamId": 8,
+          "team": "Ashton Powers",
+          "owner": "Mitchell",
+          "owner_full": "Mitchell Max",
+          "record": "0-0",
+          "actual": 0.0,
+          "projected": 0.0,
+          "starters": []
+        },
+        "away": {
+          "teamId": 2,
+          "team": "The Basement Of KK",
+          "owner": "Peter",
+          "owner_full": "Peter Lundquist",
+          "record": "0-0",
+          "actual": 0.0,
+          "projected": 0.0,
+          "starters": []
+        },
+        "played": false,
+        "margin": null,
+        "winner": null
+      }
+    ]
+  },
+  "copies": [
+    {
+      "headline": "Isaac Chases 2022 Ghosts Against October's Assassin",
+      "body": "Isaac has been running on the fumes of an 11-3 start from four years ago, and every season since has been a slow-motion attempt to recapture whatever that was. Now he draws Noah, who treats regular season Tuesdays like this one as background noise before he turns into a different species come playoff time. Nobody in the league fears Noah in September. Everybody fears him in January.\nThat gap between now and then is exactly the trap here. Isaac needs statement wins early to convince himself this is the year, but Wan'Dales of London has made a career out of looking unbothered in weeks like this and then remembering how to win in November. History says Isaac's ceiling was 2022. History also says Noah doesn't care about any of that until it matters."
+    },
+    {
+      "headline": "Pukachu Hunts A Ring, Grant Hunts Chaos",
+      "body": "John enters this thing 10-4 last year and still empty-handed, which is its own special hell \u2014 you can out-Rezac the seed curse and still walk away with nothing but a good record and a grudge. He's spent three seasons proving Peter Lundquist's little brother energy translates into results (6-3 head-to-head, thanks for asking), but domination over a guy who hasn't been good since 2022 doesn't buy a trophy.\nGrant, meanwhile, remains the league's certified coin flip. 3-11, then 9-5, then 5-9 \u2014 nobody, including Grant, could tell you which version shows up in Week 2. Lord Save Me is an apt name for a roster that either detonates for 150 or forgets to set a lineup. John's consistency says he should roll here, but consistency has never once predicted a single thing Grant does."
+    },
+    {
+      "headline": "Cinderella Meets Perpetual Rebuild Project",
+      "body": "Kaleb rolled worst-to-first in 2023 and has spent every season since proving that title was less springboard than fluke, settling into a comfortable rut of 8-6 mediocrity three years running. CJ, meanwhile, has one winning season in four tries and has made a career out of finding new ways to finish below the line. Neither team has played a snap this season, which means this one is pure vibes and offseason grudges until kickoff.\nThere's no juicy history here, no seed curse, no dress on the line, just two guys trying to avoid another year of treading water. Kaleb wants to prove 2023 wasn't a mirage. CJ just wants a signature win that isn't from 2024. Someone's 0-1 by Monday, and given both r\u00e9sum\u00e9s, it won't shock anybody in this league either way."
+    },
+    {
+      "headline": "Aura Farm Meets the Gold Standard",
+      "body": "Christian shows up to Week 2 the way he shows up to everything: unpredictable and convinced this is the year the boom half of boom-or-bust finally sticks around for more than a month. Nobody has ever accused The Aura Farm of being boring, which is more than can be said for the guy on the other side of this one.\nAdam doesn't do chaos. He does 34-22 and no losing seasons and a trophy from four months ago that he's still not sick of looking at. There's no rivalry heat here, just a defending champ quietly going about business against a team that's either about to be scary good or completely irrelevant by October. History says bet on boring. History's been right about Adam for five years running."
+    },
+    {
+      "headline": "The Dress Is Still Drying Off",
+      "body": "Logan opens year two of life after the dress, and the sample size is still small enough that nobody has to mention it \u2014 except everyone will, immediately. Back-to-back number ones, zero playoff wins, then a 4-10 face-plant that ended with him in a skirt on the golf course. There is nowhere to go from here but up, and \"Joey Lunchbox\" is about as gentle a re-entry as the schedule gods could have offered.\nBecause Leif is Leif. Four years, 22-34, a nickname he's earned through sheer consistency of losing, and yet somehow he's the one guy in this league who shows up every single week without an ounce of self-pity. Logan needs a get-right game. Leif exists, historically, to provide exactly that. Someone's streak continues here \u2014 the only question is which one."
+    },
+    {
+      "headline": "Lundquist Chases Ghosts, Mitchell Just Vibes",
+      "body": "Peter opens year four of his post-2022 hangover still searching for the version of himself that went 13-1 and put up a league-record 1,936.1 points. Since then it's been mediocrity and a 4-10 face-plant, and every Week 1 loss (or win, doesn't matter) gets measured against a ring he can't stop talking about. Mitchell, meanwhile, has quietly built a career out of shrugging \u2014 three separate 7-7 seasons, somehow two playoff wins tucked in there, the human coin flip who never seems to try harder than \"fine.\"\nThis is the least dramatic 0-0 matchup on the slate and that's the point. Nobody circles Basement Of KK versus Ashton Powers on the calendar, but Peter needs statement wins to quiet the \"what happened to you\" chatter, and Mitchell needs literally nothing, because .500 has treated him better than it should."
+    }
+  ],
+  "intro": "Four champions in four years and somehow the league still finds new ways to embarrass itself, which brings us to Logan at Leif \u2014 Logan's already 0-1 and one more loss puts him on a fast track back to the dress he just took off. Peter at Mitchell is the quiet one worth watching, since Peter's still trying to prove 2023's 4-10 fold job was the aberration and not the preview. And Christian at Adam is the early measuring stick \u2014 Adam's the guy with the ring and the r\u00e9sum\u00e9 now, and everyone else is just auditioning to be this year's Cinderella."
+}
