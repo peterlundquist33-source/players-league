@@ -65,6 +65,7 @@ def claude(system, user, max_tokens=1024):
     body = json.dumps({
         "model": MODEL,
         "max_tokens": max_tokens,
+        "thinking": {"type": "disabled"},   # short creative copy — no thinking budget
         "system": system,
         "messages": [{"role": "user", "content": user}],
     }).encode()
