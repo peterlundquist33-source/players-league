@@ -10,13 +10,13 @@
   <link rel="stylesheet" href="css/style.css">
   <style>
     select#season-select {
-      background:#ffffff; color:#333333; border:2px solid #e5e5e5;
+      background:#131a24; color:#e9eef5; border:2px solid #26303d;
       padding:0.7rem 1.4rem; border-radius:4px;
       font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
       font-size:0.95rem; font-weight:700; min-width:220px; cursor:pointer;
       transition:border-color 0.18s ease;
     }
-    select#season-select:hover, select#season-select:focus { border-color:#d4943a; outline:none; }
+    select#season-select:hover, select#season-select:focus { border-color:#ffb648; outline:none; }
   </style>
 </head>
 <body class="polish">
@@ -374,10 +374,10 @@
   <section id="tab-divcomp" class="section analytics-section">
     <style>
       .divcomp-grid { display:grid; grid-template-columns:1fr 160px 1fr; }
-      .divcomp-stat-val { font-size:1.25rem; font-weight:800; color:#333; }
-      .divcomp-cat { font-size:0.72rem; font-weight:700; color:#666; text-transform:uppercase; letter-spacing:1px; }
-      .divcomp-edge { background:#0068b3; color:#fff; font-size:0.6rem; padding:0.15rem 0.45rem; border-radius:3px; font-weight:700; vertical-align:middle; margin-left:4px; }
-      .divcomp-edge-green { background:#198754; }
+      .divcomp-stat-val { font-size:1.25rem; font-weight:800; color:#e9eef5; }
+      .divcomp-cat { font-size:0.72rem; font-weight:700; color:#9aa7b8; text-transform:uppercase; letter-spacing:1px; }
+      .divcomp-edge { background:#2e9dff; color:#fff; font-size:0.6rem; padding:0.15rem 0.45rem; border-radius:3px; font-weight:700; vertical-align:middle; margin-left:4px; }
+      .divcomp-edge-green { background:#39d98a; }
       @media(max-width:600px) {
         .divcomp-grid { grid-template-columns:1fr 80px 1fr; }
         .divcomp-stat-val { font-size:1rem; }
@@ -390,17 +390,17 @@
     <p class="section-sub">Four seasons of rivalry. Which division rules the Players League? Career stats through 2025.</p>
 
     <!-- Main matchup card -->
-    <div style="max-width:900px;margin:2rem auto;border-radius:12px;overflow:hidden;box-shadow:0 4px 24px rgba(0,0,0,0.1);border:1px solid #e5e5e5;">
+    <div style="max-width:900px;margin:2rem auto;border-radius:12px;overflow:hidden;box-shadow:0 4px 24px rgba(0,0,0,0.1);border:1px solid #26303d;">
 
       <!-- Division Headers -->
       <div class="divcomp-grid">
-        <div style="background:#0068b3;color:#fff;padding:2rem 1.5rem;text-align:center;">
+        <div style="background:#2e9dff;color:#fff;padding:2rem 1.5rem;text-align:center;">
           <div style="font-size:2.2rem;margin-bottom:0.4rem;">🌊</div>
           <div style="font-size:1.4rem;font-weight:800;letter-spacing:1px;">EAST</div>
           <div style="font-size:0.75rem;opacity:0.85;margin-top:0.3rem;line-height:1.6;">CJ · Grant · Isaac<br>John · Kaleb · Noah</div>
         </div>
-        <div style="background:#1a1a1a;color:#d4943a;display:flex;align-items:center;justify-content:center;font-size:1.4rem;font-weight:900;letter-spacing:2px;">VS</div>
-        <div style="background:#005292;color:#fff;padding:2rem 1.5rem;text-align:center;">
+        <div style="background:#0b0f16;color:#ffb648;display:flex;align-items:center;justify-content:center;font-size:1.4rem;font-weight:900;letter-spacing:2px;">VS</div>
+        <div style="background:#1a6db0;color:#fff;padding:2rem 1.5rem;text-align:center;">
           <div style="font-size:2.2rem;margin-bottom:0.4rem;">🌵</div>
           <div style="font-size:1.4rem;font-weight:800;letter-spacing:1px;">WEST</div>
           <div style="font-size:0.75rem;opacity:0.85;margin-top:0.3rem;line-height:1.6;">Peter · Adam · Christian<br>Mitchell · Leif · Logan</div>
@@ -408,59 +408,59 @@
       </div>
 
       <!-- Stat rows -->
-      <div style="background:#fff;">
+      <div style="background:#131a24;">
 
         <!-- Career W-L -->
-        <div class="divcomp-grid" style="border-bottom:1px solid #e5e5e5;">
-          <div style="padding:1.25rem;text-align:center;background:#f0f7ff;"><span class="divcomp-stat-val">166–170</span></div>
-          <div style="padding:1.25rem;text-align:center;background:#f5f5f5;display:flex;align-items:center;justify-content:center;"><span class="divcomp-cat">Career W-L</span></div>
-          <div style="padding:1.25rem;text-align:center;background:#e8f0f8;"><span class="divcomp-stat-val">170–166</span><span class="divcomp-edge">EDGE</span></div>
+        <div class="divcomp-grid" style="border-bottom:1px solid #26303d;">
+          <div style="padding:1.25rem;text-align:center;background:#16273a;"><span class="divcomp-stat-val">166–170</span></div>
+          <div style="padding:1.25rem;text-align:center;background:#0d1219;display:flex;align-items:center;justify-content:center;"><span class="divcomp-cat">Career W-L</span></div>
+          <div style="padding:1.25rem;text-align:center;background:#16273a;"><span class="divcomp-stat-val">170–166</span><span class="divcomp-edge">EDGE</span></div>
         </div>
 
         <!-- Career PF -->
-        <div class="divcomp-grid" style="border-bottom:1px solid #e5e5e5;">
-          <div style="padding:1.25rem;text-align:center;background:#fafafa;"><span class="divcomp-stat-val">38,165</span></div>
-          <div style="padding:1.25rem;text-align:center;background:#f5f5f5;display:flex;align-items:center;justify-content:center;"><span class="divcomp-cat">Career PF</span></div>
-          <div style="padding:1.25rem;text-align:center;background:#fafafa;"><span class="divcomp-stat-val">39,467</span><span class="divcomp-edge">EDGE</span></div>
+        <div class="divcomp-grid" style="border-bottom:1px solid #26303d;">
+          <div style="padding:1.25rem;text-align:center;background:#131a24;"><span class="divcomp-stat-val">38,165</span></div>
+          <div style="padding:1.25rem;text-align:center;background:#0d1219;display:flex;align-items:center;justify-content:center;"><span class="divcomp-cat">Career PF</span></div>
+          <div style="padding:1.25rem;text-align:center;background:#131a24;"><span class="divcomp-stat-val">39,467</span><span class="divcomp-edge">EDGE</span></div>
         </div>
 
         <!-- Championships -->
-        <div class="divcomp-grid" style="border-bottom:1px solid #e5e5e5;">
-          <div style="padding:1.25rem;text-align:center;background:#fff8ee;">
+        <div class="divcomp-grid" style="border-bottom:1px solid #26303d;">
+          <div style="padding:1.25rem;text-align:center;background:#2a2213;">
             <span class="divcomp-stat-val">🏆 2</span>
-            <div style="font-size:0.72rem;color:#888;margin-top:0.3rem;">Kaleb '23 · Noah '24</div>
+            <div style="font-size:0.72rem;color:#9aa7b8;margin-top:0.3rem;">Kaleb '23 · Noah '24</div>
           </div>
-          <div style="padding:1.25rem;text-align:center;background:#f5f5f5;display:flex;align-items:center;justify-content:center;"><span class="divcomp-cat">Championships</span></div>
-          <div style="padding:1.25rem;text-align:center;background:#fff8ee;">
+          <div style="padding:1.25rem;text-align:center;background:#0d1219;display:flex;align-items:center;justify-content:center;"><span class="divcomp-cat">Championships</span></div>
+          <div style="padding:1.25rem;text-align:center;background:#2a2213;">
             <span class="divcomp-stat-val">🏆 2</span>
-            <div style="font-size:0.72rem;color:#888;margin-top:0.3rem;">Peter '22 · Adam '25</div>
+            <div style="font-size:0.72rem;color:#9aa7b8;margin-top:0.3rem;">Peter '22 · Adam '25</div>
           </div>
         </div>
 
         <!-- #1 Seeds -->
-        <div class="divcomp-grid" style="border-bottom:1px solid #e5e5e5;">
-          <div style="padding:1.25rem;text-align:center;background:#fafafa;">
-            <span class="divcomp-stat-val" style="color:#dc3545;">0</span>
-            <div style="font-size:0.72rem;color:#888;margin-top:0.3rem;">The curse doesn't apply if you never get there</div>
+        <div class="divcomp-grid" style="border-bottom:1px solid #26303d;">
+          <div style="padding:1.25rem;text-align:center;background:#131a24;">
+            <span class="divcomp-stat-val" style="color:#ff5c63;">0</span>
+            <div style="font-size:0.72rem;color:#9aa7b8;margin-top:0.3rem;">The curse doesn't apply if you never get there</div>
           </div>
-          <div style="padding:1.25rem;text-align:center;background:#f5f5f5;display:flex;align-items:center;justify-content:center;"><span class="divcomp-cat">#1 Seeds</span></div>
-          <div style="padding:1.25rem;text-align:center;background:#fafafa;">
+          <div style="padding:1.25rem;text-align:center;background:#0d1219;display:flex;align-items:center;justify-content:center;"><span class="divcomp-cat">#1 Seeds</span></div>
+          <div style="padding:1.25rem;text-align:center;background:#131a24;">
             <span class="divcomp-stat-val">4</span><span class="divcomp-edge">EDGE</span>
-            <div style="font-size:0.72rem;color:#888;margin-top:0.3rem;">Peter '22 · Logan '23 '24 · Adam '25</div>
+            <div style="font-size:0.72rem;color:#9aa7b8;margin-top:0.3rem;">Peter '22 · Logan '23 '24 · Adam '25</div>
           </div>
         </div>
 
         <!-- Playoff Wins -->
-        <div class="divcomp-grid" style="border-bottom:1px solid #e5e5e5;">
-          <div style="padding:1.25rem;text-align:center;background:#edf7f2;">
+        <div class="divcomp-grid" style="border-bottom:1px solid #26303d;">
+          <div style="padding:1.25rem;text-align:center;background:#14261d;">
             <span class="divcomp-stat-val">12</span><span class="divcomp-edge divcomp-edge-green">EDGE</span>
           </div>
-          <div style="padding:1.25rem;text-align:center;background:#f5f5f5;display:flex;align-items:center;justify-content:center;"><span class="divcomp-cat">Playoff Wins</span></div>
-          <div style="padding:1.25rem;text-align:center;background:#fafafa;"><span class="divcomp-stat-val">11</span></div>
+          <div style="padding:1.25rem;text-align:center;background:#0d1219;display:flex;align-items:center;justify-content:center;"><span class="divcomp-cat">Playoff Wins</span></div>
+          <div style="padding:1.25rem;text-align:center;background:#131a24;"><span class="divcomp-stat-val">11</span></div>
         </div>
 
         <!-- Verdict -->
-        <div style="background:linear-gradient(135deg,#0068b3,#005292);color:#fff;padding:2rem;text-align:center;">
+        <div style="background:linear-gradient(135deg,#2e9dff,#1a6db0);color:#fff;padding:2rem;text-align:center;">
           <div style="font-size:0.65rem;letter-spacing:3px;text-transform:uppercase;opacity:0.8;margin-bottom:0.5rem;">THE VERDICT</div>
           <div style="font-size:1.15rem;font-weight:800;margin-bottom:0.6rem;">🤝 Dead Even — This Rivalry Isn't Over</div>
           <div style="font-size:0.88rem;opacity:0.92;max-width:600px;margin:0 auto;line-height:1.65;">West leads in regular season wins and scoring. East leads in playoff wins and clutch moments. Two championships each. The #1 seed curse haunts the West. It's not about division — it's about who shows up in December.</div>
@@ -472,30 +472,30 @@
     <!-- Individual division breakdowns -->
     <div class="div-breakdown" style="display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;max-width:900px;margin:2rem auto 0;">
       <!-- East -->
-      <div style="background:#f0f7ff;border:2px solid #0068b3;border-radius:8px;padding:1.5rem;">
-        <h3 style="color:#0068b3;font-weight:800;margin-bottom:1rem;font-size:1rem;">🌊 East Division</h3>
+      <div style="background:#16273a;border:2px solid #2e9dff;border-radius:8px;padding:1.5rem;">
+        <h3 style="color:#2e9dff;font-weight:800;margin-bottom:1rem;font-size:1rem;">🌊 East Division</h3>
         <table style="width:100%;font-size:0.85rem;border-collapse:collapse;">
-          <tr><td style="padding:0.4rem 0;border-bottom:1px solid rgba(0,104,179,0.12);">CJ Woda</td><td style="text-align:right;color:#555;font-weight:600;padding:0.4rem 0;border-bottom:1px solid rgba(0,104,179,0.12);">25–31</td></tr>
-          <tr><td style="padding:0.4rem 0;border-bottom:1px solid rgba(0,104,179,0.12);">Grant Sawyer</td><td style="text-align:right;color:#555;font-weight:600;padding:0.4rem 0;border-bottom:1px solid rgba(0,104,179,0.12);">24–32</td></tr>
-          <tr><td style="padding:0.4rem 0;border-bottom:1px solid rgba(0,104,179,0.12);">Isaac Douglas</td><td style="text-align:right;color:#555;font-weight:600;padding:0.4rem 0;border-bottom:1px solid rgba(0,104,179,0.12);">30–26</td></tr>
-          <tr><td style="padding:0.4rem 0;border-bottom:1px solid rgba(0,104,179,0.12);">John Lundquist</td><td style="text-align:right;color:#555;font-weight:600;padding:0.4rem 0;border-bottom:1px solid rgba(0,104,179,0.12);">31–25</td></tr>
-          <tr><td style="padding:0.4rem 0;border-bottom:1px solid rgba(0,104,179,0.12);">Kaleb Feahn 🏆</td><td style="text-align:right;color:#555;font-weight:600;padding:0.4rem 0;border-bottom:1px solid rgba(0,104,179,0.12);">27–29</td></tr>
-          <tr><td style="padding:0.4rem 0;">Noah Thesing 🏆</td><td style="text-align:right;color:#555;font-weight:600;padding:0.4rem 0;">29–27</td></tr>
+          <tr><td style="padding:0.4rem 0;border-bottom:1px solid rgba(0,104,179,0.12);">CJ Woda</td><td style="text-align:right;color:#c4cdd9;font-weight:600;padding:0.4rem 0;border-bottom:1px solid rgba(0,104,179,0.12);">25–31</td></tr>
+          <tr><td style="padding:0.4rem 0;border-bottom:1px solid rgba(0,104,179,0.12);">Grant Sawyer</td><td style="text-align:right;color:#c4cdd9;font-weight:600;padding:0.4rem 0;border-bottom:1px solid rgba(0,104,179,0.12);">24–32</td></tr>
+          <tr><td style="padding:0.4rem 0;border-bottom:1px solid rgba(0,104,179,0.12);">Isaac Douglas</td><td style="text-align:right;color:#c4cdd9;font-weight:600;padding:0.4rem 0;border-bottom:1px solid rgba(0,104,179,0.12);">30–26</td></tr>
+          <tr><td style="padding:0.4rem 0;border-bottom:1px solid rgba(0,104,179,0.12);">John Lundquist</td><td style="text-align:right;color:#c4cdd9;font-weight:600;padding:0.4rem 0;border-bottom:1px solid rgba(0,104,179,0.12);">31–25</td></tr>
+          <tr><td style="padding:0.4rem 0;border-bottom:1px solid rgba(0,104,179,0.12);">Kaleb Feahn 🏆</td><td style="text-align:right;color:#c4cdd9;font-weight:600;padding:0.4rem 0;border-bottom:1px solid rgba(0,104,179,0.12);">27–29</td></tr>
+          <tr><td style="padding:0.4rem 0;">Noah Thesing 🏆</td><td style="text-align:right;color:#c4cdd9;font-weight:600;padding:0.4rem 0;">29–27</td></tr>
         </table>
-        <div style="margin-top:1rem;padding-top:0.75rem;border-top:2px solid #0068b3;font-weight:700;color:#0068b3;font-size:0.88rem;">Total: 166–170 &nbsp;·&nbsp; PF: 38,165</div>
+        <div style="margin-top:1rem;padding-top:0.75rem;border-top:2px solid #2e9dff;font-weight:700;color:#2e9dff;font-size:0.88rem;">Total: 166–170 &nbsp;·&nbsp; PF: 38,165</div>
       </div>
       <!-- West -->
-      <div style="background:#e8f0f8;border:2px solid #005292;border-radius:8px;padding:1.5rem;">
-        <h3 style="color:#005292;font-weight:800;margin-bottom:1rem;font-size:1rem;">🌵 West Division</h3>
+      <div style="background:#16273a;border:2px solid #1a6db0;border-radius:8px;padding:1.5rem;">
+        <h3 style="color:#1a6db0;font-weight:800;margin-bottom:1rem;font-size:1rem;">🌵 West Division</h3>
         <table style="width:100%;font-size:0.85rem;border-collapse:collapse;">
-          <tr><td style="padding:0.4rem 0;border-bottom:1px solid rgba(0,82,146,0.12);">Peter Lundquist 🏆</td><td style="text-align:right;color:#555;font-weight:600;padding:0.4rem 0;border-bottom:1px solid rgba(0,82,146,0.12);">32–24</td></tr>
-          <tr><td style="padding:0.4rem 0;border-bottom:1px solid rgba(0,82,146,0.12);">Adam Stockwell 🏆</td><td style="text-align:right;color:#555;font-weight:600;padding:0.4rem 0;border-bottom:1px solid rgba(0,82,146,0.12);">34–22</td></tr>
-          <tr><td style="padding:0.4rem 0;border-bottom:1px solid rgba(0,82,146,0.12);">Christian Massett</td><td style="text-align:right;color:#555;font-weight:600;padding:0.4rem 0;border-bottom:1px solid rgba(0,82,146,0.12);">29–27</td></tr>
-          <tr><td style="padding:0.4rem 0;border-bottom:1px solid rgba(0,82,146,0.12);">Mitchell Max</td><td style="text-align:right;color:#555;font-weight:600;padding:0.4rem 0;border-bottom:1px solid rgba(0,82,146,0.12);">26–30</td></tr>
-          <tr><td style="padding:0.4rem 0;border-bottom:1px solid rgba(0,82,146,0.12);">Leif Engen</td><td style="text-align:right;color:#555;font-weight:600;padding:0.4rem 0;border-bottom:1px solid rgba(0,82,146,0.12);">22–34</td></tr>
-          <tr><td style="padding:0.4rem 0;">Logan Rezac 👗</td><td style="text-align:right;color:#555;font-weight:600;padding:0.4rem 0;">27–29</td></tr>
+          <tr><td style="padding:0.4rem 0;border-bottom:1px solid rgba(0,82,146,0.12);">Peter Lundquist 🏆</td><td style="text-align:right;color:#c4cdd9;font-weight:600;padding:0.4rem 0;border-bottom:1px solid rgba(0,82,146,0.12);">32–24</td></tr>
+          <tr><td style="padding:0.4rem 0;border-bottom:1px solid rgba(0,82,146,0.12);">Adam Stockwell 🏆</td><td style="text-align:right;color:#c4cdd9;font-weight:600;padding:0.4rem 0;border-bottom:1px solid rgba(0,82,146,0.12);">34–22</td></tr>
+          <tr><td style="padding:0.4rem 0;border-bottom:1px solid rgba(0,82,146,0.12);">Christian Massett</td><td style="text-align:right;color:#c4cdd9;font-weight:600;padding:0.4rem 0;border-bottom:1px solid rgba(0,82,146,0.12);">29–27</td></tr>
+          <tr><td style="padding:0.4rem 0;border-bottom:1px solid rgba(0,82,146,0.12);">Mitchell Max</td><td style="text-align:right;color:#c4cdd9;font-weight:600;padding:0.4rem 0;border-bottom:1px solid rgba(0,82,146,0.12);">26–30</td></tr>
+          <tr><td style="padding:0.4rem 0;border-bottom:1px solid rgba(0,82,146,0.12);">Leif Engen</td><td style="text-align:right;color:#c4cdd9;font-weight:600;padding:0.4rem 0;border-bottom:1px solid rgba(0,82,146,0.12);">22–34</td></tr>
+          <tr><td style="padding:0.4rem 0;">Logan Rezac 👗</td><td style="text-align:right;color:#c4cdd9;font-weight:600;padding:0.4rem 0;">27–29</td></tr>
         </table>
-        <div style="margin-top:1rem;padding-top:0.75rem;border-top:2px solid #005292;font-weight:700;color:#005292;font-size:0.88rem;">Total: 170–166 &nbsp;·&nbsp; PF: 39,467</div>
+        <div style="margin-top:1rem;padding-top:0.75rem;border-top:2px solid #1a6db0;font-weight:700;color:#1a6db0;font-size:0.88rem;">Total: 170–166 &nbsp;·&nbsp; PF: 39,467</div>
       </div>
     </div>
   </section>
@@ -584,7 +584,7 @@
       
       html = '';
       luckData.forEach(function(t, i) {
-        var color = t.luck > 0 ? '#198754' : t.luck < 0 ? '#dc3545' : '#666';
+        var color = t.luck > 0 ? '#39d98a' : t.luck < 0 ? '#ff5c63' : '#9aa7b8';
         var label = t.luck > 0 ? '+' + t.luck + ' \ud83c\udf40' : t.luck < 0 ? t.luck + ' \ud83d\udc80' : '0';
         html += '<tr><td><span class="rank-num">' + (i+1) + '</span></td><td style="font-weight:600;">' + t.name + '</td><td>' + t.w + '</td><td>#' + t.pfRank + '</td><td>#' + t.winRank + '</td><td style="color:' + color + ';font-weight:700;">' + label + '</td></tr>';
       });
@@ -647,12 +647,12 @@
       var s = SEASONS[year];
       if (!s) return;
       var recapHtml =
-        '<div style="background:#fff;border:1px solid #e5e5e5;border-left:5px solid #d4943a;border-radius:8px;padding:1.5rem 1.75rem;box-shadow:0 2px 8px rgba(0,0,0,0.06);max-width:820px;margin:0 auto 2rem;">' +
+        '<div style="background:#131a24;border:1px solid #26303d;border-left:5px solid #ffb648;border-radius:8px;padding:1.5rem 1.75rem;box-shadow:0 2px 8px rgba(0,0,0,0.06);max-width:820px;margin:0 auto 2rem;">' +
           '<div style="display:flex;align-items:center;gap:1rem;margin-bottom:0.9rem;flex-wrap:wrap;">' +
-            '<span style="background:#d4943a;color:#fff;padding:0.35rem 1rem;border-radius:4px;font-weight:800;font-size:1rem;letter-spacing:1px;">' + year + '</span>' +
-            '<span style="font-weight:700;color:#333;font-size:1rem;">\ud83c\udfc6 ' + s.champion + ' \u2014 CHAMPION</span>' +
+            '<span style="background:#ffb648;color:#fff;padding:0.35rem 1rem;border-radius:4px;font-weight:800;font-size:1rem;letter-spacing:1px;">' + year + '</span>' +
+            '<span style="font-weight:700;color:#e9eef5;font-size:1rem;">\ud83c\udfc6 ' + s.champion + ' \u2014 CHAMPION</span>' +
           '</div>' +
-          '<p style="color:#555;line-height:1.75;font-size:0.95rem;">' + s.recap + '</p>' +
+          '<p style="color:#c4cdd9;line-height:1.75;font-size:0.95rem;">' + s.recap + '</p>' +
         '</div>';
       var cardsHtml = '<div class="card-grid">';
       s.cards.forEach(function(c) {

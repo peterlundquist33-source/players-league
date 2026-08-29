@@ -12,7 +12,7 @@
   .weekend-page .wk-hero {
     position:relative; min-height:78vh; display:flex; align-items:center; justify-content:center;
     text-align:center; overflow:hidden;
-    background:#0a1628;
+    background:#0a0e14;
     border-bottom:3px solid var(--blue);
   }
   .weekend-page .wk-hero::before {
@@ -80,7 +80,7 @@
     position:absolute; left:0.9rem; bottom:0.7rem; z-index:1; color:#fff;
   }
   .weekend-page .day-photo .day-dow {
-    font-size:0.66rem; text-transform:uppercase; letter-spacing:2px; color:#f0b45a; font-weight:800;
+    font-size:0.66rem; text-transform:uppercase; letter-spacing:2px; color:#ffc76e; font-weight:800;
   }
   .weekend-page .day-photo .day-title {
     font-size:1.02rem; font-weight:800; line-height:1.25; margin-top:0.1rem; text-shadow:0 1px 6px rgba(0,0,0,0.5);
@@ -89,7 +89,7 @@
 
   /* Callout (no emoji, clean amber banner) */
   .weekend-page .callout-burst {
-    margin-top:0.9rem; background:linear-gradient(135deg,#fef3e2,#fffdf8);
+    margin-top:0.9rem; background:linear-gradient(135deg,#2a2213,#1c2431);
     border:1px solid var(--amber); border-left:4px solid var(--amber);
     border-radius:var(--radius); padding:0.7rem 0.85rem;
   }
@@ -127,24 +127,24 @@
   <section class="wk-hero">
     <div class="wk-hero-inner">
       <div style="font-size:0.8rem;letter-spacing:4px;text-transform:uppercase;color:var(--amber);margin-bottom:0.75rem;">August 20-23, 2026</div>
-      <h1 style="font-family:'Playfair Display',serif;font-size:clamp(2.5rem,7vw,4.5rem);font-weight:900;color:#ffffff;margin-bottom:0.5rem;">Players <span style="color:#f0b45a;">Weekend</span></h1>
+      <h1 style="font-family:'Playfair Display',serif;font-size:clamp(2.5rem,7vw,4.5rem);font-weight:900;color:#ffffff;margin-bottom:0.5rem;">Players <span style="color:#ffc76e;">Weekend</span></h1>
       <p style="color:#e6edf5;font-size:1.1rem;font-weight:300;margin-bottom:3rem;">Four days at the lake. One dress. Bragging rights on the line.</p>
 
       <div id="countdown" style="display:flex;gap:clamp(0.75rem,3vw,2rem);justify-content:center;flex-wrap:wrap;margin-bottom:2.5rem;">
         <div style="background:rgba(10,22,40,0.55);border:1px solid rgba(232,168,56,0.35);border-radius:12px;padding:1.25rem 1.5rem;min-width:85px;backdrop-filter:blur(10px);">
-          <div id="cd-days" style="font-family:'Playfair Display',serif;font-size:clamp(2rem,5vw,3rem);font-weight:700;color:#f0b45a;line-height:1;">--</div>
+          <div id="cd-days" style="font-family:'Playfair Display',serif;font-size:clamp(2rem,5vw,3rem);font-weight:700;color:#ffc76e;line-height:1;">--</div>
           <div style="font-size:0.65rem;text-transform:uppercase;letter-spacing:2px;color:#e6edf5;margin-top:0.3rem;">Days</div>
         </div>
         <div style="background:rgba(10,22,40,0.55);border:1px solid rgba(232,168,56,0.35);border-radius:12px;padding:1.25rem 1.5rem;min-width:85px;backdrop-filter:blur(10px);">
-          <div id="cd-hours" style="font-family:'Playfair Display',serif;font-size:clamp(2rem,5vw,3rem);font-weight:700;color:#f0b45a;line-height:1;">--</div>
+          <div id="cd-hours" style="font-family:'Playfair Display',serif;font-size:clamp(2rem,5vw,3rem);font-weight:700;color:#ffc76e;line-height:1;">--</div>
           <div style="font-size:0.65rem;text-transform:uppercase;letter-spacing:2px;color:#e6edf5;margin-top:0.3rem;">Hours</div>
         </div>
         <div style="background:rgba(10,22,40,0.55);border:1px solid rgba(232,168,56,0.35);border-radius:12px;padding:1.25rem 1.5rem;min-width:85px;backdrop-filter:blur(10px);">
-          <div id="cd-min" style="font-family:'Playfair Display',serif;font-size:clamp(2rem,5vw,3rem);font-weight:700;color:#f0b45a;line-height:1;">--</div>
+          <div id="cd-min" style="font-family:'Playfair Display',serif;font-size:clamp(2rem,5vw,3rem);font-weight:700;color:#ffc76e;line-height:1;">--</div>
           <div style="font-size:0.65rem;text-transform:uppercase;letter-spacing:2px;color:#e6edf5;margin-top:0.3rem;">Minutes</div>
         </div>
         <div style="background:rgba(10,22,40,0.55);border:1px solid rgba(232,168,56,0.35);border-radius:12px;padding:1.25rem 1.5rem;min-width:85px;backdrop-filter:blur(10px);">
-          <div id="cd-sec" style="font-family:'Playfair Display',serif;font-size:clamp(2rem,5vw,3rem);font-weight:700;color:#f0b45a;line-height:1;">--</div>
+          <div id="cd-sec" style="font-family:'Playfair Display',serif;font-size:clamp(2rem,5vw,3rem);font-weight:700;color:#ffc76e;line-height:1;">--</div>
           <div style="font-size:0.65rem;text-transform:uppercase;letter-spacing:2px;color:#e6edf5;margin-top:0.3rem;">Seconds</div>
         </div>
       </div>
@@ -363,7 +363,7 @@
     }
 
     // One-time confetti burst on callouts entering view (paper pieces, brand colors)
-    var COLORS = ['#0068b3','#d4943a','#f0b45a','#ffffff','#005292'];
+    var COLORS = ['#2e9dff','#ffb648','#ffc76e','#ffffff','#1a6db0'];
     function burst(cx, cy){
       for (var i=0;i<22;i++){
         (function(){

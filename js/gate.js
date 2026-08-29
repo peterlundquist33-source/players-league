@@ -10,7 +10,7 @@ function checkGate() {
 function showGrandEntrance() {
   const overlay = document.getElementById('gate-overlay');
   overlay.innerHTML = `
-    <div style="min-height:100vh;display:flex;align-items:center;justify-content:center;background:#0a1628;overflow:hidden;padding:1rem;position:relative;">
+    <div style="min-height:100vh;display:flex;align-items:center;justify-content:center;background:#0a0e14;overflow:hidden;padding:1rem;position:relative;">
 
       <!-- Subtle grid pattern -->
       <div style="position:absolute;inset:0;background-image:linear-gradient(rgba(0,104,179,0.05) 1px,transparent 1px),linear-gradient(90deg,rgba(0,104,179,0.05) 1px,transparent 1px);background-size:48px 48px;pointer-events:none;"></div>
@@ -38,7 +38,7 @@ function showGrandEntrance() {
 
           .enter-btn {
             padding: 0.75rem 2.6rem;
-            background: #0068b3;
+            background: #2e9dff;
             color: #ffffff;
             border: none;
             border-radius: 3px;
@@ -51,7 +51,7 @@ function showGrandEntrance() {
             transition: all 0.18s ease;
           }
           .enter-btn:hover {
-            background: #005292;
+            background: #1a6db0;
             transform: translateY(-1px);
             box-shadow: 0 4px 18px rgba(0,104,179,0.45);
           }
@@ -62,7 +62,7 @@ function showGrandEntrance() {
 
         <!-- Eyebrow -->
         <div class="gate-eyebrow" style="margin-bottom:0.4rem;">
-          <span style="font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;font-size:0.6rem;color:#0068b3;letter-spacing:3px;text-transform:uppercase;font-weight:800;">Est. 2022 &nbsp;&bull;&nbsp; Lake Weekend</span>
+          <span style="font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;font-size:0.6rem;color:#2e9dff;letter-spacing:3px;text-transform:uppercase;font-weight:800;">Est. 2022 &nbsp;&bull;&nbsp; Lake Weekend</span>
         </div>
 
         <!-- Title -->
@@ -77,7 +77,7 @@ function showGrandEntrance() {
 
         <!-- Divider line -->
         <div style="overflow:hidden;max-width:180px;margin:0 auto 1.5rem;height:2px;">
-          <div class="gate-divider" style="height:2px;background:linear-gradient(90deg,transparent,#0068b3,transparent);width:0;"></div>
+          <div class="gate-divider" style="height:2px;background:linear-gradient(90deg,transparent,#2e9dff,transparent);width:0;"></div>
         </div>
 
         <!-- Stats row -->
@@ -112,8 +112,8 @@ function showGrandEntrance() {
               <div style="color:#ffffff;font-weight:800;font-size:0.82rem;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">🏆 Noah</div>
             </div>
             <div style="background:rgba(212,148,58,0.18);border:1px solid rgba(212,148,58,0.5);border-radius:3px;padding:0.45rem 0.65rem;text-align:center;min-width:86px;">
-              <div style="font-size:0.5rem;color:#d4943a;text-transform:uppercase;letter-spacing:1px;margin-bottom:0.15rem;">2025</div>
-              <div style="color:#d4943a;font-weight:800;font-size:0.82rem;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">🏆 Adam</div>
+              <div style="font-size:0.5rem;color:#ffb648;text-transform:uppercase;letter-spacing:1px;margin-bottom:0.15rem;">2025</div>
+              <div style="color:#ffb648;font-weight:800;font-size:0.82rem;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">🏆 Adam</div>
             </div>
           </div>
           <p style="font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;color:#d0d0d0;font-size:0.72rem;font-style:italic;">Four seasons. Four champions. No dynasty yet.</p>

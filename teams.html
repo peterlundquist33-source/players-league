@@ -9,7 +9,7 @@
     /* Teams-data.js content overrides — light theme */
     #tp-h2h > div,
     #tp-seasons > div {
-      border-bottom: 1px solid #e5e5e5 !important;
+      border-bottom: 1px solid #26303d !important;
       padding: 0.5rem 0.1rem !important;
     }
     #tp-h2h > div:last-child,
@@ -18,7 +18,7 @@
     }
     /* Ensure readable text in data-driven content */
     #tp-h2h span:first-child,
-    #tp-seasons span:first-child { color: #333333 !important; font-weight: 500; }
+    #tp-seasons span:first-child { color: #e9eef5 !important; font-weight: 500; }
 
     /* Season records: force a clean aligned grid instead of squished flex
        Columns: Year | W-L | PF | Team name (name truncates, never jumbles) */
@@ -36,7 +36,7 @@
     /* Team-name column (4th span) can use the remaining space, right-aligned */
     #tp-seasons > div > span:nth-child(4) {
       text-align: right;
-      color: #666666 !important;
+      color: #9aa7b8 !important;
     }
     /* Head-to-head rows: keep two-column layout tidy */
     #tp-h2h > div {
@@ -58,9 +58,9 @@
     }
 
     select#team-select {
-      background: #ffffff;
-      color: #333333;
-      border: 2px solid #e5e5e5;
+      background: #131a24;
+      color: #e9eef5;
+      border: 2px solid #26303d;
       padding: 0.75rem 1.5rem;
       border-radius: 4px;
       font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
@@ -72,7 +72,7 @@
     }
     select#team-select:focus {
       outline: none;
-      border-color: #0068b3;
+      border-color: #2e9dff;
     }
 
     /* Team achievement banners */
@@ -154,12 +154,12 @@
     <div id="team-profile" style="display:none;">
 
       <!-- Header Stats bar -->
-      <div style="background:#0a1628;border-radius:4px;padding:1.1rem 1.4rem;margin-bottom:1.1rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:0.75rem;">
+      <div style="background:#0a0e14;border-radius:4px;padding:1.1rem 1.4rem;margin-bottom:1.1rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:0.75rem;">
         <div>
           <h2 id="tp-name" style="font-size:1.3rem;font-weight:900;color:#ffffff;text-transform:uppercase;letter-spacing:0.3px;margin-bottom:0.1rem;"></h2>
-          <p id="tp-career" style="color:#888888;font-size:0.8rem;"></p>
+          <p id="tp-career" style="color:#9aa7b8;font-size:0.8rem;"></p>
         </div>
-        <div id="tp-win-pct" style="font-size:2rem;font-weight:900;color:#0068b3;line-height:1;"></div>
+        <div id="tp-win-pct" style="font-size:2rem;font-weight:900;color:#2e9dff;line-height:1;"></div>
       </div>
 
       <!-- Achievement Banners -->
@@ -168,7 +168,7 @@
       <!-- Franchise Recap -->
       <div class="info-block" style="margin-bottom:1.1rem;">
         <h3>📖 Franchise Recap</h3>
-        <p id="tp-article" style="font-size:0.95rem;line-height:1.7;color:#333333;"></p>
+        <p id="tp-article" style="font-size:0.95rem;line-height:1.7;color:#e9eef5;"></p>
       </div>
 
       <!-- Rival -->
@@ -180,14 +180,14 @@
       <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1.1rem;">
 
         <!-- Season-by-Season -->
-        <div style="background:#ffffff;border:1px solid #e5e5e5;border-top:3px solid #0068b3;border-radius:4px;padding:1.1rem;box-shadow:0 1px 4px rgba(0,0,0,0.07);">
-          <div style="font-size:0.7rem;font-weight:800;color:#0068b3;text-transform:uppercase;letter-spacing:1px;margin-bottom:0.75rem;">📅 Season by Season</div>
+        <div style="background:#131a24;border:1px solid #26303d;border-top:3px solid #2e9dff;border-radius:4px;padding:1.1rem;box-shadow:0 1px 4px rgba(0,0,0,0.07);">
+          <div style="font-size:0.7rem;font-weight:800;color:#2e9dff;text-transform:uppercase;letter-spacing:1px;margin-bottom:0.75rem;">📅 Season by Season</div>
           <div id="tp-seasons" style="font-size:0.85rem;"></div>
         </div>
 
         <!-- Head-to-Head -->
-        <div style="background:#ffffff;border:1px solid #e5e5e5;border-top:3px solid #0068b3;border-radius:4px;padding:1.1rem;box-shadow:0 1px 4px rgba(0,0,0,0.07);">
-          <div style="font-size:0.7rem;font-weight:800;color:#0068b3;text-transform:uppercase;letter-spacing:1px;margin-bottom:0.75rem;">🆚 Head-to-Head All-Time</div>
+        <div style="background:#131a24;border:1px solid #26303d;border-top:3px solid #2e9dff;border-radius:4px;padding:1.1rem;box-shadow:0 1px 4px rgba(0,0,0,0.07);">
+          <div style="font-size:0.7rem;font-weight:800;color:#2e9dff;text-transform:uppercase;letter-spacing:1px;margin-bottom:0.75rem;">🆚 Head-to-Head All-Time</div>
           <div id="tp-h2h" style="font-size:0.85rem;"></div>
         </div>
 
@@ -195,14 +195,14 @@
 
       <!-- Stat Cards -->
       <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:0.85rem;">
-        <div style="background:#ffffff;border:1px solid #e5e5e5;border-radius:4px;padding:1rem;text-align:center;box-shadow:0 1px 4px rgba(0,0,0,0.07);">
-          <div style="color:#666666;font-size:0.65rem;text-transform:uppercase;letter-spacing:1px;margin-bottom:0.4rem;font-weight:700;">Best Single Week</div>
-          <div id="tp-best" style="color:#0068b3;font-size:2rem;font-weight:900;line-height:1;margin-bottom:0.15rem;"></div>
-          <div id="tp-best-info" style="color:#999999;font-size:0.75rem;"></div>
+        <div style="background:#131a24;border:1px solid #26303d;border-radius:4px;padding:1rem;text-align:center;box-shadow:0 1px 4px rgba(0,0,0,0.07);">
+          <div style="color:#9aa7b8;font-size:0.65rem;text-transform:uppercase;letter-spacing:1px;margin-bottom:0.4rem;font-weight:700;">Best Single Week</div>
+          <div id="tp-best" style="color:#2e9dff;font-size:2rem;font-weight:900;line-height:1;margin-bottom:0.15rem;"></div>
+          <div id="tp-best-info" style="color:#7c8a9c;font-size:0.75rem;"></div>
         </div>
-        <div style="background:#ffffff;border:1px solid #e5e5e5;border-radius:4px;padding:1rem;text-align:center;box-shadow:0 1px 4px rgba(0,0,0,0.07);">
-          <div style="color:#666666;font-size:0.65rem;text-transform:uppercase;letter-spacing:1px;margin-bottom:0.4rem;font-weight:700;">Career Points For</div>
-          <div id="tp-pf" style="color:#0068b3;font-size:2rem;font-weight:900;line-height:1;"></div>
+        <div style="background:#131a24;border:1px solid #26303d;border-radius:4px;padding:1rem;text-align:center;box-shadow:0 1px 4px rgba(0,0,0,0.07);">
+          <div style="color:#9aa7b8;font-size:0.65rem;text-transform:uppercase;letter-spacing:1px;margin-bottom:0.4rem;font-weight:700;">Career Points For</div>
+          <div id="tp-pf" style="color:#2e9dff;font-size:2rem;font-weight:900;line-height:1;"></div>
         </div>
       </div>
 
@@ -232,8 +232,8 @@
         t.career_w + '-' + t.career_l + ' career (' + t.wp + '%) | ' + t.career_pf + ' career PF';
       document.getElementById('tp-win-pct').textContent = t.wp + '%';
       document.getElementById('tp-rival').innerHTML =
-        'Biggest rivalry: <strong style="color:#333333;font-size:1rem;">' + t.rival + '</strong>' +
-        ' — All-time record: <strong style="color:#0068b3;">' + t.rival_rec + '</strong>';
+        'Biggest rivalry: <strong style="color:#e9eef5;font-size:1rem;">' + t.rival + '</strong>' +
+        ' — All-time record: <strong style="color:#2e9dff;">' + t.rival_rec + '</strong>';
       var articleEl = document.getElementById('tp-article');
       if (articleEl) articleEl.textContent = t.article || '';
       document.getElementById('tp-seasons').innerHTML = t.seasons_html;
