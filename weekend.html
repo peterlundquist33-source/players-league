@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Players Weekend — Players League</title>
-  <link rel="stylesheet" href="css/style.css?v=mono-1">
+  <link rel="stylesheet" href="css/style.css?v=green-1">
   <style>
   /* ===== Scoped Weekend-page enhancements (.weekend-page only) ===== */
 
@@ -12,7 +12,7 @@
   .weekend-page .wk-hero {
     position:relative; min-height:78vh; display:flex; align-items:center; justify-content:center;
     text-align:center; overflow:hidden;
-    background:#0b0c0e;
+    background:#13151a;
     border-bottom:3px solid var(--blue);
   }
   .weekend-page .wk-hero::before {
@@ -80,7 +80,7 @@
     position:absolute; left:0.9rem; bottom:0.7rem; z-index:1; color:#fff;
   }
   .weekend-page .day-photo .day-dow {
-    font-size:0.66rem; text-transform:uppercase; letter-spacing:2px; color:#f4f5f7; font-weight:800;
+    font-size:0.66rem; text-transform:uppercase; letter-spacing:2px; color:#f5f7fa; font-weight:800;
   }
   .weekend-page .day-photo .day-title {
     font-size:1.02rem; font-weight:800; line-height:1.25; margin-top:0.1rem; text-shadow:0 1px 6px rgba(0,0,0,0.5);
@@ -89,7 +89,7 @@
 
   /* Callout (no emoji, clean amber banner) */
   .weekend-page .callout-burst {
-    margin-top:0.9rem; background:linear-gradient(135deg,#1f1d19,#1c1f23);
+    margin-top:0.9rem; background:linear-gradient(135deg,#262a32,#262a32);
     border:1px solid var(--amber); border-left:4px solid var(--amber);
     border-radius:var(--radius); padding:0.7rem 0.85rem;
   }
@@ -127,33 +127,33 @@
   <section class="wk-hero">
     <div class="wk-hero-inner">
       <div style="font-size:0.8rem;letter-spacing:4px;text-transform:uppercase;color:var(--amber);margin-bottom:0.75rem;">August 20-23, 2026</div>
-      <h1 style="font-family:'Playfair Display',serif;font-size:clamp(2.5rem,7vw,4.5rem);font-weight:900;color:#ffffff;margin-bottom:0.5rem;">Players <span style="color:#f4f5f7;">Weekend</span></h1>
-      <p style="color:#f4f5f7;font-size:1.1rem;font-weight:300;margin-bottom:3rem;">Four days at the lake. One dress. Bragging rights on the line.</p>
+      <h1 style="font-family:'Playfair Display',serif;font-size:clamp(2.5rem,7vw,4.5rem);font-weight:900;color:#ffffff;margin-bottom:0.5rem;">Players <span style="color:#f5f7fa;">Weekend</span></h1>
+      <p style="color:#f5f7fa;font-size:1.1rem;font-weight:300;margin-bottom:3rem;">Four days at the lake. One dress. Bragging rights on the line.</p>
 
       <div id="countdown" style="display:flex;gap:clamp(0.75rem,3vw,2rem);justify-content:center;flex-wrap:wrap;margin-bottom:2.5rem;">
         <div style="background:rgba(11,12,14,0.55);border:1px solid rgba(255,255,255,0.35);border-radius:12px;padding:1.25rem 1.5rem;min-width:85px;backdrop-filter:blur(10px);">
-          <div id="cd-days" style="font-family:'Playfair Display',serif;font-size:clamp(2rem,5vw,3rem);font-weight:700;color:#f4f5f7;line-height:1;">--</div>
-          <div style="font-size:0.65rem;text-transform:uppercase;letter-spacing:2px;color:#f4f5f7;margin-top:0.3rem;">Days</div>
+          <div id="cd-days" style="font-family:'Playfair Display',serif;font-size:clamp(2rem,5vw,3rem);font-weight:700;color:#f5f7fa;line-height:1;">--</div>
+          <div style="font-size:0.65rem;text-transform:uppercase;letter-spacing:2px;color:#f5f7fa;margin-top:0.3rem;">Days</div>
         </div>
         <div style="background:rgba(11,12,14,0.55);border:1px solid rgba(255,255,255,0.35);border-radius:12px;padding:1.25rem 1.5rem;min-width:85px;backdrop-filter:blur(10px);">
-          <div id="cd-hours" style="font-family:'Playfair Display',serif;font-size:clamp(2rem,5vw,3rem);font-weight:700;color:#f4f5f7;line-height:1;">--</div>
-          <div style="font-size:0.65rem;text-transform:uppercase;letter-spacing:2px;color:#f4f5f7;margin-top:0.3rem;">Hours</div>
+          <div id="cd-hours" style="font-family:'Playfair Display',serif;font-size:clamp(2rem,5vw,3rem);font-weight:700;color:#f5f7fa;line-height:1;">--</div>
+          <div style="font-size:0.65rem;text-transform:uppercase;letter-spacing:2px;color:#f5f7fa;margin-top:0.3rem;">Hours</div>
         </div>
         <div style="background:rgba(11,12,14,0.55);border:1px solid rgba(255,255,255,0.35);border-radius:12px;padding:1.25rem 1.5rem;min-width:85px;backdrop-filter:blur(10px);">
-          <div id="cd-min" style="font-family:'Playfair Display',serif;font-size:clamp(2rem,5vw,3rem);font-weight:700;color:#f4f5f7;line-height:1;">--</div>
-          <div style="font-size:0.65rem;text-transform:uppercase;letter-spacing:2px;color:#f4f5f7;margin-top:0.3rem;">Minutes</div>
+          <div id="cd-min" style="font-family:'Playfair Display',serif;font-size:clamp(2rem,5vw,3rem);font-weight:700;color:#f5f7fa;line-height:1;">--</div>
+          <div style="font-size:0.65rem;text-transform:uppercase;letter-spacing:2px;color:#f5f7fa;margin-top:0.3rem;">Minutes</div>
         </div>
         <div style="background:rgba(11,12,14,0.55);border:1px solid rgba(255,255,255,0.35);border-radius:12px;padding:1.25rem 1.5rem;min-width:85px;backdrop-filter:blur(10px);">
-          <div id="cd-sec" style="font-family:'Playfair Display',serif;font-size:clamp(2rem,5vw,3rem);font-weight:700;color:#f4f5f7;line-height:1;">--</div>
-          <div style="font-size:0.65rem;text-transform:uppercase;letter-spacing:2px;color:#f4f5f7;margin-top:0.3rem;">Seconds</div>
+          <div id="cd-sec" style="font-family:'Playfair Display',serif;font-size:clamp(2rem,5vw,3rem);font-weight:700;color:#f5f7fa;line-height:1;">--</div>
+          <div style="font-size:0.65rem;text-transform:uppercase;letter-spacing:2px;color:#f5f7fa;margin-top:0.3rem;">Seconds</div>
         </div>
       </div>
 
       <div style="display:flex;gap:0.75rem;justify-content:center;flex-wrap:wrap;">
-        <div style="background:rgba(11,12,14,0.5);border:1px solid rgba(255,255,255,0.3);border-radius:8px;padding:0.5rem 1.1rem;color:#c9ccd2;font-size:0.8rem;letter-spacing:0.5px;">Draft</div>
-        <div style="background:rgba(11,12,14,0.5);border:1px solid rgba(255,255,255,0.3);border-radius:8px;padding:0.5rem 1.1rem;color:#c9ccd2;font-size:0.8rem;letter-spacing:0.5px;">Lake</div>
-        <div style="background:rgba(11,12,14,0.5);border:1px solid rgba(255,255,255,0.3);border-radius:8px;padding:0.5rem 1.1rem;color:#c9ccd2;font-size:0.8rem;letter-spacing:0.5px;">Golf</div>
-        <div style="background:rgba(11,12,14,0.5);border:1px solid rgba(255,255,255,0.3);border-radius:8px;padding:0.5rem 1.1rem;color:#c9ccd2;font-size:0.8rem;letter-spacing:0.5px;">Glory</div>
+        <div style="background:rgba(11,12,14,0.5);border:1px solid rgba(255,255,255,0.3);border-radius:8px;padding:0.5rem 1.1rem;color:#d2d7df;font-size:0.8rem;letter-spacing:0.5px;">Draft</div>
+        <div style="background:rgba(11,12,14,0.5);border:1px solid rgba(255,255,255,0.3);border-radius:8px;padding:0.5rem 1.1rem;color:#d2d7df;font-size:0.8rem;letter-spacing:0.5px;">Lake</div>
+        <div style="background:rgba(11,12,14,0.5);border:1px solid rgba(255,255,255,0.3);border-radius:8px;padding:0.5rem 1.1rem;color:#d2d7df;font-size:0.8rem;letter-spacing:0.5px;">Golf</div>
+        <div style="background:rgba(11,12,14,0.5);border:1px solid rgba(255,255,255,0.3);border-radius:8px;padding:0.5rem 1.1rem;color:#d2d7df;font-size:0.8rem;letter-spacing:0.5px;">Glory</div>
       </div>
     </div>
   </section>
@@ -363,7 +363,7 @@
     }
 
     // One-time confetti burst on callouts entering view (paper pieces, brand colors)
-    var COLORS = ['#2b3138','#2b3138','#333941','#ffffff','#24282d'];
+    var COLORS = ['#333844','#333844','#3c414c','#ffffff','#2a2f37'];
     function burst(cx, cy){
       for (var i=0;i<22;i++){
         (function(){

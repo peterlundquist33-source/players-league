@@ -10,7 +10,7 @@ function checkGate() {
 function showGrandEntrance() {
   const overlay = document.getElementById('gate-overlay');
   overlay.innerHTML = `
-    <div style="min-height:100vh;display:flex;align-items:center;justify-content:center;background:#0b0c0e;overflow:hidden;padding:1rem;position:relative;">
+    <div style="min-height:100vh;display:flex;align-items:center;justify-content:center;background:#13151a;overflow:hidden;padding:1rem;position:relative;">
 
       <!-- Subtle grid pattern -->
       <div style="position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,0.03) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.03) 1px,transparent 1px);background-size:48px 48px;pointer-events:none;"></div>
@@ -38,8 +38,8 @@ function showGrandEntrance() {
 
           .enter-btn {
             padding: 0.8rem 2.8rem;
-            background: #f4f5f7;
-            color: #0b0c0e;
+            background: #f5f7fa;
+            color: #13151a;
             border: none;
             border-radius: 4px;
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
@@ -62,7 +62,7 @@ function showGrandEntrance() {
 
         <!-- Eyebrow -->
         <div class="gate-eyebrow" style="margin-bottom:0.4rem;">
-          <span style="font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;font-size:0.6rem;color:#f4f5f7;letter-spacing:3px;text-transform:uppercase;font-weight:800;">Est. 2022 &nbsp;&bull;&nbsp; Lake Weekend</span>
+          <span style="font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;font-size:0.6rem;color:#f5f7fa;letter-spacing:3px;text-transform:uppercase;font-weight:800;">Est. 2022 &nbsp;&bull;&nbsp; Lake Weekend</span>
         </div>
 
         <!-- Title -->
@@ -84,15 +84,15 @@ function showGrandEntrance() {
         <div style="display:flex;justify-content:center;gap:2.25rem;flex-wrap:wrap;margin-bottom:1.75rem;">
           <div class="gate-s1" style="text-align:center;">
             <div style="font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;font-size:1.9rem;font-weight:900;color:#ffffff;line-height:1;">12</div>
-            <div style="font-size:0.58rem;color:#9096a0;text-transform:uppercase;letter-spacing:1.5px;margin-top:0.2rem;">Teams</div>
+            <div style="font-size:0.58rem;color:#a7aebb;text-transform:uppercase;letter-spacing:1.5px;margin-top:0.2rem;">Teams</div>
           </div>
           <div class="gate-s2" style="text-align:center;">
             <div style="font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;font-size:1.9rem;font-weight:900;color:#ffffff;line-height:1;">4</div>
-            <div style="font-size:0.58rem;color:#9096a0;text-transform:uppercase;letter-spacing:1.5px;margin-top:0.2rem;">Seasons</div>
+            <div style="font-size:0.58rem;color:#a7aebb;text-transform:uppercase;letter-spacing:1.5px;margin-top:0.2rem;">Seasons</div>
           </div>
           <div class="gate-s3" style="text-align:center;">
             <div style="font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;font-size:1.9rem;font-weight:900;color:#ffffff;line-height:1;">0</div>
-            <div style="font-size:0.58rem;color:#9096a0;text-transform:uppercase;letter-spacing:1.5px;margin-top:0.2rem;">Repeats</div>
+            <div style="font-size:0.58rem;color:#a7aebb;text-transform:uppercase;letter-spacing:1.5px;margin-top:0.2rem;">Repeats</div>
           </div>
         </div>
 
@@ -100,20 +100,20 @@ function showGrandEntrance() {
         <div class="gate-champs" style="margin-bottom:2rem;">
           <div style="display:flex;justify-content:center;gap:0.4rem;flex-wrap:wrap;margin-bottom:0.65rem;">
             <div style="background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.12);border-radius:3px;padding:0.45rem 0.65rem;text-align:center;min-width:86px;">
-              <div style="font-size:0.5rem;color:#9096a0;text-transform:uppercase;letter-spacing:1px;margin-bottom:0.15rem;">2022</div>
+              <div style="font-size:0.5rem;color:#a7aebb;text-transform:uppercase;letter-spacing:1px;margin-bottom:0.15rem;">2022</div>
               <div style="color:#ffffff;font-weight:800;font-size:0.82rem;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">🏆 Peter</div>
             </div>
             <div style="background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.12);border-radius:3px;padding:0.45rem 0.65rem;text-align:center;min-width:86px;">
-              <div style="font-size:0.5rem;color:#9096a0;text-transform:uppercase;letter-spacing:1px;margin-bottom:0.15rem;">2023</div>
+              <div style="font-size:0.5rem;color:#a7aebb;text-transform:uppercase;letter-spacing:1px;margin-bottom:0.15rem;">2023</div>
               <div style="color:#ffffff;font-weight:800;font-size:0.82rem;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">🏆 Kaleb</div>
             </div>
             <div style="background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.12);border-radius:3px;padding:0.45rem 0.65rem;text-align:center;min-width:86px;">
-              <div style="font-size:0.5rem;color:#9096a0;text-transform:uppercase;letter-spacing:1px;margin-bottom:0.15rem;">2024</div>
+              <div style="font-size:0.5rem;color:#a7aebb;text-transform:uppercase;letter-spacing:1px;margin-bottom:0.15rem;">2024</div>
               <div style="color:#ffffff;font-weight:800;font-size:0.82rem;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">🏆 Noah</div>
             </div>
             <div style="background:rgba(255,255,255,0.12);border:1px solid rgba(255,255,255,0.35);border-radius:3px;padding:0.45rem 0.65rem;text-align:center;min-width:86px;">
-              <div style="font-size:0.5rem;color:#f4f5f7;text-transform:uppercase;letter-spacing:1px;margin-bottom:0.15rem;">2025</div>
-              <div style="color:#f4f5f7;font-weight:800;font-size:0.82rem;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">🏆 Adam</div>
+              <div style="font-size:0.5rem;color:#f5f7fa;text-transform:uppercase;letter-spacing:1px;margin-bottom:0.15rem;">2025</div>
+              <div style="color:#f5f7fa;font-weight:800;font-size:0.82rem;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">🏆 Adam</div>
             </div>
           </div>
           <p style="font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;color:#d0d0d0;font-size:0.72rem;font-style:italic;">Four seasons. Four champions. No dynasty yet.</p>
