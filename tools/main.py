@@ -23,12 +23,22 @@ def _placeholder(m, phase):
                     else f"[dry run]\nFinal {m['away']['actual']}-{m['home']['actual']}."}
 
 
-def run(phase_arg, season, week, dry):
+def run(phase_arg, season, week, dry, force=False):
     load_env()
     phase = None if phase_arg == "auto" else phase_arg
     data = L.build(season, week, phase)
     wk, phase = data["week"], data["phase"]
     print(f"season {season} · week {wk} · phase {phase} · {len(data['matchups'])} matchups")
+
+    if not data["matchups"]:
+        print("no matchups for this week — nothing to do"); return None
+
+    out = ROOT / "matchups" / f"{season}-week-{wk:02d}.html"
+    if phase == "preview" and out.exists() and "PREVIEW" in out.read_text() and not force:
+        print(f"{out.name} preview already exists — skipping (use --force to rebuild)")
+        return None
+    if phase == "recap" and not all(m["played"] for m in data["matchups"]) and not force:
+        print("recap requested but not all games are final — skipping"); return None
 
     if dry:
         copies = [_placeholder(m, phase) for m in data["matchups"]]
@@ -59,5 +69,6 @@ if __name__ == "__main__":
     ap.add_argument("--season", type=int, default=2026)
     ap.add_argument("--week", type=int, default=None)
     ap.add_argument("--dry", action="store_true")
+    ap.add_argument("--force", action="store_true")
     a = ap.parse_args()
-    run(a.phase, a.season, a.week, a.dry)
+    run(a.phase, a.season, a.week, a.dry, a.force)

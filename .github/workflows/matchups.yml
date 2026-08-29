@@ -1,0 +1,75 @@
+name: Weekly matchups
+
+on:
+  schedule:
+    # Sep–Jan only. Times are UTC.
+    - cron: "0 13 * 9-12,1 4"   # Thursdays ~7am CT — previews
+    - cron: "0 15 * 9-12,1 2"   # Tuesdays  ~9am CT — recaps
+  workflow_dispatch:
+    inputs:
+      phase:
+        description: "auto | preview | recap"
+        default: "auto"
+      season:
+        description: "season year"
+        default: "2026"
+      week:
+        description: "week number (blank = current)"
+        default: ""
+      force:
+        description: "rebuild even if the page exists"
+        type: boolean
+        default: false
+
+permissions:
+  contents: write
+
+concurrency:
+  group: matchups
+  cancel-in-progress: false
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Decide phase
+        id: phase
+        run: |
+          if [ "${{ github.event_name }}" = "schedule" ]; then
+            case "${{ github.event.schedule }}" in
+              "0 13 * 9-12,1 4") echo "phase=preview" >> "$GITHUB_OUTPUT" ;;
+              *)                 echo "phase=recap"   >> "$GITHUB_OUTPUT" ;;
+            esac
+          else
+            echo "phase=${{ github.event.inputs.phase || 'auto' }}" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Generate
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          ESPN_S2: ${{ secrets.ESPN_S2 }}
+          ESPN_SWID: ${{ secrets.ESPN_SWID }}
+          LEAGUE_ID: ${{ secrets.LEAGUE_ID }}
+        run: |
+          python3 tools/main.py "${{ steps.phase.outputs.phase }}" \
+            --season "${{ github.event.inputs.season || '2026' }}" \
+            ${{ github.event.inputs.week && format('--week {0}', github.event.inputs.week) || '' }} \
+            ${{ github.event.inputs.force == 'true' && '--force' || '' }}
+
+      - name: Commit & push if changed
+        run: |
+          if [ -n "$(git status --porcelain matchups tools/data)" ]; then
+            git config user.name  "players-league-bot"
+            git config user.email "actions@users.noreply.github.com"
+            git add matchups tools/data
+            git commit -m "matchups: ${{ steps.phase.outputs.phase }} run $(date -u +%Y-%m-%d)"
+            git push
+          else
+            echo "no changes"
+          fi
