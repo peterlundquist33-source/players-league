@@ -1,11 +1,12 @@
 """Blend free ranking sources into one consensus per player.
 
 Sources (all free, no auth):
-  ESPN     — averageDraftPosition (ADP) + PPR expert rank, from the league API
+  ESPN        — averageDraftPosition (ADP) + PPR expert rank, from the league API
+  FantasyPros — expert consensus rank (ECR), ~100+ analysts
   FantasyCalc — redraft trade value  -> implied rank
-  Sleeper  — search_rank (preseason consensus proxy)
+  Sleeper     — search_rank (preseason consensus proxy)
 
-Join key: normalized "first last". FantasyCalc's espnId is used as a backstop.
+Join key: normalized "first last" + position. FantasyCalc's espnId is a backstop.
 """
 import json, re, urllib.request
 from lib import espn
@@ -79,6 +80,18 @@ def _fantasycalc():
     return out
 
 
+# ---------------------------------------------------------------- FantasyPros
+
+def _fantasypros(season):
+    url = ("https://partners.fantasypros.com/api/v1/consensus-rankings.php"
+           f"?sport=NFL&year={season}&week=0&position=ALL&scoring=PPR&type=draft")
+    d = _get_json(url, timeout=25)
+    out = {}
+    for p in d.get("players", []):
+        out[(norm(p.get("player_name")), p.get("player_position_id"))] = p.get("rank_ecr")
+    return out
+
+
 # ---------------------------------------------------------------- Sleeper
 
 def _sleeper():
@@ -104,6 +117,7 @@ def consensus(season):
     espn_p = _espn_players(season)
     fc = _fantasycalc()
     sl = _sleeper()
+    fp = _fantasypros(season)
     fc_by_espnid = {v["espnId"]: v for v in fc.values() if v["espnId"]}
 
     out = {}
@@ -111,11 +125,14 @@ def consensus(season):
         k, pos = e["key"], e["pos"]
         f = fc_by_espnid.get(str(pid)) or fc.get((k, pos)) or fc.get((k, None))
         s_rank = sl.get((k, pos)) or sl.get((k, None))
+        fp_rank = fp.get((k, pos)) or fp.get((k, None))
         ranks = {}
         if e["espn_rank"]:
             ranks["espn"] = e["espn_rank"]
         if e["espn_adp"]:
             ranks["adp"] = e["espn_adp"]
+        if fp_rank:
+            ranks["fantasypros"] = fp_rank
         if f:
             ranks["fantasycalc"] = f["rank"]
         if s_rank:

@@ -10,6 +10,7 @@ import argparse, datetime, json, sys
 from lib import ROOT, load_env
 import league as L
 import render as R
+import homepage as HP
 
 DATA = ROOT / "tools" / "data"
 
@@ -61,6 +62,7 @@ def run(phase_arg, season, week, dry, force=False):
 
     page = R.week_page(data, copies, intro)
     R.index_page(season)
+    HP.update(season)
 
     DATA.mkdir(parents=True, exist_ok=True)
     (DATA / f"{season}-week-{wk:02d}.json").write_text(json.dumps(
@@ -86,6 +88,7 @@ def run_rankings(season, dry=False):
             copies.append(W.grade_team(t, season))
         intro = W.grade_intro(g)
     page = R.rankings_page(g, copies, intro)
+    HP.update(season)
     DATA.mkdir(parents=True, exist_ok=True)
     (DATA / f"{season}-rankings.json").write_text(json.dumps(
         {"generated": datetime.datetime.now().isoformat(timespec="seconds"),

@@ -185,7 +185,7 @@ def rankings_page(g, copies, intro):
     stamp = datetime.date.today().isoformat()
     cards = "\n".join(_grade_card(t, copies[i]) for i, t in enumerate(g["teams"]))
     body = ('<section class="page-header"><h1>%d DRAFT <span class="gold">GRADES</span></h1>'
-            '<p>Every pick vs a 4-source consensus (ESPN ADP, ESPN, FantasyCalc, Sleeper) '
+            '<p>Every pick vs a 5-source consensus (ESPN ADP, ESPN rank, FantasyPros ECR, FantasyCalc, Sleeper) '
             '· graded on the curve · generated %s</p></section>'
             '<div class="mx-wrap"><p class="mx-intro">%s</p>%s</div>'
             % (season, stamp, html.escape(intro), cards))
