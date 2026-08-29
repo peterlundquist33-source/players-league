@@ -68,13 +68,27 @@ def claude(system, user, max_tokens=1024):
         "system": system,
         "messages": [{"role": "user", "content": user}],
     }).encode()
-    req = urllib.request.Request(ANTHROPIC_URL, data=body, headers=headers)
-    try:
-        with urllib.request.urlopen(req, timeout=90) as r:
-            data = json.load(r)
-    except urllib.error.HTTPError as e:
-        raise SystemExit(f"Anthropic HTTP {e.code}: {e.read().decode()[:400]}")
-    return "".join(b.get("text", "") for b in data.get("content", [])).strip()
+    import time
+    last = ""
+    for attempt in range(5):
+        req = urllib.request.Request(ANTHROPIC_URL, data=body, headers=headers)
+        try:
+            with urllib.request.urlopen(req, timeout=120) as r:
+                data = json.load(r)
+            return "".join(b.get("text", "") for b in data.get("content", [])).strip()
+        except urllib.error.HTTPError as e:
+            last = f"Anthropic HTTP {e.code}: {e.read().decode()[:300]}"
+            if e.code in (408, 409, 429, 500, 502, 503, 504) and attempt < 4:
+                time.sleep(2 ** attempt + 1)
+                continue
+            raise SystemExit(last)
+        except urllib.error.URLError as e:
+            last = f"Anthropic connection error: {e}"
+            if attempt < 4:
+                time.sleep(2 ** attempt + 1)
+                continue
+            raise SystemExit(last)
+    raise SystemExit(last)
 
 
 POS = {1: "QB", 2: "RB", 3: "WR", 4: "TE", 5: "K", 16: "D/ST"}
