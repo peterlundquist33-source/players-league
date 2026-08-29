@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Analytics — Players League</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    select#season-select {
+      background:#ffffff; color:#333333; border:2px solid #e5e5e5;
+      padding:0.7rem 1.4rem; border-radius:4px;
+      font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
+      font-size:0.95rem; font-weight:700; min-width:220px; cursor:pointer;
+      transition:border-color 0.18s ease;
+    }
+    select#season-select:hover, select#season-select:focus { border-color:#d4943a; outline:none; }
+  </style>
+</head>
+<body class="polish">
+
+  <!-- Navigation -->
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="home.html" class="nav-logo">PLAYERS LEAGUE<span class="sub">Fantasy Football · Est. 2022</span></a>
+      <div class="nav-toggle"><span></span><span></span><span></span></div>
+      <div class="nav-links">
+        <a href="weekend.html">Weekend</a>
+        <a href="home.html">Home</a>
+        <a href="teams.html">Teams</a>
+        <a href="awards.html">Awards</a>
+        <a href="history.html">History</a>
+        <a href="analytics.html" class="active">Analytics</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Page Header -->
+  <section class="page-header">
+    <h1><span class="gold">ANALYTICS</span></h1>
+    <p>Expected Wins &bull; Season Summary &bull; All-Time Records &bull; Division War</p>
+  </section>
+
+  <!-- Tab Switcher -->
+  <section class="section" style="padding-bottom:0.5rem;">
+    <div class="tab-switcher">
+      <button class="tab-btn active" onclick="switchTab('xwins', this)">📊 Expected Wins</button>
+      <button class="tab-btn" onclick="switchTab('summary', this)">📈 Season Summaries</button>
+      <button class="tab-btn" onclick="switchTab('alltime', this)">🏆 All-Time Records</button>
+      <button class="tab-btn" onclick="switchTab('divcomp', this)">⚔️ Division War</button>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       TAB 1 — Expected Wins
+       ============================================================ -->
+  <section id="tab-xwins" class="section analytics-section active">
+    <h2 class="section-title">📊 Expected Wins Analysis</h2>
+    <div class="gold-line"></div>
+    <p class="section-sub">The whole luck story in one place: how much you <strong>scored</strong> (Points For) plus what you <strong>faced</strong> (Points Against) drives how many wins you <strong>should</strong> have earned (Expected Wins) — versus what you actually won. Positive discrepancy = lucky. Negative = unlucky. Based on 2025 regular season (Weeks 1–12).</p>
+
+    <div class="table-scroll" style="overflow-x:auto;">
+      <table class="data-table sticky-first">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Owner</th>
+            <th>Expected W</th>
+            <th>Actual W</th>
+            <th>Luck</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><span class="rank-num">1</span></td>
+            <td style="font-weight:600;color:var(--cream);">CJ Woda</td>
+            <td>3.1</td><td>5</td>
+            <td><span class="pill-luck pos">+1.9 🍀</span></td>
+          </tr>
+          <tr>
+            <td><span class="rank-num">2</span></td>
+            <td style="font-weight:600;color:var(--cream);">Christian Massett</td>
+            <td>5.5</td><td>7</td>
+            <td><span class="pill-luck pos">+1.5 🍀</span></td>
+          </tr>
+          <tr>
+            <td><span class="rank-num">3</span></td>
+            <td style="font-weight:600;color:var(--cream);">John Lundquist</td>
+            <td>7.9</td><td>9</td>
+            <td><span class="pill-luck pos">+1.1 🍀</span></td>
+          </tr>
+          <tr>
+            <td><span class="rank-num">4</span></td>
+            <td style="font-weight:600;color:var(--cream);">Mitchell Max</td>
+            <td>5.2</td><td>6</td>
+            <td><span class="pill-luck pos">+0.8</span></td>
+          </tr>
+          <tr>
+            <td><span class="rank-num">5</span></td>
+            <td style="font-weight:600;color:var(--cream);">Isaac Douglas</td>
+            <td>4.6</td><td>5</td>
+            <td><span class="pill-luck pos">+0.4</span></td>
+          </tr>
+          <tr>
+            <td><span class="rank-num">6</span></td>
+            <td style="font-weight:600;color:var(--cream);">Logan Rezac</td>
+            <td>4.0</td><td>4</td>
+            <td><span class="pill-luck neu">0.0</span></td>
+          </tr>
+          <tr>
+            <td><span class="rank-num">7</span></td>
+            <td style="font-weight:600;color:var(--cream);">Kaleb Feahn</td>
+            <td>6.3</td><td>6</td>
+            <td><span class="pill-luck neg">-0.3</span></td>
+          </tr>
+          <tr>
+            <td><span class="rank-num">8</span></td>
+            <td style="font-weight:600;color:var(--cream);">Adam Stockwell</td>
+            <td>8.3</td><td>8</td>
+            <td><span class="pill-luck neg">-0.3</span></td>
+          </tr>
+          <tr>
+            <td><span class="rank-num">9</span></td>
+            <td style="font-weight:600;color:var(--cream);">Peter Lundquist</td>
+            <td>7.4</td><td>7</td>
+            <td><span class="pill-luck neg">-0.4</span></td>
+          </tr>
+          <tr>
+            <td><span class="rank-num">10</span></td>
+            <td style="font-weight:600;color:var(--cream);">Noah Thesing</td>
+            <td>7.0</td><td>6</td>
+            <td><span class="pill-luck neg">-1.0 💀</span></td>
+          </tr>
+          <tr>
+            <td><span class="rank-num">11</span></td>
+            <td style="font-weight:600;color:var(--cream);">Leif Engen</td>
+            <td>6.4</td><td>5</td>
+            <td><span class="pill-luck neg">-1.4 💀</span></td>
+          </tr>
+          <tr>
+            <td><span class="rank-num">12</span></td>
+            <td style="font-weight:600;color:var(--cream);">Grant Sawyer</td>
+            <td>5.7</td><td>4</td>
+            <td><span class="pill-luck neg">-1.7 💀</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Schedule Difficulty -->
+    <div style="margin-top:2.5rem;">
+      <h3 style="font-family:'Playfair Display',Georgia,serif;color:var(--amber);font-size:1.2rem;margin-bottom:0.5rem;">Schedule Difficulty</h3>
+      <p class="section-sub">Average wins an opponent would earn playing each team's schedule. Higher = easier schedule, lower = harder schedule.</p>
+      <div class="table-scroll" style="overflow-x:auto;">
+        <table class="data-table sticky-first">
+          <thead>
+            <tr>
+              <th>Owner</th>
+              <th>Avg Wins Against</th>
+              <th>Difficulty</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td style="font-weight:600;color:var(--cream);">Isaac Douglas</td><td>7.25</td><td style="color:var(--green);">Easiest</td></tr>
+            <tr><td style="font-weight:600;color:var(--cream);">Christian Massett</td><td>6.92</td><td style="color:var(--text-body);">—</td></tr>
+            <tr><td style="font-weight:600;color:var(--cream);">Logan Rezac</td><td>6.33</td><td style="color:var(--text-body);">—</td></tr>
+            <tr><td style="font-weight:600;color:var(--cream);">CJ Woda</td><td>6.25</td><td style="color:var(--text-body);">—</td></tr>
+            <tr><td style="font-weight:600;color:var(--cream);">Peter Lundquist</td><td>6.17</td><td style="color:var(--text-body);">—</td></tr>
+            <tr><td style="font-weight:600;color:var(--cream);">John Lundquist</td><td>6.08</td><td style="color:var(--text-body);">—</td></tr>
+            <tr><td style="font-weight:600;color:var(--cream);">Mitchell Max</td><td>6.00</td><td style="color:var(--text-body);">—</td></tr>
+            <tr><td style="font-weight:600;color:var(--cream);">Noah Thesing</td><td>5.58</td><td style="color:var(--text-body);">—</td></tr>
+            <tr><td style="font-weight:600;color:var(--cream);">Kaleb Feahn</td><td>5.50</td><td style="color:var(--text-body);">—</td></tr>
+            <tr><td style="font-weight:600;color:var(--cream);">Leif Engen</td><td>5.42</td><td style="color:var(--text-body);">—</td></tr>
+            <tr><td style="font-weight:600;color:var(--cream);">Grant Sawyer</td><td>5.00</td><td style="color:var(--text-body);">—</td></tr>
+            <tr><td style="font-weight:600;color:var(--cream);">Adam Stockwell</td><td>4.92</td><td style="color:var(--red);">Hardest</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Points For (folded in) -->
+    <div style="margin-top:2.5rem;">
+    <h3 style="font-family:'Playfair Display',Georgia,serif;color:var(--amber);font-size:1.2rem;margin-bottom:0.5rem;">🏈 Points For — Week by Week (2025)</h3>
+    <p class="section-sub">Weekly scoring output through the first 12 weeks of the 2025 season — the raw fuel behind expected wins. Green = top score that week. Red = bottom score.</p>
+    <div class="table-scroll" style="overflow-x:auto;">
+      <table class="data-table sticky-first" style="font-size:0.82rem;min-width:900px;">
+        <thead>
+          <tr>
+            <th>Wk</th>
+            <th>Grant</th>
+            <th>CJ</th>
+            <th>Peter</th>
+            <th>Adam</th>
+            <th>Doug</th>
+            <th>Logan</th>
+            <th>Mitch</th>
+            <th>John</th>
+            <th>Christian</th>
+            <th>Noah</th>
+            <th>Kaleb</th>
+            <th>Leif</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td style="color:var(--amber);font-weight:700;">1</td><td>106.3</td><td>116.5</td><td>85.7</td><td>127.5</td><td>94.6</td><td>103.6</td><td>92.5</td><td>106.1</td><td>93.2</td><td>103.7</td><td class="pf-high">128.3</td><td>140.5</td></tr>
+          <tr><td style="color:var(--amber);font-weight:700;">2</td><td>129.9</td><td>81.1</td><td>133.8</td><td>121.6</td><td>137.5</td><td>107.7</td><td>125.9</td><td class="pf-high">149.5</td><td>103.2</td><td>118.4</td><td>104.0</td><td>94.8</td></tr>
+          <tr><td style="color:var(--amber);font-weight:700;">3</td><td>119.0</td><td>91.7</td><td>141.9</td><td>130.2</td><td class="pf-low">77.8</td><td>135.8</td><td>108.1</td><td>127.8</td><td>97.2</td><td class="pf-high">140.5</td><td>113.0</td><td>110.4</td></tr>
+          <tr><td style="color:var(--amber);font-weight:700;">4</td><td>96.3</td><td class="pf-low">74.7</td><td class="pf-high">165.2</td><td>136.7</td><td>144.2</td><td>153.2</td><td>118.0</td><td>108.3</td><td>108.3</td><td>113.2</td><td>114.3</td><td>100.3</td></tr>
+          <tr><td style="color:var(--amber);font-weight:700;">5</td><td>121.3</td><td>91.6</td><td>128.9</td><td class="pf-low">73.3</td><td>109.3</td><td>99.3</td><td>133.8</td><td class="pf-high">169.3</td><td>153.0</td><td>129.4</td><td>104.7</td><td>117.8</td></tr>
+          <tr><td style="color:var(--amber);font-weight:700;">6</td><td>98.8</td><td>83.1</td><td>150.8</td><td>118.7</td><td>100.8</td><td class="pf-low">79.5</td><td>86.1</td><td class="pf-high">140.7</td><td>111.2</td><td>107.5</td><td>96.3</td><td>145.1</td></tr>
+          <tr><td style="color:var(--amber);font-weight:700;">7</td><td>113.2</td><td>118.6</td><td>137.0</td><td class="pf-high">170.7</td><td>102.6</td><td class="pf-low">77.0</td><td>120.1</td><td>151.6</td><td>118.1</td><td>161.5</td><td>119.8</td><td>112.5</td></tr>
+          <tr><td style="color:var(--amber);font-weight:700;">8</td><td class="pf-low">72.5</td><td>106.3</td><td>125.5</td><td>106.9</td><td>143.5</td><td>136.7</td><td>92.0</td><td>116.7</td><td>147.6</td><td>131.2</td><td class="pf-low">59.8</td><td class="pf-high">141.2</td></tr>
+          <tr><td style="color:var(--amber);font-weight:700;">9</td><td>135.7</td><td>107.8</td><td>93.5</td><td>133.3</td><td>104.0</td><td class="pf-low">75.9</td><td>122.8</td><td>133.7</td><td>116.5</td><td class="pf-high">138.7</td><td>142.7</td><td>112.1</td></tr>
+          <tr><td style="color:var(--amber);font-weight:700;">10</td><td>125.9</td><td>92.5</td><td>101.2</td><td class="pf-high">154.0</td><td class="pf-low">88.5</td><td>84.2</td><td>113.1</td><td>153.4</td><td>134.2</td><td>123.6</td><td>124.1</td><td>129.0</td></tr>
+          <tr><td style="color:var(--amber);font-weight:700;">11</td><td>122.1</td><td>113.8</td><td>102.4</td><td class="pf-high">143.7</td><td>103.3</td><td>102.6</td><td class="pf-low">59.1</td><td>96.3</td><td>92.2</td><td>97.3</td><td>156.6</td><td>111.8</td></tr>
+          <tr><td style="color:var(--amber);font-weight:700;">12</td><td>103.0</td><td>87.4</td><td class="pf-high">181.5</td><td>169.8</td><td class="pf-low">65.8</td><td>92.6</td><td>129.3</td><td>121.2</td><td>96.3</td><td>108.2</td><td>125.6</td><td>130.9</td></tr>
+        </tbody>
+        <tfoot>
+          <tr>
+            <td style="color:var(--amber);font-weight:700;">TOT</td>
+            <td>1343.8</td><td>1165.0</td><td>1547.5</td>
+            <td style="color:var(--amber);font-weight:700;">1586.5</td>
+            <td>1272.1</td><td>1248.3</td><td>1300.9</td><td>1574.6</td><td>1371.1</td><td>1473.0</td><td>1389.2</td><td>1446.4</td>
+          </tr>
+          <tr>
+            <td style="color:var(--amber);font-weight:700;">AVG</td>
+            <td>112.0</td><td>97.1</td><td>129.0</td>
+            <td style="color:var(--amber);font-weight:700;">132.2</td>
+            <td>106.0</td><td>104.0</td><td>108.4</td><td>131.2</td><td>114.3</td><td>122.8</td><td>115.8</td><td>120.5</td>
+          </tr>
+        </tfoot>
+      </table>
+    </div>
+    <p style="color:var(--gray-text);font-size:0.75rem;margin-top:1rem;font-style:italic;">Note: Wk 1–12 data shown. Full season totals differ slightly from final standings which include playoff weeks.</p>
+    </div>
+
+    <!-- Points Against (folded in) -->
+    <div style="margin-top:2.5rem;">
+    <h3 style="font-family:'Playfair Display',Georgia,serif;color:var(--amber);font-size:1.2rem;margin-bottom:0.5rem;">🛡️ Points Against — Week by Week (2025)</h3>
+    <p class="section-sub">Points scored against each team by week — the schedule-luck component. Lower total = easier schedule. Higher = tougher draw.</p>
+    <div class="table-scroll" style="overflow-x:auto;">
+      <table class="data-table sticky-first" style="font-size:0.82rem;min-width:900px;">
+        <thead>
+          <tr>
+            <th>Wk</th>
+            <th>Grant</th>
+            <th>CJ</th>
+            <th>Peter</th>
+            <th>Adam</th>
+            <th>Doug</th>
+            <th>Logan</th>
+            <th>Mitch</th>
+            <th>John</th>
+            <th>Christian</th>
+            <th>Noah</th>
+            <th>Kaleb</th>
+            <th>Leif</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td style="color:var(--amber);font-weight:700;">1</td><td>116.5</td><td>106.3</td><td>93.2</td><td>103.6</td><td>128.3</td><td>127.5</td><td>140.5</td><td>103.7</td><td>85.7</td><td>106.1</td><td>94.6</td><td>92.5</td></tr>
+          <tr><td style="color:var(--amber);font-weight:700;">2</td><td>149.5</td><td>104.0</td><td>125.9</td><td>103.2</td><td>118.4</td><td>94.8</td><td>133.8</td><td>129.9</td><td>121.6</td><td>137.5</td><td>81.1</td><td>107.7</td></tr>
+          <tr><td style="color:var(--amber);font-weight:700;">3</td><td>140.5</td><td>77.8</td><td>135.8</td><td>110.4</td><td>91.7</td><td>141.9</td><td>97.2</td><td>113.0</td><td>108.1</td><td>119.0</td><td>127.8</td><td>130.2</td></tr>
+          <tr><td style="color:var(--amber);font-weight:700;">4</td><td>114.3</td><td>113.2</td><td>100.3</td><td>118.0</td><td>108.3</td><td>108.3</td><td>136.7</td><td>144.2</td><td>153.2</td><td>74.7</td><td>96.3</td><td>165.2</td></tr>
+          <tr><td style="color:var(--amber);font-weight:700;">5</td><td>109.3</td><td>169.3</td><td>73.3</td><td>128.9</td><td>121.3</td><td>133.8</td><td>99.3</td><td>91.6</td><td>117.8</td><td>104.7</td><td>129.4</td><td>153.0</td></tr>
+          <tr><td style="color:var(--amber);font-weight:700;">6</td><td>145.1</td><td>86.1</td><td>96.3</td><td>107.5</td><td>111.2</td><td>140.7</td><td>83.1</td><td>79.5</td><td>100.8</td><td>118.7</td><td>150.8</td><td>98.8</td></tr>
+          <tr><td style="color:var(--amber);font-weight:700;">7</td><td>118.1</td><td>112.5</td><td>161.5</td><td>151.6</td><td>77.0</td><td>102.6</td><td>119.8</td><td>170.7</td><td>113.2</td><td>137.0</td><td>120.1</td><td>118.6</td></tr>
+          <tr><td style="color:var(--amber);font-weight:700;">8</td><td>136.7</td><td>147.6</td><td>116.7</td><td>143.5</td><td>106.9</td><td>72.5</td><td>131.2</td><td>125.5</td><td>106.3</td><td>92.0</td><td>141.2</td><td>59.8</td></tr>
+          <tr><td style="color:var(--amber);font-weight:700;">9</td><td>133.3</td><td>75.9</td><td>104.0</td><td>135.7</td><td>93.5</td><td>107.8</td><td>133.7</td><td>122.8</td><td>142.7</td><td>112.1</td><td>116.5</td><td>138.7</td></tr>
+          <tr><td style="color:var(--amber);font-weight:700;">10</td><td>101.2</td><td>154.0</td><td>125.9</td><td>92.5</td><td>113.1</td><td>124.1</td><td>88.5</td><td>129.0</td><td>123.6</td><td>134.2</td><td>84.2</td><td>153.4</td></tr>
+          <tr><td style="color:var(--amber);font-weight:700;">11</td><td>59.1</td><td>102.4</td><td>113.8</td><td>156.6</td><td>111.8</td><td>97.3</td><td>122.1</td><td>92.2</td><td>96.3</td><td>102.6</td><td>143.7</td><td>103.3</td></tr>
+          <tr><td style="color:var(--amber);font-weight:700;">12</td><td>130.9</td><td>129.3</td><td>125.6</td><td>108.2</td><td>96.3</td><td>121.2</td><td>87.4</td><td>92.6</td><td>65.8</td><td>169.8</td><td>181.5</td><td>103.0</td></tr>
+        </tbody>
+        <tfoot>
+          <tr>
+            <td style="color:var(--amber);font-weight:700;">TOT</td>
+            <td>1454.6</td><td>1378.5</td>
+            <td style="color:var(--green);font-weight:700;">1372.4</td>
+            <td style="color:var(--red);font-weight:700;">1459.6</td>
+            <td style="color:var(--green);font-weight:700;">1277.9</td>
+            <td>1372.4</td><td>1373.2</td><td>1394.8</td>
+            <td style="color:var(--green);font-weight:700;">1335.2</td>
+            <td>1408.5</td>
+            <td style="color:var(--red);font-weight:700;">1467.3</td>
+            <td>1424.0</td>
+          </tr>
+        </tfoot>
+      </table>
+    </div>
+    <div style="display:flex;gap:1.5rem;margin-top:1rem;flex-wrap:wrap;">
+      <div style="display:flex;align-items:center;gap:0.5rem;font-size:0.8rem;"><span style="color:var(--green);font-weight:700;">Green</span><span style="color:var(--gray-text);">= fewest points allowed (easiest schedule)</span></div>
+      <div style="display:flex;align-items:center;gap:0.5rem;font-size:0.8rem;"><span style="color:var(--red);font-weight:700;">Red</span><span style="color:var(--gray-text);">= most points allowed (hardest schedule)</span></div>
+    </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       TAB — Season Summary
+       ============================================================ -->
+  <section id="tab-summary" class="section analytics-section">
+    <h2 class="section-title">📈 Season Summaries</h2>
+    <div class="gold-line"></div>
+    <p class="section-sub">Pick a season to see the recap and the stories behind the standings.</p>
+
+    <div style="text-align:center;margin:1.25rem 0 2rem;">
+      <select id="season-select" onchange="renderSeason(this.value)">
+        <option value="2025">2025 Season</option>
+        <option value="2024">2024 Season</option>
+        <option value="2023">2023 Season</option>
+        <option value="2022">2022 Season</option>
+      </select>
+    </div>
+
+    <div id="season-content"></div>
+  </section>
+
+  <!-- ============================================================
+       TAB 5 — All-Time Records
+       ============================================================ -->
+  <section id="tab-alltime" class="section analytics-section">
+    <h2 class="section-title">🏆 All-Time Records & Rankings</h2>
+    <p style="color:var(--text-muted);font-size:0.9rem;margin-bottom:2rem;">Career stats across all 4 seasons (2022-2025). Luck estimates based on season totals.</p>
+
+    <!-- All-Time Standings -->
+    <h3 style="font-size:1.1rem;font-weight:700;margin-bottom:0.75rem;">Career Standings</h3>
+    <div class="table-scroll" style="overflow-x:auto;margin-bottom:2rem;">
+    <table class="data-table sticky-first">
+      <thead><tr><th>#</th><th>Owner</th><th>W</th><th>L</th><th>Win%</th><th>Career PF</th></tr></thead>
+      <tbody id="alltime-standings"></tbody>
+    </table>
+    </div>
+
+    <!-- Best Single Week -->
+    <h3 style="font-size:1.1rem;font-weight:700;margin-bottom:0.75rem;">🔥 Top 10 Weekly Scores Ever</h3>
+    <p style="color:var(--text-muted);font-size:0.8rem;margin-bottom:0.75rem;">True single-week ESPN scores across 2022-2025. Repeat owners allowed. Playoff aggregate matchups are split by ESPN scoring period.</p>
+    <div class="table-scroll" style="overflow-x:auto;margin-bottom:2rem;">
+    <table class="data-table sticky-first">
+      <thead><tr><th>#</th><th>Owner</th><th>Team Name</th><th>Score</th><th>When</th></tr></thead>
+      <tbody id="alltime-bestweek"></tbody>
+    </table>
+    </div>
+
+    <!-- Champions -->
+    <h3 style="font-size:1.1rem;font-weight:700;margin-bottom:0.75rem;">🏆 Season Champions</h3>
+    <div class="table-scroll" style="overflow-x:auto;margin-bottom:2rem;">
+    <table class="data-table sticky-first">
+      <thead><tr><th>Year</th><th>Champion</th></tr></thead>
+      <tbody>
+        <tr><td style="font-weight:700;">2025</td><td>Adam Stockwell</td></tr>
+        <tr><td style="font-weight:700;">2024</td><td>Noah Thesing</td></tr>
+        <tr><td style="font-weight:700;">2023</td><td>Kaleb Feahn</td></tr>
+        <tr><td style="font-weight:700;">2022</td><td>Peter Lundquist</td></tr>
+      </tbody>
+    </table>
+    </div>
+
+    <!-- All-Time Luck Estimate -->
+    <h3 style="font-size:1.1rem;font-weight:700;margin-bottom:0.75rem;">🍀 All-Time Luck Rankings</h3>
+    <p style="color:var(--text-muted);font-size:0.8rem;margin-bottom:0.75rem;">Teams ranked by PF vs actual wins. If you score a lot but don't win as much, you're unlucky. Positive = lucky, negative = unlucky.</p>
+    <div class="table-scroll" style="overflow-x:auto;margin-bottom:2rem;">
+    <table class="data-table sticky-first">
+      <thead><tr><th>#</th><th>Owner</th><th>W</th><th>PF Rank</th><th>Win Rank</th><th>Luck</th></tr></thead>
+      <tbody id="alltime-luck"></tbody>
+    </table>
+    </div>
+
+  </section>
+
+  <!-- ============================================================
+       TAB — Division Comparison
+       ============================================================ -->
+  <section id="tab-divcomp" class="section analytics-section">
+    <style>
+      .divcomp-grid { display:grid; grid-template-columns:1fr 160px 1fr; }
+      .divcomp-stat-val { font-size:1.25rem; font-weight:800; color:#333; }
+      .divcomp-cat { font-size:0.72rem; font-weight:700; color:#666; text-transform:uppercase; letter-spacing:1px; }
+      .divcomp-edge { background:#0068b3; color:#fff; font-size:0.6rem; padding:0.15rem 0.45rem; border-radius:3px; font-weight:700; vertical-align:middle; margin-left:4px; }
+      .divcomp-edge-green { background:#198754; }
+      @media(max-width:600px) {
+        .divcomp-grid { grid-template-columns:1fr 80px 1fr; }
+        .divcomp-stat-val { font-size:1rem; }
+        .divcomp-cat { font-size:0.62rem; letter-spacing:0; }
+        .div-breakdown { grid-template-columns:1fr !important; }
+      }
+    </style>
+    <h2 class="section-title">⚔️ Division War: East vs West</h2>
+    <div class="gold-line"></div>
+    <p class="section-sub">Four seasons of rivalry. Which division rules the Players League? Career stats through 2025.</p>
+
+    <!-- Main matchup card -->
+    <div style="max-width:900px;margin:2rem auto;border-radius:12px;overflow:hidden;box-shadow:0 4px 24px rgba(0,0,0,0.1);border:1px solid #e5e5e5;">
+
+      <!-- Division Headers -->
+      <div class="divcomp-grid">
+        <div style="background:#0068b3;color:#fff;padding:2rem 1.5rem;text-align:center;">
+          <div style="font-size:2.2rem;margin-bottom:0.4rem;">🌊</div>
+          <div style="font-size:1.4rem;font-weight:800;letter-spacing:1px;">EAST</div>
+          <div style="font-size:0.75rem;opacity:0.85;margin-top:0.3rem;line-height:1.6;">CJ · Grant · Isaac<br>John · Kaleb · Noah</div>
+        </div>
+        <div style="background:#1a1a1a;color:#d4943a;display:flex;align-items:center;justify-content:center;font-size:1.4rem;font-weight:900;letter-spacing:2px;">VS</div>
+        <div style="background:#005292;color:#fff;padding:2rem 1.5rem;text-align:center;">
+          <div style="font-size:2.2rem;margin-bottom:0.4rem;">🌵</div>
+          <div style="font-size:1.4rem;font-weight:800;letter-spacing:1px;">WEST</div>
+          <div style="font-size:0.75rem;opacity:0.85;margin-top:0.3rem;line-height:1.6;">Peter · Adam · Christian<br>Mitchell · Leif · Logan</div>
+        </div>
+      </div>
+
+      <!-- Stat rows -->
+      <div style="background:#fff;">
+
+        <!-- Career W-L -->
+        <div class="divcomp-grid" style="border-bottom:1px solid #e5e5e5;">
+          <div style="padding:1.25rem;text-align:center;background:#f0f7ff;"><span class="divcomp-stat-val">166–170</span></div>
+          <div style="padding:1.25rem;text-align:center;background:#f5f5f5;display:flex;align-items:center;justify-content:center;"><span class="divcomp-cat">Career W-L</span></div>
+          <div style="padding:1.25rem;text-align:center;background:#e8f0f8;"><span class="divcomp-stat-val">170–166</span><span class="divcomp-edge">EDGE</span></div>
+        </div>
+
+        <!-- Career PF -->
+        <div class="divcomp-grid" style="border-bottom:1px solid #e5e5e5;">
+          <div style="padding:1.25rem;text-align:center;background:#fafafa;"><span class="divcomp-stat-val">38,165</span></div>
+          <div style="padding:1.25rem;text-align:center;background:#f5f5f5;display:flex;align-items:center;justify-content:center;"><span class="divcomp-cat">Career PF</span></div>
+          <div style="padding:1.25rem;text-align:center;background:#fafafa;"><span class="divcomp-stat-val">39,467</span><span class="divcomp-edge">EDGE</span></div>
+        </div>
+
+        <!-- Championships -->
+        <div class="divcomp-grid" style="border-bottom:1px solid #e5e5e5;">
+          <div style="padding:1.25rem;text-align:center;background:#fff8ee;">
+            <span class="divcomp-stat-val">🏆 2</span>
+            <div style="font-size:0.72rem;color:#888;margin-top:0.3rem;">Kaleb '23 · Noah '24</div>
+          </div>
+          <div style="padding:1.25rem;text-align:center;background:#f5f5f5;display:flex;align-items:center;justify-content:center;"><span class="divcomp-cat">Championships</span></div>
+          <div style="padding:1.25rem;text-align:center;background:#fff8ee;">
+            <span class="divcomp-stat-val">🏆 2</span>
+            <div style="font-size:0.72rem;color:#888;margin-top:0.3rem;">Peter '22 · Adam '25</div>
+          </div>
+        </div>
+
+        <!-- #1 Seeds -->
+        <div class="divcomp-grid" style="border-bottom:1px solid #e5e5e5;">
+          <div style="padding:1.25rem;text-align:center;background:#fafafa;">
+            <span class="divcomp-stat-val" style="color:#dc3545;">0</span>
+            <div style="font-size:0.72rem;color:#888;margin-top:0.3rem;">The curse doesn't apply if you never get there</div>
+          </div>
+          <div style="padding:1.25rem;text-align:center;background:#f5f5f5;display:flex;align-items:center;justify-content:center;"><span class="divcomp-cat">#1 Seeds</span></div>
+          <div style="padding:1.25rem;text-align:center;background:#fafafa;">
+            <span class="divcomp-stat-val">4</span><span class="divcomp-edge">EDGE</span>
+            <div style="font-size:0.72rem;color:#888;margin-top:0.3rem;">Peter '22 · Logan '23 '24 · Adam '25</div>
+          </div>
+        </div>
+
+        <!-- Playoff Wins -->
+        <div class="divcomp-grid" style="border-bottom:1px solid #e5e5e5;">
+          <div style="padding:1.25rem;text-align:center;background:#edf7f2;">
+            <span class="divcomp-stat-val">12</span><span class="divcomp-edge divcomp-edge-green">EDGE</span>
+          </div>
+          <div style="padding:1.25rem;text-align:center;background:#f5f5f5;display:flex;align-items:center;justify-content:center;"><span class="divcomp-cat">Playoff Wins</span></div>
+          <div style="padding:1.25rem;text-align:center;background:#fafafa;"><span class="divcomp-stat-val">11</span></div>
+        </div>
+
+        <!-- Verdict -->
+        <div style="background:linear-gradient(135deg,#0068b3,#005292);color:#fff;padding:2rem;text-align:center;">
+          <div style="font-size:0.65rem;letter-spacing:3px;text-transform:uppercase;opacity:0.8;margin-bottom:0.5rem;">THE VERDICT</div>
+          <div style="font-size:1.15rem;font-weight:800;margin-bottom:0.6rem;">🤝 Dead Even — This Rivalry Isn't Over</div>
+          <div style="font-size:0.88rem;opacity:0.92;max-width:600px;margin:0 auto;line-height:1.65;">West leads in regular season wins and scoring. East leads in playoff wins and clutch moments. Two championships each. The #1 seed curse haunts the West. It's not about division — it's about who shows up in December.</div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Individual division breakdowns -->
+    <div class="div-breakdown" style="display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;max-width:900px;margin:2rem auto 0;">
+      <!-- East -->
+      <div style="background:#f0f7ff;border:2px solid #0068b3;border-radius:8px;padding:1.5rem;">
+        <h3 style="color:#0068b3;font-weight:800;margin-bottom:1rem;font-size:1rem;">🌊 East Division</h3>
+        <table style="width:100%;font-size:0.85rem;border-collapse:collapse;">
+          <tr><td style="padding:0.4rem 0;border-bottom:1px solid rgba(0,104,179,0.12);">CJ Woda</td><td style="text-align:right;color:#555;font-weight:600;padding:0.4rem 0;border-bottom:1px solid rgba(0,104,179,0.12);">25–31</td></tr>
+          <tr><td style="padding:0.4rem 0;border-bottom:1px solid rgba(0,104,179,0.12);">Grant Sawyer</td><td style="text-align:right;color:#555;font-weight:600;padding:0.4rem 0;border-bottom:1px solid rgba(0,104,179,0.12);">24–32</td></tr>
+          <tr><td style="padding:0.4rem 0;border-bottom:1px solid rgba(0,104,179,0.12);">Isaac Douglas</td><td style="text-align:right;color:#555;font-weight:600;padding:0.4rem 0;border-bottom:1px solid rgba(0,104,179,0.12);">30–26</td></tr>
+          <tr><td style="padding:0.4rem 0;border-bottom:1px solid rgba(0,104,179,0.12);">John Lundquist</td><td style="text-align:right;color:#555;font-weight:600;padding:0.4rem 0;border-bottom:1px solid rgba(0,104,179,0.12);">31–25</td></tr>
+          <tr><td style="padding:0.4rem 0;border-bottom:1px solid rgba(0,104,179,0.12);">Kaleb Feahn 🏆</td><td style="text-align:right;color:#555;font-weight:600;padding:0.4rem 0;border-bottom:1px solid rgba(0,104,179,0.12);">27–29</td></tr>
+          <tr><td style="padding:0.4rem 0;">Noah Thesing 🏆</td><td style="text-align:right;color:#555;font-weight:600;padding:0.4rem 0;">29–27</td></tr>
+        </table>
+        <div style="margin-top:1rem;padding-top:0.75rem;border-top:2px solid #0068b3;font-weight:700;color:#0068b3;font-size:0.88rem;">Total: 166–170 &nbsp;·&nbsp; PF: 38,165</div>
+      </div>
+      <!-- West -->
+      <div style="background:#e8f0f8;border:2px solid #005292;border-radius:8px;padding:1.5rem;">
+        <h3 style="color:#005292;font-weight:800;margin-bottom:1rem;font-size:1rem;">🌵 West Division</h3>
+        <table style="width:100%;font-size:0.85rem;border-collapse:collapse;">
+          <tr><td style="padding:0.4rem 0;border-bottom:1px solid rgba(0,82,146,0.12);">Peter Lundquist 🏆</td><td style="text-align:right;color:#555;font-weight:600;padding:0.4rem 0;border-bottom:1px solid rgba(0,82,146,0.12);">32–24</td></tr>
+          <tr><td style="padding:0.4rem 0;border-bottom:1px solid rgba(0,82,146,0.12);">Adam Stockwell 🏆</td><td style="text-align:right;color:#555;font-weight:600;padding:0.4rem 0;border-bottom:1px solid rgba(0,82,146,0.12);">34–22</td></tr>
+          <tr><td style="padding:0.4rem 0;border-bottom:1px solid rgba(0,82,146,0.12);">Christian Massett</td><td style="text-align:right;color:#555;font-weight:600;padding:0.4rem 0;border-bottom:1px solid rgba(0,82,146,0.12);">29–27</td></tr>
+          <tr><td style="padding:0.4rem 0;border-bottom:1px solid rgba(0,82,146,0.12);">Mitchell Max</td><td style="text-align:right;color:#555;font-weight:600;padding:0.4rem 0;border-bottom:1px solid rgba(0,82,146,0.12);">26–30</td></tr>
+          <tr><td style="padding:0.4rem 0;border-bottom:1px solid rgba(0,82,146,0.12);">Leif Engen</td><td style="text-align:right;color:#555;font-weight:600;padding:0.4rem 0;border-bottom:1px solid rgba(0,82,146,0.12);">22–34</td></tr>
+          <tr><td style="padding:0.4rem 0;">Logan Rezac 👗</td><td style="text-align:right;color:#555;font-weight:600;padding:0.4rem 0;">27–29</td></tr>
+        </table>
+        <div style="margin-top:1rem;padding-top:0.75rem;border-top:2px solid #005292;font-weight:700;color:#005292;font-size:0.88rem;">Total: 170–166 &nbsp;·&nbsp; PF: 39,467</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <p><span class="gold">PLAYERS LEAGUE</span> &mdash; Est. 2022 &mdash; Analytics based on 2025 regular season data &mdash; ⛺ Lake Weekend</p>
+  </footer>
+
+  <script src="js/teams-data.js?v=20260729-espn-weekly-top10"></script>
+  <script src="js/gate.js?v=20260729-espn-weekly-top10"></script>
+  <script>
+    document.querySelector('.nav-toggle')?.addEventListener('click', () => {
+      document.querySelector('.nav-links').classList.toggle('open');
+    });
+
+    function switchTab(tab, btn) {
+      document.querySelectorAll('.analytics-section').forEach(s => s.classList.remove('active'));
+      document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+      document.getElementById('tab-' + tab).classList.add('active');
+      btn.classList.add('active');
+      if (tab === 'alltime' && !window._alltimeLoaded) {
+        window._alltimeLoaded = true;
+        buildAllTimeRecords();
+      }
+    }
+
+    function buildAllTimeRecords() {
+      if (typeof TEAM_DATA === 'undefined') return;
+      var teams = [];
+      for (var name in TEAM_DATA) {
+        var t = TEAM_DATA[name];
+        teams.push({
+          name: name,
+          w: t.career_w,
+          l: t.career_l,
+          wp: t.wp,
+          pf: t.career_pf,
+          best: parseFloat(t.best_score) || 0,
+          bestInfo: t.best_info || ''
+        });
+      }
+
+      // All-Time Standings
+      var sorted = teams.slice().sort(function(a,b){ return b.wp - a.wp; });
+      var html = '';
+      sorted.forEach(function(t, i) {
+        html += '<tr><td><span class="rank-num">' + (i+1) + '</span></td><td style="font-weight:600;">' + t.name + '</td><td>' + t.w + '</td><td>' + t.l + '</td><td>' + t.wp + '%</td><td>' + t.pf + '</td></tr>';
+      });
+      document.getElementById('alltime-standings').innerHTML = html;
+
+      // True Top 10 Single Weeks
+      html = '';
+      var weeklyScores = (typeof ALL_TIME_WEEKLY_SCORES !== 'undefined' && ALL_TIME_WEEKLY_SCORES.length)
+        ? ALL_TIME_WEEKLY_SCORES
+        : teams.slice().sort(function(a,b){ return b.best - a.best; }).map(function(t) {
+            return { owner: t.name, team: '', score: t.best, week: '', season: t.bestInfo };
+          });
+      weeklyScores.slice(0, 10).forEach(function(t, i) {
+        var score = typeof t.score === 'number' ? t.score.toFixed(2) : t.score;
+        var when = t.week ? 'Week ' + t.week + ', ' + t.season : t.season;
+        html += '<tr><td><span class="rank-num">' + (i+1) + '</span></td><td style="font-weight:600;">' + t.owner + '</td><td>' + (t.team || '—') + '</td><td>' + score + '</td><td>' + when + '</td></tr>';
+      });
+      document.getElementById('alltime-bestweek').innerHTML = html;
+
+      // Luck Rankings
+      // Rank by PF (parse the comma-separated string)
+      var byPF = teams.slice().sort(function(a,b) {
+        var aPF = parseFloat(String(a.pf).replace(/,/g, '')) || 0;
+        var bPF = parseFloat(String(b.pf).replace(/,/g, '')) || 0;
+        return bPF - aPF;
+      });
+      var byWins = teams.slice().sort(function(a,b){ return b.w - a.w; });
+      
+      // Assign ranks
+      var pfRank = {};
+      byPF.forEach(function(t, i) { pfRank[t.name] = i + 1; });
+      var winRank = {};
+      byWins.forEach(function(t, i) { winRank[t.name] = i + 1; });
+      
+      // Luck = PF rank - Win rank (positive = lucky, scoring low but winning more)
+      var luckData = teams.map(function(t) {
+        return { name: t.name, w: t.w, pfRank: pfRank[t.name], winRank: winRank[t.name], luck: pfRank[t.name] - winRank[t.name] };
+      });
+      luckData.sort(function(a,b){ return b.luck - a.luck; });
+      
+      html = '';
+      luckData.forEach(function(t, i) {
+        var color = t.luck > 0 ? '#198754' : t.luck < 0 ? '#dc3545' : '#666';
+        var label = t.luck > 0 ? '+' + t.luck + ' \ud83c\udf40' : t.luck < 0 ? t.luck + ' \ud83d\udc80' : '0';
+        html += '<tr><td><span class="rank-num">' + (i+1) + '</span></td><td style="font-weight:600;">' + t.name + '</td><td>' + t.w + '</td><td>#' + t.pfRank + '</td><td>#' + t.winRank + '</td><td style="color:' + color + ';font-weight:700;">' + label + '</td></tr>';
+      });
+      document.getElementById('alltime-luck').innerHTML = html;
+    }
+
+    /* ===================== SEASON SUMMARIES ===================== */
+    var SEASONS = {
+      '2022': {
+        champion: 'Peter Lundquist', runnerUp: 'Isaac Douglas',
+        recap: "Peter Lundquist's inaugural-season dominance ended exactly how it should have \u2014 with a championship. He posted a league-record 1,936.1 points and cruised to a 13-1 regular season, then rode a two-week playoff format to the title. Isaac Douglas (11-3) was the only other team to stay in his rearview. The first champion in league history set a standard that still hasn't been touched.",
+        cards: [
+          ['\ud83c\udfc6','Champion','Peter Lundquist','13-1, league-record 1,936.1 PF. The most dominant season ever recorded.'],
+          ['\ud83e\udd48','Runner-Up','Isaac Douglas','11-3 with "A Slap in the Face." The closest anyone got to Peter all year.'],
+          ['\ud83d\udd25','Top Single Week','Christian Massett','189.3 in Week 7 \u2014 the highest score of the 2022 season.'],
+          ['\ud83d\udcc8','Scoring Leader','Peter Lundquist','1,936.1 PF, still the single-season league record.'],
+          ['\ud83d\udcaa','Best of the Rest','Christian Massett','10-4 with the 3rd-most points. Quietly excellent behind the top two.'],
+          ['\ud83e\udd44','Cellar','Grant Sawyer','3-11, fewest points in the league (1,347.7). Nowhere to go but up.']
+        ]
+      },
+      '2023': {
+        champion: 'Kaleb Feahn', runnerUp: 'Logan Rezac',
+        recap: "The first Cinderella. Kaleb Feahn snuck into the playoffs as the 5 seed and won three straight to steal the title \u2014 a year after finishing dead last at 3-11. Logan Rezac earned the #1 seed at 10-4 but couldn't convert. Grant Sawyer led the entire league in scoring (1,846.0 PF) yet finished 2nd in the standings, a preview of the luck/production gap that defines this league.",
+        cards: [
+          ['\ud83c\udfc6','Champion','Kaleb Feahn','Worst-to-first: 3-11 in 2022 to 2023 champ as the 5 seed. The first upset title.'],
+          ['\ud83e\udd48','#1 Seed (No Ring)','Logan Rezac','10-4 top seed, couldn\u2019t close. The curse begins.'],
+          ['\ud83d\udd25','Top Single Week','Adam Stockwell','205.6 in Week 10 \u2014 the all-time single-week league record.'],
+          ['\ud83d\udcc8','Scoring Leader','Grant Sawyer','1,846.0 PF led the league \u2014 but only good for a 2nd-place 9-5 finish.'],
+          ['\ud83c\udfa2','Biggest Fall','Peter Lundquist','From 13-1 champ to 4-10. The sharpest title-defense collapse in league history.'],
+          ['\ud83d\udcaa','Steady Riser','Adam Stockwell','9-5 and the record week. Building toward something.']
+        ]
+      },
+      '2024': {
+        champion: 'Noah Thesing', runnerUp: 'Logan Rezac',
+        recap: "Lightning struck twice. Noah Thesing became the second straight upset champion, winning it all from the 7 seed \u2014 capped by a 170.7 playoff explosion. Logan Rezac held the #1 seed for the SECOND consecutive year (9-5) and again fell short. The #1 Seed Curse was now officially real. Peter Lundquist bounced back with the league\u2019s top scoring output (1,804.8 PF) and a 2nd-place finish.",
+        cards: [
+          ['\ud83c\udfc6','Champion','Noah Thesing','Won it all from the 7 seed \u2014 back-to-back Cinderella era. A 170.7 playoff eruption sealed it.'],
+          ['\ud83e\udd48','#1 Seed (No Ring)','Logan Rezac','9-5 top seed, out early \u2014 again. Two straight years, two collapses.'],
+          ['\ud83d\udd25','Comeback Scorer','Peter Lundquist','League-high 1,804.8 PF and an 8-6 rebound after the 2023 crash.'],
+          ['\ud83d\udd25','Top Single Week','Noah Thesing','170.7 in the Week-16 semifinal \u2014 the swing that won a title.'],
+          ['\ud83d\udcc8','Scoring Leader','Peter Lundquist','1,804.8 PF, tops in the league.'],
+          ['\ud83e\udd44','Cellar','Leif Engen','3-11, fewest points (1,388.1). A rough one for Joey Lunchbox.']
+        ]
+      },
+      '2025': {
+        champion: 'Adam Stockwell', runnerUp: 'John Lundquist',
+        recap: "The curse broke. Adam Stockwell entered as the #1 seed AND finished the job \u2014 the first top seed to win it all \u2014 with a 150.3 championship performance over Mitchell Max. He led the league in scoring (1,939.3 PF) and faced the hardest schedule, so there\u2019s no asterisk. John Lundquist (10-4, \"R.I.C.O\") pushed him all year. At the bottom, Logan Rezac hit rock bottom at 4-10 and earned the dress-to-golf punishment.",
+        cards: [
+          ['\ud83c\udfc6','Champion','Adam Stockwell','10-4, broke the #1-seed curse. Led the league in scoring (1,939.3 PF) the hard way.'],
+          ['\ud83e\udd48','Runner-Up','John Lundquist','10-4 "R.I.C.O" \u2014 tied the champ\u2019s record, pushed him to the end.'],
+          ['\ud83c\udf40','Luckiest','CJ Woda','5 wins on just 3.1 expected (+1.9). Rode the schedule all year.'],
+          ['\ud83d\udc80','Unluckiest','Grant Sawyer','4 wins on 5.7 expected. 2nd-hardest slate. Deserved better.'],
+          ['\ud83d\udcaa','Hardest Schedule','Adam Stockwell','Faced the toughest slate (4.92 avg wins against) \u2014 and won anyway.'],
+          ['\ud83d\udc57','Last Place','Logan Rezac','4-10, dead last. The dress-to-golf punishment awaits.']
+        ]
+      }
+    };
+
+    function renderSeason(year) {
+      var s = SEASONS[year];
+      if (!s) return;
+      var recapHtml =
+        '<div style="background:#fff;border:1px solid #e5e5e5;border-left:5px solid #d4943a;border-radius:8px;padding:1.5rem 1.75rem;box-shadow:0 2px 8px rgba(0,0,0,0.06);max-width:820px;margin:0 auto 2rem;">' +
+          '<div style="display:flex;align-items:center;gap:1rem;margin-bottom:0.9rem;flex-wrap:wrap;">' +
+            '<span style="background:#d4943a;color:#fff;padding:0.35rem 1rem;border-radius:4px;font-weight:800;font-size:1rem;letter-spacing:1px;">' + year + '</span>' +
+            '<span style="font-weight:700;color:#333;font-size:1rem;">\ud83c\udfc6 ' + s.champion + ' \u2014 CHAMPION</span>' +
+          '</div>' +
+          '<p style="color:#555;line-height:1.75;font-size:0.95rem;">' + s.recap + '</p>' +
+        '</div>';
+      var cardsHtml = '<div class="card-grid">';
+      s.cards.forEach(function(c) {
+        cardsHtml += '<div class="summary-card"><h3>' + c[0] + ' ' + c[1] + '</h3>' +
+          '<p><strong style="color:var(--cream);">' + c[2] + '</strong> \u2014 ' + c[3] + '</p></div>';
+      });
+      cardsHtml += '</div>';
+      document.getElementById('season-content').innerHTML = recapHtml + cardsHtml;
+    }
+
+    // initial render
+    renderSeason('2025');
+  </script>
+  <script src="js/polish.js"></script>
+</body>
+</html>

@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Teams — Players League</title>
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    /* Teams-data.js content overrides — light theme */
+    #tp-h2h > div,
+    #tp-seasons > div {
+      border-bottom: 1px solid #e5e5e5 !important;
+      padding: 0.5rem 0.1rem !important;
+    }
+    #tp-h2h > div:last-child,
+    #tp-seasons > div:last-child {
+      border-bottom: none !important;
+    }
+    /* Ensure readable text in data-driven content */
+    #tp-h2h span:first-child,
+    #tp-seasons span:first-child { color: #333333 !important; font-weight: 500; }
+
+    /* Season records: force a clean aligned grid instead of squished flex
+       Columns: Year | W-L | PF | Team name (name truncates, never jumbles) */
+    #tp-seasons > div {
+      display: grid !important;
+      grid-template-columns: 3.2rem 3.2rem 5.5rem 1fr !important;
+      align-items: center !important;
+      column-gap: 0.5rem !important;
+    }
+    #tp-seasons > div > span {
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    /* Team-name column (4th span) can use the remaining space, right-aligned */
+    #tp-seasons > div > span:nth-child(4) {
+      text-align: right;
+      color: #666666 !important;
+    }
+    /* Head-to-head rows: keep two-column layout tidy */
+    #tp-h2h > div {
+      display: grid !important;
+      grid-template-columns: 1fr auto !important;
+      align-items: center !important;
+      column-gap: 0.75rem !important;
+    }
+
+    @media (max-width: 480px) {
+      /* Narrow phone: Year | W-L | PF | Name(flex, truncates) */
+      #tp-seasons > div {
+        grid-template-columns: 2.6rem 2.8rem 4.4rem 1fr !important;
+        column-gap: 0.4rem !important;
+        font-size: 0.8rem !important;
+      }
+      #tp-seasons > div > span:nth-child(3) { font-size: 0.74rem !important; }
+      #tp-seasons > div > span:nth-child(4) { font-size: 0.72rem !important; }
+    }
+
+    select#team-select {
+      background: #ffffff;
+      color: #333333;
+      border: 2px solid #e5e5e5;
+      padding: 0.75rem 1.5rem;
+      border-radius: 4px;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      font-size: 0.95rem;
+      font-weight: 600;
+      min-width: 260px;
+      cursor: pointer;
+      transition: border-color 0.18s ease;
+    }
+    select#team-select:focus {
+      outline: none;
+      border-color: #0068b3;
+    }
+
+    /* Team achievement banners */
+    .pl-banner {
+      display: inline-block;
+      color: #ffffff;
+      padding: 0.2rem 0.6rem;
+      border-radius: 3px;
+      font-size: 0.62rem;
+      font-weight: 800;
+      letter-spacing: 0.3px;
+      text-transform: uppercase;
+      margin: 0.15rem;
+      white-space: nowrap;
+    }
+  </style>
+</head>
+<body class="polish">
+
+  <!-- Navigation -->
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="home.html" class="nav-logo">PLAYERS LEAGUE<span class="sub">Fantasy Football · Est. 2022</span></a>
+      <div class="nav-toggle"><span></span><span></span><span></span></div>
+      <div class="nav-links">
+        <a href="weekend.html">Weekend</a>
+        <a href="home.html">Home</a>
+        <a href="teams.html" class="active">Teams</a>
+        <a href="awards.html">Awards</a>
+        <a href="history.html">History</a>
+        <a href="analytics.html">Analytics</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Ticker Bar -->
+  <div class="ticker-wrap">
+    <div class="ticker-label">League News</div>
+    <div class="ticker-track">
+      <div class="ticker-inner">
+        <span>🏆 2025 Champion: Adam Stockwell — "Sutton Deez Nutz" 10-4, 1,939.3 PF</span>
+        <span>🔥 All-time single-week record: Adam Stockwell 205.6 pts — Week 10, 2023</span>
+        <span>👗 Logan Rezac: 2025 last place — dress for golf punishment</span>
+        <span>📊 4 seasons, 4 different champions — zero repeat winners</span>
+        <span>👑 Career wins leader: Adam Stockwell 34-22 (.607)</span>
+        <span>🏈 Players Weekend 2026 — August 20–23</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Page Header -->
+  <section class="page-header">
+    <h1>TEAM <span class="gold">PROFILES</span></h1>
+    <p>Select an owner to see their full history, head-to-head record, and career stats.</p>
+  </section>
+
+  <!-- Team Selector -->
+  <section class="section">
+
+    <div style="text-align:center;margin-bottom:2rem;">
+      <select id="team-select" onchange="showTeam(this.value)">
+        <option value="">— Select Owner —</option>
+        <option value="Adam Stockwell">Adam Stockwell</option>
+        <option value="CJ Woda">CJ Woda</option>
+        <option value="Christian Massett">Christian Massett</option>
+        <option value="Grant Sawyer">Grant Sawyer</option>
+        <option value="Isaac Douglas">Isaac Douglas</option>
+        <option value="John Lundquist">John Lundquist</option>
+        <option value="Kaleb Feahn">Kaleb Feahn</option>
+        <option value="Leif Engen">Leif Engen</option>
+        <option value="Logan Rezac">Logan Rezac</option>
+        <option value="Mitchell Max">Mitchell Max</option>
+        <option value="Noah Thesing">Noah Thesing</option>
+        <option value="Peter Lundquist">Peter Lundquist</option>
+      </select>
+    </div>
+
+    <!-- Team Profile (hidden until selected) -->
+    <div id="team-profile" style="display:none;">
+
+      <!-- Header Stats bar -->
+      <div style="background:#0a1628;border-radius:4px;padding:1.1rem 1.4rem;margin-bottom:1.1rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:0.75rem;">
+        <div>
+          <h2 id="tp-name" style="font-size:1.3rem;font-weight:900;color:#ffffff;text-transform:uppercase;letter-spacing:0.3px;margin-bottom:0.1rem;"></h2>
+          <p id="tp-career" style="color:#888888;font-size:0.8rem;"></p>
+        </div>
+        <div id="tp-win-pct" style="font-size:2rem;font-weight:900;color:#0068b3;line-height:1;"></div>
+      </div>
+
+      <!-- Achievement Banners -->
+      <div id="tp-banners" style="margin-bottom:1.1rem;display:flex;flex-wrap:wrap;gap:0;"></div>
+
+      <!-- Franchise Recap -->
+      <div class="info-block" style="margin-bottom:1.1rem;">
+        <h3>📖 Franchise Recap</h3>
+        <p id="tp-article" style="font-size:0.95rem;line-height:1.7;color:#333333;"></p>
+      </div>
+
+      <!-- Rival -->
+      <div class="info-block" style="margin-bottom:1.1rem;">
+        <h3>⚔️ Biggest Rival</h3>
+        <p id="tp-rival" style="font-size:0.9rem;"></p>
+      </div>
+
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1.1rem;">
+
+        <!-- Season-by-Season -->
+        <div style="background:#ffffff;border:1px solid #e5e5e5;border-top:3px solid #0068b3;border-radius:4px;padding:1.1rem;box-shadow:0 1px 4px rgba(0,0,0,0.07);">
+          <div style="font-size:0.7rem;font-weight:800;color:#0068b3;text-transform:uppercase;letter-spacing:1px;margin-bottom:0.75rem;">📅 Season by Season</div>
+          <div id="tp-seasons" style="font-size:0.85rem;"></div>
+        </div>
+
+        <!-- Head-to-Head -->
+        <div style="background:#ffffff;border:1px solid #e5e5e5;border-top:3px solid #0068b3;border-radius:4px;padding:1.1rem;box-shadow:0 1px 4px rgba(0,0,0,0.07);">
+          <div style="font-size:0.7rem;font-weight:800;color:#0068b3;text-transform:uppercase;letter-spacing:1px;margin-bottom:0.75rem;">🆚 Head-to-Head All-Time</div>
+          <div id="tp-h2h" style="font-size:0.85rem;"></div>
+        </div>
+
+      </div>
+
+      <!-- Stat Cards -->
+      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:0.85rem;">
+        <div style="background:#ffffff;border:1px solid #e5e5e5;border-radius:4px;padding:1rem;text-align:center;box-shadow:0 1px 4px rgba(0,0,0,0.07);">
+          <div style="color:#666666;font-size:0.65rem;text-transform:uppercase;letter-spacing:1px;margin-bottom:0.4rem;font-weight:700;">Best Single Week</div>
+          <div id="tp-best" style="color:#0068b3;font-size:2rem;font-weight:900;line-height:1;margin-bottom:0.15rem;"></div>
+          <div id="tp-best-info" style="color:#999999;font-size:0.75rem;"></div>
+        </div>
+        <div style="background:#ffffff;border:1px solid #e5e5e5;border-radius:4px;padding:1rem;text-align:center;box-shadow:0 1px 4px rgba(0,0,0,0.07);">
+          <div style="color:#666666;font-size:0.65rem;text-transform:uppercase;letter-spacing:1px;margin-bottom:0.4rem;font-weight:700;">Career Points For</div>
+          <div id="tp-pf" style="color:#0068b3;font-size:2rem;font-weight:900;line-height:1;"></div>
+        </div>
+      </div>
+
+    </div><!-- /team-profile -->
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <p><span class="gold">PLAYERS LEAGUE</span> &mdash; Est. 2022</p>
+  </footer>
+
+  <script src="js/teams-data.js"></script>
+  <script src="js/gate.js"></script>
+  <script>
+    document.querySelector('.nav-toggle')?.addEventListener('click', () => {
+      document.querySelector('.nav-links').classList.toggle('open');
+    });
+
+    function showTeam(name) {
+      var p = document.getElementById('team-profile');
+      if (!name || !TEAM_DATA[name]) { p.style.display = 'none'; return; }
+      var t = TEAM_DATA[name];
+      p.style.display = 'block';
+
+      document.getElementById('tp-name').textContent = name;
+      document.getElementById('tp-career').textContent =
+        t.career_w + '-' + t.career_l + ' career (' + t.wp + '%) | ' + t.career_pf + ' career PF';
+      document.getElementById('tp-win-pct').textContent = t.wp + '%';
+      document.getElementById('tp-rival').innerHTML =
+        'Biggest rivalry: <strong style="color:#333333;font-size:1rem;">' + t.rival + '</strong>' +
+        ' — All-time record: <strong style="color:#0068b3;">' + t.rival_rec + '</strong>';
+      var articleEl = document.getElementById('tp-article');
+      if (articleEl) articleEl.textContent = t.article || '';
+      document.getElementById('tp-seasons').innerHTML = t.seasons_html;
+      document.getElementById('tp-h2h').innerHTML = t.h2h_html;
+      document.getElementById('tp-best').textContent = t.best_score;
+      document.getElementById('tp-best-info').textContent = t.best_info;
+      document.getElementById('tp-pf').textContent = t.career_pf;
+
+      var bannersEl = document.getElementById('tp-banners');
+      if (bannersEl) bannersEl.innerHTML = t.banners_html || '';
+
+      window.scrollTo({ top: p.offsetTop - 80, behavior: 'smooth' });
+    }
+  </script>
+  <script src="js/polish.js"></script>
+</body>
+</html>
