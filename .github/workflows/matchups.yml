@@ -64,7 +64,7 @@ jobs:
 
       - name: Commit & push if changed
         run: |
-          PATHS="matchups rankings.html home.html analytics.html tools/data"
+          PATHS="matchups rankings.html home.html analytics.html podcast tools/data"
           if [ -n "$(git status --porcelain $PATHS)" ]; then
             git config user.name  "players-league-bot"
             git config user.email "actions@users.noreply.github.com"

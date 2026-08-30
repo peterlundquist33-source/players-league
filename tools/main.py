@@ -69,6 +69,13 @@ def run(phase_arg, season, week, dry, force=False):
     page = R.week_page(data, copies, intro)
     R.index_page(season)
 
+    if phase == "preview" and not dry:
+        try:
+            import podcast as PC
+            PC.build_csv(season, wk)
+        except Exception as e:
+            print(f"podcast prep skipped: {e}")
+
     DATA.mkdir(parents=True, exist_ok=True)
     (DATA / f"{season}-week-{wk:02d}.json").write_text(json.dumps(
         {"generated": datetime.datetime.now().isoformat(timespec="seconds"),
