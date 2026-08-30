@@ -167,7 +167,9 @@ def _grade_card(t, copy):
     paras = "".join("<p>%s</p>" % html.escape(p.strip())
                     for p in copy["body"].split("\n") if p.strip())
     return ('<article class="mx-card reveal">'
-            '<div class="gr-hd"><div class="gr-grade%s">%s</div>'
+            '<div class="gr-hd"><div class="gr-grade%s">%s'
+            '<span style="display:block;font-size:.42em;font-weight:700;color:var(--text-muted);'
+            'letter-spacing:0;">%s/100</span></div>'
             '<div><div class="mx-owner">%s</div>'
             '<div class="mx-sub">%s</div>'
             '<div class="gr-rank">#%d of 12</div></div></div>'
@@ -175,7 +177,7 @@ def _grade_card(t, copy):
             '%s'
             '<div class="mx-body"><div class="mx-head">%s</div>%s</div>'
             '</article>' % (
-                lo, html.escape(t["grade"]), html.escape(t["owner"]),
+                lo, html.escape(t["grade"]), t["score"], html.escape(t["owner"]),
                 html.escape(t["team"]), t["rank"], chips, cite,
                 html.escape(copy["headline"]), paras))
 
@@ -186,8 +188,9 @@ def rankings_page(g, copies, intro):
     stamp = datetime.date.today().isoformat()
     cards = "\n".join(_grade_card(t, copies[i]) for i, t in enumerate(g["teams"]))
     body = ('<section class="page-header"><h1>%d DRAFT <span class="gold">GRADES</span></h1>'
-            '<p>Roster quality + draft-value efficiency vs a 5-source consensus '
-            '(ESPN ADP, ESPN, FantasyPros ECR, FantasyCalc, Sleeper) · curved · %s</p></section>'
+            '<p>Absolute 0–100 score (not curved) — roster quality vs fixed positional '
+            'benchmarks on a 5-source consensus (ESPN, ESPN ADP, FantasyPros ECR, '
+            'FantasyCalc, Sleeper), plus a draft-value adjustment · %s</p></section>'
             '<div class="mx-wrap"><p class="mx-intro">%s</p>%s</div>'
             % (season, stamp, html.escape(intro), cards))
     (ROOT / "rankings.html").write_text(_page("Draft Grades", "Rankings", body, depth=0))

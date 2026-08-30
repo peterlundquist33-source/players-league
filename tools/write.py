@@ -225,8 +225,11 @@ ACCURACY — this matters, people in the league will read it:
 - Don't editorialize a player's decline, "lost step", target share, or scheme fit
   unless it's flatly common knowledge. Prefer the draft-cost / rank framing.
 
-Tone tracks the grade: an A/A+ leads with what the roster does well, flaw as a
-footnote; a D/F is direct about the problems but stays specific.
+The grade is ABSOLUTE (a real 0-100 score, not a curve): it reflects how good the
+roster actually is against fixed positional benchmarks. A 90+ is a genuinely loaded
+team; a mid-70s means startable but unspectacular with real holes. Tone tracks the
+number — an A leads with what the roster does well and treats a flaw as a footnote;
+a C is even-handed about the strengths and the gaps.
 
 Output format — EXACTLY this, nothing before or after:
 HEADLINE: <4-9 words about the roster or the draft plan, not a punchline>
@@ -268,11 +271,11 @@ def grade_team(t, season, extremes=None):
                    if v["grade"] != "—")
     lines = [
         f'TEAM: {t["owner"]} ("{t["team"]}")',
-        f'GRADE: {t["grade"]} — {t["rank"]} of 12 overall.',
-        f'The grade = 65% roster quality + 35% draft-value efficiency. '
-        f'Roster-strength score {t["strength"]} (higher is better). '
-        f'Draft-efficiency score {t["efficiency"]:+.0f} (negative = paid at/above market to get it).',
-        f'Positional grades (strength of each room vs the rest of the league): {pg}.',
+        f'GRADE: {t["grade"]} ({t["score"]}/100) — {t["rank"]} of 12.',
+        f'This is an ABSOLUTE grade, not curved: roster quality judged against fixed '
+        f'positional benchmarks ({t["roster_score"]:.0f}/100), plus a small draft-value '
+        f'adjustment ({t["value_adj"]:+.1f}: {"drafted efficiently" if t["value_adj"] >= 0 else "reached more than the league norm"}).',
+        f'Positional grades (each room vs a solid-starter benchmark, also absolute): {pg}.',
         '',
         'SKILL-POSITION PICKS (round, overall pick, player — position, NFL team, bye · value tag):',
     ]
