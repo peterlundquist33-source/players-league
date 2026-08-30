@@ -227,63 +227,79 @@ def build_csv(season, week, dry=False):
         awards = _awards(g, season)
         power = _power(g, lg, week)
 
-    grid = [["" for _ in range(13)] for _ in range(24)]
+    def proj(side):
+        return side.get("optimal_proj", 0) or 0
 
-    def put(r, c, v):
-        grid[r][c - 1] = v
+    # slot order for a tidy read-through
+    order = sorted(range(len(ms)),
+                   key=lambda i: (SLOTS.index(assigned.get(i)) if assigned.get(i) in SLOTS else 9,
+                                  -max(proj(ms[i]["away"]), proj(ms[i]["home"]))))
 
-    put(2, 4, "AGENDA")
-    put(3, 2, "Guest:"); put(3, 3, "1"); put(3, 4, "Welcome back")
-    put(4, 3, "2"); put(4, 4, "League Award Predictions")
-    put(5, 3, "3"); put(5, 4, "Power Rankings")
-    put(6, 3, "4"); put(6, 4, "Matchups")
+    # quick auto storylines
+    gaps = sorted(ms, key=lambda m: abs(proj(m["away"]) - proj(m["home"])))
+    closest = gaps[0]
+    blowout = gaps[-1]
+    loaded = max(ms, key=lambda m: max(proj(m["away"]), proj(m["home"])))
+    ld_side = loaded["away"] if proj(loaded["away"]) >= proj(loaded["home"]) else loaded["home"]
 
-    # matchups: 2 per band, 3 bands. left cols 6-8, right cols 11-13
-    band_rows = [3, 10, 17]
-    for band, r0 in enumerate(band_rows):
-        for col0, idx in ((6, band * 2), (11, band * 2 + 1)):
-            if idx >= len(ms):
-                continue
-            m = ms[idx]
-            a, h = m["away"], m["home"]
-            na, nh = nick.get(idx, (a["team"], h["team"]))
-            put(r0, col0, f'{assigned.get(idx, "Sunday")} — {nfl_game.get(idx, "")}')
-            put(r0 + 1, col0, f'{na} ({a["owner"]})')
-            put(r0 + 1, col0 + 1, "vs.")
-            put(r0 + 1, col0 + 2, f'{nh} ({h["owner"]})')
-            put(r0 + 2, col0, f'proj {a.get("optimal_proj", 0):.0f}-{h.get("optimal_proj", 0):.0f}')
-            put(r0 + 3, col0, "Prediction:")
-            put(r0 + 4, col0, pred.get(idx, ""))
+    R = []                       # rows: list of cells
+    def sec(title):
+        R.extend([[], [title], []])
 
-    # award table (cols 2-4), rows 17-22
-    put(16, 2, "Award"); put(16, 3, "Pick"); put(16, 4, "Owner")
-    for k, (lbl, r) in enumerate([("Fantasy MVP:", 17), ("Rookie of the Year:", 18),
-                                  ("Comeback Player of the Year:", 19),
-                                  ("Bust of the Year:", 20), ("Sleeper of the Year:", 21)]):
-        key = ["MVP", "ROY", "COMEBACK", "BUST", "SLEEPER"][k]
-        a = awards.get(key, ["", "", ""])
-        put(r, 2, lbl); put(r, 3, a[0]); put(r, 4, a[1])
+    R.append([f"PLAYERS LEAGUE PODCAST  —  WEEK {week} RUNDOWN"])
+    R.append([f"generated {datetime.date.today().isoformat()}  ·  "
+              f"{len(ms)} matchups  ·  season {season}"])
 
-    # trailing reference sections
-    extra = [[], ["POWER RANKINGS"]]
-    for rank, owner_, note in power:
-        extra.append([str(rank), owner_, note])
-    extra += [[], ["AWARD NOTES"]]
+    sec("1  ·  WELCOME BACK")
+    R.append(["", "Guest", ""])
+    R.append(["", "Cold open / notes", ""])
+    R.append(["", "This week's storylines", ""])
+    R.append(["", "", f'Closest game: {closest["away"]["owner"]} vs {closest["home"]["owner"]} '
+              f'(~{abs(proj(closest["away"]) - proj(closest["home"])):.0f} pts apart)'])
+    R.append(["", "", f'Biggest mismatch: {blowout["away"]["owner"]} vs {blowout["home"]["owner"]} '
+              f'(~{abs(proj(blowout["away"]) - proj(blowout["home"])):.0f} pts)'])
+    R.append(["", "", f'Most loaded roster: {ld_side["owner"]} (~{proj(ld_side):.0f} projected)'])
+
+    sec("2  ·  AWARD PREDICTIONS")
+    R.append(["", "Award", "Pick", "Owner", "Why"])
     for key, lbl in [("MVP", "Fantasy MVP"), ("ROY", "Rookie of the Year"),
-                     ("COMEBACK", "Comeback"), ("BUST", "Bust"), ("SLEEPER", "Sleeper")]:
+                     ("COMEBACK", "Comeback Player"), ("BUST", "Bust"),
+                     ("SLEEPER", "Sleeper")]:
         a = awards.get(key, ["", "", ""])
-        extra.append([lbl, a[0], a[1], a[2] if len(a) > 2 else ""])
-    extra += [[], ["MATCHUP DATA (reference)"]]
+        R.append(["", lbl, a[0], a[1] if len(a) > 1 else "", a[2] if len(a) > 2 else ""])
+
+    sec("3  ·  POWER RANKINGS")
+    R.append(["", "#", "Team", "Owner", "Take"])
+    owners_team = {t["owner"]: t["team"] for t in g["teams"]}
+    for rank, owner_, note in power:
+        R.append(["", rank, owners_team.get(owner_, ""), owner_, note])
+
+    sec("4  ·  MATCHUPS")
+    for n, i in enumerate(order, 1):
+        m = ms[i]
+        a, h = m["away"], m["home"]
+        na, nh = nick.get(i, (a["team"], h["team"]))
+        fav = a["owner"] if proj(a) >= proj(h) else h["owner"]
+        R.append([f"GAME {n}", assigned.get(i, "Sunday"), nfl_game.get(i, ""),
+                  f"proj favorite: {fav}"])
+        R.append(["", "Away", na, a["owner"], f'{proj(a):.0f} proj  ·  {a["record"]}'])
+        R.append(["", "Home", nh, h["owner"], f'{proj(h):.0f} proj  ·  {h["record"]}'])
+        R.append(["", "PREDICTION", pred.get(i, "")])
+        R.append([])
+
+    sec("5  ·  HOT SEAT")
+    R.append(["", "(starts with the Week 4 podcast)"])
+
+    sec("REFERENCE  ·  raw matchup data")
+    R.append(["", "Matchup", "NFL slot", "Proj", "NFL game"])
     for i, m in enumerate(ms):
         a, h = m["away"], m["home"]
-        extra.append([f'{a["owner"]} vs {h["owner"]}', assigned.get(i, ""),
-                      f'{a["optimal_proj"]:.0f}-{h["optimal_proj"]:.0f}', nfl_game.get(i, "")])
+        R.append(["", f'{a["owner"]} vs {h["owner"]}', assigned.get(i, ""),
+                  f'{proj(a):.0f}-{proj(h):.0f}', nfl_game.get(i, "")])
 
     out = io.StringIO()
     w = csv.writer(out)
-    for row in grid:
-        w.writerow(row)
-    for row in extra:
+    for row in R:
         w.writerow(row)
     text = out.getvalue()
 

@@ -50,7 +50,7 @@ def espn(views, season, scoring_period=None):
 # ---------------------------------------------------------------- Anthropic
 
 ANTHROPIC_URL = "https://api.anthropic.com/v1/messages"
-MODEL = os.environ.get("ANTHROPIC_MODEL", "claude-sonnet-5")
+MODEL = os.environ.get("ANTHROPIC_MODEL", "claude-opus-5")
 
 
 def claude(system, user, max_tokens=1024):
