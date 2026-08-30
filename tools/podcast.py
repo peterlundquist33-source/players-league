@@ -64,79 +64,122 @@ def _nfl_week(season, week):
     return out, games
 
 
-def _assign_slots(matchups, team_slot, games):
-    """One NFL slot per fantasy matchup. Standalone slots (TNF/Fri/SNF/MNF) go to
-    the matchup with the most projected points invested there; the rest split
-    across Sunday Noon / Afternoon."""
-    have = {s for s, _, _ in games}
-    by_mx = []
-    for m in matchups:
-        d = {}
-        for side in (m["away"], m["home"]):
-            for p in side["players"]:
-                s = team_slot.get(p["pro"])
-                if s:
-                    d[s] = d.get(s, 0.0) + p["proj"]
-        by_mx.append(d)
+from lore import rivalry_between
 
+# most prestigious -> least. The best fantasy matchup gets prime time.
+_SLOT_PRIORITY = ["Sunday Night", "Monday Night", "Thursday Night",
+                  "Friday Night Brazil", "Sunday Afternoon", "Sunday Noon"]
+
+
+def _interest(m, roster_score):
+    """How much this fantasy matchup matters to the league -> higher = primetime."""
+    a, h = m["away"], m["home"]
+    pa = a.get("optimal_proj", 0) or 0
+    ph = h.get("optimal_proj", 0) or 0
+    qa = roster_score.get(a["owner"], 60)
+    qh = roster_score.get(h["owner"], 60)
+    wins = lambda r: int(str(r).split("-")[0]) if r else 0
+    score = 0.0
+    score += 1.4 * (qa + qh)                 # both teams good = the main driver
+    score -= 1.3 * abs(pa - ph)              # blowouts are a little boring
+    score += 0.20 * (pa + ph)                # shootout potential
+    score += 30 if rivalry_between(a["owner_full"], h["owner_full"]) else 0
+    score += 7 * (wins(a["record"]) + wins(h["record"]))   # in-season: standings weight
+    return score
+
+
+def _assign_slots(matchups, roster_score, have_friday):
+    """Rank matchups by interest, map best -> best slot."""
+    slots = [s for s in _SLOT_PRIORITY if s != "Friday Night Brazil" or have_friday]
+    ranked = sorted(range(len(matchups)),
+                    key=lambda i: -_interest(matchups[i], roster_score))
     assigned = {}
-    for slot in ("Thursday Night", "Friday Night Brazil", "Sunday Night", "Monday Night"):
-        if slot not in have:
-            continue
-        claims = sorted(((by_mx[i].get(slot, 0), i)
-                         for i in range(len(matchups)) if i not in assigned), reverse=True)
-        if claims and claims[0][0] > 0:
-            assigned[claims[0][1]] = slot
-
-    left = [i for i in range(len(matchups)) if i not in assigned]
-    left.sort(key=lambda i: -(by_mx[i].get("Sunday Noon", 0) - by_mx[i].get("Sunday Afternoon", 0)))
-    half = (len(left) + 1) // 2
-    for k, i in enumerate(left):
-        assigned[i] = "Sunday Noon" if k < half else "Sunday Afternoon"
+    for k, i in enumerate(ranked):
+        assigned[i] = slots[k] if k < len(slots) else "Sunday Noon"
     return assigned
 
 
 # ---------------------------------------------------------------- Claude bits
 
-def _nicknames_and_preds(matchups, assigned, week):
+_SERIOUS = ("OUT", "DOUBTFUL", "INJURY_RESERVE", "IR", "SUSPENSION", "PUP")
+
+
+def _hurt(p):
+    return p.get("injury", "").upper() in _SERIOUS
+
+
+def _starters_by_proj(side):
+    """Best realistic starting core (1 QB, 2 RB, 2 WR, 1 TE, 1 FLEX), proj desc."""
+    pool = sorted((p for p in side["players"] if p["pos"] in ("QB", "RB", "WR", "TE")),
+                  key=lambda x: -x["proj"])
+    need = {"QB": 1, "RB": 2, "WR": 2, "TE": 1}
+    core, used = [], set()
+    for p in pool:
+        if need.get(p["pos"], 0):
+            core.append(p); used.add(id(p)); need[p["pos"]] -= 1
+    for p in pool:                     # FLEX
+        if id(p) not in used and p["pos"] in ("RB", "WR", "TE"):
+            core.append(p); break
+    return sorted(core, key=lambda x: -x["proj"])
+
+
+def _key_players(side, k=4):
+    out = []
+    for p in _starters_by_proj(side)[:k]:
+        tag = f' [{p["injury"][:1].upper()}]' if _hurt(p) else ""
+        out.append(f'{p["name"]} ({p["pos"]}-{p["pro"]}, {p["proj"]:.0f}){tag}')
+    return out
+
+
+def _matchup_writeup(matchups, assigned, week):
+    """One Claude call -> per matchup: pun names, x-factor, 3 talking points, prediction."""
     blocks = []
     for i, m in enumerate(matchups):
         a, h = m["away"], m["home"]
-        def top(side, k):
-            return ", ".join(f'{p["name"]}' for p in sorted(
-                side["players"], key=lambda x: -x["proj"])[:k])
         blocks.append(
-            f'MATCHUP {i} — {assigned.get(i, "Sunday")}\n'
-            f'  {a["owner"]} ("{a["team"]}", {a["record"]}) — proj {a.get("optimal_proj", 0):.0f}. '
-            f'Best: {top(a, 4)}\n'
-            f'  {h["owner"]} ("{h["team"]}", {h["record"]}) — proj {h.get("optimal_proj", 0):.0f}. '
-            f'Best: {top(h, 4)}')
+            f'MATCHUP {i} — {assigned.get(i, "Sunday Noon")}\n'
+            f'  {a["owner"]} ("{a["team"]}", {a["record"]}) proj {a.get("optimal_proj",0):.0f} — '
+            f'key: {", ".join(_key_players(a))}\n'
+            f'  {h["owner"]} ("{h["team"]}", {h["record"]}) proj {h.get("optimal_proj",0):.0f} — '
+            f'key: {", ".join(_key_players(h))}')
     sys = VOICE + """
 
-For EACH matchup below, output exactly two lines:
+For EACH matchup, output EXACTLY these lines (keep the tags, one blank line between matchups):
 NICK <i>: <away pun team-name> || <home pun team-name>
-PRED <i>: <1-3 sentences: your pick to win + a pun/joke, host voice>
+XFACTOR <i>: <one player name> — <half-sentence why this player swings it>
+POINT <i>: <a talking point, 1 sentence, something to actually say on the mic>
+POINT <i>: <another talking point>
+POINT <i>: <a third talking point>
+PRED <i>: <your pick to win + 2-3 sentences of reasoning and jokes, host voice>
 
-Pun team-names riff on that manager's best player or their real team name. Keep
-them short. Nothing before or after. <i> is the matchup number."""
-        # (note: the trailing content below is the user message)
-    user = f"Week {week}. Write nicknames + predictions.\n\n" + "\n\n".join(blocks)
-    raw = claude(sys, user, max_tokens=1400)
-    nick, pred = {}, {}
+Pun team-names riff on the manager's best player or real team name, short. The
+talking points are the stuff you'd bring up previewing the game — a specific player
+edge, a boom/bust guy, a bad matchup, whatever. Nothing before or after."""
+    user = f"Week {week}. Preview these {len(matchups)} matchups.\n\n" + "\n\n".join(blocks)
+    raw = claude(sys, user, max_tokens=2600)
+
+    nick, xf, pred = {}, {}, {}
+    pts = {i: [] for i in range(len(matchups))}
     for line in raw.splitlines():
-        line = line.strip()
-        if line.upper().startswith("NICK"):
-            n, _, rest = line[4:].partition(":")
-            parts = rest.split("||")
-            if len(parts) == 2:
-                nick[int(n.strip())] = (parts[0].strip(), parts[1].strip())
-        elif line.upper().startswith("PRED"):
-            n, _, rest = line[4:].partition(":")
-            try:
-                pred[int(n.strip())] = rest.strip()
-            except ValueError:
-                pass
-    return nick, pred
+        s = line.strip()
+        u = s.upper()
+        try:
+            if u.startswith("NICK"):
+                n, _, rest = s[4:].partition(":")
+                l, r = rest.split("||")
+                nick[int(n)] = (l.strip(), r.strip())
+            elif u.startswith("XFACTOR"):
+                n, _, rest = s[7:].partition(":")
+                xf[int(n)] = rest.strip()
+            elif u.startswith("POINT"):
+                n, _, rest = s[5:].partition(":")
+                pts[int(n)].append(rest.strip())
+            elif u.startswith("PRED"):
+                n, _, rest = s[4:].partition(":")
+                pred[int(n)] = rest.strip()
+        except (ValueError, KeyError):
+            pass
+    return nick, xf, pts, pred
 
 
 def _awards(g, season):
@@ -203,14 +246,16 @@ def build_csv(season, week, dry=False):
     g = D.build(season)
 
     team_slot, games = _nfl_week(season, week)
-    assigned = _assign_slots(ms, team_slot, games)
+    have_friday = any(s == "Friday Night Brazil" for s, _, _ in games)
+    playing = set(team_slot)               # NFL teams with a game this week
+    roster_score = {t["owner"]: t["roster_score"] for t in g["teams"]}
+    assigned = _assign_slots(ms, roster_score, have_friday)
+
+    # flavor only: the single NFL game each matchup has the most points riding on
     nfl_game = {}
     for i, m in enumerate(ms):
-        slot = assigned.get(i)
         best = None
         for s, aw, hm in games:
-            if s != slot:
-                continue
             pts = sum(p["proj"] for side in (m["away"], m["home"]) for p in side["players"]
                       if p["pro"] in (aw, hm))
             if best is None or pts > best[0]:
@@ -219,26 +264,29 @@ def build_csv(season, week, dry=False):
 
     if dry:
         nick = {i: (f'{m["away"]["owner"]}co', f'{m["home"]["owner"]}co') for i, m in enumerate(ms)}
+        xf = {i: "[dry]" for i in range(len(ms))}
+        pts = {i: ["[dry] point"] for i in range(len(ms))}
         pred = {i: "[dry] pick TBD" for i in range(len(ms))}
         awards = {k: ["TBD", "TBD", "[dry]"] for k in ("MVP", "ROY", "COMEBACK", "BUST", "SLEEPER")}
         power = [(i + 1, t["owner"], "[dry]") for i, t in enumerate(g["teams"])]
     else:
-        nick, pred = _nicknames_and_preds(ms, assigned, week)
+        nick, xf, pts, pred = _matchup_writeup(ms, assigned, week)
         awards = _awards(g, season)
         power = _power(g, lg, week)
 
     def proj(side):
         return side.get("optimal_proj", 0) or 0
 
-    # slot order for a tidy read-through
-    order = sorted(range(len(ms)),
-                   key=lambda i: (SLOTS.index(assigned.get(i)) if assigned.get(i) in SLOTS else 9,
-                                  -max(proj(ms[i]["away"]), proj(ms[i]["home"]))))
+    # ---- players & notes to watch (computed) ----
+    all_starters = [(p, side["owner"]) for m in ms for side in (m["away"], m["home"])
+                    for p in _starters_by_proj(side)]
+    top_proj = sorted(all_starters, key=lambda x: -x[0]["proj"])[:6]
+    byes = [(p["name"], p["pos"], own) for p, own in all_starters
+            if p["pro"] not in playing and p["pro"] != "?"]
+    hurt = [(p["name"], p["pos"], p["injury"], own) for p, own in all_starters if _hurt(p)]
 
-    # quick auto storylines
     gaps = sorted(ms, key=lambda m: abs(proj(m["away"]) - proj(m["home"])))
-    closest = gaps[0]
-    blowout = gaps[-1]
+    closest, blowout = gaps[0], gaps[-1]
     loaded = max(ms, key=lambda m: max(proj(m["away"]), proj(m["home"])))
     ld_side = loaded["away"] if proj(loaded["away"]) >= proj(loaded["home"]) else loaded["home"]
 
@@ -274,20 +322,40 @@ def build_csv(season, week, dry=False):
     for rank, owner_, note in power:
         R.append(["", rank, owners_team.get(owner_, ""), owner_, note])
 
-    sec("4  ·  MATCHUPS")
+    sec("4  ·  PLAYERS & NOTES TO WATCH")
+    R.append(["", "Highest projected this week", ""])
+    for p, own in top_proj:
+        R.append(["", "", f'{p["name"]} — {p["pos"]}, {p["pro"]}, {p["proj"]:.0f} pts ({own})'])
+    R.append(["", "On bye (starter down)", ", ".join(
+        f'{n} ({pos}, {own})' for n, pos, own in byes) or "none"])
+    R.append(["", "Banged up", ", ".join(
+        f'{n} ({pos} — {st}, {own})' for n, pos, st, own in hurt) or "none flagged"])
+
+    sec("5  ·  MATCHUPS   (best games get prime time, snoozers get Sunday noon)")
+    tier = {"Sunday Night": "marquee game of the week", "Monday Night": "primetime",
+            "Thursday Night": "primetime", "Friday Night Brazil": "quirky one",
+            "Sunday Afternoon": "solid undercard", "Sunday Noon": "snoozer"}
+    order = sorted(range(len(ms)),
+                   key=lambda i: _SLOT_PRIORITY.index(assigned.get(i, "Sunday Noon")))
     for n, i in enumerate(order, 1):
         m = ms[i]
         a, h = m["away"], m["home"]
         na, nh = nick.get(i, (a["team"], h["team"]))
         fav = a["owner"] if proj(a) >= proj(h) else h["owner"]
-        R.append([f"GAME {n}", assigned.get(i, "Sunday"), nfl_game.get(i, ""),
-                  f"proj favorite: {fav}"])
-        R.append(["", "Away", na, a["owner"], f'{proj(a):.0f} proj  ·  {a["record"]}'])
-        R.append(["", "Home", nh, h["owner"], f'{proj(h):.0f} proj  ·  {h["record"]}'])
+        slot = assigned.get(i, "Sunday Noon")
+        R.append([f"GAME {n}", slot, f"({tier.get(slot, '')})", f"proj favorite: {fav}",
+                  f"biggest NFL game: {nfl_game.get(i, '')}"])
+        R.append(["", f'{na}', a["owner"], f'{proj(a):.0f} proj · {a["record"]}',
+                  "  |  ".join(_key_players(a, 4))])
+        R.append(["", f'{nh}', h["owner"], f'{proj(h):.0f} proj · {h["record"]}',
+                  "  |  ".join(_key_players(h, 4))])
+        R.append(["", "X-factor", xf.get(i, "")])
+        for pt in pts.get(i, []):
+            R.append(["", "talk about", pt])
         R.append(["", "PREDICTION", pred.get(i, "")])
         R.append([])
 
-    sec("5  ·  HOT SEAT")
+    sec("6  ·  HOT SEAT")
     R.append(["", "(starts with the Week 4 podcast)"])
 
     sec("REFERENCE  ·  raw matchup data")

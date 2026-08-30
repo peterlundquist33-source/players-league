@@ -54,12 +54,14 @@ def _side(raw_side, teams, scoring_period, slot_counts):
         slot = e.get("lineupSlotId")
         pl = e.get("playerPoolEntry", {}).get("player", {})
         proj, act = _proj_and_actual(e, scoring_period)
+        inj = pl.get("injuryStatus") or ""
         row = {
             "name": pl.get("fullName", "?"),
             "slot": SLOT.get(slot, str(slot)),
             "pos": POS.get(pl.get("defaultPositionId"), "?"),
             "pro": PRO.get(pl.get("proTeamId"), "?"),
             "proj": proj, "actual": act,
+            "injury": inj if inj not in ("ACTIVE", "NORMAL") else "",
             "started": slot in STARTER_SLOTS,
         }
         players.append(row)
