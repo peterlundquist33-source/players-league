@@ -30,6 +30,7 @@ def _page(title, active, body, depth=1):
 <html lang="en"><head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>{html.escape(title)} — Players League</title>
+<link rel="icon" type="image/svg+xml" href="{"../" * depth}favicon.svg">
 <link rel="stylesheet" href="{"../" * depth}css/style.css?v=green-1">
 <style>
  .mx-wrap{{max-width:820px;margin:0 auto;padding:2rem 1.25rem 3rem}}
