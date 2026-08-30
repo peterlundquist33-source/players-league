@@ -39,6 +39,11 @@ def run(phase_arg, season, week, dry, force=False):
     wk, phase = data["week"], data["phase"]
     print(f"season {season} · week {wk} · phase {phase} · {len(data['matchups'])} matchups")
 
+    # cheap, no-AI: refresh standings + expected-wins every run, even if the
+    # matchup page itself is skipped below
+    HP.update(season)
+    AN.update(season)
+
     if not data["matchups"]:
         print("no matchups for this week — nothing to do"); return None
 
@@ -63,8 +68,6 @@ def run(phase_arg, season, week, dry, force=False):
 
     page = R.week_page(data, copies, intro)
     R.index_page(season)
-    HP.update(season)
-    AN.update(season)
 
     DATA.mkdir(parents=True, exist_ok=True)
     (DATA / f"{season}-week-{wk:02d}.json").write_text(json.dumps(
