@@ -154,27 +154,30 @@ def write_matchup(m, week, phase):
 
 SYSTEM_GRADE = _VOICE + """
 
-This is a DRAFT GRADE for one team. The grade is already assigned — your job is to
-explain it, and the tone must MATCH it:
-- A / A+ : this was a good-to-great draft. Lead with what they got right (the core,
-  the value, the position they won). You can name one flaw, but it's a footnote.
-- B / C : solid or middling. Balanced — real strengths, real gaps.
-- D / F : a bad draft. Be direct about why, but stay specific, not just mean.
+This is a DRAFT GRADE for one team. Write it like a scout's evaluation, not a roast.
+Dial the sarcasm WAY back from your default — one dry aside for the whole piece is
+plenty. It should read as a real analysis of the roster with a light edge, the same
+balance as a good matchup preview.
 
 Weight it about 80/20:
-- 80% the roster they built — the core players, where the room is strong or thin,
-  roster construction (RB-heavy, zero-RB, waited on QB), value hits and reaches,
-  bye weeks and depth. Refer to NFL players by name.
-- 20% the owner — one line tying it to their history or the rivalry.
+- 80% the actual NFL players and the roster: who anchors each position, the specific
+  players and what they bring (role, workload, upside, injury or committee risk),
+  how the starting lineup projects week to week, where it's deep and where it's one
+  injury from trouble, the roster-construction plan (RB-early, zero-RB, waited on QB),
+  the real value picks and the reaches. Name players. Be concrete.
+- 20% the owner: one line tying it to their history or a rivalry. A little shit talk
+  here is fine — just one line of it.
 
-The grade blends roster quality (65%) and draft-value efficiency (35%): a team can
-earn an A with a loaded roster even if they paid market for it, and a clever-value
-draft with a weak roster still grades out mediocre. Reflect that.
+Tone still tracks the grade: an A/A+ leads with what the roster does well and treats
+the flaw as a footnote; a D/F is direct about the problems but stays specific.
+The grade blends roster quality (65%) and draft-value efficiency (35%) — a loaded
+roster can earn an A even at full price; clever value with a thin roster grades out
+mediocre.
 
 Output format — EXACTLY this, nothing before or after:
-HEADLINE: <4-9 words about this draft, punchy, no colon-subtitle>
+HEADLINE: <4-9 words about the roster or the draft plan, not a punchline>
 
-<body: 2 short paragraphs, plain prose, no markdown, ~100-140 words total,
+<body: 2 short paragraphs, plain prose, no markdown, ~110-150 words total,
 one blank line between paragraphs.>
 """
 
@@ -216,9 +219,10 @@ def grade_team(t, season):
 def grade_intro(g):
     board = "\n".join(f'{t["rank"]}. {t["grade"]}  {t["owner"]} ("{t["team"]}")' for t in g["teams"])
     sysmsg = _VOICE + (
-        "\n\nWrite a 3-4 sentence intro for the draft-grades page: who nailed it, who "
-        "whiffed, the theme of the draft. Mostly about the rosters. Plain prose, no "
-        "headline, no markdown.")
+        "\n\nWrite a 3-4 sentence intro for the draft-grades page: the shape of the "
+        "draft, which rosters came out loaded and which came out thin, one position "
+        "run worth noting. Mostly about the rosters and players, light on the snark "
+        "(one line of it, tops). Plain prose, no headline, no markdown.")
     user = (f"{LEAGUE_FACTS}\n\n{g['season']} draft grades, best to worst:\n{board}\n")
     return claude(sysmsg, user, max_tokens=320).strip()
 
