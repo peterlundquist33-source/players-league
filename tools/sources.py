@@ -51,6 +51,10 @@ def _espn_players(season, count=320):
     })
     with u.urlopen(req, timeout=45) as r:
         d = json.load(r)
+    PRO = {0:"FA",1:"ATL",2:"BUF",3:"CHI",4:"CIN",5:"CLE",6:"DAL",7:"DEN",8:"DET",9:"GB",
+           10:"TEN",11:"IND",12:"KC",13:"LV",14:"LAR",15:"MIA",16:"MIN",17:"NE",18:"NO",
+           19:"NYG",20:"NYJ",21:"PHI",22:"ARI",23:"PIT",24:"LAC",25:"SF",26:"SEA",27:"TB",
+           28:"WSH",29:"CAR",30:"JAX",33:"BAL",34:"HOU"}
     out = {}
     for row in d.get("players", []):
         p = row.get("player", row)
@@ -60,6 +64,7 @@ def _espn_players(season, count=320):
             "name": p.get("fullName", ""),
             "key": norm(p.get("fullName", "")),
             "pos": {1: "QB", 2: "RB", 3: "WR", 4: "TE", 5: "K", 16: "D/ST"}.get(p.get("defaultPositionId")),
+            "pro": PRO.get(p.get("proTeamId"), "?"),
             "espn_adp": adp if adp and adp < 400 else None,
             "espn_rank": rk,
         }
@@ -88,7 +93,12 @@ def _fantasypros(season):
     d = _get_json(url, timeout=25)
     out = {}
     for p in d.get("players", []):
-        out[(norm(p.get("player_name")), p.get("player_position_id"))] = p.get("rank_ecr")
+        out[(norm(p.get("player_name")), p.get("player_position_id"))] = {
+            "rank": p.get("rank_ecr"),
+            "bye": p.get("player_bye_week"),
+            "team": p.get("player_team_id"),
+            "pos_rank": p.get("pos_rank"),
+        }
     return out
 
 
@@ -117,7 +127,7 @@ def consensus(season):
     espn_p = _espn_players(season)
     fc = _fantasycalc()
     sl = _sleeper()
-    fp = _fantasypros(season)
+    fp_data = _fantasypros(season)
     fc_by_espnid = {v["espnId"]: v for v in fc.values() if v["espnId"]}
 
     out = {}
@@ -125,20 +135,22 @@ def consensus(season):
         k, pos = e["key"], e["pos"]
         f = fc_by_espnid.get(str(pid)) or fc.get((k, pos)) or fc.get((k, None))
         s_rank = sl.get((k, pos)) or sl.get((k, None))
-        fp_rank = fp.get((k, pos)) or fp.get((k, None))
+        fp = fp_data.get((k, pos)) or fp_data.get((k, None))
         ranks = {}
         if e["espn_rank"]:
             ranks["espn"] = e["espn_rank"]
         if e["espn_adp"]:
             ranks["adp"] = e["espn_adp"]
-        if fp_rank:
-            ranks["fantasypros"] = fp_rank
+        if fp and fp.get("rank"):
+            ranks["fantasypros"] = fp["rank"]
         if f:
             ranks["fantasycalc"] = f["rank"]
         if s_rank:
             ranks["sleeper"] = s_rank
         cons = round(sum(ranks.values()) / len(ranks), 1) if ranks else None
-        out[pid] = {"name": e["name"], "pos": e["pos"], "adp": e["espn_adp"],
+        out[pid] = {"name": e["name"], "pos": e["pos"], "pro": e.get("pro", "?"),
+                    "adp": e["espn_adp"], "bye": (fp or {}).get("bye"),
+                    "pos_rank": (fp or {}).get("pos_rank"),
                     "ranks": ranks, "consensus_rank": cons, "sources": len(ranks)}
     return out
 

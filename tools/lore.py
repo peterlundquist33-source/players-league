@@ -46,13 +46,29 @@ NOTES = {
     "Leif": "Joey Lunchbox. Loyal to the bit for four years, 22-34 career, the lovable basement dweller.",
 }
 
+# (leader, trailer, "L-T", flavor) — record is always stated leader-first
 RIVALRIES = [
-    ("John", "Peter", "the Lundquist brothers — John leads 6-3 all-time"),
-    ("CJ", "Leif", "dead even 4-4, every meeting is personal"),
-    ("Grant", "Logan", "Grant leads 5-4, the league's chaos derby"),
-    ("Isaac", "Christian", "Christian leads 6-4"),
-    ("Adam", "Isaac", "Isaac has Adam's number, 5-3"),
+    ("John", "Peter", "6-3", "the Lundquist brothers; John is the older brother"),
+    ("CJ", "Leif", "4-4", "dead even, every meeting is personal"),
+    ("Grant", "Logan", "5-4", "the league's chaos derby"),
+    ("Christian", "Isaac", "6-4", ""),
+    ("Isaac", "Adam", "5-3", "Isaac has the champ's number"),
 ]
+
+
+def rivalry_for(subject_full, opp_full):
+    """Directional: describe the rivalry from `subject`'s point of view."""
+    s, o = owner(subject_full), owner(opp_full)
+    for lead, trail, rec, flav in RIVALRIES:
+        if {lead, trail} != {s, o}:
+            continue
+        w, l = rec.split("-")
+        if s == lead:
+            line = f"{s} leads the all-time head-to-head vs {o} {w}-{l}"
+        else:
+            line = f"{s} trails the all-time head-to-head vs {o} {l}-{w}"
+        return line + (f" ({flav})" if flav else "")
+    return None
 
 
 _OWNERS_CI = {k.lower(): v for k, v in OWNERS.items()}
@@ -73,7 +89,11 @@ def owner(name):
 
 
 def rivalry_between(a, b):
-    for x, y, desc in RIVALRIES:
-        if {x, y} == {owner(a), owner(b)}:
-            return desc
+    """Non-directional description (used by matchup previews)."""
+    for lead, trail, rec, flav in RIVALRIES:
+        if {lead, trail} == {owner(a), owner(b)}:
+            w, l = rec.split("-")
+            base = (f"{lead} and {trail} are dead even {w}-{l} all-time"
+                    if w == l else f"{lead} leads {trail} {w}-{l} all-time")
+            return base + (f" — {flav}" if flav else "")
     return None

@@ -104,7 +104,9 @@ def build(season):
         teams[tid]["picks"].append({
             "overall": ov, "round": rnd,
             "name": c.get("name") or pnames.get(pid, "?"),
-            "pos": pos, "consensus_rank": cr, "adp": adp, "market": round(market, 1),
+            "pos": pos, "pro": c.get("pro", "?"), "bye": c.get("bye"),
+            "pos_rank": c.get("pos_rank"),
+            "consensus_rank": cr, "adp": adp, "market": round(market, 1),
             "raw": raw, "counts": pos in SKILL, "sources": c.get("sources", 0),
         })
 
@@ -145,10 +147,10 @@ def build(season):
             strength = sum(_value_curve(p["consensus_rank"]) for p in best)
             eff = sum(p["weighted"] for p in ps)
             t["_pos_val"][pos] = strength + 0.25 * eff
-        early = [p for p in skill if p["round"] and p["round"] <= 9]
-        top = max(early, key=lambda p: p["value"]) if early else None
+        graded = [p for p in skill if p["consensus_rank"]]
+        top = max(graded, key=lambda p: p["value"]) if graded else None
         t["best"] = top if (top and top["value"] >= 8) else None
-        worst = min(early, key=lambda p: p["value"]) if early else None
+        worst = min(graded, key=lambda p: p["value"]) if graded else None
         t["reach"] = worst if (worst and worst["value"] <= -8) else None
 
     # positional sub-grades: relative to the league at that position
@@ -181,7 +183,19 @@ def build(season):
         t["rank"] = i
         t["grade"] = _letter((t["score"] - mean) / sd)
 
-    return {"season": season, "mode": "draft", "teams": ordered}
+    # League-wide extremes so writeups can reference the real ones, not guess.
+    # Rounds 1-10 only — a round-13 backup swinging +/-40 is noise.
+    all_skill = [dict(p, owner=t["owner"]) for t in tl for p in t["picks"]
+                 if p["counts"] and p["consensus_rank"] and p["round"] and p["round"] <= 10]
+    biggest_reach = min(all_skill, key=lambda p: p["value"])
+    best_value = max(all_skill, key=lambda p: p["value"])
+    extremes = {
+        "biggest_reach": f'{biggest_reach["name"]} ({biggest_reach["owner"]}, '
+                         f'round {biggest_reach["round"]}, {biggest_reach["value"]:.0f})',
+        "best_value": f'{best_value["name"]} ({best_value["owner"]}, '
+                      f'round {best_value["round"]}, +{best_value["value"]:.0f})',
+    }
+    return {"season": season, "mode": "draft", "teams": ordered, "extremes": extremes}
 
 
 if __name__ == "__main__":

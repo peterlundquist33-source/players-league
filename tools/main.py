@@ -6,7 +6,7 @@
   python3 tools/main.py auto               # detect phase from ESPN state
   python3 tools/main.py auto  --dry        # no AI calls, placeholder copy
 """
-import argparse, datetime, json, sys
+import argparse, datetime, json, os, sys
 from lib import ROOT, load_env
 import league as L
 import render as R
@@ -74,6 +74,8 @@ def run(phase_arg, season, week, dry, force=False):
 
 def run_rankings(season, dry=False):
     load_env()
+    # Draft grades are a one-time, accuracy-sensitive page — use the strongest model.
+    os.environ.setdefault("ANTHROPIC_MODEL", "claude-opus-5")
     import draft as D
     g = D.build(season)
     print(f"{season} draft grades: " + ", ".join(f'{t["grade"]} {t["owner"]}' for t in g["teams"]))
@@ -85,7 +87,7 @@ def run_rankings(season, dry=False):
         copies = []
         for t in g["teams"]:
             print(f"  grading {t['owner']} ({t['grade']})")
-            copies.append(W.grade_team(t, season))
+            copies.append(W.grade_team(t, season, g.get("extremes")))
         intro = W.grade_intro(g)
     page = R.rankings_page(g, copies, intro)
     HP.update(season)
