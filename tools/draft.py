@@ -8,6 +8,33 @@ POS_ORDER = ["QB", "RB", "WR", "TE", "K", "D/ST"]
 SKILL = {"QB", "RB", "WR", "TE"}          # only these count toward the grade
 
 
+def _value_curve(rank):
+    """Consensus overall rank -> a rough 'how much does this player help you' score."""
+    if not rank:
+        return 0.0
+    return round(100.0 * (0.965 ** (rank - 1)), 2)   # ~100 at #1, ~32 at #33, ~13 at #60
+
+
+def _roster_strength(skill_picks):
+    """Best startable core (QB, 2RB, 2WR, TE, FLEX + 2 depth) by consensus value."""
+    pool = sorted((p for p in skill_picks if p["consensus_rank"]),
+                  key=lambda p: p["consensus_rank"])
+    need = {"QB": 1, "RB": 2, "WR": 2, "TE": 1}
+    core, used = [], set()
+    for p in pool:
+        if need.get(p["pos"], 0) > 0:
+            core.append(p); used.add(id(p)); need[p["pos"]] -= 1
+    for p in pool:                                   # FLEX
+        if id(p) not in used and p["pos"] in ("RB", "WR", "TE"):
+            core.append(p); used.add(id(p)); break
+    for p in pool:                                   # 2 bench pieces
+        if id(p) not in used:
+            core.append(p); used.add(id(p))
+        if len(core) >= 9:
+            break
+    return round(sum(_value_curve(p["consensus_rank"]) for p in core), 1)
+
+
 def _round_weight(rnd):
     if not rnd:      return 0.5
     if rnd <= 5:     return 1.0
@@ -98,13 +125,26 @@ def build(season):
 
     for tid, t in teams.items():
         skill = [p for p in t["picks"] if p["counts"]]
-        t["score"] = round(sum(p["weighted"] for p in skill), 1)
+        t["efficiency"] = round(sum(p["weighted"] for p in skill), 1)
+        t["strength"] = _roster_strength(skill)
         by_pos = {}
         for p in t["picks"]:
             by_pos.setdefault(p["pos"], []).append(p)
         t["_by_pos"] = by_pos
-        t["_pos_val"] = {pos: (sum(p["weighted"] for p in by_pos[pos]) if by_pos.get(pos) else None)
-                         for pos in SKILL}
+        # positional score = strength of the room (top 2-3 by consensus) + a nudge
+        # for draft efficiency at that spot
+        t["_pos_val"] = {}
+        for pos in SKILL:
+            ps = by_pos.get(pos, [])
+            if not ps:
+                t["_pos_val"][pos] = None
+                continue
+            keep = 1 if pos in ("QB", "TE") else 3
+            best = sorted((p for p in ps if p["consensus_rank"]),
+                          key=lambda p: p["consensus_rank"])[:keep]
+            strength = sum(_value_curve(p["consensus_rank"]) for p in best)
+            eff = sum(p["weighted"] for p in ps)
+            t["_pos_val"][pos] = strength + 0.25 * eff
         early = [p for p in skill if p["round"] and p["round"] <= 9]
         top = max(early, key=lambda p: p["value"]) if early else None
         t["best"] = top if (top and top["value"] >= 8) else None
@@ -124,15 +164,24 @@ def build(season):
                 "grade": _letter((v - mean) / sd) if v is not None else "—",
                 "n": n}
 
-    scores = [t["score"] for t in teams.values()]
-    mean, sd = statistics.mean(scores), (statistics.pstdev(scores) or 1.0)
-    ordered = sorted(teams.values(), key=lambda t: -t["score"])
+    # Final grade = 65% roster strength (the team you built) + 35% draft efficiency
+    # (value vs the market). Both z-scored so they combine fairly.
+    def _z(vals):
+        m = statistics.mean(vals); s = statistics.pstdev(vals) or 1.0
+        return {i: (v - m) / s for i, v in enumerate(vals)}
+    tl = list(teams.values())
+    zs = _z([t["strength"] for t in tl])
+    ze = _z([t["efficiency"] for t in tl])
+    for i, t in enumerate(tl):
+        t["score"] = round(zs[i] * 0.65 + ze[i] * 0.35, 3)
+
+    ordered = sorted(tl, key=lambda t: -t["score"])
+    mean, sd = statistics.mean(t["score"] for t in tl), (statistics.pstdev(t["score"] for t in tl) or 1.0)
     for i, t in enumerate(ordered, 1):
         t["rank"] = i
         t["grade"] = _letter((t["score"] - mean) / sd)
 
-    return {"season": season, "mode": "draft", "teams": ordered,
-            "league_avg_value": round(mean, 1)}
+    return {"season": season, "mode": "draft", "teams": ordered}
 
 
 if __name__ == "__main__":

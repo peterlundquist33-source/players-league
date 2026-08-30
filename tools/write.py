@@ -154,12 +154,22 @@ def write_matchup(m, week, phase):
 
 SYSTEM_GRADE = _VOICE + """
 
-This is a DRAFT GRADE for one team. Weight it about 80/20:
-- 80% the actual roster they built — the picks that got real value, the reaches, the
-  positions they nailed or punted, roster construction (RB-heavy, zero-RB, waited on
-  QB), the bye-week and depth situation. Refer to NFL players by name.
+This is a DRAFT GRADE for one team. The grade is already assigned — your job is to
+explain it, and the tone must MATCH it:
+- A / A+ : this was a good-to-great draft. Lead with what they got right (the core,
+  the value, the position they won). You can name one flaw, but it's a footnote.
+- B / C : solid or middling. Balanced — real strengths, real gaps.
+- D / F : a bad draft. Be direct about why, but stay specific, not just mean.
+
+Weight it about 80/20:
+- 80% the roster they built — the core players, where the room is strong or thin,
+  roster construction (RB-heavy, zero-RB, waited on QB), value hits and reaches,
+  bye weeks and depth. Refer to NFL players by name.
 - 20% the owner — one line tying it to their history or the rivalry.
-The grade is already assigned; explain it, don't re-argue it.
+
+The grade blends roster quality (65%) and draft-value efficiency (35%): a team can
+earn an A with a loaded roster even if they paid market for it, and a clever-value
+draft with a weak roster still grades out mediocre. Reflect that.
 
 Output format — EXACTLY this, nothing before or after:
 HEADLINE: <4-9 words about this draft, punchy, no colon-subtitle>
@@ -177,9 +187,12 @@ def grade_team(t, season):
                    if v["grade"] != "—")
     lines = [
         f'{t["owner"]} ("{t["team"]}") — draft grade {t["grade"]}, '
-        f'{t["rank"]} of {12} in the league.',
-        f'Positional grades: {pg}.',
-        f'All skill picks (value vs consensus/ADP): {picks}.',
+        f'{t["rank"]} of 12 overall.',
+        f'This grade blends roster quality (65%) and draft-value efficiency (35%).',
+        f'Roster-strength score {t["strength"]} · draft-efficiency score {t["efficiency"]:+.0f} '
+        f'(negative = paid at or above market).',
+        f'Positional grades (strength of each room vs the league): {pg}.',
+        f'All skill picks (round, pick, value vs 5-source consensus): {picks}.',
     ]
     if t["best"]:
         b = t["best"]
