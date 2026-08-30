@@ -1,5 +1,5 @@
 {
-  "generated": "2026-08-29T18:30:40",
+  "generated": "2026-08-29T20:03:24",
   "phase": "preview",
   "data": {
     "season": 2026,
@@ -115,6 +115,7 @@
           "record": "0-0",
           "actual": 0.0,
           "projected": 121.6,
+          "optimal_proj": 122.7,
           "starters": [
             {
               "name": "Puka Nacua",
@@ -122,7 +123,8 @@
               "pos": "WR",
               "pro": "LAR",
               "proj": 21.2,
-              "actual": 0.0
+              "actual": 0.0,
+              "started": true
             },
             {
               "name": "Brock Bowers",
@@ -130,7 +132,8 @@
               "pos": "TE",
               "pro": "LV",
               "proj": 15.6,
-              "actual": 0.0
+              "actual": 0.0,
+              "started": true
             },
             {
               "name": "Trey McBride",
@@ -138,7 +141,8 @@
               "pos": "TE",
               "pro": "ARI",
               "proj": 14.3,
-              "actual": 0.0
+              "actual": 0.0,
+              "started": true
             },
             {
               "name": "Kyren Williams",
@@ -146,7 +150,8 @@
               "pos": "RB",
               "pro": "LAR",
               "proj": 13.7,
-              "actual": 0.0
+              "actual": 0.0,
+              "started": true
             },
             {
               "name": "D'Andre Swift",
@@ -154,7 +159,8 @@
               "pos": "RB",
               "pro": "CHI",
               "proj": 12.6,
-              "actual": 0.0
+              "actual": 0.0,
+              "started": true
             },
             {
               "name": "Brian Thomas Jr.",
@@ -162,7 +168,8 @@
               "pos": "WR",
               "pro": "JAX",
               "proj": 10.1,
-              "actual": 0.0
+              "actual": 0.0,
+              "started": true
             },
             {
               "name": "Caleb Williams",
@@ -170,7 +177,8 @@
               "pos": "QB",
               "pro": "CHI",
               "proj": 16.7,
-              "actual": 0.0
+              "actual": 0.0,
+              "started": true
             },
             {
               "name": "Cam Little",
@@ -178,7 +186,8 @@
               "pos": "K",
               "pro": "JAX",
               "proj": 9.2,
-              "actual": 0.0
+              "actual": 0.0,
+              "started": true
             },
             {
               "name": "Jaguars D/ST",
@@ -186,7 +195,154 @@
               "pos": "D/ST",
               "pro": "JAX",
               "proj": 8.2,
-              "actual": 0.0
+              "actual": 0.0,
+              "started": true
+            }
+          ],
+          "players": [
+            {
+              "name": "Puka Nacua",
+              "slot": "WR",
+              "pos": "WR",
+              "pro": "LAR",
+              "proj": 21.2,
+              "actual": 0.0,
+              "started": true
+            },
+            {
+              "name": "Brock Bowers",
+              "slot": "TE",
+              "pos": "TE",
+              "pro": "LV",
+              "proj": 15.6,
+              "actual": 0.0,
+              "started": true
+            },
+            {
+              "name": "Trey McBride",
+              "slot": "FLEX",
+              "pos": "TE",
+              "pro": "ARI",
+              "proj": 14.3,
+              "actual": 0.0,
+              "started": true
+            },
+            {
+              "name": "Kyren Williams",
+              "slot": "RB",
+              "pos": "RB",
+              "pro": "LAR",
+              "proj": 13.7,
+              "actual": 0.0,
+              "started": true
+            },
+            {
+              "name": "D'Andre Swift",
+              "slot": "RB",
+              "pos": "RB",
+              "pro": "CHI",
+              "proj": 12.6,
+              "actual": 0.0,
+              "started": true
+            },
+            {
+              "name": "Brian Thomas Jr.",
+              "slot": "WR",
+              "pos": "WR",
+              "pro": "JAX",
+              "proj": 10.1,
+              "actual": 0.0,
+              "started": true
+            },
+            {
+              "name": "Caleb Williams",
+              "slot": "QB",
+              "pos": "QB",
+              "pro": "CHI",
+              "proj": 16.7,
+              "actual": 0.0,
+              "started": true
+            },
+            {
+              "name": "Quentin Johnston",
+              "slot": "BE",
+              "pos": "WR",
+              "pro": "LAC",
+              "proj": 10.4,
+              "actual": 0.0,
+              "started": false
+            },
+            {
+              "name": "Blake Corum",
+              "slot": "BE",
+              "pos": "RB",
+              "pro": "LAR",
+              "proj": 9.4,
+              "actual": 0.0,
+              "started": false
+            },
+            {
+              "name": "Makai Lemon",
+              "slot": "BE",
+              "pos": "WR",
+              "pro": "PHI",
+              "proj": 9.6,
+              "actual": 0.0,
+              "started": false
+            },
+            {
+              "name": "Tyrone Tracy Jr.",
+              "slot": "BE",
+              "pos": "RB",
+              "pro": "NYG",
+              "proj": 2.4,
+              "actual": 0.0,
+              "started": false
+            },
+            {
+              "name": "Keaton Mitchell",
+              "slot": "BE",
+              "pos": "RB",
+              "pro": "LAC",
+              "proj": 6.2,
+              "actual": 0.0,
+              "started": false
+            },
+            {
+              "name": "Matthew Stafford",
+              "slot": "BE",
+              "pos": "QB",
+              "pro": "LAR",
+              "proj": 17.5,
+              "actual": 0.0,
+              "started": false
+            },
+            {
+              "name": "Cam Little",
+              "slot": "K",
+              "pos": "K",
+              "pro": "JAX",
+              "proj": 9.2,
+              "actual": 0.0,
+              "started": true
+            },
+            {
+              "name": "Jaguars D/ST",
+              "slot": "D/ST",
+              "pos": "D/ST",
+              "pro": "JAX",
+              "proj": 8.2,
+              "actual": 0.0,
+              "started": true
+            },
+            {
+              "name": "Emmett Johnson",
+              "slot": "BE",
+              "pos": "RB",
+              "pro": "KC",
+              "proj": 2.5,
+              "actual": 0.0,
+              "started": false
             }
           ]
         },
@@ -198,6 +354,7 @@
           "record": "0-0",
           "actual": 0.0,
           "projected": 111.9,
+          "optimal_proj": 111.9,
           "starters": [
             {
               "name": "James Cook III",
@@ -205,7 +362,8 @@
               "pos": "RB",
               "pro": "BUF",
               "proj": 14.9,
-              "actual": 0.0
+              "actual": 0.0,
+              "started": true
             },
             {
               "name": "De'Von Achane",
@@ -213,7 +371,8 @@
               "pos": "RB",
               "pro": "MIA",
               "proj": 18.3,
-              "actual": 0.0
+              "actual": 0.0,
+              "started": true
             },
             {
               "name": "Garrett Wilson",
@@ -221,7 +380,8 @@
               "pos": "WR",
               "pro": "NYJ",
               "proj": 14.7,
-              "actual": 0.0
+              "actual": 0.0,
+              "started": true
             },
             {
               "name": "Colston Loveland",
@@ -229,7 +389,8 @@
               "pos": "TE",
               "pro": "CHI",
               "proj": 12.1,
-              "actual": 0.0
+              "actual": 0.0,
+              "started": true
             },
             {
               "name": "Drake Maye",
@@ -237,7 +398,8 @@
               "pos": "QB",
               "pro": "NE",
               "proj": 16.2,
-              "actual": 0.0
+              "actual": 0.0,
+              "started": true
             },
             {
               "name": "Mike Evans",
@@ -245,7 +407,8 @@
               "pos": "WR",
               "pro": "SF",
               "proj": 11.4,
-              "actual": 0.0
+              "actual": 0.0,
+              "started": true
             },
             {
               "name": "Rhamondre Stevenson",
@@ -253,7 +416,8 @@
               "pos": "RB",
               "pro": "NE",
               "proj": 10.5,
-              "actual": 0.0
+              "actual": 0.0,
+              "started": true
             },
             {
               "name": "Eddy Pineiro",
@@ -261,7 +425,8 @@
               "pos": "K",
               "pro": "SF",
               "proj": 9.1,
-              "actual": 0.0
+              "actual": 0.0,
+              "started": true
             },
             {
               "name": "Patriots D/ST",
@@ -269,7 +434,154 @@
               "pos": "D/ST",
               "pro": "NE",
               "proj": 4.7,
-              "actual": 0.0
+              "actual": 0.0,
+              "started": true
+            }
+          ],
+          "players": [
+            {
+              "name": "James Cook III",
+              "slot": "RB",
+              "pos": "RB",
+              "pro": "BUF",
+              "proj": 14.9,
+              "actual": 0.0,
+              "started": true
+            },
+            {
+              "name": "De'Von Achane",
+              "slot": "RB",
+              "pos": "RB",
+              "pro": "MIA",
+              "proj": 18.3,
+              "actual": 0.0,
+              "started": true
+            },
+            {
+              "name": "Garrett Wilson",
+              "slot": "WR",
+              "pos": "WR",
+              "pro": "NYJ",
+              "proj": 14.7,
+              "actual": 0.0,
+              "started": true
+            },
+            {
+              "name": "Colston Loveland",
+              "slot": "TE",
+              "pos": "TE",
+              "pro": "CHI",
+              "proj": 12.1,
+              "actual": 0.0,
+              "started": true
+            },
+            {
+              "name": "Drake Maye",
+              "slot": "QB",
+              "pos": "QB",
+              "pro": "NE",
+              "proj": 16.2,
+              "actual": 0.0,
+              "started": true
+            },
+            {
+              "name": "Mike Evans",
+              "slot": "WR",
+              "pos": "WR",
+              "pro": "SF",
+              "proj": 11.4,
+              "actual": 0.0,
+              "started": true
+            },
+            {
+              "name": "Rhamondre Stevenson",
+              "slot": "FLEX",
+              "pos": "RB",
+              "pro": "NE",
+              "proj": 10.5,
+              "actual": 0.0,
+              "started": true
+            },
+            {
+              "name": "Josh Downs",
+              "slot": "BE",
+              "pos": "WR",
+              "pro": "IND",
+              "proj": 9.1,
+              "actual": 0.0,
+              "started": false
+            },
+            {
+              "name": "Michael Wilson",
+              "slot": "BE",
+              "pos": "WR",
+              "pro": "ARI",
+              "proj": 10.5,
+              "actual": 0.0,
+              "started": false
+            },
+            {
+              "name": "Romeo Doubs",
+              "slot": "BE",
+              "pos": "WR",
+              "pro": "NE",
+              "proj": 8.3,
+              "actual": 0.0,
+              "started": false
+            },
+            {
+              "name": "Jordyn Tyson",
+              "slot": "BE",
+              "pos": "WR",
+              "pro": "NO",
+              "proj": 0.0,
+              "actual": 0.0,
+              "started": false
+            },
+            {
+              "name": "Tyjae Spears",
+              "slot": "BE",
+              "pos": "RB",
+              "pro": "TEN",
+              "proj": 9.4,
+              "actual": 0.0,
+              "started": false
+            },
+            {
+              "name": "Brenton Strange",
+              "slot": "BE",
+              "pos": "TE",
+              "pro": "JAX",
+              "proj": 8.1,
+              "actual": 0.0,
+              "started": false
+            },
+            {
+              "name": "Ray Davis",
+              "slot": "BE",
+              "pos": "RB",
+              "pro": "BUF",
+              "proj": 2.1,
+              "actual": 0.0,
+              "started": false
+            },
+            {
+              "name": "Eddy Pineiro",
+              "slot": "K",
+              "pos": "K",
+              "pro": "SF",
+              "proj": 9.1,
+              "actual": 0.0,
+              "started": true
+            },
+            {
+              "name": "Patriots D/ST",
+              "slot": "D/ST",
+              "pos": "D/ST",
+              "pro": "NE",
+              "proj": 4.7,
+              "actual": 0.0,
+              "started": true
             }
           ]
         },
@@ -286,6 +598,7 @@
           "record": "0-0",
           "actual": 0.0,
           "projected": 120.7,
+          "optimal_proj": 120.7,
           "starters": [
             {
               "name": "Ashton Jeanty",
@@ -293,7 +606,8 @@
               "pos": "RB",
               "pro": "LV",
               "proj": 20.0,
-              "actual": 0.0
+              "actual": 0.0,
+              "started": true
             },
             {
               "name": "Drake London",
@@ -301,7 +615,8 @@
               "pos": "WR",
               "pro": "ATL",
               "proj": 15.1,
-              "actual": 0.0
+              "actual": 0.0,
+              "started": true
             },
             {
               "name": "Breece Hall",
@@ -309,7 +624,8 @@
               "pos": "RB",
               "pro": "NYJ",
               "proj": 16.5,
-              "actual": 0.0
+              "actual": 0.0,
+              "started": true
             },
             {
               "name": "Ladd McConkey",
@@ -317,7 +633,8 @@
               "pos": "WR",
               "pro": "LAC",
               "proj": 13.8,
-              "actual": 0.0
+              "actual": 0.0,
+              "started": true
             },
             {
               "name": "Carnell Tate",
@@ -325,7 +642,8 @@
               "pos": "WR",
               "pro": "TEN",
               "proj": 12.0,
-              "actual": 0.0
+              "actual": 0.0,
+              "started": true
             },
             {
               "name": "Harold Fannin Jr.",
@@ -333,7 +651,8 @@
               "pos": "TE",
               "pro": "CLE",
               "proj": 11.1,
-              "actual": 0.0
+              "actual": 0.0,
+              "started": true
             },
             {
               "name": "Justin Herbert",
@@ -341,7 +660,8 @@
               "pos": "QB",
               "pro": "LAC",
               "proj": 19.0,
-              "actual": 0.0
+              "actual": 0.0,
+              "started": true
             },
             {
               "name": "Vikings D/ST",
@@ -349,7 +669,8 @@
               "pos": "D/ST",
               "pro": "MIN",
               "proj": 4.3,
-              "actual": 0.0
+              "actual": 0.0,
+              "started": true
             },
             {
               "name": "Harrison Butker",
@@ -357,7 +678,154 @@
               "pos": "K",
               "pro": "KC",
               "proj": 8.9,
-              "actual": 0.0
+              "actual": 0.0,
+              "started": true
+            }
+          ],
+          "players": [
+            {
+              "name": "Ashton Jeanty",
+              "slot": "RB",
+              "pos": "RB",
+              "pro": "LV",
+              "proj": 20.0,
+              "actual": 0.0,
+              "started": true
+            },
+            {
+              "name": "Drake London",
+              "slot": "WR",
+              "pos": "WR",
+              "pro": "ATL",
+              "proj": 15.1,
+              "actual": 0.0,
+              "started": true
+            },
+            {
+              "name": "Breece Hall",
+              "slot": "RB",
+              "pos": "RB",
+              "pro": "NYJ",
+              "proj": 16.5,
+              "actual": 0.0,
+              "started": true
+            },
+            {
+              "name": "Ladd McConkey",
+              "slot": "WR",
+              "pos": "WR",
+              "pro": "LAC",
+              "proj": 13.8,
+              "actual": 0.0,
+              "started": true
+            },
+            {
+              "name": "Carnell Tate",
+              "slot": "FLEX",
+              "pos": "WR",
+              "pro": "TEN",
+              "proj": 12.0,
+              "actual": 0.0,
+              "started": true
+            },
+            {
+              "name": "Harold Fannin Jr.",
+              "slot": "TE",
+              "pos": "TE",
+              "pro": "CLE",
+              "proj": 11.1,
+              "actual": 0.0,
+              "started": true
+            },
+            {
+              "name": "Jordan Addison",
+              "slot": "BE",
+              "pos": "WR",
+              "pro": "MIN",
+              "proj": 9.9,
+              "actual": 0.0,
+              "started": false
+            },
+            {
+              "name": "Justin Herbert",
+              "slot": "QB",
+              "pos": "QB",
+              "pro": "LAC",
+              "proj": 19.0,
+              "actual": 0.0,
+              "started": true
+            },
+            {
+              "name": "RJ Harvey",
+              "slot": "BE",
+              "pos": "RB",
+              "pro": "DEN",
+              "proj": 8.5,
+              "actual": 0.0,
+              "started": false
+            },
+            {
+              "name": "KC Concepcion",
+              "slot": "BE",
+              "pos": "WR",
+              "pro": "CLE",
+              "proj": 9.1,
+              "actual": 0.0,
+              "started": false
+            },
+            {
+              "name": "Kenyon Sadiq",
+              "slot": "BE",
+              "pos": "TE",
+              "pro": "NYJ",
+              "proj": 6.2,
+              "actual": 0.0,
+              "started": false
+            },
+            {
+              "name": "Keenan Allen",
+              "slot": "BE",
+              "pos": "WR",
+              "pro": "IND",
+              "proj": 7.2,
+              "actual": 0.0,
+              "started": false
+            },
+            {
+              "name": "Vikings D/ST",
+              "slot": "D/ST",
+              "pos": "D/ST",
+              "pro": "MIN",
+              "proj": 4.3,
+              "actual": 0.0,
+              "started": true
+            },
+            {
+              "name": "Jared Goff",
+              "slot": "BE",
+              "pos": "QB",
+              "pro": "DET",
+              "proj": 15.8,
+              "actual": 0.0,
+              "started": false
+            },
+            {
+              "name": "Tre Tucker",
+              "slot": "BE",
+              "pos": "WR",
+              "pro": "LV",
+              "proj": 9.1,
+              "actual": 0.0,
+              "started": false
+            },
+            {
+              "name": "Harrison Butker",
+              "slot": "K",
+              "pos": "K",
+              "pro": "KC",
+              "proj": 8.9,
+              "actual": 0.0,
+              "started": true
             }
           ]
         },
@@ -369,6 +837,7 @@
           "record": "0-0",
           "actual": 0.0,
           "projected": 118.6,
+          "optimal_proj": 118.7,
           "starters": [
             {
               "name": "Ja'Marr Chase",
@@ -376,7 +845,8 @@
               "pos": "WR",
               "pro": "CIN",
               "proj": 20.0,
-              "actual": 0.0
+              "actual": 0.0,
+              "started": true
             },
             {
               "name": "Javonte Williams",
@@ -384,7 +854,8 @@
               "pos": "RB",
               "pro": "DAL",
               "proj": 15.5,
-              "actual": 0.0
+              "actual": 0.0,
+              "started": true
             },
             {
               "name": "Malik Nabers",
@@ -392,7 +863,8 @@
               "pos": "WR",
               "pro": "NYG",
               "proj": 14.9,
-              "actual": 0.0
+              "actual": 0.0,
+              "started": true
             },
             {
               "name": "Terry McLaurin",
@@ -400,7 +872,8 @@
               "pos": "WR",
               "pro": "WSH",
               "proj": 12.3,
-              "actual": 0.0
+              "actual": 0.0,
+              "started": true
             },
             {
               "name": "Cam Skattebo",
@@ -408,7 +881,8 @@
               "pos": "RB",
               "pro": "NYG",
               "proj": 13.7,
-              "actual": 0.0
+              "actual": 0.0,
+              "started": true
             },
             {
               "name": "Bo Nix",
@@ -416,7 +890,8 @@
               "pos": "QB",
               "pro": "DEN",
               "proj": 16.2,
-              "actual": 0.0
+              "actual": 0.0,
+              "started": true
             },
             {
               "name": "T.J. Hockenson",
@@ -424,7 +899,8 @@
               "pos": "TE",
               "pro": "MIN",
               "proj": 9.2,
-              "actual": 0.0
+              "actual": 0.0,
+              "started": true
             },
             {
               "name": "Chris Boswell",
@@ -432,7 +908,8 @@
               "pos": "K",
               "pro": "PIT",
               "proj": 9.4,
-              "actual": 0.0
+              "actual": 0.0,
+              "started": true
             },
             {
               "name": "Lions D/ST",
@@ -440,7 +917,154 @@
               "pos": "D/ST",
               "pro": "DET",
               "proj": 7.4,
-              "actual": 0.0
+              "actual": 0.0,
+              "started": true
+            }
+          ],
+          "players": [
+            {
+              "name": "Ja'Marr Chase",
+              "slot": "WR",
+              "pos": "WR",
+              "pro": "CIN",
+              "proj": 20.0,
+              "actual": 0.0,
+              "started": true
+            },
+            {
+              "name": "Javonte Williams",
+              "slot": "RB",
+              "pos": "RB",
+              "pro": "DAL",
+              "proj": 15.5,
+              "actual": 0.0,
+              "started": true
+            },
+            {
+              "name": "Malik Nabers",
+              "slot": "WR",
+              "pos": "WR",
+              "pro": "NYG",
+              "proj": 14.9,
+              "actual": 0.0,
+              "started": true
+            },
+            {
+              "name": "Terry McLaurin",
+              "slot": "FLEX",
+              "pos": "WR",
+              "pro": "WSH",
+              "proj": 12.3,
+              "actual": 0.0,
+              "started": true
+            },
+            {
+              "name": "Cam Skattebo",
+              "slot": "RB",
+              "pos": "RB",
+              "pro": "NYG",
+              "proj": 13.7,
+              "actual": 0.0,
+              "started": true
+            },
+            {
+              "name": "DK Metcalf",
+              "slot": "BE",
+              "pos": "WR",
+              "pro": "PIT",
+              "proj": 12.2,
+              "actual": 0.0,
+              "started": false
+            },
+            {
+              "name": "Jaylen Warren",
+              "slot": "BE",
+              "pos": "RB",
+              "pro": "PIT",
+              "proj": 12.4,
+              "actual": 0.0,
+              "started": false
+            },
+            {
+              "name": "Wan'Dale Robinson",
+              "slot": "BE",
+              "pos": "WR",
+              "pro": "TEN",
+              "proj": 10.4,
+              "actual": 0.0,
+              "started": false
+            },
+            {
+              "name": "Jakobi Meyers",
+              "slot": "BE",
+              "pos": "WR",
+              "pro": "JAX",
+              "proj": 10.4,
+              "actual": 0.0,
+              "started": false
+            },
+            {
+              "name": "Bo Nix",
+              "slot": "QB",
+              "pos": "QB",
+              "pro": "DEN",
+              "proj": 16.2,
+              "actual": 0.0,
+              "started": true
+            },
+            {
+              "name": "T.J. Hockenson",
+              "slot": "TE",
+              "pos": "TE",
+              "pro": "MIN",
+              "proj": 9.2,
+              "actual": 0.0,
+              "started": true
+            },
+            {
+              "name": "Dalton Kincaid",
+              "slot": "BE",
+              "pos": "TE",
+              "pro": "BUF",
+              "proj": 8.7,
+              "actual": 0.0,
+              "started": false
+            },
+            {
+              "name": "Adonai Mitchell",
+              "slot": "BE",
+              "pos": "WR",
+              "pro": "NYJ",
+              "proj": 8.0,
+              "actual": 0.0,
+              "started": false
+            },
+            {
+              "name": "Malik Willis",
+              "slot": "BE",
+              "pos": "QB",
+              "pro": "MIA",
+              "proj": 15.1,
+              "actual": 0.0,
+              "started": false
+            },
+            {
+              "name": "Chris Boswell",
+              "slot": "K",
+              "pos": "K",
+              "pro": "PIT",
+              "proj": 9.4,
+              "actual": 0.0,
+              "started": true
+            },
+            {
+              "name": "Lions D/ST",
+              "slot": "D/ST",
+              "pos": "D/ST",
+              "pro": "DET",
+              "proj": 7.4,
+              "actual": 0.0,
+              "started": true
             }
           ]
         },
@@ -457,6 +1081,7 @@
           "record": "0-0",
           "actual": 0.0,
           "projected": 115.3,
+          "optimal_proj": 116.0,
           "starters": [
             {
               "name": "Jonathan Taylor",
@@ -464,7 +1089,8 @@
               "pos": "RB",
               "pro": "IND",
               "proj": 17.7,
-              "actual": 0.0
+              "actual": 0.0,
+              "started": true
             },
             {
               "name": "Rashee Rice",
@@ -472,7 +1098,8 @@
               "pos": "WR",
               "pro": "KC",
               "proj": 14.4,
-              "actual": 0.0
+              "actual": 0.0,
+              "started": true
             },
             {
               "name": "Quinshon Judkins",
@@ -480,7 +1107,8 @@
               "pos": "RB",
               "pro": "CLE",
               "proj": 13.2,
-              "actual": 0.0
+              "actual": 0.0,
+              "started": true
             },
             {
               "name": "Emeka Egbuka",
@@ -488,7 +1116,8 @@
               "pos": "WR",
               "pro": "TB",
               "proj": 14.1,
-              "actual": 0.0
+              "actual": 0.0,
+              "started": true
             },
             {
               "name": "TreVeyon Henderson",
@@ -496,7 +1125,8 @@
               "pos": "RB",
               "pro": "NE",
               "proj": 10.1,
-              "actual": 0.0
+              "actual": 0.0,
+              "started": true
             },
             {
               "name": "Joe Burrow",
@@ -504,7 +1134,8 @@
               "pos": "QB",
               "pro": "CIN",
               "proj": 18.2,
-              "actual": 0.0
+              "actual": 0.0,
+              "started": true
             },
             {
               "name": "Jake Ferguson",
@@ -512,7 +1143,8 @@
               "pos": "TE",
               "pro": "DAL",
               "proj": 9.9,
-              "actual": 0.0
+              "actual": 0.0,
+              "started": true
             },
             {
               "name": "Ka'imi Fairbairn",
@@ -520,7 +1152,8 @@
               "pos": "K",
               "pro": "HOU",
               "proj": 10.2,
-              "actual": 0.0
+              "actual": 0.0,
+              "started": true
             },
             {
               "name": "Steelers D/ST",
@@ -528,7 +1161,163 @@
               "pos": "D/ST",
               "pro": "PIT",
               "proj": 7.5,
-              "actual": 0.0
+              "actual": 0.0,
+              "started": true
+            }
+          ],
+          "players": [
+            {
+              "name": "Jonathan Taylor",
+              "slot": "RB",
+              "pos": "RB",
+              "pro": "IND",
+              "proj": 17.7,
+              "actual": 0.0,
+              "started": true
+            },
+            {
+              "name": "Rashee Rice",
+              "slot": "WR",
+              "pos": "WR",
+              "pro": "KC",
+              "proj": 14.4,
+              "actual": 0.0,
+              "started": true
+            },
+            {
+              "name": "Quinshon Judkins",
+              "slot": "RB",
+              "pos": "RB",
+              "pro": "CLE",
+              "proj": 13.2,
+              "actual": 0.0,
+              "started": true
+            },
+            {
+              "name": "Emeka Egbuka",
+              "slot": "WR",
+              "pos": "WR",
+              "pro": "TB",
+              "proj": 14.1,
+              "actual": 0.0,
+              "started": true
+            },
+            {
+              "name": "TreVeyon Henderson",
+              "slot": "FLEX",
+              "pos": "RB",
+              "pro": "NE",
+              "proj": 10.1,
+              "actual": 0.0,
+              "started": true
+            },
+            {
+              "name": "Joe Burrow",
+              "slot": "QB",
+              "pos": "QB",
+              "pro": "CIN",
+              "proj": 18.2,
+              "actual": 0.0,
+              "started": true
+            },
+            {
+              "name": "Parker Washington",
+              "slot": "BE",
+              "pos": "WR",
+              "pro": "JAX",
+              "proj": 10.8,
+              "actual": 0.0,
+              "started": false
+            },
+            {
+              "name": "Chuba Hubbard",
+              "slot": "BE",
+              "pos": "RB",
+              "pro": "CAR",
+              "proj": 10.6,
+              "actual": 0.0,
+              "started": false
+            },
+            {
+              "name": "Alec Pierce",
+              "slot": "BE",
+              "pos": "WR",
+              "pro": "IND",
+              "proj": 10.8,
+              "actual": 0.0,
+              "started": false
+            },
+            {
+              "name": "Jake Ferguson",
+              "slot": "TE",
+              "pos": "TE",
+              "pro": "DAL",
+              "proj": 9.9,
+              "actual": 0.0,
+              "started": true
+            },
+            {
+              "name": "Isiah Pacheco",
+              "slot": "BE",
+              "pos": "RB",
+              "pro": "DET",
+              "proj": 7.3,
+              "actual": 0.0,
+              "started": false
+            },
+            {
+              "name": "Zach Charbonnet",
+              "slot": "IR",
+              "pos": "RB",
+              "pro": "SEA",
+              "proj": 0.0,
+              "actual": 0.0,
+              "started": false
+            },
+            {
+              "name": "Ka'imi Fairbairn",
+              "slot": "K",
+              "pos": "K",
+              "pro": "HOU",
+              "proj": 10.2,
+              "actual": 0.0,
+              "started": true
+            },
+            {
+              "name": "Tyler Shough",
+              "slot": "BE",
+              "pos": "QB",
+              "pro": "NO",
+              "proj": 14.2,
+              "actual": 0.0,
+              "started": false
+            },
+            {
+              "name": "Steelers D/ST",
+              "slot": "D/ST",
+              "pos": "D/ST",
+              "pro": "PIT",
+              "proj": 7.5,
+              "actual": 0.0,
+              "started": true
+            },
+            {
+              "name": "Ja'Kobi Lane",
+              "slot": "BE",
+              "pos": "WR",
+              "pro": "BAL",
+              "proj": 6.0,
+              "actual": 0.0,
+              "started": false
+            },
+            {
+              "name": "MarShawn Lloyd",
+              "slot": "BE",
+              "pos": "RB",
+              "pro": "GB",
+              "proj": 5.0,
+              "actual": 0.0,
+              "started": false
             }
           ]
         },
@@ -540,6 +1329,7 @@
           "record": "0-0",
           "actual": 0.0,
           "projected": 120.2,
+          "optimal_proj": 120.3,
           "starters": [
             {
               "name": "Amon-Ra St. Brown",
@@ -547,7 +1337,8 @@
               "pos": "WR",
               "pro": "DET",
               "proj": 18.8,
-              "actual": 0.0
+              "actual": 0.0,
+              "started": true
             },
             {
               "name": "Omarion Hampton",
@@ -555,7 +1346,8 @@
               "pos": "RB",
               "pro": "LAC",
               "proj": 17.6,
-              "actual": 0.0
+              "actual": 0.0,
+              "started": true
             },
             {
               "name": "Zay Flowers",
@@ -563,7 +1355,8 @@
               "pos": "WR",
               "pro": "BAL",
               "proj": 14.2,
-              "actual": 0.0
+              "actual": 0.0,
+              "started": true
             },
             {
               "name": "Jaylen Waddle",
@@ -571,7 +1364,8 @@
               "pos": "WR",
               "pro": "DEN",
               "proj": 12.2,
-              "actual": 0.0
+              "actual": 0.0,
+              "started": true
             },
             {
               "name": "Jadarian Price",
@@ -579,7 +1373,8 @@
               "pos": "RB",
               "pro": "SEA",
               "proj": 13.6,
-              "actual": 0.0
+              "actual": 0.0,
+              "started": true
             },
             {
               "name": "Dallas Goedert",
@@ -587,7 +1382,8 @@
               "pos": "TE",
               "pro": "PHI",
               "proj": 10.9,
-              "actual": 0.0
+              "actual": 0.0,
+              "started": true
             },
             {
               "name": "Baker Mayfield",
@@ -595,7 +1391,8 @@
               "pos": "QB",
               "pro": "TB",
               "proj": 16.2,
-              "actual": 0.0
+              "actual": 0.0,
+              "started": true
             },
             {
               "name": "Harrison Mevis",
@@ -603,7 +1400,8 @@
               "pos": "K",
               "pro": "LAR",
               "proj": 9.8,
-              "actual": 0.0
+              "actual": 0.0,
+              "started": true
             },
             {
               "name": "Ravens D/ST",
@@ -611,7 +1409,154 @@
               "pos": "D/ST",
               "pro": "BAL",
               "proj": 6.8,
-              "actual": 0.0
+              "actual": 0.0,
+              "started": true
+            }
+          ],
+          "players": [
+            {
+              "name": "Amon-Ra St. Brown",
+              "slot": "WR",
+              "pos": "WR",
+              "pro": "DET",
+              "proj": 18.8,
+              "actual": 0.0,
+              "started": true
+            },
+            {
+              "name": "Omarion Hampton",
+              "slot": "RB",
+              "pos": "RB",
+              "pro": "LAC",
+              "proj": 17.6,
+              "actual": 0.0,
+              "started": true
+            },
+            {
+              "name": "Zay Flowers",
+              "slot": "WR",
+              "pos": "WR",
+              "pro": "BAL",
+              "proj": 14.2,
+              "actual": 0.0,
+              "started": true
+            },
+            {
+              "name": "Jaylen Waddle",
+              "slot": "FLEX",
+              "pos": "WR",
+              "pro": "DEN",
+              "proj": 12.2,
+              "actual": 0.0,
+              "started": true
+            },
+            {
+              "name": "Jadarian Price",
+              "slot": "RB",
+              "pos": "RB",
+              "pro": "SEA",
+              "proj": 13.6,
+              "actual": 0.0,
+              "started": true
+            },
+            {
+              "name": "Christian Watson",
+              "slot": "BE",
+              "pos": "WR",
+              "pro": "GB",
+              "proj": 10.8,
+              "actual": 0.0,
+              "started": false
+            },
+            {
+              "name": "Tony Pollard",
+              "slot": "BE",
+              "pos": "RB",
+              "pro": "TEN",
+              "proj": 11.5,
+              "actual": 0.0,
+              "started": false
+            },
+            {
+              "name": "Jacory Croskey-Merritt",
+              "slot": "BE",
+              "pos": "RB",
+              "pro": "WSH",
+              "proj": 8.3,
+              "actual": 0.0,
+              "started": false
+            },
+            {
+              "name": "Chris Godwin Jr.",
+              "slot": "BE",
+              "pos": "WR",
+              "pro": "TB",
+              "proj": 9.7,
+              "actual": 0.0,
+              "started": false
+            },
+            {
+              "name": "Kyler Murray",
+              "slot": "BE",
+              "pos": "QB",
+              "pro": "MIN",
+              "proj": 16.4,
+              "actual": 0.0,
+              "started": false
+            },
+            {
+              "name": "Dallas Goedert",
+              "slot": "TE",
+              "pos": "TE",
+              "pro": "PHI",
+              "proj": 10.9,
+              "actual": 0.0,
+              "started": true
+            },
+            {
+              "name": "Tank Bigsby",
+              "slot": "BE",
+              "pos": "RB",
+              "pro": "PHI",
+              "proj": 4.2,
+              "actual": 0.0,
+              "started": false
+            },
+            {
+              "name": "Baker Mayfield",
+              "slot": "QB",
+              "pos": "QB",
+              "pro": "TB",
+              "proj": 16.2,
+              "actual": 0.0,
+              "started": true
+            },
+            {
+              "name": "Juwan Johnson",
+              "slot": "BE",
+              "pos": "TE",
+              "pro": "NO",
+              "proj": 8.3,
+              "actual": 0.0,
+              "started": false
+            },
+            {
+              "name": "Harrison Mevis",
+              "slot": "K",
+              "pos": "K",
+              "pro": "LAR",
+              "proj": 9.8,
+              "actual": 0.0,
+              "started": true
+            },
+            {
+              "name": "Ravens D/ST",
+              "slot": "D/ST",
+              "pos": "D/ST",
+              "pro": "BAL",
+              "proj": 6.8,
+              "actual": 0.0,
+              "started": true
             }
           ]
         },
@@ -628,6 +1573,7 @@
           "record": "0-0",
           "actual": 0.0,
           "projected": 124.2,
+          "optimal_proj": 124.3,
           "starters": [
             {
               "name": "Justin Jefferson",
@@ -635,7 +1581,8 @@
               "pos": "WR",
               "pro": "MIN",
               "proj": 17.1,
-              "actual": 0.0
+              "actual": 0.0,
+              "started": true
             },
             {
               "name": "Saquon Barkley",
@@ -643,7 +1590,8 @@
               "pos": "RB",
               "pro": "PHI",
               "proj": 17.6,
-              "actual": 0.0
+              "actual": 0.0,
+              "started": true
             },
             {
               "name": "Jeremiyah Love",
@@ -651,7 +1599,8 @@
               "pos": "RB",
               "pro": "ARI",
               "proj": 16.2,
-              "actual": 0.0
+              "actual": 0.0,
+              "started": true
             },
             {
               "name": "Tetairoa McMillan",
@@ -659,7 +1608,8 @@
               "pos": "WR",
               "pro": "CAR",
               "proj": 14.4,
-              "actual": 0.0
+              "actual": 0.0,
+              "started": true
             },
             {
               "name": "Luther Burden III",
@@ -667,7 +1617,8 @@
               "pos": "WR",
               "pro": "CHI",
               "proj": 12.1,
-              "actual": 0.0
+              "actual": 0.0,
+              "started": true
             },
             {
               "name": "Jalen Hurts",
@@ -675,7 +1626,8 @@
               "pos": "QB",
               "pro": "PHI",
               "proj": 21.1,
-              "actual": 0.0
+              "actual": 0.0,
+              "started": true
             },
             {
               "name": "Isaiah Likely",
@@ -683,7 +1635,8 @@
               "pos": "TE",
               "pro": "NYG",
               "proj": 9.4,
-              "actual": 0.0
+              "actual": 0.0,
+              "started": true
             },
             {
               "name": "Chargers D/ST",
@@ -691,7 +1644,8 @@
               "pos": "D/ST",
               "pro": "LAC",
               "proj": 7.5,
-              "actual": 0.0
+              "actual": 0.0,
+              "started": true
             },
             {
               "name": "Chase McLaughlin",
@@ -699,7 +1653,154 @@
               "pos": "K",
               "pro": "TB",
               "proj": 8.7,
-              "actual": 0.0
+              "actual": 0.0,
+              "started": true
+            }
+          ],
+          "players": [
+            {
+              "name": "Justin Jefferson",
+              "slot": "WR",
+              "pos": "WR",
+              "pro": "MIN",
+              "proj": 17.1,
+              "actual": 0.0,
+              "started": true
+            },
+            {
+              "name": "Saquon Barkley",
+              "slot": "RB",
+              "pos": "RB",
+              "pro": "PHI",
+              "proj": 17.6,
+              "actual": 0.0,
+              "started": true
+            },
+            {
+              "name": "Jeremiyah Love",
+              "slot": "RB",
+              "pos": "RB",
+              "pro": "ARI",
+              "proj": 16.2,
+              "actual": 0.0,
+              "started": true
+            },
+            {
+              "name": "Tetairoa McMillan",
+              "slot": "WR",
+              "pos": "WR",
+              "pro": "CAR",
+              "proj": 14.4,
+              "actual": 0.0,
+              "started": true
+            },
+            {
+              "name": "Luther Burden III",
+              "slot": "FLEX",
+              "pos": "WR",
+              "pro": "CHI",
+              "proj": 12.1,
+              "actual": 0.0,
+              "started": true
+            },
+            {
+              "name": "Jalen Hurts",
+              "slot": "QB",
+              "pos": "QB",
+              "pro": "PHI",
+              "proj": 21.1,
+              "actual": 0.0,
+              "started": true
+            },
+            {
+              "name": "Michael Pittman Jr.",
+              "slot": "BE",
+              "pos": "WR",
+              "pro": "PIT",
+              "proj": 12.3,
+              "actual": 0.0,
+              "started": false
+            },
+            {
+              "name": "J.K. Dobbins",
+              "slot": "BE",
+              "pos": "RB",
+              "pro": "DEN",
+              "proj": 9.5,
+              "actual": 0.0,
+              "started": false
+            },
+            {
+              "name": "Isaiah Likely",
+              "slot": "TE",
+              "pos": "TE",
+              "pro": "NYG",
+              "proj": 9.4,
+              "actual": 0.0,
+              "started": true
+            },
+            {
+              "name": "Xavier Worthy",
+              "slot": "BE",
+              "pos": "WR",
+              "pro": "KC",
+              "proj": 9.6,
+              "actual": 0.0,
+              "started": false
+            },
+            {
+              "name": "Tyler Allgeier",
+              "slot": "BE",
+              "pos": "RB",
+              "pro": "ARI",
+              "proj": 5.3,
+              "actual": 0.0,
+              "started": false
+            },
+            {
+              "name": "De'Zhaun Stribling",
+              "slot": "BE",
+              "pos": "WR",
+              "pro": "SF",
+              "proj": 9.2,
+              "actual": 0.0,
+              "started": false
+            },
+            {
+              "name": "Mike Washington Jr.",
+              "slot": "BE",
+              "pos": "RB",
+              "pro": "LV",
+              "proj": 4.9,
+              "actual": 0.0,
+              "started": false
+            },
+            {
+              "name": "Rashid Shaheed",
+              "slot": "BE",
+              "pos": "WR",
+              "pro": "SEA",
+              "proj": 8.4,
+              "actual": 0.0,
+              "started": false
+            },
+            {
+              "name": "Chargers D/ST",
+              "slot": "D/ST",
+              "pos": "D/ST",
+              "pro": "LAC",
+              "proj": 7.5,
+              "actual": 0.0,
+              "started": true
+            },
+            {
+              "name": "Chase McLaughlin",
+              "slot": "K",
+              "pos": "K",
+              "pro": "TB",
+              "proj": 8.7,
+              "actual": 0.0,
+              "started": true
             }
           ]
         },
@@ -711,6 +1812,7 @@
           "record": "0-0",
           "actual": 0.0,
           "projected": 116.2,
+          "optimal_proj": 116.1,
           "starters": [
             {
               "name": "Jaxon Smith-Njigba",
@@ -718,7 +1820,8 @@
               "pos": "WR",
               "pro": "SEA",
               "proj": 18.9,
-              "actual": 0.0
+              "actual": 0.0,
+              "started": true
             },
             {
               "name": "Kenneth Walker III",
@@ -726,7 +1829,8 @@
               "pos": "RB",
               "pro": "KC",
               "proj": 14.8,
-              "actual": 0.0
+              "actual": 0.0,
+              "started": true
             },
             {
               "name": "Chris Olave",
@@ -734,7 +1838,8 @@
               "pos": "WR",
               "pro": "NO",
               "proj": 14.8,
-              "actual": 0.0
+              "actual": 0.0,
+              "started": true
             },
             {
               "name": "Bucky Irving",
@@ -742,7 +1847,8 @@
               "pos": "RB",
               "pro": "TB",
               "proj": 12.4,
-              "actual": 0.0
+              "actual": 0.0,
+              "started": true
             },
             {
               "name": "Rome Odunze",
@@ -750,7 +1856,8 @@
               "pos": "WR",
               "pro": "CHI",
               "proj": 12.5,
-              "actual": 0.0
+              "actual": 0.0,
+              "started": true
             },
             {
               "name": "Sam LaPorta",
@@ -758,7 +1865,8 @@
               "pos": "TE",
               "pro": "DET",
               "proj": 11.0,
-              "actual": 0.0
+              "actual": 0.0,
+              "started": true
             },
             {
               "name": "Jayden Daniels",
@@ -766,7 +1874,8 @@
               "pos": "QB",
               "pro": "WSH",
               "proj": 16.8,
-              "actual": 0.0
+              "actual": 0.0,
+              "started": true
             },
             {
               "name": "Will Reichard",
@@ -774,7 +1883,8 @@
               "pos": "K",
               "pro": "MIN",
               "proj": 8.8,
-              "actual": 0.0
+              "actual": 0.0,
+              "started": true
             },
             {
               "name": "Eagles D/ST",
@@ -782,7 +1892,154 @@
               "pos": "D/ST",
               "pro": "PHI",
               "proj": 6.1,
-              "actual": 0.0
+              "actual": 0.0,
+              "started": true
+            }
+          ],
+          "players": [
+            {
+              "name": "Jaxon Smith-Njigba",
+              "slot": "WR",
+              "pos": "WR",
+              "pro": "SEA",
+              "proj": 18.9,
+              "actual": 0.0,
+              "started": true
+            },
+            {
+              "name": "Kenneth Walker III",
+              "slot": "RB",
+              "pos": "RB",
+              "pro": "KC",
+              "proj": 14.8,
+              "actual": 0.0,
+              "started": true
+            },
+            {
+              "name": "Chris Olave",
+              "slot": "WR",
+              "pos": "WR",
+              "pro": "NO",
+              "proj": 14.8,
+              "actual": 0.0,
+              "started": true
+            },
+            {
+              "name": "Bucky Irving",
+              "slot": "RB",
+              "pos": "RB",
+              "pro": "TB",
+              "proj": 12.4,
+              "actual": 0.0,
+              "started": true
+            },
+            {
+              "name": "Rome Odunze",
+              "slot": "FLEX",
+              "pos": "WR",
+              "pro": "CHI",
+              "proj": 12.5,
+              "actual": 0.0,
+              "started": true
+            },
+            {
+              "name": "Sam LaPorta",
+              "slot": "TE",
+              "pos": "TE",
+              "pro": "DET",
+              "proj": 11.0,
+              "actual": 0.0,
+              "started": true
+            },
+            {
+              "name": "Jayden Daniels",
+              "slot": "QB",
+              "pos": "QB",
+              "pro": "WSH",
+              "proj": 16.8,
+              "actual": 0.0,
+              "started": true
+            },
+            {
+              "name": "Rico Dowdle",
+              "slot": "BE",
+              "pos": "RB",
+              "pro": "PIT",
+              "proj": 12.3,
+              "actual": 0.0,
+              "started": false
+            },
+            {
+              "name": "Kenny Gainwell",
+              "slot": "BE",
+              "pos": "RB",
+              "pro": "TB",
+              "proj": 10.8,
+              "actual": 0.0,
+              "started": false
+            },
+            {
+              "name": "Jalen Coker",
+              "slot": "BE",
+              "pos": "WR",
+              "pro": "CAR",
+              "proj": 9.0,
+              "actual": 0.0,
+              "started": false
+            },
+            {
+              "name": "Mark Andrews",
+              "slot": "BE",
+              "pos": "TE",
+              "pro": "BAL",
+              "proj": 10.1,
+              "actual": 0.0,
+              "started": false
+            },
+            {
+              "name": "Brock Purdy",
+              "slot": "BE",
+              "pos": "QB",
+              "pro": "SF",
+              "proj": 15.5,
+              "actual": 0.0,
+              "started": false
+            },
+            {
+              "name": "Brian Robinson Jr.",
+              "slot": "BE",
+              "pos": "RB",
+              "pro": "ATL",
+              "proj": 5.0,
+              "actual": 0.0,
+              "started": false
+            },
+            {
+              "name": "Will Reichard",
+              "slot": "K",
+              "pos": "K",
+              "pro": "MIN",
+              "proj": 8.8,
+              "actual": 0.0,
+              "started": true
+            },
+            {
+              "name": "Eagles D/ST",
+              "slot": "D/ST",
+              "pos": "D/ST",
+              "pro": "PHI",
+              "proj": 6.1,
+              "actual": 0.0,
+              "started": true
+            },
+            {
+              "name": "Cyrus Allen",
+              "slot": "BE",
+              "pos": "WR",
+              "pro": "KC",
+              "proj": 3.0,
+              "actual": 0.0,
+              "started": false
             }
           ]
         },
@@ -799,6 +2056,7 @@
           "record": "0-0",
           "actual": 0.0,
           "projected": 115.2,
+          "optimal_proj": 115.2,
           "starters": [
             {
               "name": "Bijan Robinson",
@@ -806,7 +2064,8 @@
               "pos": "RB",
               "pro": "ATL",
               "proj": 19.3,
-              "actual": 0.0
+              "actual": 0.0,
+              "started": true
             },
             {
               "name": "A.J. Brown",
@@ -814,7 +2073,8 @@
               "pos": "WR",
               "pro": "NE",
               "proj": 13.7,
-              "actual": 0.0
+              "actual": 0.0,
+              "started": true
             },
             {
               "name": "George Pickens",
@@ -822,7 +2082,8 @@
               "pos": "WR",
               "pro": "DAL",
               "proj": 14.2,
-              "actual": 0.0
+              "actual": 0.0,
+              "started": true
             },
             {
               "name": "Tee Higgins",
@@ -830,7 +2091,8 @@
               "pos": "WR",
               "pro": "CIN",
               "proj": 13.0,
-              "actual": 0.0
+              "actual": 0.0,
+              "started": true
             },
             {
               "name": "Lamar Jackson",
@@ -838,7 +2100,8 @@
               "pos": "QB",
               "pro": "BAL",
               "proj": 19.1,
-              "actual": 0.0
+              "actual": 0.0,
+              "started": true
             },
             {
               "name": "Tucker Kraft",
@@ -846,7 +2109,8 @@
               "pos": "TE",
               "pro": "GB",
               "proj": 10.5,
-              "actual": 0.0
+              "actual": 0.0,
+              "started": true
             },
             {
               "name": "Jonathon Brooks",
@@ -854,7 +2118,8 @@
               "pos": "RB",
               "pro": "CAR",
               "proj": 10.5,
-              "actual": 0.0
+              "actual": 0.0,
+              "started": true
             },
             {
               "name": "Rams D/ST",
@@ -862,7 +2127,8 @@
               "pos": "D/ST",
               "pro": "LAR",
               "proj": 6.0,
-              "actual": 0.0
+              "actual": 0.0,
+              "started": true
             },
             {
               "name": "Evan McPherson",
@@ -870,7 +2136,154 @@
               "pos": "K",
               "pro": "CIN",
               "proj": 8.9,
-              "actual": 0.0
+              "actual": 0.0,
+              "started": true
+            }
+          ],
+          "players": [
+            {
+              "name": "Bijan Robinson",
+              "slot": "RB",
+              "pos": "RB",
+              "pro": "ATL",
+              "proj": 19.3,
+              "actual": 0.0,
+              "started": true
+            },
+            {
+              "name": "A.J. Brown",
+              "slot": "WR",
+              "pos": "WR",
+              "pro": "NE",
+              "proj": 13.7,
+              "actual": 0.0,
+              "started": true
+            },
+            {
+              "name": "George Pickens",
+              "slot": "WR",
+              "pos": "WR",
+              "pro": "DAL",
+              "proj": 14.2,
+              "actual": 0.0,
+              "started": true
+            },
+            {
+              "name": "Tee Higgins",
+              "slot": "FLEX",
+              "pos": "WR",
+              "pro": "CIN",
+              "proj": 13.0,
+              "actual": 0.0,
+              "started": true
+            },
+            {
+              "name": "Lamar Jackson",
+              "slot": "QB",
+              "pos": "QB",
+              "pro": "BAL",
+              "proj": 19.1,
+              "actual": 0.0,
+              "started": true
+            },
+            {
+              "name": "Tucker Kraft",
+              "slot": "TE",
+              "pos": "TE",
+              "pro": "GB",
+              "proj": 10.5,
+              "actual": 0.0,
+              "started": true
+            },
+            {
+              "name": "Jonathon Brooks",
+              "slot": "RB",
+              "pos": "RB",
+              "pro": "CAR",
+              "proj": 10.5,
+              "actual": 0.0,
+              "started": true
+            },
+            {
+              "name": "Jordan Mason",
+              "slot": "BE",
+              "pos": "RB",
+              "pro": "MIN",
+              "proj": 8.7,
+              "actual": 0.0,
+              "started": false
+            },
+            {
+              "name": "Kyle Monangai",
+              "slot": "BE",
+              "pos": "RB",
+              "pro": "CHI",
+              "proj": 10.5,
+              "actual": 0.0,
+              "started": false
+            },
+            {
+              "name": "Chris Rodriguez Jr.",
+              "slot": "BE",
+              "pos": "RB",
+              "pro": "JAX",
+              "proj": 4.4,
+              "actual": 0.0,
+              "started": false
+            },
+            {
+              "name": "Jalen McMillan",
+              "slot": "BE",
+              "pos": "WR",
+              "pro": "TB",
+              "proj": 8.2,
+              "actual": 0.0,
+              "started": false
+            },
+            {
+              "name": "Jalen Nailor",
+              "slot": "BE",
+              "pos": "WR",
+              "pro": "LV",
+              "proj": 8.2,
+              "actual": 0.0,
+              "started": false
+            },
+            {
+              "name": "Dak Prescott",
+              "slot": "BE",
+              "pos": "QB",
+              "pro": "DAL",
+              "proj": 17.1,
+              "actual": 0.0,
+              "started": false
+            },
+            {
+              "name": "Rams D/ST",
+              "slot": "D/ST",
+              "pos": "D/ST",
+              "pro": "LAR",
+              "proj": 6.0,
+              "actual": 0.0,
+              "started": true
+            },
+            {
+              "name": "Evan McPherson",
+              "slot": "K",
+              "pos": "K",
+              "pro": "CIN",
+              "proj": 8.9,
+              "actual": 0.0,
+              "started": true
+            },
+            {
+              "name": "Denzel Boston",
+              "slot": "BE",
+              "pos": "WR",
+              "pro": "CLE",
+              "proj": 8.3,
+              "actual": 0.0,
+              "started": false
             }
           ]
         },
@@ -882,6 +2295,7 @@
           "record": "0-0",
           "actual": 0.0,
           "projected": 110.1,
+          "optimal_proj": 117.0,
           "starters": [
             {
               "name": "CeeDee Lamb",
@@ -889,7 +2303,8 @@
               "pos": "WR",
               "pro": "DAL",
               "proj": 17.5,
-              "actual": 0.0
+              "actual": 0.0,
+              "started": true
             },
             {
               "name": "Chase Brown",
@@ -897,7 +2312,8 @@
               "pos": "RB",
               "pro": "CIN",
               "proj": 16.0,
-              "actual": 0.0
+              "actual": 0.0,
+              "started": true
             },
             {
               "name": "Travis Etienne Jr.",
@@ -905,7 +2321,8 @@
               "pos": "RB",
               "pro": "NO",
               "proj": 15.0,
-              "actual": 0.0
+              "actual": 0.0,
+              "started": true
             },
             {
               "name": "DeVonta Smith",
@@ -913,7 +2330,8 @@
               "pos": "WR",
               "pro": "PHI",
               "proj": 14.8,
-              "actual": 0.0
+              "actual": 0.0,
+              "started": true
             },
             {
               "name": "Bhayshul Tuten",
@@ -921,7 +2339,8 @@
               "pos": "RB",
               "pro": "JAX",
               "proj": 12.4,
-              "actual": 0.0
+              "actual": 0.0,
+              "started": true
             },
             {
               "name": "Trevor Lawrence",
@@ -929,7 +2348,8 @@
               "pos": "QB",
               "pro": "JAX",
               "proj": 16.9,
-              "actual": 0.0
+              "actual": 0.0,
+              "started": true
             },
             {
               "name": "George Kittle",
@@ -937,7 +2357,8 @@
               "pos": "TE",
               "pro": "SF",
               "proj": 0.0,
-              "actual": 0.0
+              "actual": 0.0,
+              "started": true
             },
             {
               "name": "Brandon Aubrey",
@@ -945,7 +2366,8 @@
               "pos": "K",
               "pro": "DAL",
               "proj": 10.5,
-              "actual": 0.0
+              "actual": 0.0,
+              "started": true
             },
             {
               "name": "Seahawks D/ST",
@@ -953,7 +2375,154 @@
               "pos": "D/ST",
               "pro": "SEA",
               "proj": 7.1,
-              "actual": 0.0
+              "actual": 0.0,
+              "started": true
+            }
+          ],
+          "players": [
+            {
+              "name": "CeeDee Lamb",
+              "slot": "WR",
+              "pos": "WR",
+              "pro": "DAL",
+              "proj": 17.5,
+              "actual": 0.0,
+              "started": true
+            },
+            {
+              "name": "Chase Brown",
+              "slot": "RB",
+              "pos": "RB",
+              "pro": "CIN",
+              "proj": 16.0,
+              "actual": 0.0,
+              "started": true
+            },
+            {
+              "name": "Travis Etienne Jr.",
+              "slot": "RB",
+              "pos": "RB",
+              "pro": "NO",
+              "proj": 15.0,
+              "actual": 0.0,
+              "started": true
+            },
+            {
+              "name": "DeVonta Smith",
+              "slot": "WR",
+              "pos": "WR",
+              "pro": "PHI",
+              "proj": 14.8,
+              "actual": 0.0,
+              "started": true
+            },
+            {
+              "name": "Bhayshul Tuten",
+              "slot": "FLEX",
+              "pos": "RB",
+              "pro": "JAX",
+              "proj": 12.4,
+              "actual": 0.0,
+              "started": true
+            },
+            {
+              "name": "Jameson Williams",
+              "slot": "BE",
+              "pos": "WR",
+              "pro": "DET",
+              "proj": 12.1,
+              "actual": 0.0,
+              "started": false
+            },
+            {
+              "name": "Trevor Lawrence",
+              "slot": "QB",
+              "pos": "QB",
+              "pro": "JAX",
+              "proj": 16.9,
+              "actual": 0.0,
+              "started": true
+            },
+            {
+              "name": "George Kittle",
+              "slot": "TE",
+              "pos": "TE",
+              "pro": "SF",
+              "proj": 0.0,
+              "actual": 0.0,
+              "started": true
+            },
+            {
+              "name": "Deebo Samuel Sr.",
+              "slot": "BE",
+              "pos": "WR",
+              "pro": "SF",
+              "proj": 9.1,
+              "actual": 0.0,
+              "started": false
+            },
+            {
+              "name": "Aaron Jones Sr.",
+              "slot": "BE",
+              "pos": "RB",
+              "pro": "MIN",
+              "proj": 10.3,
+              "actual": 0.0,
+              "started": false
+            },
+            {
+              "name": "Khalil Shakir",
+              "slot": "BE",
+              "pos": "WR",
+              "pro": "BUF",
+              "proj": 9.5,
+              "actual": 0.0,
+              "started": false
+            },
+            {
+              "name": "Brandon Aubrey",
+              "slot": "K",
+              "pos": "K",
+              "pro": "DAL",
+              "proj": 10.5,
+              "actual": 0.0,
+              "started": true
+            },
+            {
+              "name": "Seahawks D/ST",
+              "slot": "D/ST",
+              "pos": "D/ST",
+              "pro": "SEA",
+              "proj": 7.1,
+              "actual": 0.0,
+              "started": true
+            },
+            {
+              "name": "Jordan Love",
+              "slot": "BE",
+              "pos": "QB",
+              "pro": "GB",
+              "proj": 15.0,
+              "actual": 0.0,
+              "started": false
+            },
+            {
+              "name": "Dylan Sampson",
+              "slot": "BE",
+              "pos": "RB",
+              "pro": "CLE",
+              "proj": 5.0,
+              "actual": 0.0,
+              "started": false
+            },
+            {
+              "name": "Chig Okonkwo",
+              "slot": "BE",
+              "pos": "TE",
+              "pro": "WSH",
+              "proj": 6.8,
+              "actual": 0.0,
+              "started": false
             }
           ]
         },
@@ -970,6 +2539,7 @@
           "record": "0-0",
           "actual": 0.0,
           "projected": 122.6,
+          "optimal_proj": 122.7,
           "starters": [
             {
               "name": "Jahmyr Gibbs",
@@ -977,7 +2547,8 @@
               "pos": "RB",
               "pro": "DET",
               "proj": 21.6,
-              "actual": 0.0
+              "actual": 0.0,
+              "started": true
             },
             {
               "name": "Nico Collins",
@@ -985,7 +2556,8 @@
               "pos": "WR",
               "pro": "HOU",
               "proj": 15.6,
-              "actual": 0.0
+              "actual": 0.0,
+              "started": true
             },
             {
               "name": "Josh Jacobs",
@@ -993,7 +2565,8 @@
               "pos": "RB",
               "pro": "GB",
               "proj": 15.1,
-              "actual": 0.0
+              "actual": 0.0,
+              "started": true
             },
             {
               "name": "Tyler Warren",
@@ -1001,7 +2574,8 @@
               "pos": "TE",
               "pro": "IND",
               "proj": 12.2,
-              "actual": 0.0
+              "actual": 0.0,
+              "started": true
             },
             {
               "name": "DJ Moore",
@@ -1009,7 +2583,8 @@
               "pos": "WR",
               "pro": "BUF",
               "proj": 11.6,
-              "actual": 0.0
+              "actual": 0.0,
+              "started": true
             },
             {
               "name": "Jaxson Dart",
@@ -1017,7 +2592,8 @@
               "pos": "QB",
               "pro": "NYG",
               "proj": 18.5,
-              "actual": 0.0
+              "actual": 0.0,
+              "started": true
             },
             {
               "name": "Courtland Sutton",
@@ -1025,7 +2601,8 @@
               "pos": "WR",
               "pro": "DEN",
               "proj": 11.7,
-              "actual": 0.0
+              "actual": 0.0,
+              "started": true
             },
             {
               "name": "Broncos D/ST",
@@ -1033,7 +2610,8 @@
               "pos": "D/ST",
               "pro": "DEN",
               "proj": 5.7,
-              "actual": 0.0
+              "actual": 0.0,
+              "started": true
             },
             {
               "name": "Cameron Dicker",
@@ -1041,7 +2619,154 @@
               "pos": "K",
               "pro": "LAC",
               "proj": 10.7,
-              "actual": 0.0
+              "actual": 0.0,
+              "started": true
+            }
+          ],
+          "players": [
+            {
+              "name": "Jahmyr Gibbs",
+              "slot": "RB",
+              "pos": "RB",
+              "pro": "DET",
+              "proj": 21.6,
+              "actual": 0.0,
+              "started": true
+            },
+            {
+              "name": "Nico Collins",
+              "slot": "WR",
+              "pos": "WR",
+              "pro": "HOU",
+              "proj": 15.6,
+              "actual": 0.0,
+              "started": true
+            },
+            {
+              "name": "Josh Jacobs",
+              "slot": "RB",
+              "pos": "RB",
+              "pro": "GB",
+              "proj": 15.1,
+              "actual": 0.0,
+              "started": true
+            },
+            {
+              "name": "Tyler Warren",
+              "slot": "TE",
+              "pos": "TE",
+              "pro": "IND",
+              "proj": 12.2,
+              "actual": 0.0,
+              "started": true
+            },
+            {
+              "name": "DJ Moore",
+              "slot": "WR",
+              "pos": "WR",
+              "pro": "BUF",
+              "proj": 11.6,
+              "actual": 0.0,
+              "started": true
+            },
+            {
+              "name": "Jaxson Dart",
+              "slot": "QB",
+              "pos": "QB",
+              "pro": "NYG",
+              "proj": 18.5,
+              "actual": 0.0,
+              "started": true
+            },
+            {
+              "name": "Courtland Sutton",
+              "slot": "FLEX",
+              "pos": "WR",
+              "pro": "DEN",
+              "proj": 11.7,
+              "actual": 0.0,
+              "started": true
+            },
+            {
+              "name": "Matthew Golden",
+              "slot": "BE",
+              "pos": "WR",
+              "pro": "GB",
+              "proj": 10.8,
+              "actual": 0.0,
+              "started": false
+            },
+            {
+              "name": "Rachaad White",
+              "slot": "BE",
+              "pos": "RB",
+              "pro": "WSH",
+              "proj": 8.9,
+              "actual": 0.0,
+              "started": false
+            },
+            {
+              "name": "Travis Kelce",
+              "slot": "BE",
+              "pos": "TE",
+              "pro": "KC",
+              "proj": 9.8,
+              "actual": 0.0,
+              "started": false
+            },
+            {
+              "name": "Tank Dell",
+              "slot": "BE",
+              "pos": "WR",
+              "pro": "HOU",
+              "proj": 6.0,
+              "actual": 0.0,
+              "started": false
+            },
+            {
+              "name": "Broncos D/ST",
+              "slot": "D/ST",
+              "pos": "D/ST",
+              "pro": "DEN",
+              "proj": 5.7,
+              "actual": 0.0,
+              "started": true
+            },
+            {
+              "name": "Cameron Dicker",
+              "slot": "K",
+              "pos": "K",
+              "pro": "LAC",
+              "proj": 10.7,
+              "actual": 0.0,
+              "started": true
+            },
+            {
+              "name": "Daniel Jones",
+              "slot": "BE",
+              "pos": "QB",
+              "pro": "IND",
+              "proj": 15.2,
+              "actual": 0.0,
+              "started": false
+            },
+            {
+              "name": "Jerry Jeudy",
+              "slot": "BE",
+              "pos": "WR",
+              "pro": "CLE",
+              "proj": 8.1,
+              "actual": 0.0,
+              "started": false
+            },
+            {
+              "name": "Alvin Kamara",
+              "slot": "BE",
+              "pos": "RB",
+              "pro": "NO",
+              "proj": 0.0,
+              "actual": 0.0,
+              "started": false
             }
           ]
         },
@@ -1053,6 +2778,7 @@
           "record": "0-0",
           "actual": 0.0,
           "projected": 117.0,
+          "optimal_proj": 117.1,
           "starters": [
             {
               "name": "Christian McCaffrey",
@@ -1060,7 +2786,8 @@
               "pos": "RB",
               "pro": "SF",
               "proj": 18.6,
-              "actual": 0.0
+              "actual": 0.0,
+              "started": true
             },
             {
               "name": "Derrick Henry",
@@ -1068,7 +2795,8 @@
               "pos": "RB",
               "pro": "BAL",
               "proj": 16.2,
-              "actual": 0.0
+              "actual": 0.0,
+              "started": true
             },
             {
               "name": "Josh Allen",
@@ -1076,7 +2804,8 @@
               "pos": "QB",
               "pro": "BUF",
               "proj": 19.3,
-              "actual": 0.0
+              "actual": 0.0,
+              "started": true
             },
             {
               "name": "Davante Adams",
@@ -1084,7 +2813,8 @@
               "pos": "WR",
               "pro": "LAR",
               "proj": 13.8,
-              "actual": 0.0
+              "actual": 0.0,
+              "started": true
             },
             {
               "name": "David Montgomery",
@@ -1092,7 +2822,8 @@
               "pos": "RB",
               "pro": "HOU",
               "proj": 12.2,
-              "actual": 0.0
+              "actual": 0.0,
+              "started": true
             },
             {
               "name": "Kyle Pitts Sr.",
@@ -1100,7 +2831,8 @@
               "pos": "TE",
               "pro": "ATL",
               "proj": 10.4,
-              "actual": 0.0
+              "actual": 0.0,
+              "started": true
             },
             {
               "name": "Marvin Harrison Jr.",
@@ -1108,7 +2840,8 @@
               "pos": "WR",
               "pro": "ARI",
               "proj": 11.5,
-              "actual": 0.0
+              "actual": 0.0,
+              "started": true
             },
             {
               "name": "Texans D/ST",
@@ -1116,7 +2849,8 @@
               "pos": "D/ST",
               "pro": "HOU",
               "proj": 5.3,
-              "actual": 0.0
+              "actual": 0.0,
+              "started": true
             },
             {
               "name": "Jason Myers",
@@ -1124,7 +2858,154 @@
               "pos": "K",
               "pro": "SEA",
               "proj": 9.8,
-              "actual": 0.0
+              "actual": 0.0,
+              "started": true
+            }
+          ],
+          "players": [
+            {
+              "name": "Christian McCaffrey",
+              "slot": "RB",
+              "pos": "RB",
+              "pro": "SF",
+              "proj": 18.6,
+              "actual": 0.0,
+              "started": true
+            },
+            {
+              "name": "Derrick Henry",
+              "slot": "RB",
+              "pos": "RB",
+              "pro": "BAL",
+              "proj": 16.2,
+              "actual": 0.0,
+              "started": true
+            },
+            {
+              "name": "Josh Allen",
+              "slot": "QB",
+              "pos": "QB",
+              "pro": "BUF",
+              "proj": 19.3,
+              "actual": 0.0,
+              "started": true
+            },
+            {
+              "name": "Davante Adams",
+              "slot": "WR",
+              "pos": "WR",
+              "pro": "LAR",
+              "proj": 13.8,
+              "actual": 0.0,
+              "started": true
+            },
+            {
+              "name": "David Montgomery",
+              "slot": "FLEX",
+              "pos": "RB",
+              "pro": "HOU",
+              "proj": 12.2,
+              "actual": 0.0,
+              "started": true
+            },
+            {
+              "name": "Kyle Pitts Sr.",
+              "slot": "TE",
+              "pos": "TE",
+              "pro": "ATL",
+              "proj": 10.4,
+              "actual": 0.0,
+              "started": true
+            },
+            {
+              "name": "Marvin Harrison Jr.",
+              "slot": "WR",
+              "pos": "WR",
+              "pro": "ARI",
+              "proj": 11.5,
+              "actual": 0.0,
+              "started": true
+            },
+            {
+              "name": "Stefon Diggs",
+              "slot": "BE",
+              "pos": "WR",
+              "pro": "WSH",
+              "proj": 9.2,
+              "actual": 0.0,
+              "started": false
+            },
+            {
+              "name": "Woody Marks",
+              "slot": "BE",
+              "pos": "RB",
+              "pro": "HOU",
+              "proj": 8.0,
+              "actual": 0.0,
+              "started": false
+            },
+            {
+              "name": "Jayden Reed",
+              "slot": "BE",
+              "pos": "WR",
+              "pro": "GB",
+              "proj": 9.9,
+              "actual": 0.0,
+              "started": false
+            },
+            {
+              "name": "Kaelon Black",
+              "slot": "BE",
+              "pos": "RB",
+              "pro": "SF",
+              "proj": 3.1,
+              "actual": 0.0,
+              "started": false
+            },
+            {
+              "name": "Texans D/ST",
+              "slot": "D/ST",
+              "pos": "D/ST",
+              "pro": "HOU",
+              "proj": 5.3,
+              "actual": 0.0,
+              "started": true
+            },
+            {
+              "name": "Patrick Mahomes",
+              "slot": "BE",
+              "pos": "QB",
+              "pro": "KC",
+              "proj": 15.5,
+              "actual": 0.0,
+              "started": false
+            },
+            {
+              "name": "Jason Myers",
+              "slot": "K",
+              "pos": "K",
+              "pro": "SEA",
+              "proj": 9.8,
+              "actual": 0.0,
+              "started": true
+            },
+            {
+              "name": "Caleb Douglas",
+              "slot": "BE",
+              "pos": "WR",
+              "pro": "MIA",
+              "proj": 7.4,
+              "actual": 0.0,
+              "started": false
+            },
+            {
+              "name": "Greg Dulcich",
+              "slot": "BE",
+              "pos": "TE",
+              "pro": "MIA",
+              "proj": 7.2,
+              "actual": 0.0,
+              "started": false
             }
           ]
         },
@@ -1136,29 +3017,29 @@
   },
   "copies": [
     {
-      "headline": "Noah's Backfield Meets John's Air Force",
-      "body": "Noah's team name is a threat and his backfield delivers on it \u2014 Achane and Cook combine for 33.2, the single biggest edge in this matchup, and if either of them pops a long touchdown against these defenses this one flips fast. But everywhere else John just has more firepower. Puka Nacua alone nearly outscores Noah's whole receiver room, and with Brian Thomas Jr. on the other side John's 31.3 to 26.1 at wide receiver is real and it's spacious. Throw in Brock Bowers and Trey McBride occupying both his TE and flex slots and John is getting stars at spots where Noah is starting Rhamondre Stevenson.\nThat's the whole game: Noah needs his backs to outrun the math, because the perimeter positions are a mismatch. John's a step slow out of the gate historically, but he's 10-4 since figuring it out, and he's spent four seasons chasing the ring that his little brother Peter already has sitting at home. Noah's the postseason assassin nobody drafts seriously in round one \u2014 but round one is over, and Week 1 doesn't care about January legend."
+      "headline": "John's Depth Buries Noah's Top-Heavy Bet",
+      "body": "Noah is putting the whole season on Achane and Cook doing something absurd, and honestly they might. That backfield duo projects for 33 combined, seven points clear of anything John can run out there, and if Achane hits his ceiling in Miami's opener this whole preview reads differently by Sunday night. The problem is everywhere else. Garrett Wilson is a legit WR1 but the receiver room falls off fast after that, Colston Loveland is a rookie tight end asked to be a difference-maker, and Drake Maye capping out at 16 isn't winning any shootouts.\nJohn just has more good football players. Puka Nacua alone outscores Noah's best three receivers by himself some weeks, Brock Bowers gives him a tight end that would start over Loveland on either roster, and he's got Stafford throwing to Nacua while Caleb Williams sits as a 17-point luxury on the bench. The Jaguars defense and Cam Little are boring, sure, but boring wins Week 1s when the other side needs everything to break perfectly. Noah needs Achane to go nuclear and everyone else to overperform. John just needs Tuesday-morning-obvious lineup decisions to hold."
     },
     {
-      "headline": "Chase Versus Jeanty Decides Week One",
-      "body": "Kaleb's the reigning worst-to-first Cinderella, though these days he's just Mr. 8-6, three years running, and there's something fitting about him opening 2026 as a 2-point favorite instead of a double-digit underdog for once. Isaac's still chasing that 11-3 ghost from 2022, and this matchup is basically a coin flip dressed up as a math problem. Ashton Jeanty and Breece Hall give Kaleb a 7-point cushion at running back that Isaac's Javonte Williams and Cam Skattebo can't quite close, especially with Skattebo's role in a crowded Giants backfield still a little unstable. Justin Herbert also just outclasses Bo Nix by nearly three points before you even factor volatility.\nBut Isaac punches back hard at receiver. Ja'Marr Chase alone is nearly as many points as Kaleb's whole tight end situation, and pairing him with Malik Nabers and Terry McLaurin gives Isaac a six-point wide receiver edge that eats most of Kaleb's backfield advantage. The Lions defense adds another cushion nobody's talking about. This one comes down to whether Jeanty's touches outrun Chase's targets, and on paper, Kaleb's 2.1-point edge feels like it's living dangerously close to a Chase explosion."
+      "headline": "Chase Against the Field, Literally",
+      "body": "Isaac's whole season-opening pitch is Ja'Marr Chase plus depth nobody else has, and it's a legitimate argument. Malik Nabers and Terry McLaurin as your WR3-adjacent options is absurd, and even with Chase soaking up targets this group projects six points clear of Kaleb's receivers. The problem is everywhere else. Javonte Williams and Cam Skattebo are touchdown-dependent committee backs, Bo Nix is a fine but capped floor at QB, and Hockenson-or-Kincaid at tight end is a rounding error either way.\nKaleb built this roster top-heavy in the right direction. Ashton Jeanty and Breece Hall give him the best backfield in the matchup by seven points on paper, Justin Herbert is the best quarterback either team runs out, and Harold Fannin gives him a real tight end instead of a coin flip. Drake London and Ladd McConkey are plenty behind Chase's group without being an actual weakness. The projections have Kaleb up two, which feels about right \u2014 Isaac needs Chase to go nuclear and one of his shaky backs to hit a score just to survive the floor Kaleb's roster provides everywhere else."
     },
     {
       "headline": "Grant's Receivers Try To Outrun Burrow",
-      "body": "Grant's whole case here is the wideout room, and it's not close. Amon-Ra St. Brown and Zay Flowers pair with Waddle in the flex to put up 33 through the top two plus 12.2 more, a full station wagon of points ahead of Rashee Rice and Egbuka. That gap, plus Dallas Goedert's mild TE edge, is basically the margin of victory on paper. CJ counters with the safer floor everywhere else \u2014 Burrow over Mayfield by two, Jonathan Taylor grinding against a lighter Colts slate, and Fairbairn plus a Steelers defense that should feast. It's stars-and-scraps against balanced-and-boring, and balanced-and-boring usually needs the stars to slip.\nFitting opener for two guys who've lived on opposite ends of the stability spectrum. Grant is the walking variance report, 3-11 to 9-5 to 5-9, nobody less predictable in this league. CJ has been quietly stuck under .500 for three of four years, the definition of solid-but-unspectacular. Week 1 splits the difference on paper, 120.2 to 115.3, close enough that Amon-Ra having a normal Sunday probably decides the whole thing."
+      "body": "Grant opens the season leaning on the best wideout room either roster brings to the table. Amon-Ra St. Brown at 19 is the single best player in this game, and the depth behind him is absurd for a Week 1 lineup \u2014 Zay Flowers, Waddle, Christian Watson and Godwin all projecting double digits means CJ's corners are getting cooked from multiple angles. Dallas Goedert gives Grant a mild edge at tight end too, and Omarion Hampton anchors a backfield that's deeper than it looks once you get to Jadarian Price and Pollard.\nCJ's counter is simple: Joe Burrow is the best quarterback on the field by two points, and Jonathan Taylor matches Hampton play for play at running back. The problem is everything after that. Rashee Rice and Egbuka cap out CJ's receiver corps at solid-not-scary, and Jake Ferguson is a real downgrade at tight end. This projects as a track meet Grant should win by playing volume \u2014 more places for points to come from beats one great quarterback in Week 1."
     },
     {
-      "headline": "Rezac's Backfield Bullies Reigning Champ Early",
-      "body": "Logan opens his post-dress redemption tour with the best RB room either of these guys has fielded in years \u2014 Saquon Barkley walking into a Dallas defense that got gouged on the ground all last season, plus Jeremiyah Love as a receiving-down joker who profiles as an every-week 15-plus. That duo alone outscores Adam's Kenneth Walker/Bucky Irving tandem by 6.6, and Jalen Hurts tacks on another 4-plus over Jayden Daniels. Add a Chargers defense that should feast, and the math says Logan should be comfortable covering the number even before garbage time.\nAdam's counter lives at receiver, where Jaxon Smith-Njigba and Chris Olave give him more firepower than Justin Jefferson and Tetairoa McMillan on paper, and Sam LaPorta's a real weekly edge over Isaiah Likely. But receiver corps don't win 8-point spreads, running back rooms do. Adam's the gold standard of this league, 34-22 for a reason, but he's never once lost to the guy who's spent two straight seasons choking as the 1 seed \u2014 and Logan would love nothing more than to open the year proving that curse only applies in January."
+      "headline": "Hurts and Barkley Give Rezac the Edge",
+      "body": "Adam opens his title defense against a Logan roster built like a mini Eagles reunion, and that's the whole problem. Jalen Hurts projects for 21, Saquon Barkley another 18, and that duo alone outproduces Adam's best guys at both spots combined. Adam counters with Jayden Daniels and a Kenneth Walker/Bucky Irving committee that's fine but unspectacular, the kind of RB room that needs garbage-time work to hit its number. Where Adam claws back is the perimeter \u2014 Jaxon Smith-Njigba and Chris Olave give him two legit spike weeks, and Sam LaPorta at tight end is a quiet two-point edge over Isaiah Likely.\nIt's close on paper, about eight points by best-lineup math, but Logan's floor is just higher. Jeremiyah Love gives him a second bell-cow behind Barkley, and Justin Jefferson anchors a receiver room deep enough that Tetairoa McMillan and Michael Pittman are afterthoughts rather than needs. Adam's margin for error is thin: if either QB or a receiver underperforms, there's not much juice behind Rome Odunze and Jalen Coker to bail him out. Logan should win this one running away from the RB and QB spots alone."
     },
     {
-      "headline": "Kittle's Zero Bagel Costs The Aura Farm",
-      "body": "Peter opens his post-13-1-collapse era the same way he's opened most seasons since: with a roster that looks better on paper than his recent finishes suggest. Lamar gives him a clean edge at QB, Bijan is the best player in this game by himself, and Tucker Kraft turning in a real tight end line while Christian rolls out George Kittle at a flat zero is close to disqualifying on its own. That TE gap alone is nearly the whole projected margin. Christian's counter lives at receiver, where CeeDee Lamb and DeVonta Smith outscore Peter's AJ Brown-Pickens pairing by four and a half, and Chase Brown plus Etienne give him just enough juice on the ground to keep RB roughly even.\nAdd it up and Christian's actually winning three of seven categories, he's just losing the two biggest ones by a mile. That's been the Aura Farm story since 2022 \u2014 boom-or-bust, never irrelevant, never actually stable. Peter, still chasing whatever version of himself went 13-1 that first year, needs Kraft and Bijan to hold since Jonathon Brooks and Tee Higgins are shakier than they look. On paper this is Peter's to lose, and Christian needs Kittle to at least show up alive."
+      "headline": "Christian's Top-Heavy WRs Face Peter's Bijan Insurance",
+      "body": "Peter has the best player in the building at two spots \u2014 Lamar Jackson gives him a two-point edge at quarterback and Bijan Robinson is the kind of workhorse who makes an RB2 conversation irrelevant. But that's also his ceiling. Drop past Bijan and Peter is running Jonathon Brooks or Jordan Mason in a timeshare nobody trusts yet, and his receiver room is deep but capped, with Pickens, A.J. Brown and Tee Higgins projecting like solid WR2s rather than the guy who wins you the week.\nChristian's the mirror image. Trevor Lawrence and Jordan Love won't scare anyone, but CeeDee Lamb and DeVonta Smith give him two legitimate spike weeks at receiver, and Chase Brown plus Travis Etienne is enough juice at running back to hang with Bijan-plus-committee. The swing spot is tight end, where Chig Okonkwo projects for 7 against Tucker Kraft's 10 \u2014 a gap that could decide this by itself. Math says Christian by two, but Bijan alone can erase that before halftime."
     },
     {
-      "headline": "Gibbs Is the Difference in Week 1",
-      "body": "Leif rolls into Week 1 with the flashier top of the roster and it's not close \u2014 Josh Allen edges Jaxson Dart, and Christian McCaffrey plus Derrick Henry is as good a one-two RB punch as anyone drafted this year on paper. But Mitchell built for volume everywhere else, and it shows. Jahmyr Gibbs alone nearly matches Leif's entire backfield, and when you tack on Josh Jacobs against a Green Bay-adjacent floor and Nico Collins as a true WR1, the receiver and tight end rooms just have more juice. Kyle Pitts remains a tease; Tyler Warren doesn't have that problem.\nThe margins are thin across the board \u2014 Mitchell wins four of seven positional battles by less than two points each \u2014 which tracks for the human coin flip who's finished 7-7 three times in four years and still somehow found two playoff wins in there. Leif, meanwhile, is four years deep into the Joey Lunchbox bit, and a 22-34 record doesn't lie. Projections have this at 122.6 to 117.0, close enough that a Jason Myers miss or a Broncos garbage-time score decides it."
+      "headline": "Gibbs and Depth Have Mitchell's Number",
+      "body": "Leif opens the season with the flashier top of the roster and none of the connective tissue. Josh Allen gives him a real ceiling at QB, and McCaffrey-Henry is a two-headed monster if both stay healthy, which is doing a lot of work in that sentence. But look past the names and it thins out fast \u2014 Woody Marks and Kaelon Black as your RB depth, Caleb Douglas as your fifth receiver, Jason Myers as a top-10 asset on this roster. Marvin Harrison Jr. and Jayden Reed need to actually hit rookie-year and sophomore-leap upside for this to work, not just flash it.\nMitchell's roster doesn't have a marquee name at the top so much as it has quality at every single slot. Jahmyr Gibbs is a true bell cow with receiving work baked in, Nico Collins is a legit WR1, and Tyler Warren gives him a real receiving tight end instead of touchdown-or-bust guesswork. Even his QB2, Daniel Jones, would start on half the teams in this league. The projections have this close, but Mitchell's floor is a lot higher than Leif's, and in Week 1, with nobody's lineup locked and injuries lurking everywhere, floor wins."
     }
   ],
-  "intro": "Four champions in four years and the league opens 2026 no closer to figuring out who's actually good. The one worth watching is Adam at Logan \u2014 the reigning champ who finally broke the 1-seed curse walking into the building of a guy who's worn the dress once and taken zero playoff wins across two top seeds, and Vegas-by-projection likes Logan by 8. Noah, meanwhile, is doing Noah things: proj underdog in Week 1 against John, because his regular season doesn't start mattering until January."
+  "intro": "Isaac-Kaleb is the closest thing on the board to a real fight, two points separating them with both rosters looking legitimately stacked, so start there if you only watch one game. Everybody else has a lean: John's got Noah by ten, Logan's shoving Adam around by eight, and Christian looks like the first guy in the league to open 0-1 by a laugher. Standings don't matter yet, but nobody wants to be the team explaining a sub-111 output in week one."
 }

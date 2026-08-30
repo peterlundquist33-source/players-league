@@ -11,14 +11,16 @@ the numbers, never corny. No hashtags, no emoji, no "folks", no fantasy-guru cli
 
 SYSTEM_PREVIEW = _VOICE + """
 
-This is a matchup PREVIEW. Weight it about 80/20:
-- 80% the actual fantasy matchup — where the rosters win and lose it. Compare the
-  lineups position by position. Call out the real edges (which RB room, which WR
-  corps, the QB gap), the players who decide it, the boom/bust starters, thin spots
-  and bad byes. Use the projected numbers. Reason about the NFL matchups the players
-  are walking into from what you know about those teams and defenses.
-- 20% the guys — a quick nod to the rivalry, a record, or one bit of team history,
-  worked in naturally. Do not open with it and do not let it take over a paragraph.
+This is a matchup PREVIEW. It is almost entirely about THIS WEEK'S game:
+- ~90% the matchup itself — which roster is deeper or more top-heavy at each position,
+  the players who decide it, the boom/bust guys, the bye-week and injury holes, the
+  positional edges. Reason about the NFL games these players are walking into from what
+  you know. Lineups may not be locked yet, so talk about each team's ROSTER at a
+  position (their best options, their depth), not just whoever's currently slotted.
+- ~10% the guys — AT MOST one short clause about the owners, and only if it's actually
+  relevant to this game (a live rivalry, a standings stake). No league-history
+  storytelling, no "since 2022", no dredging up old seasons. If nothing's relevant,
+  skip it entirely.
 
 Use owners' first names for the teams. Refer to NFL players by name.
 
@@ -74,6 +76,25 @@ def _lineup_block(side, key):
     return rows, totals
 
 
+_POS_ORD = ["QB", "RB", "WR", "TE", "K", "D/ST"]
+
+
+def _roster_block(side):
+    """Full roster grouped by position, projections desc — for previews (lineups
+    may not be set)."""
+    by_pos = {}
+    for p in side.get("players", []):
+        by_pos.setdefault(p["pos"], []).append(p)
+    rows = []
+    for pos in _POS_ORD:
+        ps = sorted(by_pos.get(pos, []), key=lambda x: -x["proj"])
+        if not ps:
+            continue
+        rows.append(f'  {pos}: ' + ", ".join(
+            f'{p["name"]} ({p["pro"]}, {p["proj"]:.0f})' for p in ps))
+    return rows
+
+
 def _positional_edges(at, ht, label_a, label_h):
     out = []
     for slot in _GROUPS:
@@ -97,24 +118,40 @@ def _matchup_facts(m, phase):
     A, H = a["owner"], h["owner"]
     lines = [f'{A} ("{a["team"]}", {a["record"]}) at {H} ("{h["team"]}", {h["record"]}).']
 
-    key = "proj" if phase == "preview" else "actual"
-    a_rows, a_tot = _lineup_block(a, key)
-    h_rows, h_tot = _lineup_block(h, key)
-
     if phase == "preview":
-        lines.append(f'Projected total: {A} {a["projected"]:.1f}, {H} {h["projected"]:.1f} '
-                     f'({A if a["projected"] >= h["projected"] else H} favored by '
-                     f'{abs(a["projected"] - h["projected"]):.1f}).')
-    else:
-        lines.append(f'FINAL: {A} {a["actual"]:.1f}, {H} {h["actual"]:.1f} — '
-                     f'{m["winner"]} by {m["margin"]:.1f}.')
+        ao, ho = a.get("optimal_proj", a["projected"]), h.get("optimal_proj", h["projected"])
+        lines.append(f'Best-lineup projection (from the full roster, since lineups may not '
+                     f'be locked): {A} ~{ao:.0f}, {H} ~{ho:.0f} '
+                     f'({A if ao >= ho else H} projects ahead by ~{abs(ao - ho):.0f}).')
+        lines.append(f'\n{A} — full roster by position (proj pts, best first):')
+        lines += _roster_block(a)
+        lines.append(f'\n{H} — full roster by position (proj pts, best first):')
+        lines += _roster_block(h)
+        # positional comparison off the whole roster's top options
+        def top(side, pos, n):
+            ps = sorted((p for p in side["players"] if p["pos"] == pos),
+                        key=lambda x: -x["proj"])[:n]
+            return round(sum(p["proj"] for p in ps), 1)
+        lines.append('\nTop-options-per-position (A vs H):')
+        for pos, n in (("QB", 1), ("RB", 2), ("WR", 3), ("TE", 1)):
+            av, hv = top(a, pos, n), top(h, pos, n)
+            edge = A if av > hv else H
+            lines.append(f'  {pos} (best {n}): {A} {av:.0f} vs {H} {hv:.0f} — {edge} +{abs(av-hv):.0f}')
+        riv = rivalry_between(a["owner_full"], h["owner_full"])
+        lines.append('\nOwner note (at most ONE short clause, only if it fits — otherwise ignore):')
+        lines.append(f'  {riv}.' if riv else '  (no live rivalry between these two — skip owner talk)')
+        return "\n".join(lines)
 
-    lines.append(f'\n{A} starters ({key} pts):')
+    # ---- recap: lineups are locked, use starters + actuals ----
+    a_rows, a_tot = _lineup_block(a, "actual")
+    h_rows, h_tot = _lineup_block(h, "actual")
+    lines.append(f'FINAL: {A} {a["actual"]:.1f}, {H} {h["actual"]:.1f} — '
+                 f'{m["winner"]} by {m["margin"]:.1f}.')
+    lines.append(f'\n{A} starters (actual pts):')
     lines += a_rows
-    lines.append(f'\n{H} starters ({key} pts):')
+    lines.append(f'\n{H} starters (actual pts):')
     lines += h_rows
-
-    lines.append(f'\nPosition-by-position ({key}):')
+    lines.append('\nPosition-by-position (actual):')
     lines += _positional_edges(a_tot, h_tot, A, H)
 
     if phase == "recap":
@@ -314,15 +351,18 @@ def write_intro(league, week, phase):
            else f' — {m["away"]["actual"]}-{m["home"]["actual"]}, {m["winner"]} won')
         for m in league["matchups"]
     )
+    stakes = ""
+    if phase == "preview" and league["week"] > 1:
+        board2 = "\n".join(f'{s["owner"]}: {s["record"]}' for s in league["standings"])
+        stakes = f"\nCurrent standings:\n{board2}\n"
     user = (
-        f"{LEAGUE_FACTS}\n\n"
-        f"Write a 2-3 sentence intro for the Week {week} {kind} page — the state of the "
-        f"league, the game that matters most, the storyline to watch. Plain text only.\n\n"
-        f"This week:\n{board}\n"
+        f"Week {week} {kind}. The games:\n{board}\n{stakes}\n"
+        f"Write the 2-3 sentence intro for this page."
     )
     sys = _VOICE + (
-        "\n\nWrite a 2-3 sentence intro for the week's matchup page: the state of the "
-        "league and the game that matters most, mostly in fantasy terms (who's loaded, "
-        "who's limping in), with at most one owner/rivalry beat. Plain prose, no headline, "
-        "no label, no markdown.")
+        "\n\nWrite a 2-3 sentence intro for the week's matchup page. It's about THIS "
+        "WEEK: the best game on the slate and why, who looks loaded and who looks thin, "
+        "what's at stake in the standings if it's not Week 1. No league history, no "
+        "'since 2022', no championship-count throat-clearing. Plain prose, no headline, "
+        "no markdown.")
     return claude(sys, user, max_tokens=300).strip()

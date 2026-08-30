@@ -19,27 +19,53 @@ def _proj_and_actual(entry, scoring_period):
     return round(proj, 1), round(actual, 1)
 
 
-def _side(raw_side, teams, scoring_period):
+FLEX_POS = {"RB", "WR", "TE"}
+
+
+def _optimal(players, slot_counts):
+    """Best lineup you could set from `players` given {POS: count} (+ 'FLEX')."""
+    by_pos = {}
+    for p in players:
+        by_pos.setdefault(p["pos"], []).append(p)
+    for v in by_pos.values():
+        v.sort(key=lambda p: -p["proj"])
+    lineup, used = [], set()
+    for pos, n in slot_counts.items():
+        if pos == "FLEX":
+            continue
+        for p in by_pos.get(pos, [])[:n]:
+            lineup.append(p); used.add(id(p))
+    flex_pool = sorted((p for p in players
+                        if p["pos"] in FLEX_POS and id(p) not in used),
+                       key=lambda p: -p["proj"])
+    for p in flex_pool[:slot_counts.get("FLEX", 0)]:
+        lineup.append(p)
+    return round(sum(p["proj"] for p in lineup), 1)
+
+
+def _side(raw_side, teams, scoring_period, slot_counts):
     tid = raw_side["teamId"]
     t = teams[tid]
     roster = (raw_side.get("rosterForCurrentScoringPeriod")
               or raw_side.get("rosterForMatchupPeriod") or {})
-    starters = []
+    players, starters = [], []
     proj_total = 0.0
     for e in roster.get("entries", []):
         slot = e.get("lineupSlotId")
-        if slot not in STARTER_SLOTS:
-            continue
         pl = e.get("playerPoolEntry", {}).get("player", {})
         proj, act = _proj_and_actual(e, scoring_period)
-        proj_total += proj
-        starters.append({
+        row = {
             "name": pl.get("fullName", "?"),
             "slot": SLOT.get(slot, str(slot)),
             "pos": POS.get(pl.get("defaultPositionId"), "?"),
             "pro": PRO.get(pl.get("proTeamId"), "?"),
             "proj": proj, "actual": act,
-        })
+            "started": slot in STARTER_SLOTS,
+        }
+        players.append(row)
+        if row["started"]:
+            starters.append(row)
+            proj_total += proj
     return {
         "teamId": tid,
         "team": t["name"],
@@ -49,7 +75,9 @@ def _side(raw_side, teams, scoring_period):
         "actual": round(raw_side.get("totalPoints", 0.0), 1),
         "projected": round(raw_side.get("totalProjectedPointsLive")
                            or proj_total, 1),
+        "optimal_proj": _optimal(players, slot_counts),
         "starters": starters,
+        "players": players,
     }
 
 
@@ -77,6 +105,20 @@ def build(season, week=None, phase=None):
             "streak": _streak(rec),
         }
 
+    # roster slot counts (QB/RB/WR/TE/FLEX/K/DST) for optimal-lineup projections
+    raw_counts = (d.get("settings", {}).get("rosterSettings", {}) or {}).get("lineupSlotCounts", {})
+    slot_counts = {}
+    for sid, n in raw_counts.items():
+        if not n:
+            continue
+        name = SLOT.get(int(sid))
+        if name == "FLEX":
+            slot_counts["FLEX"] = slot_counts.get("FLEX", 0) + n
+        elif name in ("QB", "RB", "WR", "TE", "K", "D/ST"):
+            slot_counts[name] = slot_counts.get(name, 0) + n
+    if not slot_counts:  # sensible default if settings view is thin
+        slot_counts = {"QB": 1, "RB": 2, "WR": 2, "TE": 1, "FLEX": 1, "K": 1, "D/ST": 1}
+
     games = [s for s in d.get("schedule", []) if s.get("matchupPeriodId") == week]
     scoring_period = week  # regular season: 1:1 with matchup period
 
@@ -84,8 +126,8 @@ def build(season, week=None, phase=None):
     for s in games:
         if "home" not in s or "away" not in s:
             continue
-        h = _side(s["home"], teams, scoring_period)
-        a = _side(s["away"], teams, scoring_period)
+        h = _side(s["home"], teams, scoring_period, slot_counts)
+        a = _side(s["away"], teams, scoring_period, slot_counts)
         played = (h["actual"] > 0 or a["actual"] > 0)
         matchups.append({
             "home": h, "away": a,
