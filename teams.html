@@ -75,18 +75,105 @@
       border-color: #f5f7fa;
     }
 
-    /* Team achievement banners */
+    /* ---------- Banner rafters (gym championship banners) ---------- */
+    .pl-rafters {
+      position: relative;
+      display: flex;
+      gap: 0.85rem;
+      padding: 1.9rem 0.4rem 0.6rem;
+      overflow-x: auto;
+      scrollbar-width: thin;
+    }
+    /* the rafter rail the banners hang from */
+    .pl-rafters::before {
+      content: "";
+      position: absolute;
+      top: 0.7rem; left: 0.2rem; right: 0.2rem;
+      height: 4px;
+      border-radius: 2px;
+      background: linear-gradient(180deg, #444a56, #191c22);
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.45);
+    }
+
     .pl-banner {
-      display: inline-block;
-      color: #ffffff;
-      padding: 0.2rem 0.6rem;
-      border-radius: 3px;
-      font-size: 0.62rem;
+      position: relative;
+      flex: 0 0 auto;
+      width: 100px;
+      margin-top: 1rem;
+      padding: 0.65rem 0.4rem 1.6rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 0.3rem;
+      color: var(--text);
+      background:
+        repeating-linear-gradient(90deg, rgba(255,255,255,0.03) 0 1px, transparent 1px 6px),
+        linear-gradient(180deg, #2b2f39 0%, #1f232b 50%, #14161c 100%);
+      border-top: 3px solid var(--border-strong);
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.06);
+      clip-path: polygon(0 0, 100% 0, 100% 80%, 50% 97%, 0 80%);
+      filter: drop-shadow(0 4px 7px rgba(0, 0, 0, 0.55));
+    }
+    /* hanger strap up to the rail */
+    .pl-banner::before {
+      content: "";
+      position: absolute;
+      top: -1rem; left: 50%;
+      transform: translateX(-50%);
+      width: 3px; height: 1rem;
+      background: var(--border-strong);
+    }
+
+    .pl-banner .b-icon  { font-size: 1.4rem; line-height: 1; margin-bottom: 0.1rem; }
+    .pl-banner .b-label {
+      font-family: var(--font-display);
+      font-size: 0.56rem;
       font-weight: 800;
-      letter-spacing: 0.3px;
+      letter-spacing: 0.04em;
       text-transform: uppercase;
-      margin: 0.15rem;
-      white-space: nowrap;
+      line-height: 1.2;
+      min-height: 1.9em;
+      display: flex;
+      align-items: center;
+    }
+    .pl-banner .b-year {
+      font-family: var(--font-display);
+      font-size: 0.72rem;
+      font-weight: 800;
+      color: var(--text-muted);
+    }
+
+    .pl-banner.tier-champ {
+      width: 114px;
+      padding-top: 0.8rem;
+      border-top-color: var(--accent);
+      background:
+        repeating-linear-gradient(90deg, rgba(69,224,138,0.06) 0 1px, transparent 1px 6px),
+        linear-gradient(180deg, #21331f 0%, #1a251f 50%, #14161c 100%);
+      box-shadow: inset 0 1px 0 rgba(69, 224, 138, 0.2);
+      filter: drop-shadow(0 5px 11px rgba(69, 224, 138, 0.22));
+    }
+    .pl-banner.tier-champ .b-icon { font-size: 1.7rem; }
+    .pl-banner.tier-champ .b-label { color: var(--accent); font-size: 0.6rem; }
+    .pl-banner.tier-champ .b-year  { color: var(--accent-dim); }
+
+    .pl-banner.tier-silver { border-top-color: #9aa3b1; }
+    .pl-banner.tier-major  { border-top-color: var(--accent-dim); }
+    .pl-banner.tier-dishonor {
+      border-top-color: #8a5a5a;
+      opacity: 0.82;
+    }
+
+    .pl-rafters-empty {
+      color: var(--text-muted);
+      font-size: 0.82rem;
+      padding: 0.4rem 0 0.2rem;
+    }
+
+    @media (prefers-reduced-motion: no-preference) {
+      .pl-banner { transition: transform 0.18s ease; }
+      .pl-banner:hover { transform: translateY(3px); }
     }
 
     /* ---------- Team tile grid (hover for a fun fact) ---------- */
@@ -269,8 +356,11 @@
         <div id="tp-win-pct" style="font-size:2rem;font-weight:900;color:#45e08a;line-height:1;"></div>
       </div>
 
-      <!-- Achievement Banners -->
-      <div id="tp-banners" style="margin-bottom:1.1rem;display:flex;flex-wrap:wrap;gap:0;"></div>
+      <!-- Banner Rafters -->
+      <div class="info-block" style="margin-bottom:1.1rem;">
+        <h3>🏟️ The Rafters</h3>
+        <div id="tp-banners" class="pl-rafters"></div>
+      </div>
 
       <!-- Franchise Recap -->
       <div class="info-block" style="margin-bottom:1.1rem;">
@@ -301,11 +391,26 @@
       </div>
 
       <!-- Stat Cards -->
-      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:0.85rem;">
+      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:0.85rem;">
         <div style="background:#1e2128;border:1px solid #2f333b;border-radius:4px;padding:1rem;text-align:center;box-shadow:0 1px 4px rgba(0,0,0,0.07);">
           <div style="color:#a7aebb;font-size:0.65rem;text-transform:uppercase;letter-spacing:1px;margin-bottom:0.4rem;font-weight:700;">Best Single Week</div>
           <div id="tp-best" style="color:#45e08a;font-size:2rem;font-weight:900;line-height:1;margin-bottom:0.15rem;"></div>
           <div id="tp-best-info" style="color:#a7aebb;font-size:0.75rem;"></div>
+        </div>
+        <div id="tp-low-card" style="background:#1e2128;border:1px solid #2f333b;border-radius:4px;padding:1rem;text-align:center;box-shadow:0 1px 4px rgba(0,0,0,0.07);">
+          <div style="color:#a7aebb;font-size:0.65rem;text-transform:uppercase;letter-spacing:1px;margin-bottom:0.4rem;font-weight:700;">Lowest Single Week</div>
+          <div id="tp-low" style="color:#ff6b70;font-size:2rem;font-weight:900;line-height:1;margin-bottom:0.15rem;"></div>
+          <div id="tp-low-info" style="color:#a7aebb;font-size:0.75rem;"></div>
+        </div>
+        <div id="tp-whi-card" style="background:#1e2128;border:1px solid #2f333b;border-radius:4px;padding:1rem;text-align:center;box-shadow:0 1px 4px rgba(0,0,0,0.07);">
+          <div style="color:#a7aebb;font-size:0.65rem;text-transform:uppercase;letter-spacing:1px;margin-bottom:0.4rem;font-weight:700;">👑 Weeks Leading League</div>
+          <div id="tp-whi" style="color:#45e08a;font-size:2rem;font-weight:900;line-height:1;margin-bottom:0.15rem;"></div>
+          <div style="color:#a7aebb;font-size:0.75rem;">top scorer of all 12 · reg. season</div>
+        </div>
+        <div id="tp-wlo-card" style="background:#1e2128;border:1px solid #2f333b;border-radius:4px;padding:1rem;text-align:center;box-shadow:0 1px 4px rgba(0,0,0,0.07);">
+          <div style="color:#a7aebb;font-size:0.65rem;text-transform:uppercase;letter-spacing:1px;margin-bottom:0.4rem;font-weight:700;">💀 Weeks Last in League</div>
+          <div id="tp-wlo" style="color:#ff6b70;font-size:2rem;font-weight:900;line-height:1;margin-bottom:0.15rem;"></div>
+          <div style="color:#a7aebb;font-size:0.75rem;">bottom scorer of all 12 · reg. season</div>
         </div>
         <div style="background:#1e2128;border:1px solid #2f333b;border-radius:4px;padding:1rem;text-align:center;box-shadow:0 1px 4px rgba(0,0,0,0.07);">
           <div style="color:#a7aebb;font-size:0.65rem;text-transform:uppercase;letter-spacing:1px;margin-bottom:0.4rem;font-weight:700;">Career Points For</div>
@@ -323,6 +428,7 @@
 
   <script src="js/teams-data.js"></script>
   <script src="js/team-facts.js"></script>
+  <script src="js/records.js"></script>
   <script src="js/gate.js"></script>
   <script>
     document.querySelector('.nav-toggle')?.addEventListener('click', () => {
@@ -350,10 +456,50 @@
       document.getElementById('tp-best-info').textContent = t.best_info;
       document.getElementById('tp-pf').textContent = t.career_pf;
 
-      var bannersEl = document.getElementById('tp-banners');
-      if (bannersEl) bannersEl.innerHTML = t.banners_html || '';
+      renderRafters(name);
+      renderWeeklyCards(name);
 
       window.scrollTo({ top: p.offsetTop - 80, behavior: 'smooth' });
+    }
+
+    var RECORDS = (typeof LEAGUE_RECORDS !== 'undefined') ? LEAGUE_RECORDS : null;
+
+    function renderRafters(name) {
+      var el = document.getElementById('tp-banners');
+      if (!el) return;
+      var list = (RECORDS && RECORDS.achievements && RECORDS.achievements[name]) || [];
+      if (!list.length) {
+        el.innerHTML = '<span class="pl-rafters-empty">No banners in the rafters yet. There\'s time.</span>';
+        return;
+      }
+      el.innerHTML = list.map(function (a) {
+        return '<div class="pl-banner tier-' + a.tier + '" title="' + a.label + ' ' + a.year + '">' +
+               '<span class="b-icon">' + a.icon + '</span>' +
+               '<span class="b-label">' + a.label + '</span>' +
+               '<span class="b-year">' + a.year + '</span></div>';
+      }).join('');
+    }
+
+    function renderWeeklyCards(name) {
+      var w = (RECORDS && RECORDS.weekly && RECORDS.weekly[name]) || null;
+      var show = function (id, on) {
+        var c = document.getElementById(id);
+        if (c) c.style.display = on ? '' : 'none';
+      };
+      if (!w) {
+        show('tp-whi-card', false); show('tp-wlo-card', false); show('tp-low-card', false);
+        return;
+      }
+      show('tp-whi-card', true); show('tp-wlo-card', true); show('tp-low-card', true);
+      document.getElementById('tp-whi').textContent = w.high_weeks;
+      document.getElementById('tp-wlo').textContent = w.low_weeks;
+      if (w.lowest) {
+        document.getElementById('tp-low').textContent = w.lowest.score.toFixed(1);
+        document.getElementById('tp-low-info').textContent =
+          'Week ' + w.lowest.week + ', ' + w.lowest.year;
+      } else {
+        show('tp-low-card', false);
+      }
     }
 
     // ---------- Team tile grid ----------

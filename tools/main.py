@@ -13,6 +13,7 @@ import render as R
 import homepage as HP
 import analytics as AN
 import facts as FA
+import records as RC
 
 DATA = ROOT / "tools" / "data"
 
@@ -40,10 +41,11 @@ def run(phase_arg, season, week, dry, force=False):
     wk, phase = data["week"], data["phase"]
     print(f"season {season} · week {wk} · phase {phase} · {len(data['matchups'])} matchups")
 
-    # cheap, no-AI: refresh standings + expected-wins every run, even if the
-    # matchup page itself is skipped below
+    # cheap, no-AI: refresh standings + expected-wins + weekly-scoring records
+    # every run, even if the matchup page itself is skipped below
     HP.update(season)
     AN.update(season)
+    RC.update(season)
 
     # Teams-page fun facts: a few AI calls, so only on the weekly recap run (and
     # self-skips if team-facts.js is still fresh).
@@ -120,7 +122,7 @@ def run_rankings(season, dry=False):
 
 if __name__ == "__main__":
     ap = argparse.ArgumentParser()
-    ap.add_argument("phase", choices=["auto", "preview", "recap", "rankings", "facts"],
+    ap.add_argument("phase", choices=["auto", "preview", "recap", "rankings", "facts", "records"],
                     nargs="?", default="auto")
     ap.add_argument("--season", type=int, default=2026)
     ap.add_argument("--week", type=int, default=None)
@@ -131,5 +133,7 @@ if __name__ == "__main__":
         run_rankings(a.season, a.dry)
     elif a.phase == "facts":
         FA.update(a.season, force=a.force)
+    elif a.phase == "records":
+        RC.update(a.season)
     else:
         run(a.phase, a.season, a.week, a.dry, a.force)
