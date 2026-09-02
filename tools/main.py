@@ -12,6 +12,7 @@ import league as L
 import render as R
 import homepage as HP
 import analytics as AN
+import facts as FA
 
 DATA = ROOT / "tools" / "data"
 
@@ -43,6 +44,11 @@ def run(phase_arg, season, week, dry, force=False):
     # matchup page itself is skipped below
     HP.update(season)
     AN.update(season)
+
+    # Teams-page fun facts: a few AI calls, so only on the weekly recap run (and
+    # self-skips if team-facts.js is still fresh).
+    if phase == "recap":
+        FA.update(season)
 
     if not data["matchups"]:
         print("no matchups for this week — nothing to do"); return None
@@ -114,7 +120,8 @@ def run_rankings(season, dry=False):
 
 if __name__ == "__main__":
     ap = argparse.ArgumentParser()
-    ap.add_argument("phase", choices=["auto", "preview", "recap", "rankings"], nargs="?", default="auto")
+    ap.add_argument("phase", choices=["auto", "preview", "recap", "rankings", "facts"],
+                    nargs="?", default="auto")
     ap.add_argument("--season", type=int, default=2026)
     ap.add_argument("--week", type=int, default=None)
     ap.add_argument("--dry", action="store_true")
@@ -122,5 +129,7 @@ if __name__ == "__main__":
     a = ap.parse_args()
     if a.phase == "rankings":
         run_rankings(a.season, a.dry)
+    elif a.phase == "facts":
+        FA.update(a.season, force=a.force)
     else:
         run(a.phase, a.season, a.week, a.dry, a.force)

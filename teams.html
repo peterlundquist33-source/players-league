@@ -88,6 +88,125 @@
       margin: 0.15rem;
       white-space: nowrap;
     }
+
+    /* ---------- Team tile grid (hover for a fun fact) ---------- */
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+      gap: 0.7rem;
+      max-width: 1000px;
+      margin: 0 auto 2.5rem;
+    }
+
+    .team-tile {
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      gap: 0.32rem;
+      min-height: 128px;
+      padding: 1rem 1.1rem;
+      text-align: left;
+      font-family: var(--font-body);
+      color: var(--text);
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      cursor: pointer;
+      transition: border-color 0.18s ease, transform 0.18s ease, box-shadow 0.18s ease;
+    }
+
+    .team-tile:hover,
+    .team-tile:focus-visible {
+      outline: none;
+      border-color: var(--accent);
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .team-tile.active {
+      border-color: var(--accent);
+      box-shadow: inset 0 0 0 1px var(--accent), var(--shadow-md);
+    }
+
+    .tile-mono {
+      width: 30px; height: 30px;
+      display: flex; align-items: center; justify-content: center;
+      border-radius: 50%;
+      background: var(--surface-2);
+      color: var(--accent);
+      font-family: var(--font-display);
+      font-weight: 800;
+      font-size: 0.85rem;
+    }
+
+    .tile-name {
+      font-family: var(--font-display);
+      font-weight: 800;
+      font-size: 0.92rem;
+      text-transform: uppercase;
+      letter-spacing: 0.02em;
+      line-height: 1.15;
+    }
+
+    .tile-rec { color: var(--text-muted); font-size: 0.76rem; }
+
+    .tile-cta {
+      position: relative;
+      z-index: 2;
+      margin-top: auto;
+      font-family: var(--font-display);
+      font-size: 0.58rem;
+      font-weight: 800;
+      letter-spacing: 0.11em;
+      text-transform: uppercase;
+      color: var(--accent);
+      opacity: 0;
+      transition: opacity 0.16s ease;
+    }
+
+    .tile-fact {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      padding: 1.7rem 1.05rem 2.1rem;
+      font-size: 0.8rem;
+      line-height: 1.5;
+      color: var(--text-body);
+      background: linear-gradient(165deg, var(--surface-2), var(--surface) 75%);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.16s ease;
+    }
+
+    .tile-fact::before {
+      content: "FUN FACT";
+      position: absolute;
+      top: 0.62rem; left: 1.05rem;
+      font-family: var(--font-display);
+      font-size: 0.52rem;
+      font-weight: 800;
+      letter-spacing: 0.16em;
+      color: var(--accent);
+    }
+
+    .team-tile.show-fact .tile-fact { opacity: 1; }
+    .team-tile.show-fact .tile-cta { opacity: 0.9; }
+
+    @media (hover: hover) {
+      .team-tile:hover .tile-fact,
+      .team-tile:focus-visible .tile-fact { opacity: 1; }
+      .team-tile:hover .tile-cta,
+      .team-tile:focus-visible .tile-cta { opacity: 0.9; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .team-tile { transition: none; }
+      .team-tile:hover, .team-tile:focus-visible { transform: none; }
+      .tile-fact, .tile-cta { transition: none; }
+    }
   </style>
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
 </head>
@@ -129,29 +248,14 @@
   <!-- Page Header -->
   <section class="page-header">
     <h1>TEAM <span class="gold">PROFILES</span></h1>
-    <p>Select an owner to see their full history, head-to-head record, and career stats.</p>
+    <p>Hover or tap a team for a fun fact &mdash; it&rsquo;s different every visit. Open one for
+       full history, head-to-head, and career stats.</p>
   </section>
 
-  <!-- Team Selector -->
+  <!-- Team Grid -->
   <section class="section">
 
-    <div style="text-align:center;margin-bottom:2rem;">
-      <select id="team-select" onchange="showTeam(this.value)">
-        <option value="">— Select Owner —</option>
-        <option value="Adam Stockwell">Adam Stockwell</option>
-        <option value="CJ Woda">CJ Woda</option>
-        <option value="Christian Massett">Christian Massett</option>
-        <option value="Grant Sawyer">Grant Sawyer</option>
-        <option value="Isaac Douglas">Isaac Douglas</option>
-        <option value="John Lundquist">John Lundquist</option>
-        <option value="Kaleb Feahn">Kaleb Feahn</option>
-        <option value="Leif Engen">Leif Engen</option>
-        <option value="Logan Rezac">Logan Rezac</option>
-        <option value="Mitchell Max">Mitchell Max</option>
-        <option value="Noah Thesing">Noah Thesing</option>
-        <option value="Peter Lundquist">Peter Lundquist</option>
-      </select>
-    </div>
+    <div class="team-grid" id="team-grid"><!-- tiles built from TEAM_DATA by the script below --></div>
 
     <!-- Team Profile (hidden until selected) -->
     <div id="team-profile" style="display:none;">
@@ -218,6 +322,7 @@
   </footer>
 
   <script src="js/teams-data.js"></script>
+  <script src="js/team-facts.js"></script>
   <script src="js/gate.js"></script>
   <script>
     document.querySelector('.nav-toggle')?.addEventListener('click', () => {
@@ -250,6 +355,94 @@
 
       window.scrollTo({ top: p.offsetTop - 80, behavior: 'smooth' });
     }
+
+    // ---------- Team tile grid ----------
+    (function () {
+      var grid = document.getElementById('team-grid');
+      if (!grid || typeof TEAM_DATA === 'undefined') return;
+
+      var canHover = !window.matchMedia || window.matchMedia('(hover: hover)').matches;
+      var FACTS = (typeof TEAM_FACTS !== 'undefined') ? TEAM_FACTS : {};
+
+      function firstName(full) { return full.split(' ')[0]; }
+
+      function fallbackFact(name) {
+        var t = TEAM_DATA[name];
+        if (t && t.article) {
+          var s = t.article.split('. ')[0];
+          return /[.!?]$/.test(s) ? s : s + '.';
+        }
+        return firstName(name) + ' has been in the league since day one.';
+      }
+
+      function pickFact(name, avoid) {
+        var pool = FACTS[name] || [];
+        if (!pool.length) return fallbackFact(name);
+        if (pool.length === 1) return pool[0];
+        var f;
+        do { f = pool[Math.floor(Math.random() * pool.length)]; } while (f === avoid);
+        return f;
+      }
+
+      function openProfile(name) {
+        grid.querySelectorAll('.team-tile').forEach(function (x) {
+          x.classList.remove('active', 'show-fact');
+          var c = x.querySelector('.tile-cta');
+          if (c) c.textContent = 'Full profile →';
+        });
+        var tile = grid.querySelector('.team-tile[data-owner="' + (window.CSS && CSS.escape ? CSS.escape(name) : name) + '"]');
+        if (tile) tile.classList.add('active');
+        showTeam(name);
+      }
+
+      Object.keys(TEAM_DATA)
+        .sort(function (a, b) { return firstName(a).localeCompare(firstName(b)); })
+        .forEach(function (name) {
+          var t = TEAM_DATA[name];
+          var tile = document.createElement('button');
+          tile.type = 'button';
+          tile.className = 'team-tile';
+          tile.setAttribute('data-owner', name);
+          tile.innerHTML =
+            '<span class="tile-mono">' + firstName(name).charAt(0) + '</span>' +
+            '<span class="tile-name">' + name + '</span>' +
+            '<span class="tile-rec">' + t.career_w + '–' + t.career_l + ' · ' + t.wp + '%</span>' +
+            '<span class="tile-fact"></span>' +
+            '<span class="tile-cta">Full profile →</span>';
+
+          var factEl = tile.querySelector('.tile-fact');
+          var ctaEl = tile.querySelector('.tile-cta');
+          var current = '';
+
+          function refreshFact() {
+            current = pickFact(name, current);
+            factEl.textContent = current;
+          }
+
+          if (canHover) {
+            tile.addEventListener('mouseenter', refreshFact);
+            tile.addEventListener('focus', refreshFact);
+            tile.addEventListener('click', function () { openProfile(name); });
+          } else {
+            tile.addEventListener('click', function () {
+              if (tile.classList.contains('show-fact')) {
+                openProfile(name);
+                return;
+              }
+              grid.querySelectorAll('.team-tile.show-fact').forEach(function (x) {
+                x.classList.remove('show-fact');
+                var c = x.querySelector('.tile-cta');
+                if (c) c.textContent = 'Full profile →';
+              });
+              refreshFact();
+              tile.classList.add('show-fact');
+              ctaEl.textContent = 'Tap again for full profile →';
+            });
+          }
+
+          grid.appendChild(tile);
+        });
+    })();
   </script>
   <script src="js/polish.js"></script>
 </body>

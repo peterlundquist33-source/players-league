@@ -8,7 +8,7 @@ on:
   workflow_dispatch:
     inputs:
       phase:
-        description: "auto | preview | recap | rankings"
+        description: "auto | preview | recap | rankings | facts"
         default: "auto"
       season:
         description: "season year"
@@ -64,7 +64,7 @@ jobs:
 
       - name: Commit & push if changed
         run: |
-          PATHS="matchups rankings.html home.html analytics.html podcast tools/data"
+          PATHS="matchups rankings.html home.html analytics.html podcast tools/data js/team-facts.js"
           if [ -n "$(git status --porcelain $PATHS)" ]; then
             git config user.name  "players-league-bot"
             git config user.email "actions@users.noreply.github.com"
