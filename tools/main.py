@@ -172,11 +172,17 @@ def run_power(season, week=None, dry=False):
         PW.apply_movement(board, season)
     else:
         import write as W
-        deltas, reasons = W.power_nudge(board, board_text)
+        deltas, why = W.power_nudge(board, board_text)
         if deltas:
-            print("  nudges: " + "; ".join(reasons))
             PW.apply_nudge(board, deltas)
             board_text = PW.board_lines(board)
+            # report what actually happened — teams nudging past each other means
+            # the applied move often isn't the one that was asked for
+            reasons = [f'{r["owner"]} {r["nudge"]:+d}'
+                       + (f': {why[r["owner"]]}' if why.get(r["owner"]) else '')
+                       for r in board["rows"] if r.get("nudge")]
+            print("  nudges: " + ("; ".join(reasons) if reasons
+                                  else "requested, but they cancelled out"))
         else:
             print("  nudges: none — model board stands")
         PW.apply_movement(board, season)

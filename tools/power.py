@@ -29,8 +29,21 @@ RESULTS_PER_GAME = 0.13
 
 # results sub-score weights
 W_ALLPLAY, W_WINPCT, W_PF, W_FORM = 0.38, 0.18, 0.27, 0.17
-# roster: the draft anchor fades out as live projections pile up
-DRAFT_W0, DRAFT_DECAY = 0.40, 0.05
+
+# Absolute scales: index points earned per unit above the league average, so the
+# board's spread reflects how different the teams actually are.
+#
+# Do NOT go back to z-scoring these. Stretching every input to a fixed spread makes
+# a metric look decisive no matter how little signal it carries: weekly projections
+# vary by ~2 points between teams while the SAME roster swings 8-9 points week to
+# week, and z-scoring turned that noise into 25-point score gaps.
+K_DRAFT = 1.5    # per point of draft roster score (spread ~3.4)
+K_PROJ = 2.0     # per projected point per week (spread ~2.1)
+K_PF = 0.8       # per point per game of actual scoring
+
+# The draft grade is the best information available before kickoff, so it carries
+# the preseason board and fades out over the first half of the season.
+DRAFT_W0, DRAFT_DECAY = 0.75, 0.09
 
 # roster strength is averaged over this many upcoming weeks so a bye week
 # doesn't yank a team down the board for a reason nobody controls
@@ -42,18 +55,15 @@ MAX_NUDGE = 2
 
 # ---------------------------------------------------------------- scaling
 
-def _index(vals, spread=12.0):
-    """{key: raw} -> {key: 0-100 index}, 50 = league average, ~1 sd = 12 points."""
+def _index(vals, k):
+    """{key: raw} -> {key: 0-100 index} on an ABSOLUTE scale: 50 = league average,
+    `k` index points per unit above it. Unlike a z-score this preserves how big the
+    real differences are — a bunched field stays bunched."""
     ks = list(vals)
     if not ks:
         return {}
-    xs = [vals[k] for k in ks]
-    mean = sum(xs) / len(xs)
-    var = sum((x - mean) ** 2 for x in xs) / len(xs)
-    sd = var ** 0.5
-    if sd < 1e-9:
-        return {k: 50.0 for k in ks}
-    return {k: max(0.0, min(100.0, 50.0 + spread * (vals[k] - mean) / sd)) for k in ks}
+    mean = sum(vals[x] for x in ks) / len(ks)
+    return {x: max(0.0, min(100.0, 50.0 + k * (vals[x] - mean))) for x in ks}
 
 
 def _allplay(scores_by_week, weeks, owners):
@@ -211,7 +221,7 @@ def compute(season, through_week=None):
         return f"{last}{n}"
 
     pf_pg = {o: (pf[o] / gp if gp else 0.0) for o in owners}
-    pf_ix = _index(pf_pg) if gp else {o: 50.0 for o in owners}
+    pf_ix = _index(pf_pg, K_PF) if gp else {o: 50.0 for o in owners}
 
     results = {}
     for o in owners:
@@ -221,9 +231,10 @@ def compute(season, through_week=None):
                       + W_FORM * _pct(ap_form[o]) * 100)
 
     # ---- roster half ----
-    proj_ix = _index({o: v for o, v in proj_raw.items() if v}) if any(proj_raw.values()) else {}
+    proj_ix = (_index({o: v for o, v in proj_raw.items() if v}, K_PROJ)
+               if any(proj_raw.values()) else {})
     draft_raw = _draft_anchor(season)
-    draft_ix = _index(draft_raw) if draft_raw else {}
+    draft_ix = _index(draft_raw, K_DRAFT) if draft_raw else {}
     w_draft = max(0.0, DRAFT_W0 - DRAFT_DECAY * gp)
 
     roster = {}

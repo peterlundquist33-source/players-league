@@ -635,7 +635,12 @@ NONE
 
 
 def power_nudge(board, board_text):
-    """Ask for small, justified ordering adjustments. Returns ({owner: delta}, [reasons])."""
+    """Ask for small, justified ordering adjustments.
+
+    Returns ({owner: requested delta}, {owner: reason}). The caller reports the
+    delta that was ACTUALLY applied — teams nudging past each other means the
+    requested move and the final move often differ.
+    """
     valid = {r["owner"] for r in board["rows"]}
     wk = board["week"]
     when = (f"after Week {wk}" if wk else "preseason, before any games")
@@ -648,7 +653,7 @@ def power_nudge(board, board_text):
           "model cannot see?"
     )
     raw = claude(SYSTEM_NUDGE, user, max_tokens=500).strip()
-    deltas, reasons = {}, []
+    deltas, reasons = {}, {}
     if raw.upper().startswith("NONE"):
         return deltas, reasons
     for line in raw.splitlines():
@@ -668,12 +673,10 @@ def power_nudge(board, board_text):
         if abs(delta) > 2:
             delta = 2 * sign
         deltas[name] = delta
-        why = ""
         for sep in ("—", "–", " - "):
             if sep in rest:
-                why = rest.split(sep, 1)[1].strip()
+                reasons[name] = rest.split(sep, 1)[1].strip()
                 break
-        reasons.append(f'{name} {delta:+d}' + (f': {why}' if why else ''))
     return deltas, reasons
 
 
