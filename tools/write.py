@@ -12,18 +12,27 @@ the numbers, never corny. No hashtags, no emoji, no "folks", no fantasy-guru cli
 
 SYSTEM_PREVIEW = _VOICE + """
 
-This is a matchup PREVIEW and it is TRASH TALK. Chirp both teams the way you'd roast
-your buddies in the group chat — mean, funny, no mercy. Pick a side and bury the
-other one. Crude is fine.
+This is a matchup PREVIEW and it is ANALYSIS FIRST. Your job is to explain why this
+game goes the way it goes. The wit is seasoning, not the meal — one good line a
+paragraph is plenty, and it has to come out of the football rather than instead of it.
+Don't manufacture a roast, don't do bits, don't pile on.
 
-But the smack talk has to be ABOUT THE FOOTBALL — roughly:
-- ~80% the actual matchup: which roster is thin or top-heavy at each position, the
-  players who decide it, the boom/bust guys, bad byes and injuries, the positional
-  mismatches. Roast the weak spots by name. Lineups may not be locked, so talk about
-  each team's ROSTER at a position (best options, depth), not just who's slotted.
-- ~20% the guys: go at the owners too — a live rivalry, a reach they made, whatever's
-  fair game. No long league-history lectures, but a jab at someone's track record is
-  fine if it lands.
+Roughly 90% the actual matchup:
+- Which positions decide it, and by how much. Name the players and use the numbers.
+- The swing factors: injury tags, nothing behind a starter, a bad bye, the boom/bust
+  guy who sets the ceiling.
+- The real NFL games the points come from. A high total means a shootout; a big
+  underdog throws late; a heavy favorite may sit on the lead and run it. Use the
+  betting lines you're given — they're real.
+- Lineups may not be locked, so assess each team's ROSTER at a position (best
+  options, depth), not just who happens to be slotted.
+- Where each team stands: record, scoring, all-play, recent form, power ranking.
+
+The remaining ~10%: at most one line on the owners — a live rivalry or a track
+record. If nothing fits, skip it entirely and write more football.
+
+Be direct about which team is worse and why; that's analysis, not cruelty. If a
+roster is thin at receiver, say so and show the numbers that prove it.
 
 Use owners' first names for the teams. Refer to NFL players by name.
 
@@ -41,14 +50,22 @@ it. It has to agree with what you just argued. Margins are usually 5-25 points.
 
 SYSTEM_RECAP = _VOICE + """
 
-This is a matchup RECAP and it is TRASH TALK. The winner gets a victory lap, the
-loser gets roasted. Mean, funny, group-chat energy. Crude is fine.
+This is a matchup RECAP and it is ANALYSIS FIRST. Explain how the game was actually
+won and lost. The wit is seasoning, not the meal — one good line a paragraph is
+plenty, and it has to come out of the football. Don't manufacture a roast or do bits.
 
-The smack talk is ABOUT THE FOOTBALL — roughly:
-- ~75% what actually happened: the score, the swing, who carried it, who face-planted
-  against projection, the points left rotting on the bench, the position that lost it.
-  Name names. Roast the busts.
-- ~25% the guys: what the L means for them, a rivalry beat, a standings jab.
+Roughly 90% what happened:
+- The position that decided it and the margin it produced. Lead with the mechanism,
+  not the final score — everyone can already see the score.
+- Who carried it, who missed projection and by how much, the points left rotting on
+  the bench when a better option was sitting there.
+- What it means in context: the record now, the streak, whether the scoring backs it
+  up or the all-play says they got away with one.
+
+The remaining ~10%: at most one line on the owners — what the result means for them,
+a rivalry beat, a standings note. Skip it if nothing fits.
+
+Be direct about who lost and why; that's analysis, not cruelty.
 
 Use owners' first names. Refer to NFL players by name.
 
@@ -734,10 +751,10 @@ def write_intro(league, week, phase):
         f"Write the 2-3 sentence intro for this page."
     )
     sys = _VOICE + (
-        "\n\nWrite a 2-3 sentence intro for the week's matchup page, and make it SMACK "
-        "TALK — group-chat energy, mean and funny. It's about THIS WEEK: hype the best "
-        "game on the slate, then call out who's walking into a beating and who padded "
-        "their schedule. What's at stake in the standings if it's not Week 1. No league "
+        "\n\nWrite a 2-3 sentence intro for the week's matchup page. Analysis first, dry "
+        "wit second. It's about THIS WEEK: the closest game on the slate, the biggest "
+        "mismatch, and what's at stake in the standings if it's not Week 1. Lead with "
+        "the numbers and let at most one line be funny. No league "
         "history, no 'since 2022', no championship-count throat-clearing. "
         "Get the direction right: the board tells you who is FAVORED in each game — "
         "never say the underdog is winning by the margin. Plain prose, no headline, "
