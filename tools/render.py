@@ -73,6 +73,28 @@ def _page(title, active, body, depth=1):
  .gr-chip b{{color:var(--text)}}
  .gr-cite{{font-size:.78rem;color:var(--text-muted);padding:.6rem 1.3rem 0}}
  .gr-cite .up{{color:var(--accent);font-weight:700}} .gr-cite .down{{color:var(--red);font-weight:700}}
+ .pw-hd{{display:flex;align-items:center;gap:.9rem;padding:1rem 1.3rem;border-bottom:1px solid var(--border)}}
+ .pw-rank{{font-family:var(--font-display);font-weight:900;font-size:2.1rem;line-height:1;
+   color:var(--text-light);min-width:2ch;text-align:center;font-variant-numeric:tabular-nums}}
+ .pw-rank.top{{color:var(--accent)}}
+ .pw-move{{font-family:var(--font-display);font-size:.68rem;font-weight:800;letter-spacing:.03em;
+   padding:.15rem .4rem;border-radius:4px;background:var(--surface-2);color:var(--text-muted)}}
+ .pw-move.up{{color:var(--accent);background:var(--accent-tint)}}
+ .pw-move.down{{color:var(--red);background:rgba(255,107,112,.12)}}
+ .pw-score{{margin-left:auto;text-align:right}}
+ .pw-score b{{font-family:var(--font-display);font-weight:900;font-size:1.25rem;color:var(--text);
+   font-variant-numeric:tabular-nums}}
+ .pw-score span{{display:block;font-size:.62rem;color:var(--text-muted);letter-spacing:.08em;
+   text-transform:uppercase;font-weight:700}}
+ .pw-stats{{display:flex;flex-wrap:wrap;gap:.35rem;padding:.7rem 1.3rem;border-bottom:1px solid var(--border)}}
+ .pw-stat{{font-family:var(--font-display);font-size:.66rem;font-weight:800;letter-spacing:.04em;
+   padding:.2rem .5rem;border-radius:4px;background:var(--surface-2);color:var(--text-muted)}}
+ .pw-stat b{{color:var(--text);font-weight:800}}
+ .pw-stat.good b{{color:var(--accent)}} .pw-stat.bad b{{color:var(--red)}}
+ .pw-note{{font-size:.72rem;color:var(--text-muted);padding:.55rem 1.3rem 0;font-style:italic}}
+ .pw-foot{{margin-top:2rem;padding-top:1.2rem;border-top:1px solid var(--border);
+   font-size:.78rem;color:var(--text-muted);line-height:1.7}}
+ .pw-foot a{{color:var(--accent);font-weight:700}}
 </style></head>
 <body class="polish">
 {_nav(active, depth)}
@@ -183,7 +205,7 @@ def _grade_card(t, copy):
 
 
 def rankings_page(g, copies, intro):
-    """g from draft.build(); copies aligned to g['teams']."""
+    """Draft grades — its own page now that Rankings is the weekly power board."""
     season = g["season"]
     stamp = datetime.date.today().isoformat()
     cards = "\n".join(_grade_card(t, copies[i]) for i, t in enumerate(g["teams"]))
@@ -191,9 +213,90 @@ def rankings_page(g, copies, intro):
             '<p>Absolute 0–100 score (not curved) — roster quality vs fixed positional '
             'benchmarks on a 5-source consensus (ESPN, ESPN ADP, FantasyPros ECR, '
             'FantasyCalc, Sleeper), plus a draft-value adjustment · %s</p></section>'
-            '<div class="mx-wrap"><p class="mx-intro">%s</p>%s</div>'
+            '<div class="mx-wrap"><p class="mx-intro">%s</p>%s'
+            '<div class="pw-foot">This board is frozen at the draft. For where everyone '
+            'actually stands now, see the <a href="rankings.html">weekly power rankings</a>.'
+            '</div></div>'
             % (season, stamp, html.escape(intro), cards))
-    (ROOT / "rankings.html").write_text(_page("Draft Grades", "Rankings", body, depth=0))
+    (ROOT / "draft-grades.html").write_text(_page("Draft Grades", "Rankings", body, depth=0))
+    return ROOT / "draft-grades.html"
+
+
+def _power_card(r, copy):
+    cls = " top" if r["rank"] <= 3 else ""
+    mv = r.get("move") or 0
+    if not r.get("prev_rank"):
+        move = '<span class="pw-move">NEW</span>'
+    elif mv > 0:
+        move = '<span class="pw-move up">&#9650; %d</span>' % mv
+    elif mv < 0:
+        move = '<span class="pw-move down">&#9660; %d</span>' % abs(mv)
+    else:
+        move = '<span class="pw-move">&mdash;</span>'
+
+    stats = []
+    if r["gp"]:
+        stats.append('<span class="pw-stat">REC <b>%s</b></span>' % r["record"])
+        stats.append('<span class="pw-stat">PPG <b>%.1f</b></span>' % r["pf_pg"])
+        stats.append('<span class="pw-stat">ALL-PLAY <b>%d-%d</b></span>'
+                     % (r["allplay"][0], r["allplay"][1]))
+        lk = "good" if r["luck"] >= 0.5 else "bad" if r["luck"] <= -0.5 else ""
+        stats.append('<span class="pw-stat %s">LUCK <b>%+.1f</b></span>' % (lk, r["luck"]))
+        if r["streak"]:
+            sc = "good" if r["streak"].startswith("W") else "bad"
+            stats.append('<span class="pw-stat %s">STREAK <b>%s</b></span>' % (sc, r["streak"]))
+    else:
+        if r.get("draft_roster") is not None:
+            stats.append('<span class="pw-stat">DRAFT <b>%.0f</b></span>' % r["draft_roster"])
+    if r.get("proj_avg"):
+        stats.append('<span class="pw-stat">ROSTER PROJ <b>%.0f</b></span>' % r["proj_avg"])
+
+    note = ""
+    if r.get("nudge"):
+        d = r["nudge"]
+        note = ('<div class="pw-note">Moved %s %d %s from the model\'s order on review.</div>'
+                % ("up" if d > 0 else "down", abs(d),
+                   "spot" if abs(d) == 1 else "spots"))
+    paras = "".join("<p>%s</p>" % html.escape(p.strip())
+                    for p in copy["body"].split("\n") if p.strip())
+    return ('<article class="mx-card reveal">'
+            '<div class="pw-hd"><div class="pw-rank%s">%d</div>'
+            '<div><div class="mx-owner">%s</div>'
+            '<div class="mx-sub">%s</div>%s</div>'
+            '<div class="pw-score"><b>%.1f</b><span>Model</span></div></div>'
+            '<div class="pw-stats">%s</div>%s'
+            '<div class="mx-body"><div class="mx-head">%s</div>%s</div>'
+            '</article>' % (
+                cls, r["rank"], html.escape(r["owner"]), html.escape(r["team"]), move,
+                r["score"], "".join(stats), note,
+                html.escape(copy["headline"]), paras))
+
+
+def power_page(board, copies, intro):
+    """board from power.compute(); copies aligned to board['rows']."""
+    season, wk = board["season"], board["week"]
+    stamp = datetime.date.today().isoformat()
+    title = ("PRESEASON <span class=\"gold\">POWER RANKINGS</span>" if not wk
+             else "WEEK %d <span class=\"gold\">POWER RANKINGS</span>" % wk)
+    if board["gp"]:
+        blurb = ('Through Week %d · %d%% results, %d%% roster strength — all-play record, '
+                 'points per game, recent form and current roster, with the order reviewed '
+                 'before publishing · %s'
+                 % (wk, round(board["w_results"] * 100),
+                    round((1 - board["w_results"]) * 100), stamp))
+    else:
+        blurb = ('No games played yet — this board is pure roster strength: draft grade plus '
+                 'what each roster projects to score · %s' % stamp)
+    cards = "\n".join(_power_card(r, copies[i]) for i, r in enumerate(board["rows"]))
+    body = ('<section class="page-header"><h1>%s</h1><p>%s</p></section>'
+            '<div class="mx-wrap"><p class="mx-intro">%s</p>%s'
+            '<div class="pw-foot">The power score blends what you\'ve done (all-play record, '
+            'points per game, form) with what you\'re holding (roster projection, draft '
+            'grade). Results outweigh roster more each week. Full math on the '
+            '<a href="analytics.html">analytics page</a> · '
+            '<a href="draft-grades.html">%d draft grades</a>.</div></div>'
+            % (title, blurb, html.escape(intro), cards, season))
+    (ROOT / "rankings.html").write_text(_page("Power Rankings", "Rankings", body, depth=0))
     return ROOT / "rankings.html"
 
 

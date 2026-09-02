@@ -89,6 +89,56 @@ def run(phase_arg, season, week, dry, force=False):
         {"generated": datetime.datetime.now().isoformat(timespec="seconds"),
          "phase": phase, "data": data, "copies": copies, "intro": intro}, indent=2))
     print(f"wrote {page.relative_to(ROOT)}")
+
+    # Tuesday recap doubles as the weekly power-rankings refresh.
+    if phase == "recap":
+        try:
+            run_power(season, wk, dry)
+        except Exception as e:
+            print(f"power rankings skipped: {e}")
+    return page
+
+
+def run_power(season, week=None, dry=False):
+    """Weekly power rankings — model board, AI nudge, AI copy, page."""
+    load_env()
+    import power as PW
+    board = PW.compute(season, week)
+    board_text = PW.board_lines(board)
+    print(f'power board through week {board["week"]} '
+          f'({board["gp"]} games, {board["w_results"]*100:.0f}% results)')
+
+    reasons = []
+    if dry:
+        copies = [{"headline": f'#{r["rank"]} {r["owner"]}', "body": "[dry run]"}
+                  for r in board["rows"]]
+        intro = "[dry run] power rankings"
+        PW.apply_movement(board, season)
+    else:
+        import write as W
+        deltas, reasons = W.power_nudge(board, board_text)
+        if deltas:
+            print("  nudges: " + "; ".join(reasons))
+            PW.apply_nudge(board, deltas)
+            board_text = PW.board_lines(board)
+        else:
+            print("  nudges: none — model board stands")
+        PW.apply_movement(board, season)
+        copies = []
+        for r in board["rows"]:
+            print(f'  writing #{r["rank"]} {r["owner"]}')
+            copies.append(W.power_team(r, board))
+        intro = W.power_intro(board, board_text, reasons)
+
+    page = R.power_page(board, copies, intro)
+    DATA.mkdir(parents=True, exist_ok=True)
+    slim = dict(board, rows=[{k: v for k, v in r.items() if k != "players"}
+                             for r in board["rows"]])
+    (DATA / f'{season}-power-week-{board["week"]:02d}.json').write_text(json.dumps(
+        {"generated": datetime.datetime.now().isoformat(timespec="seconds"),
+         "board": slim, "copies": copies, "intro": intro, "nudges": reasons},
+        indent=2, default=str))
+    print(f"wrote {page.relative_to(ROOT)}")
     return page
 
 
@@ -122,7 +172,8 @@ def run_rankings(season, dry=False):
 
 if __name__ == "__main__":
     ap = argparse.ArgumentParser()
-    ap.add_argument("phase", choices=["auto", "preview", "recap", "rankings", "facts", "records"],
+    ap.add_argument("phase", choices=["auto", "preview", "recap", "rankings", "power",
+                                      "facts", "records"],
                     nargs="?", default="auto")
     ap.add_argument("--season", type=int, default=2026)
     ap.add_argument("--week", type=int, default=None)
@@ -131,6 +182,8 @@ if __name__ == "__main__":
     a = ap.parse_args()
     if a.phase == "rankings":
         run_rankings(a.season, a.dry)
+    elif a.phase == "power":
+        run_power(a.season, a.week, a.dry)
     elif a.phase == "facts":
         FA.update(a.season, force=a.force)
     elif a.phase == "records":

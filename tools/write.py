@@ -352,6 +352,168 @@ def grade_intro(g):
     return claude(sysmsg, user, max_tokens=320).strip()
 
 
+SYSTEM_POWER = _VOICE + """
+
+These are the weekly POWER RANKINGS. The register is HONEST WITH BITE — you're the
+guy who actually watched the tape and isn't going to pretend a 6-8 team is good
+because they got lucky. Praise the top of the board like they earned it, and be
+blunt about the bottom without being cruel for its own sake. Funny, not nasty.
+Every roast has to be backed by a number.
+
+Roughly 75% football, 25% the guy. Use owners' first names. Refer to NFL players
+by name.
+
+ACCURACY — people in this league read these and will check:
+- Every number you cite must appear in the DATA block. Never invent a score, a
+  record, a rank, a projection, or a stat.
+- Only name NFL players who appear in that team's roster list in the DATA block.
+- You are shown ONE team, not the whole league. The ONLY comparisons you may make
+  are the ones the data states as a league rank — "3rd of 12", "T-5th of 12".
+  If the data doesn't give you a rank for something, you cannot claim it's the
+  best, worst, most, least, highest or lowest in the league. Say what it is, not
+  where it sits.
+- The power score, the draft grade, and the results/roster indexes are four
+  different numbers. Don't blend them, and don't quote an index as "X/100" — an
+  index is league-relative, 50 is average.
+- "All-play" means their record if they'd played every team every week — it's the
+  truest measure of how well they've actually scored. "Luck" is real wins minus
+  expected wins: positive = winning games their scores didn't earn, negative =
+  scoring well and losing anyway. Use these correctly or not at all.
+- The ranking is already decided and given to you. Do not argue for a different
+  rank, and do not say a team is ranked too high or too low.
+- Don't invent NFL context: no snap shares, no scheme takes, no injury timelines
+  beyond an injury tag that's in the data.
+- Don't invent things the owner said or did. Roast their team and their results,
+  which are on the record; don't put words in their mouth.
+
+Output format — EXACTLY this, nothing before or after:
+HEADLINE: <4-9 words, punchy, specific to this team>
+
+<body: ONE paragraph, plain prose, no markdown, 70-95 words.>
+"""
+
+SYSTEM_NUDGE = _VOICE + """
+
+You are reviewing a statistical model's power-ranking board before it publishes.
+The model is good — it weighs all-play record, points per game, recent form and
+roster strength. Your job is NOT to rewrite it. Your job is to catch the handful
+of things a formula structurally cannot see.
+
+Legitimate reasons to move a team:
+- A key player just got hurt, or is back, and the roster list shows it.
+- The model is still being dragged by one fluke week that no longer reflects them.
+- A team's scoring is trending hard in one direction inside the form window.
+- Points-per-game flatters a team that piled on in blowouts, or hides one that
+  keeps losing shootouts.
+
+NOT legitimate: a hunch, reputation, league history, "they always figure it out",
+or disagreeing with how the model weighs things.
+
+Rules:
+- You may move a team at most 2 spots, up or down.
+- Most weeks you should move ZERO to TWO teams. Moving lots of teams means you're
+  second-guessing the model, which is wrong.
+- Every move needs a concrete reason grounded in the data you were given.
+
+Output format — EXACTLY this, nothing else. One line per move:
+<Owner first name>: <+1 | +2 | -1 | -2> — <short reason, under 15 words>
+
+If nothing should move, output exactly:
+NONE
+"""
+
+
+def power_nudge(board, board_text):
+    """Ask for small, justified ordering adjustments. Returns ({owner: delta}, [reasons])."""
+    valid = {r["owner"] for r in board["rows"]}
+    wk = board["week"]
+    when = (f"after Week {wk}" if wk else "preseason, before any games")
+    user = (
+        f"Players League power rankings, {when}. The model's board, best to worst:\n\n"
+        f"{board_text}\n\n"
+        "Per-team detail:\n\n"
+        + "\n\n".join(_pw_facts(r, board) for r in board["rows"])
+        + "\n\nReview this board. Which teams, if any, are misplaced for a reason the "
+          "model cannot see?"
+    )
+    raw = claude(SYSTEM_NUDGE, user, max_tokens=500).strip()
+    deltas, reasons = {}, []
+    if raw.upper().startswith("NONE"):
+        return deltas, reasons
+    for line in raw.splitlines():
+        line = line.strip().lstrip("-•* ").strip()
+        if ":" not in line:
+            continue
+        name, _, rest = line.partition(":")
+        name = name.strip()
+        if name not in valid:
+            continue
+        rest = rest.strip()
+        sign = 1 if rest.startswith("+") else -1 if rest.startswith("-") else 0
+        digits = "".join(ch for ch in rest[:3] if ch.isdigit())
+        if not sign or not digits:
+            continue
+        delta = sign * int(digits[0])
+        if abs(delta) > 2:
+            delta = 2 * sign
+        deltas[name] = delta
+        why = ""
+        for sep in ("—", "–", " - "):
+            if sep in rest:
+                why = rest.split(sep, 1)[1].strip()
+                break
+        reasons.append(f'{name} {delta:+d}' + (f': {why}' if why else ''))
+    return deltas, reasons
+
+
+def _pw_facts(r, board):
+    import power as PW
+    return PW.team_facts(r, board)
+
+
+def power_team(r, board):
+    """One team's power-ranking blurb."""
+    wk = board["week"]
+    when = (f"Week {wk}" if wk else "the preseason")
+    frame = ("No games have been played yet — judge them on the roster they drafted "
+             "and what it projects to do."
+             if not board["gp"] else
+             "Judge them on what they've actually done, with the roster as context.")
+    user = (f"League background (for the ~25% owner angle only):\n{LEAGUE_FACTS}\n\n"
+            f"Write the {when} power-rankings blurb for this team. {frame}\n\n"
+            f"DATA:\n{_pw_facts(r, board)}\n")
+    out = _parse(claude(SYSTEM_POWER, user, max_tokens=700))
+    if not out["headline"]:
+        out["headline"] = f'#{r["rank"]} {r["owner"]}'
+    return out
+
+
+def power_intro(board, board_text, nudge_reasons):
+    wk = board["week"]
+    when = (f"after Week {wk}" if wk else "preseason")
+    rows = board["rows"]
+    movers = [r for r in rows if r.get("move")]
+    movers.sort(key=lambda r: -abs(r["move"]))
+    mv = "\n".join(f'{r["owner"]}: #{r["prev_rank"]} -> #{r["rank"]}' for r in movers[:5])
+    extra = f"\nBiggest movers since last week:\n{mv}\n" if mv else ""
+    if nudge_reasons:
+        extra += ("\nThe model's raw order was overridden on review for these teams, which is "
+                  "why their scores don't run in a straight line down the board:\n  "
+                  + "\n  ".join(nudge_reasons) + "\n")
+    user = (f"Players League power rankings, {when}. Final board, best to worst:\n\n"
+            f"{board_text}\n{extra}\n"
+            f"Write the 3-4 sentence intro for this page.")
+    sysmsg = _VOICE + (
+        "\n\nWrite a 3-4 sentence intro for the weekly power-rankings page. HONEST WITH "
+        "BITE — name the team at the top and why they're there, the team at the bottom "
+        "and why, and the most interesting mover. Back every claim with a number from "
+        "the board — and when two teams look tied, check the decimals before saying so. "
+        "Don't invent schedule facts (how many weeks are left, who plays whom, playoff "
+        "dates) — you haven't been told any of that. No league history lectures. Plain "
+        "prose, no headline, no markdown.")
+    return claude(sysmsg, user, max_tokens=340).strip()
+
+
 def write_intro(league, week, phase):
     kind = "preview" if phase == "preview" else "recap"
     board = "\n".join(
