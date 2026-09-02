@@ -27,6 +27,59 @@ def _placeholder(m, phase):
                     else f"[dry run]\nFinal {m['away']['actual']}-{m['home']['actual']}."}
 
 
+def _build_context(season, week, phase, data=None):
+    """Season form + power rank + real NFL lines, fetched once and shared by every
+    matchup in the run. Any piece that fails just goes missing from the fact block."""
+    ctx = {"season": season, "week": week}
+    # every rostered player in the league -> their manager, so the fact-checker can
+    # catch copy that hands one manager's player to another
+    if data:
+        pool = {}
+        for mm in data.get("matchups", []):
+            for side in (mm["away"], mm["home"]):
+                for p in side.get("players", []):
+                    pool[p["name"]] = side["owner"]
+        ctx["all_players"] = pool
+    # form through the last completed week (a preview shouldn't see this week's scores)
+    through = week - 1 if phase == "preview" else week
+    try:
+        import power as PW
+        ctx["results"] = PW.results_context(season, through)
+        ctx["power"] = PW.latest_board(season)
+    except Exception as e:
+        print(f"  season context unavailable: {e}")
+    if phase == "preview":
+        try:
+            import nfl as NF
+            ctx["nfl"] = NF.games(season, week)
+            print(f'  NFL lines: {len(ctx["nfl"])} teams')
+        except Exception as e:
+            print(f"  NFL lines unavailable: {e}")
+    return ctx
+
+
+def _attach_picks(season, week, matchups):
+    """Hand each recap the pick its own preview made, so it can own the call."""
+    f = DATA / f"{season}-week-{week:02d}.json"
+    if not f.exists():
+        return
+    try:
+        prev = json.loads(f.read_text())
+    except Exception:
+        return
+    if prev.get("phase") != "preview":
+        return
+    by_pair = {}
+    for mm, cc in zip(prev.get("data", {}).get("matchups", []), prev.get("copies", [])):
+        if cc.get("pick"):
+            by_pair[frozenset((mm["away"]["owner"], mm["home"]["owner"]))] = cc["pick"]
+    for m in matchups:
+        p = by_pair.get(frozenset((m["away"]["owner"], m["home"]["owner"])))
+        if p:
+            m["predicted"] = p
+            m["week"] = week
+
+
 def run(phase_arg, season, week, dry, force=False):
     load_env()
     phase = None if phase_arg == "auto" else phase_arg
@@ -67,11 +120,14 @@ def run(phase_arg, season, week, dry, force=False):
         intro = f"[dry run] Week {wk} {phase}."
     else:
         import write as W
+        ctx = _build_context(season, wk, phase, data)
+        if phase == "recap":
+            _attach_picks(season, wk, data["matchups"])
         copies = []
         for i, m in enumerate(data["matchups"], 1):
             print(f"  writing {i}/{len(data['matchups'])}: "
                   f"{m['away']['owner']} at {m['home']['owner']}")
-            copies.append(W.write_matchup(m, wk, phase))
+            copies.append(W.write_matchup(m, wk, phase, ctx))
         intro = W.write_intro(data, wk, phase)
 
     page = R.week_page(data, copies, intro)

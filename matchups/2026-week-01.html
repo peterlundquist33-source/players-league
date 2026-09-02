@@ -29,6 +29,13 @@
    background:var(--accent-tint);color:var(--accent);margin-left:.5rem;vertical-align:middle}
  .mx-intro{color:var(--text-muted);font-size:.95rem;line-height:1.7;margin-bottom:1.6rem;
    border-left:2px solid var(--accent);padding-left:1rem}
+ .mx-pick{margin-top:.85rem;padding-top:.7rem;border-top:1px dashed var(--border);
+   font-family:var(--font-display);font-weight:800;font-size:.82rem;color:var(--text)}
+ .mx-pick span{display:inline-block;font-size:.6rem;letter-spacing:.12em;font-weight:800;
+   text-transform:uppercase;color:var(--accent);background:var(--accent-tint);
+   padding:.18rem .45rem;border-radius:4px;margin-right:.5rem;vertical-align:middle}
+ .mx-pick.hit span{color:var(--accent)}
+ .mx-pick.miss span{color:var(--red);background:rgba(255,107,112,.12)}
  .mx-week-list a{display:flex;justify-content:space-between;align-items:center;
    background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);
    padding:1rem 1.2rem;margin-bottom:.7rem;transition:var(--transition)}
@@ -45,15 +52,39 @@
  .gr-chip b{color:var(--text)}
  .gr-cite{font-size:.78rem;color:var(--text-muted);padding:.6rem 1.3rem 0}
  .gr-cite .up{color:var(--accent);font-weight:700} .gr-cite .down{color:var(--red);font-weight:700}
+ .pw-hd{display:flex;align-items:center;gap:.9rem;padding:1rem 1.3rem;border-bottom:1px solid var(--border)}
+ .pw-rank{font-family:var(--font-display);font-weight:900;font-size:2.1rem;line-height:1;
+   color:var(--text-light);min-width:2ch;text-align:center;font-variant-numeric:tabular-nums}
+ .pw-rank.top{color:var(--accent)}
+ .pw-move{font-family:var(--font-display);font-size:.68rem;font-weight:800;letter-spacing:.03em;
+   padding:.15rem .4rem;border-radius:4px;background:var(--surface-2);color:var(--text-muted)}
+ .pw-move.up{color:var(--accent);background:var(--accent-tint)}
+ .pw-move.down{color:var(--red);background:rgba(255,107,112,.12)}
+ .pw-score{margin-left:auto;text-align:right}
+ .pw-score b{font-family:var(--font-display);font-weight:900;font-size:1.25rem;color:var(--text);
+   font-variant-numeric:tabular-nums}
+ .pw-score span{display:block;font-size:.62rem;color:var(--text-muted);letter-spacing:.08em;
+   text-transform:uppercase;font-weight:700}
+ .pw-stats{display:flex;flex-wrap:wrap;gap:.35rem;padding:.7rem 1.3rem;border-bottom:1px solid var(--border)}
+ .pw-stat{font-family:var(--font-display);font-size:.66rem;font-weight:800;letter-spacing:.04em;
+   padding:.2rem .5rem;border-radius:4px;background:var(--surface-2);color:var(--text-muted)}
+ .pw-stat b{color:var(--text);font-weight:800}
+ .pw-stat.good b{color:var(--accent)} .pw-stat.bad b{color:var(--red)}
+ .pw-note{font-size:.72rem;color:var(--text-muted);padding:.55rem 1.3rem 0;font-style:italic}
+ .pw-foot{margin-top:2rem;padding-top:1.2rem;border-top:1px solid var(--border);
+   font-size:.78rem;color:var(--text-muted);line-height:1.7}
+ .pw-foot a{color:var(--accent);font-weight:700}
 </style></head>
 <body class="polish">
 <nav class="nav"><div class="nav-inner"><a href="../home.html" class="nav-logo">PLAYERS LEAGUE<span class="sub">Fantasy Football · Est. 2022</span></a><div class="nav-toggle"><span></span><span></span><span></span></div><div class="nav-links"><a href="../weekend.html">Weekend</a><a href="../home.html">Home</a><a href="../teams.html">Teams</a><a href="../awards.html">Awards</a><a href="../history.html">History</a><a href="../analytics.html">Analytics</a><a href="../matchups/index.html" class="active">Matchups</a><a href="../rankings.html">Rankings</a></div></div></nav>
 <section class="page-header">
   <h1>WEEK 1 <span class="gold">PREVIEW</span></h1>
-  <p>2026 season · generated 2026-08-29</p>
+  <p>2026 season · generated 2026-09-02</p>
 </section>
 <div class="mx-wrap">
-  <p class="mx-intro">Isaac at Kaleb is the only game the projections can&#x27;t separate — 118.6 to 120.7, two points, which means it&#x27;ll come down to whichever tight end remembers he plays football. Meanwhile Noah gets shipped to John down ten, and Christian opens with the lowest projected total on the board, which is a rough way to find out your draft was a group project you did alone. Adam at Logan and Leif at Mitchell both look like scheduled beatings; the only question is whether the losers admit it before Sunday night or after.</p>
+  <p class="mx-intro">Leif at Mitchell is the game of the week by 0.8 points, which is another way of saying two guys who drafted identical teams are going to spend Sunday screaming at the same waiver-wire tight end. Elsewhere, John is favored by 8.8 over Noah, so Noah gets to open the season by learning what his roster actually is, and Logan gets Adam by 6.8 in a game that looks less like a matchup and more like a scheduled appointment.
+
+Isaac-Kaleb and Christian-Peter are both coin flips nobody will admit to losing on merit, and Grant walks into CJ&#x27;s place a 2.4-point favorite with the confidence of a man who hasn&#x27;t checked his kicker&#x27;s situation yet.</p>
   <article class="mx-card reveal">
   <div class="mx-score">
     <div class="mx-team away">
@@ -61,9 +92,9 @@
       <span class="mx-sub">Achane Smokin CiGarretts · 0-0 · proj</span>
     </div>
     <div style="text-align:center">
-      <div class="mx-pts">111.9</div>
+      <div class="mx-pts">113.2</div>
       <div class="mx-vs">vs</div>
-      <div class="mx-pts">121.6</div>
+      <div class="mx-pts">122.0</div>
     </div>
     <div class="mx-team">
       <span class="mx-owner">John</span>
@@ -71,8 +102,8 @@
     </div>
   </div>
   <div class="mx-body">
-    <div class="mx-head">Noah&#x27;s Backfield Can&#x27;t Outrun John&#x27;s Tight Ends</div>
-    <p>John wins this at the positions Noah can&#x27;t fix. Brock Bowers and Trey McBride is an unfair tight end room in a one-TE league — one of them is a WR2 riding the bench while Noah trots out Colston Loveland and prays a rookie tight end saves his week. Add Puka Nacua, who alone outprojects any receiver Noah owns, and John&#x27;s ceiling is somewhere Noah&#x27;s roster physically cannot reach. Stafford or Caleb Williams at quarterback is a nice problem; Drake Maye and nothing behind him is not.</p><p>Noah&#x27;s case is De&#x27;Von Achane and James Cook chewing up 33 points against a Rams backfield that&#x27;s Kyren Williams and a Blake Corum handcuff nobody wanted. That&#x27;s real. But past those two it&#x27;s Rhamondre Stevenson, Tyjae Spears, and a receiver corps of Mike Evans in San Francisco and three guys projected at ten. John by eleven, and it should feel worse than that.</p>
+    <div class="mx-head">Noah&#x27;s Backfield Can&#x27;t Cover His Everything Else</div>
+    <p>Noah&#x27;s roster is two running backs and a prayer. De&#x27;Von Achane and James Cook are legitimately the best RB pair in this matchup, and after that it&#x27;s Garrett Wilson carrying a receiver room where the second-best options are a questionable Mike Evans, a questionable Josh Downs, and Michael Wilson in a game Arizona is losing by ten and a half. Drake Maye in Seattle as a dog and Colston Loveland at tight end is not a plan, it&#x27;s a shrug. Power ranking #12 for a reason.</p><p>John has the Rams stack in a 48.5-point game — Stafford and Puka Nacua, with Kyren Williams and Blake Corum vulturing the same offense. He also gets to bench Trey McBride, a top-five tight end, because Brock Bowers exists. That&#x27;s the difference: John&#x27;s worst starting decisions are luxuries, Noah&#x27;s are triage. If Nacua sits, Brian Thomas Jr. and Quentin Johnston still beat whatever Noah&#x27;s stapling into flex.</p><div class="mx-pick"><span>The Pick</span> John by 12</div>
   </div>
 </article>
 <article class="mx-card reveal">
@@ -82,9 +113,9 @@
       <span class="mx-sub">A Slap in the Face · 0-0 · proj</span>
     </div>
     <div style="text-align:center">
-      <div class="mx-pts">118.6</div>
+      <div class="mx-pts">117.1</div>
       <div class="mx-vs">vs</div>
-      <div class="mx-pts">120.7</div>
+      <div class="mx-pts">118.5</div>
     </div>
     <div class="mx-team">
       <span class="mx-owner">Kaleb</span>
@@ -92,8 +123,8 @@
     </div>
   </div>
   <div class="mx-body">
-    <div class="mx-head">Isaac Brought Receivers to a Backfield Fight</div>
-    <p>Isaac&#x27;s roster is a wideout hoarding problem with a football team attached. Ja&#x27;Marr Chase, Malik Nabers, Terry McLaurin, DK Metcalf — seven guys who all want the same three slots, and behind them a backfield of Javonte Williams, Cam Skattebo and Jaylen Warren that adds up to one mediocre RB1. Bo Nix at quarterback is a decision, not a plan, and the Malik Willis contingency plan is somehow worse. Hockenson or Kincaid at tight end is picking which nine-point coin flip you trust.</p><p>Kaleb wins this on the ground and at the top. Ashton Jeanty and Breece Hall out-project Isaac&#x27;s entire committee by seven, Justin Herbert clears Nix by three, and Harold Fannin Jr. is a real tight end. The soft spot is receiver — Drake London and Ladd McConkey are fine, then it drops off a cliff into Keenan Allen and rookie dart throws, and that Vikings defense projects for four points, which is basically a bye week. Kaleb by a nose.</p>
+    <div class="mx-head">Isaac&#x27;s Injury Report Is His Depth Chart</div>
+    <p>Isaac&#x27;s receiver room looks great until you read the fine print: Ja&#x27;Marr Chase, Malik Nabers, DK Metcalf, Wan&#x27;Dale Robinson and Jakobi Meyers are all questionable, which means his 46-point WR edge is really a coin flip with five sides. Behind that it gets grim. Bo Nix at Arrowhead in a 42.5 total is the QB1, the backup is Malik Willis, and the running backs are Javonte Williams, Cam Skattebo and Jaylen Warren — three guys who split touches with somebody. Tight end is Hockenson or Kincaid, both nine points, both boring. Power ranking says 10th of 12 for a reason.</p><p>Kaleb isn&#x27;t clean either — Ashton Jeanty and Breece Hall both carry tags, and if they sit, RJ Harvey and a Vikings defense projected for four points are the parachute. But Justin Herbert against Arizona as a 10.5-point favorite is the best quarterback on the field by a mile, Ladd McConkey comes with him, and Drake London plus Harold Fannin give him floor Isaac doesn&#x27;t have. Healthier where it counts.</p><div class="mx-pick"><span>The Pick</span> Kaleb by 9</div>
   </div>
 </article>
 <article class="mx-card reveal">
@@ -105,7 +136,7 @@
     <div style="text-align:center">
       <div class="mx-pts">120.2</div>
       <div class="mx-vs">vs</div>
-      <div class="mx-pts">115.3</div>
+      <div class="mx-pts">117.8</div>
     </div>
     <div class="mx-team">
       <span class="mx-owner">CJ</span>
@@ -113,8 +144,8 @@
     </div>
   </div>
   <div class="mx-body">
-    <div class="mx-head">Grant&#x27;s Receivers Bury CJ&#x27;s Running Back Hoard</div>
-    <p>CJ drafted like the waiver wire was going to be nuked from orbit — nine running backs, and the only ones that matter are Jonathan Taylor and whichever Browns body Quinshon Judkins is sharing a backfield with. Zach Charbonnet projects a literal zero. Meanwhile the receiver room is Rashee Rice, Emeka Egbuka, and then a cliff into Parker Washington and Alec Pierce, two guys who need a 60-yard bomb to be relevant. Jake Ferguson at tight end is fine in the way a gas station sandwich is fine.</p><p>Grant wins this on the flanks. Amon-Ra St. Brown, Zay Flowers, Jaylen Waddle, plus Christian Watson and Chris Godwin as spare parts — that&#x27;s a six-point weekly edge before anyone gets cute. His problem is quarterback, where Kyler Murray and Baker Mayfield both project 16 and both can hand you nine. Burrow&#x27;s the better arm. He&#x27;s also the only reason CJ&#x27;s in this. Grant by four, and it isn&#x27;t as close as that.</p>
+    <div class="mx-head">CJ&#x27;s Backfield Is A Hospital Wing</div>
+    <p>Grant&#x27;s receiving room actually functions: Amon-Ra St. Brown against a Saints defense in a 49.5 shootout, Waddle, Watson, Godwin, and a questionable Zay Flowers as the fourth or fifth option. That&#x27;s a 45-to-39 edge at wideout and it&#x27;s the whole ballgame, because Omarion Hampton gets Arizona with the Chargers laying 10.5 and Grant&#x27;s RB room has actual bodies behind him. The quarterback thing is a coin flip he&#x27;s fine losing — Kyler Murray and Baker Mayfield project identically, which is its own kind of insult to Baker.</p><p>CJ, meanwhile, is running a triage tent. Pacheco on IR, Charbonnet out, Hubbard and Henderson both questionable, so it&#x27;s Jonathan Taylor and pray Judkins does something in a 40.5-total game where Cleveland is getting 7.5. The receivers are worse: Rashee Rice, then Egbuka and Pierce with question marks, then Parker Washington. Jake Ferguson at tight end is a shrug. Burrow&#x27;s +2 doesn&#x27;t cover any of that.</p><div class="mx-pick"><span>The Pick</span> Grant by 9</div>
   </div>
 </article>
 <article class="mx-card reveal">
@@ -124,9 +155,9 @@
       <span class="mx-sub">Uncut Cokerr · 0-0 · proj</span>
     </div>
     <div style="text-align:center">
-      <div class="mx-pts">116.2</div>
+      <div class="mx-pts">116.1</div>
       <div class="mx-vs">vs</div>
-      <div class="mx-pts">124.2</div>
+      <div class="mx-pts">122.9</div>
     </div>
     <div class="mx-team">
       <span class="mx-owner">Logan</span>
@@ -134,8 +165,8 @@
     </div>
   </div>
   <div class="mx-body">
-    <div class="mx-head">Logan&#x27;s Eagles Stack Meets Adam&#x27;s Committee Casserole</div>
-    <p>Take Logan. He&#x27;s got the only real ceiling in this game: Jalen Hurts and Saquon Barkley, the same offense, the same goal line, and Justin Jefferson stapled on top. Adam counters with a running back room that&#x27;s four guys splitting three carries — Kenneth Walker III in Kansas City, Bucky Irving and Kenny Gainwell sharing Tampa, Rico Dowdle vulturing in Pittsburgh. That&#x27;s not depth, that&#x27;s a group project. Jayden Daniels is fine, but fine loses to Hurts by four before anyone tackles anybody.</p><p>Adam&#x27;s actual edge is receiver, and it&#x27;s thin — Jaxon Smith-Njigba is legit, Chris Olave has hamstrings made of tissue paper, and Rome Odunze needs Chicago to remember he exists. Two points at wideout and two at tight end won&#x27;t cover seven at running back. Logan&#x27;s one hole is Isaiah Likely alone at tight end, which matters if Adam gets vintage Mark Andrews. He won&#x27;t. Logan by nine.</p>
+    <div class="mx-head">Logan&#x27;s Eagles Stack Buries Adam&#x27;s Committee</div>
+    <p>Logan opens with the Philly cheat code: Jalen Hurts and Saquon Barkley both cashing in a game Philly is favored by 4.5, plus Justin Jefferson and Tetairoa McMillan. Yes, the depth chart is a hospital ward — Jeremiyah Love, Pittman, Burden and Stribling all questionable, and Isaiah Likely is the entire tight end room — but the top four score enough to make that irrelevant. Adam&#x27;s counter is Jayden Daniels getting hunted by that same Eagles defense as a 4.5-point dog, which is a fun way to lose two positions in one game.</p><p>Adam&#x27;s real problem is running back by committee with no committee chairman. Kenneth Walker, Rico Dowdle, Bucky Irving and Kenny Gainwell all project 11-15, which means four coin flips instead of one answer. Jaxon Smith-Njigba and Chris Olave are legitimately good, and if Sam LaPorta&#x27;s questionable tag holds, Mark Andrews covers it. Not enough. Logan&#x27;s top-heavy roster only needs to survive one week, and Week 1 is exactly when top-heavy works.</p><div class="mx-pick"><span>The Pick</span> Logan by 9</div>
   </div>
 </article>
 <article class="mx-card reveal">
@@ -145,9 +176,9 @@
       <span class="mx-sub">The Aura Farm · 0-0 · proj</span>
     </div>
     <div style="text-align:center">
-      <div class="mx-pts">110.1</div>
+      <div class="mx-pts">118.3</div>
       <div class="mx-vs">vs</div>
-      <div class="mx-pts">115.2</div>
+      <div class="mx-pts">116.2</div>
     </div>
     <div class="mx-team">
       <span class="mx-owner">Peter</span>
@@ -155,8 +186,8 @@
     </div>
   </div>
   <div class="mx-body">
-    <div class="mx-head">Christian&#x27;s Tight End Room Is A Crime Scene</div>
-    <p>Christian wins the receiver room by a mile — CeeDee Lamb and DeVonta Smith is a real one-two, and Jameson Williams and Khalil Shakir give him outs if Deebo keeps looking like a fullback. The problem is the tight end drawer: Chig Okonkwo for seven and a George Kittle who projects at literally zero, which means Christian&#x27;s entire edge evaporates the second Peter starts Tucker Kraft and Lamar Jackson and just quietly banks four points at two spots. Chase Brown and Travis Etienne are fine. Fine doesn&#x27;t cover a zero.</p><p>Peter&#x27;s roster is the one with an actual foundation — Bijan Robinson, Lamar, Kraft — but look past the top and it&#x27;s Jonathon Brooks and Kyle Monangai at ten apiece, which is how you lose a game by three. Peter&#x27;s receivers are three good names and then Denzel Boston, Jalen McMillan and Jalen Nailor, a bye-week nightmare in waiting. Two-point spread, one Kittle donut. Peter takes it.</p>
+    <div class="mx-head">Peter&#x27;s Questionable Tags Sink The Basement</div>
+    <p>Christian&#x27;s roster is the deeper one and it isn&#x27;t close in the places that matter. Lamb, DeVonta Smith and Jameson Williams give him three real WR starts, plus Deebo and Shakir rotting on the bench, while Peter is praying Tee Higgins&#x27; injury tag flips and that George Pickens plays like a guy who cares in a 48.5-point Giants game. Christian&#x27;s backfield is a two-headed nothing-special — Chase Brown and Etienne, who&#x27;s a 7-point dog in Detroit and might get 11 touches — but Peter&#x27;s is Bijan Robinson at Pittsburgh in a 41.5 total and then a shrug: Jonathon Brooks questionable, Kyle Monangai questionable, Jordan Mason buried behind Aaron Jones&#x27; old job.</p><p>The tiebreaker is tight end, where Peter owns exactly one: Tucker Kraft, questionable. If Kraft sits, Peter is streaming a zero at the position and Christian still has Chig Okonkwo behind a banged-up Kittle. Lamar over Trevor Lawrence buys back two points. It&#x27;s not enough to cover the four bodies Peter&#x27;s missing.</p><div class="mx-pick"><span>The Pick</span> Christian by 9</div>
   </div>
 </article>
 <article class="mx-card reveal">
@@ -166,18 +197,18 @@
       <span class="mx-sub">Joey Lunchbox · 0-0 · proj</span>
     </div>
     <div style="text-align:center">
-      <div class="mx-pts">117.0</div>
+      <div class="mx-pts">117.4</div>
       <div class="mx-vs">vs</div>
-      <div class="mx-pts">122.6</div>
+      <div class="mx-pts">116.6</div>
     </div>
     <div class="mx-team">
       <span class="mx-owner">Mitchell</span>
-      <span class="mx-sub">Ashton Powers · 0-0 · proj</span>
+      <span class="mx-sub">Finding Nico · 0-0 · proj</span>
     </div>
   </div>
   <div class="mx-body">
-    <div class="mx-head">Leif Hoards Quarterbacks, Loses Everywhere Else</div>
-    <p>Leif has Josh Allen and Patrick Mahomes on the same roster, which is a great way to win one lineup spot by a single point and lose the other three. Behind the QB vanity project, the receiving room is Davante Adams at 33, Marvin Harrison Jr. still waiting on a quarterback who can find him, and Jayden Reed splitting targets in Green Bay&#x27;s committee. The tight end plan is Kyle Pitts, a man who has been a breakout candidate for five straight years and delivered nothing. Christian McCaffrey and Derrick Henry are real, but Henry&#x27;s 32 and the depth behind them is Woody Marks and a guy named Kaelon Black.</p><p>Mitchell isn&#x27;t clean either — starting Jaxson Dart in Week 1 is a choice, and Alvin Kamara projecting zero is roster rot. But Jahmyr Gibbs and Josh Jacobs beat Leif&#x27;s backfield, Nico Collins and Courtland Sutton beat his wideouts, and Tyler Warren beats Pitts by simply being younger. Mitchell by six, and it should be more.</p>
+    <div class="mx-head">Leif&#x27;s Injury Ward Beats Mitchell&#x27;s Jaxson Dart Experiment</div>
+    <p>Leif&#x27;s roster is a hospital wing with a Josh Allen wristband: McCaffrey questionable, Mahomes questionable, and a tight end room that begins and ends with Kyle Pitts, the most reliable 10-point disappointment in football. But the backfield is genuinely fat — Henry against Indy, Montgomery, a healthy-enough CMC — and the receiver group has real names even if Adams and Harrison Jr. spend half their weeks running decoy routes.</p><p>Mitchell&#x27;s counter is starting Jaxson Dart, at home, as a 2.5-point dog to Dallas, with Daniel Jones as the panic button. That is not a quarterback room, that&#x27;s a hostage situation. Gibbs is a monster and Nico Collins is legit, but behind them it&#x27;s Josh Jacobs at zero, Kaleb Johnson at one, Tank Dell on IR, and Rachaad White limping. Two studs and a bake sale. Leif&#x27;s depth wins a game neither team should be proud of.</p><div class="mx-pick"><span>The Pick</span> Leif by 8</div>
   </div>
 </article>
 </div>

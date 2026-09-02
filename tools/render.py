@@ -57,6 +57,13 @@ def _page(title, active, body, depth=1):
    background:var(--accent-tint);color:var(--accent);margin-left:.5rem;vertical-align:middle}}
  .mx-intro{{color:var(--text-muted);font-size:.95rem;line-height:1.7;margin-bottom:1.6rem;
    border-left:2px solid var(--accent);padding-left:1rem}}
+ .mx-pick{{margin-top:.85rem;padding-top:.7rem;border-top:1px dashed var(--border);
+   font-family:var(--font-display);font-weight:800;font-size:.82rem;color:var(--text)}}
+ .mx-pick span{{display:inline-block;font-size:.6rem;letter-spacing:.12em;font-weight:800;
+   text-transform:uppercase;color:var(--accent);background:var(--accent-tint);
+   padding:.18rem .45rem;border-radius:4px;margin-right:.5rem;vertical-align:middle}}
+ .mx-pick.hit span{{color:var(--accent)}}
+ .mx-pick.miss span{{color:var(--red);background:rgba(255,107,112,.12)}}
  .mx-week-list a{{display:flex;justify-content:space-between;align-items:center;
    background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);
    padding:1rem 1.2rem;margin-bottom:.7rem;transition:var(--transition)}}
@@ -120,6 +127,16 @@ def _matchup_card(m, copy, phase):
         a_sub, h_sub = a["record"], h["record"]
     paras = "".join("<p>%s</p>" % html.escape(p.strip())
                     for p in copy["body"].split("\n") if p.strip())
+    pick = copy.get("pick")
+    if pick and phase == "preview":
+        paras += ('<div class="mx-pick"><span>The Pick</span> %s by %d</div>'
+                  % (html.escape(pick["owner"]), pick["margin"]))
+    elif m.get("predicted"):
+        p = m["predicted"]
+        hit = p["owner"] == m["winner"]
+        paras += ('<div class="mx-pick %s"><span>We Picked</span> %s by %d — %s</div>'
+                  % ("hit" if hit else "miss", html.escape(p["owner"]), p["margin"],
+                     "nailed it" if hit else "wrong"))
     a_cls = " win" if a_win else ""
     h_cls = " win" if h_win else ""
     mid = "vs" if phase == "preview" else "—"

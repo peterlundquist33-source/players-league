@@ -460,6 +460,97 @@ def board_lines(board):
     return "\n".join(out)
 
 
+# ---------------------------------------------------------------- shared context
+
+def latest_board(season, before_week=None):
+    """The most recently published power board, for 'the #3 team hosts the #11 team'."""
+    best, best_n = None, -1
+    for f in sorted(DATA.glob(f"{season}-power-week-*.json")):
+        try:
+            n = int(f.stem.split("-")[-1])
+        except ValueError:
+            continue
+        if before_week is not None and n >= before_week:
+            continue
+        if n > best_n:
+            best, best_n = f, n
+    if best is None:
+        return {}
+    try:
+        d = json.loads(best.read_text())
+    except Exception:
+        return {}
+    return {r["owner"]: r for r in d.get("board", {}).get("rows", [])}
+
+
+def results_context(season, through_week=None):
+    """Per-owner season form off ONE ESPN call — for preview/recap fact blocks.
+
+    Deliberately cheap: no roster builds, no projections. Just what everyone has
+    actually done, plus the league ranks that make comparisons checkable.
+    """
+    load_env()
+    p = AN._pull(season)
+    weeks = [w for w in p["weeks"] if through_week is None or w <= through_week]
+    owners = p["owners"]
+    gp = len(weeks)
+    if not gp:
+        return {"gp": 0, "weeks": [], "opp": {}, "scores": {},
+                "by_owner": {o: {"gp": 0} for o in owners}}
+
+    ap = _allplay(p["scores"], weeks, owners)
+    ap_form = _allplay(p["scores"], weeks[-FORM_WEEKS:], owners)
+    out = {}
+    for o in owners:
+        sc = {w: p["scores"][w][o] for w in weeks if o in p["scores"][w]}
+        res = [p["result"][w][o] for w in weeks if o in p["result"][w]]
+        w_ = res.count("W"); l_ = res.count("L"); t_ = res.count("T")
+        streak = ""
+        if res:
+            last, n = res[-1], 1
+            for x in reversed(res[:-1]):
+                if x != last:
+                    break
+                n += 1
+            streak = f"{last}{n}"
+        pf = sum(sc.values())
+        pa = sum(p["scores"][w][p["opp"][w][o]] for w in weeks if o in p["scores"][w])
+        out[o] = {
+            "gp": gp,
+            "record": f"{w_}-{l_}" + (f"-{t_}" if t_ else ""),
+            "streak": streak,
+            "pf": round(pf, 1), "pa": round(pa, 1),
+            "pf_pg": round(pf / gp, 1),
+            "allplay": tuple(ap[o]), "allplay_pct": round(_pct(ap[o]) * 100),
+            "form_pct": round(_pct(ap_form[o]) * 100),
+            "last3": [sc[w] for w in weeks[-FORM_WEEKS:] if w in sc],
+            "luck": round((w_ + 0.5 * t_) - _pct(ap[o]) * gp, 1),
+            "best_week": max(sc.items(), key=lambda kv: kv[1], default=None),
+            "worst_week": min(sc.items(), key=lambda kv: kv[1], default=None),
+            "scores": sc,
+        }
+    for field, hi in (("pf_pg", True), ("allplay_pct", True), ("pa", False),
+                      ("form_pct", True), ("luck", True)):
+        for o, label in _rank_map({k: v[field] for k, v in out.items()}, hi).items():
+            out[o].setdefault("ranks", {})[field] = label
+    return {"gp": gp, "weeks": weeks, "by_owner": out,
+            "opp": {w: p["opp"][w] for w in weeks},
+            "scores": {w: p["scores"][w] for w in weeks}}
+
+
+def h2h_this_season(season, a, b, through_week=None):
+    """Prior meetings between two owners this season -> list of (week, a_pts, b_pts)."""
+    load_env()
+    p = AN._pull(season)
+    out = []
+    for w in p["weeks"]:
+        if through_week is not None and w > through_week:
+            continue
+        if p["opp"].get(w, {}).get(a) == b:
+            out.append((w, p["scores"][w][a], p["scores"][w][b]))
+    return out
+
+
 if __name__ == "__main__":
     import sys
     season = int(sys.argv[1]) if len(sys.argv) > 1 else 2026

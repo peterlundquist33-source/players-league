@@ -1,6 +1,7 @@
 """Turn a normalized matchup into a Claude-written preview or recap."""
-from lib import claude
-from lore import LEAGUE_FACTS, NOTES, RIVALRIES, rivalry_between
+import re
+from lib import claude, PRO
+from lore import LEAGUE_FACTS, NOTES, OWNERS, RIVALRIES, rivalry_between
 
 _VOICE = """\
 You are the beat writer for the Players League, a 12-team fantasy football league of
@@ -31,6 +32,11 @@ HEADLINE: <4-9 words, punchy, has some bite>
 
 <body: exactly 2 short paragraphs, plain prose, no markdown, ~110-150 words total.
 Separate the paragraphs with one blank line.>
+
+PICK: <owner first name> by <whole number>
+
+The PICK is a real prediction and it gets graded in next week's recap, so commit to
+it. It has to agree with what you just argued. Margins are usually 5-25 points.
 """
 
 SYSTEM_RECAP = _VOICE + """
@@ -54,7 +60,7 @@ Separate paragraphs with one blank line.>
 """
 
 
-def _parse(raw):
+def _parse(raw, valid_owners=None):
     raw = raw.strip()
     head, _, body = raw.partition("\n")
     head = head.strip()
@@ -62,8 +68,20 @@ def _parse(raw):
         head = head.split(":", 1)[1].strip()
     else:                       # model skipped the label — take first line as headline
         body = raw[len(head):]
-    return {"headline": head.strip(' "'),
-            "body": "\n".join(p.strip() for p in body.strip().split("\n") if p.strip())}
+
+    # pull a trailing "PICK: Adam by 12" off the body, if there is one
+    pick, keep = None, []
+    for line in body.strip().split("\n"):
+        line = line.strip()
+        if not line:
+            continue
+        if line.upper().startswith("PICK:"):
+            mt = re.match(r"\s*([A-Za-z]+)\s+by\s+(\d+)", line.split(":", 1)[1].strip())
+            if mt and (valid_owners is None or mt.group(1) in valid_owners):
+                pick = {"owner": mt.group(1), "margin": int(mt.group(2))}
+            continue
+        keep.append(line)
+    return {"headline": head.strip(' "'), "body": "\n".join(keep), "pick": pick}
 
 
 _GROUPS = ["QB", "RB", "WR", "TE", "FLEX", "K", "D/ST"]
@@ -83,9 +101,9 @@ def _lineup_block(side, key):
 _POS_ORD = ["QB", "RB", "WR", "TE", "K", "D/ST"]
 
 
-def _roster_block(side):
+def _roster_block(side, nfl_games=None):
     """Full roster grouped by position, projections desc — for previews (lineups
-    may not be set)."""
+    may not be set). Injury tags and the player's real NFL game are included."""
     by_pos = {}
     for p in side.get("players", []):
         by_pos.setdefault(p["pos"], []).append(p)
@@ -94,9 +112,92 @@ def _roster_block(side):
         ps = sorted(by_pos.get(pos, []), key=lambda x: -x["proj"])
         if not ps:
             continue
-        rows.append(f'  {pos}: ' + ", ".join(
-            f'{p["name"]} ({p["pro"]}, {p["proj"]:.0f})' for p in ps))
+        bits = []
+        for p in ps:
+            s = f'{p["name"]} ({p["pro"]}, {p["proj"]:.0f}'
+            if p.get("injury"):
+                s += f', {p["injury"]}'
+            s += ')'
+            bits.append(s)
+        rows.append(f'  {pos}: ' + ", ".join(bits))
     return rows
+
+
+def _season_block(o, ctx, label=""):
+    """One owner's season form — record, scoring, all-play, luck, streak, power rank."""
+    if not ctx:
+        return []
+    res = (ctx.get("results") or {}).get("by_owner", {}).get(o) or {}
+    pb = (ctx.get("power") or {}).get(o) or {}
+    out = []
+    if res.get("gp"):
+        rk = res.get("ranks", {})
+        line = f'  {o}: {res["record"]}'
+        if res.get("streak"):
+            line += f' ({res["streak"]})'
+        line += f', {res["pf_pg"]:.1f} pts/game'
+        if "pf_pg" in rk:
+            line += f' ({rk["pf_pg"]})'
+        out.append(line)
+        out.append(f'    all-play {res["allplay"][0]}-{res["allplay"][1]} '
+                   f'({res["allplay_pct"]}%'
+                   + (f', {rk["allplay_pct"]}' if "allplay_pct" in rk else '')
+                   + f') — their record if they played everyone every week')
+        out.append(f'    luck {res["luck"]:+.1f} wins vs expected'
+                   + (' — winning more than they have earned'
+                      if res["luck"] >= 0.5 else
+                      ' — scoring well and losing anyway' if res["luck"] <= -0.5
+                      else ''))
+        if res.get("last3"):
+            out.append(f'    last {len(res["last3"])} weeks: '
+                       + ", ".join(f'{s:.1f}' for s in res["last3"]))
+        if res.get("best_week"):
+            out.append(f'    season high {res["best_week"][1]:.1f} (wk {res["best_week"][0]}), '
+                       f'low {res["worst_week"][1]:.1f} (wk {res["worst_week"][0]})')
+    if pb.get("rank"):
+        out.append(f'    {o} power ranking: #{pb["rank"]} of 12 going into this week')
+    return out
+
+
+def _h2h_block(a, b, ctx):
+    """EARLIER meetings between these two this season — never the game at hand."""
+    res = ctx.get("results") if ctx else None
+    if not res or not res.get("opp"):
+        return []
+    this_week = (ctx or {}).get("week")
+    met = []
+    for w in res["weeks"]:
+        if this_week is not None and w >= this_week:
+            continue
+        if res["opp"].get(w, {}).get(a) == b:
+            met.append((w, res["scores"][w][a], res["scores"][w][b]))
+    if not met:
+        return []
+    out = ['\nThey have already met this season:']
+    for w, sa, sb in met:
+        win = a if sa > sb else b if sb > sa else "nobody"
+        out.append(f'  Week {w}: {a} {sa:.1f}, {b} {sb:.1f} — {win} won')
+    return out
+
+
+def _nfl_block(sides, ctx, top_n=6):
+    """Real NFL game context (spread, total) for the players who actually matter."""
+    games = (ctx or {}).get("nfl") or {}
+    if not games:
+        return []
+    import nfl as NF
+    pros = []
+    for side in sides:
+        for p in sorted(side.get("players", []), key=lambda x: -x["proj"])[:top_n]:
+            if p["pro"] in games and p["pro"] not in pros:
+                pros.append(p["pro"])
+    if not pros:
+        return []
+    out = ['\nThe real NFL games these points come from (betting lines — a big total '
+           'means a shootout, a big underdog may be chasing points late):']
+    for t in pros:
+        out.append(f'  {t}: {NF.describe(t, games[t])}')
+    return out
 
 
 def _positional_edges(at, ht, label_a, label_h):
@@ -117,20 +218,47 @@ def _positional_edges(at, ht, label_a, label_h):
     return out
 
 
-def _matchup_facts(m, phase):
+def _bench_block(side):
+    """Points left rotting on the bench — the most quotable stat in any recap."""
+    bench = [p for p in side.get("players", []) if not p.get("started")]
+    if not bench:
+        return []
+    misses = []
+    for b in sorted(bench, key=lambda x: -x["actual"])[:3]:
+        worst = min((s for s in side["starters"] if s["pos"] == b["pos"]
+                     or (b["pos"] in ("RB", "WR", "TE") and s["slot"] == "FLEX")),
+                    key=lambda s: s["actual"], default=None)
+        if worst and b["actual"] - worst["actual"] >= 5:
+            misses.append(f'{b["name"]} scored {b["actual"]:.1f} on the bench while '
+                          f'{worst["name"]} started and scored {worst["actual"]:.1f}')
+    if not misses:
+        return []
+    return [f'  {side["owner"]} left points on the bench: ' + "; ".join(misses)]
+
+
+def _matchup_facts(m, phase, ctx=None):
     h, a = m["home"], m["away"]
     A, H = a["owner"], h["owner"]
     lines = [f'{A} ("{a["team"]}", {a["record"]}) at {H} ("{h["team"]}", {h["record"]}).']
 
+    season_a = _season_block(A, ctx)
+    season_h = _season_block(H, ctx)
+    if season_a or season_h:
+        lines.append('\nWhere they stand this season (all comparisons in parentheses are '
+                     'verified league ranks — those are the only ones you may claim):')
+        lines += season_a + season_h
+    lines += _h2h_block(A, H, ctx)
+
     if phase == "preview":
         ao, ho = a.get("optimal_proj", a["projected"]), h.get("optimal_proj", h["projected"])
-        lines.append(f'Best-lineup projection (from the full roster, since lineups may not '
+        lines.append(f'\nBest-lineup projection (from the full roster, since lineups may not '
                      f'be locked): {A} ~{ao:.0f}, {H} ~{ho:.0f} '
                      f'({A if ao >= ho else H} projects ahead by ~{abs(ao - ho):.0f}).')
+        games = (ctx or {}).get("nfl") or {}
         lines.append(f'\n{A} — full roster by position (proj pts, best first):')
-        lines += _roster_block(a)
+        lines += _roster_block(a, games)
         lines.append(f'\n{H} — full roster by position (proj pts, best first):')
-        lines += _roster_block(h)
+        lines += _roster_block(h, games)
         # positional comparison off the whole roster's top options
         def top(side, pos, n):
             ps = sorted((p for p in side["players"] if p["pos"] == pos),
@@ -141,6 +269,7 @@ def _matchup_facts(m, phase):
             av, hv = top(a, pos, n), top(h, pos, n)
             edge = A if av > hv else H
             lines.append(f'  {pos} (best {n}): {A} {av:.0f} vs {H} {hv:.0f} — {edge} +{abs(av-hv):.0f}')
+        lines += _nfl_block((a, h), ctx)
         riv = rivalry_between(a["owner_full"], h["owner_full"])
         lines.append('\nOwner note (at most ONE short clause, only if it fits — otherwise ignore):')
         lines.append(f'  {riv}.' if riv else '  (no live rivalry between these two — skip owner talk)')
@@ -149,7 +278,7 @@ def _matchup_facts(m, phase):
     # ---- recap: lineups are locked, use starters + actuals ----
     a_rows, a_tot = _lineup_block(a, "actual")
     h_rows, h_tot = _lineup_block(h, "actual")
-    lines.append(f'FINAL: {A} {a["actual"]:.1f}, {H} {h["actual"]:.1f} — '
+    lines.append(f'\nFINAL: {A} {a["actual"]:.1f}, {H} {h["actual"]:.1f} — '
                  f'{m["winner"]} by {m["margin"]:.1f}.')
     lines.append(f'\n{A} starters (actual pts):')
     lines += a_rows
@@ -167,6 +296,17 @@ def _matchup_facts(m, phase):
                 lines.append(f'{who["owner"]} underperformers: '
                              + ", ".join(f'{s["name"]} {s["actual"]:.1f} on {s["proj"]:.1f} proj'
                                          for s in busts))
+        bench = _bench_block(a) + _bench_block(h)
+        if bench:
+            lines.append('\nBench regrets:')
+            lines += bench
+        if m.get("predicted"):
+            p = m["predicted"]
+            hit = p.get("owner") == m["winner"]
+            lines.append(f'\nOur Week {m.get("week","")} preview picked {p.get("owner")} '
+                         f'to win by {p.get("margin")} — that pick was '
+                         + ('RIGHT.' if hit else 'WRONG.')
+                         + ' One short clause about it, only if it lands.')
 
     lines.append("\nOwner angle (use for ~20% of the piece, not more):")
     riv = rivalry_between(a["owner_full"], h["owner_full"])
@@ -179,15 +319,69 @@ def _matchup_facts(m, phase):
     return "\n".join(lines)
 
 
-def write_matchup(m, week, phase):
+# ---------------------------------------------------------------- verification
+
+def _misattributed(body, m, ctx):
+    """Players named in the copy who are rostered by someone ELSE in this league.
+
+    Shape-based "is this a real name" checks can't tell "Coin Flip" from "Josh
+    Jacobs", so don't try. The damaging error is attributing another manager's
+    player to this matchup, and that we can check exactly: every roster in the
+    league is known, so a name that belongs to a third team is unambiguously wrong.
+    """
+    pool = (ctx or {}).get("all_players") or {}
+    if not pool:
+        return []
+    here = {m["away"]["owner"], m["home"]["owner"]}
+    bad = []
+    for name, holder in pool.items():
+        if holder in here or len(name) < 6 or " " not in name:
+            continue
+        if re.search(r"\b" + re.escape(name) + r"\b", body):
+            bad.append(f"{name} (rostered by {holder})")
+    return sorted(set(bad))
+
+
+def _bad_scores(body, allowed):
+    """Score-shaped numbers (xx.x) in the copy that aren't in the data."""
+    out = []
+    for tok in re.findall(r"\b\d{2,3}\.\d\b", body):
+        if tok not in allowed:
+            out.append(tok)
+    return sorted(set(out))
+
+
+def write_matchup(m, week, phase, ctx=None):
     sysmsg = SYSTEM_PREVIEW if phase == "preview" else SYSTEM_RECAP
     kind = "preview" if phase == "preview" else "recap"
+    facts = _matchup_facts(m, phase, ctx)
     user = (
         f"League background (for the ~20% owner angle only):\n{LEAGUE_FACTS}\n\n"
         f"Write the Week {week} {kind} for this matchup.\n\n"
-        f"{_matchup_facts(m, phase)}\n"
+        f"{facts}\n"
     )
-    out = _parse(claude(sysmsg, user, max_tokens=1000))
+    allowed_scores = set(re.findall(r"\b\d{2,3}\.\d\b", facts))
+    sides = {m["away"]["owner"], m["home"]["owner"]}
+
+    out = None
+    for attempt in range(2):
+        out = _parse(claude(sysmsg, user, max_tokens=1000), sides)
+        text = out["body"] + " " + out["headline"]
+        bad_names = _misattributed(text, m, ctx)
+        bad_nums = _bad_scores(out["body"], allowed_scores)
+        if not bad_names and not bad_nums:
+            break
+        fix = "\n\nREWRITE — your last draft failed fact-checking:"
+        if bad_names:
+            fix += ("\n- These players are on a DIFFERENT team in this league, not in "
+                    "this matchup: " + ", ".join(bad_names)
+                    + ". Only write about players in the DATA block above.")
+        if bad_nums:
+            fix += ("\n- These numbers do not appear in the data: "
+                    + ", ".join(bad_nums)
+                    + ". Quote scores and projections exactly as given, or don't cite them.")
+        user += fix + "\nWrite it again, same format."
+        print(f"      fact-check retry: " + "; ".join(bad_names + bad_nums)[:110])
     if not out["headline"]:
         out["headline"] = f'{m["away"]["owner"]} at {m["home"]["owner"]}'
     return out
@@ -516,12 +710,21 @@ def power_intro(board, board_text, nudge_reasons):
 
 def write_intro(league, week, phase):
     kind = "preview" if phase == "preview" else "recap"
-    board = "\n".join(
-        f'{m["away"]["owner"]} at {m["home"]["owner"]}'
-        + (f' — proj {m["away"]["projected"]}-{m["home"]["projected"]}' if phase == "preview"
-           else f' — {m["away"]["actual"]}-{m["home"]["actual"]}, {m["winner"]} won')
-        for m in league["matchups"]
-    )
+
+    def _line(m):
+        a, h = m["away"], m["home"]
+        if phase != "preview":
+            return (f'{a["owner"]} {a["actual"]} at {h["owner"]} {h["actual"]} — '
+                    f'{m["winner"]} won by {m["margin"]}')
+        # spell out who is favored; given only two bare numbers the direction
+        # gets flipped about half the time
+        ap, hp = a["projected"], h["projected"]
+        fav, dog, gap = ((h["owner"], a["owner"], hp - ap) if hp >= ap
+                         else (a["owner"], h["owner"], ap - hp))
+        return (f'{a["owner"]} at {h["owner"]} — projected {a["owner"]} {ap}, '
+                f'{h["owner"]} {hp}. {fav} is FAVORED by {abs(gap):.1f} over {dog}.')
+
+    board = "\n".join(_line(m) for m in league["matchups"])
     stakes = ""
     if phase == "preview" and league["week"] > 1:
         board2 = "\n".join(f'{s["owner"]}: {s["record"]}' for s in league["standings"])
@@ -535,6 +738,8 @@ def write_intro(league, week, phase):
         "TALK — group-chat energy, mean and funny. It's about THIS WEEK: hype the best "
         "game on the slate, then call out who's walking into a beating and who padded "
         "their schedule. What's at stake in the standings if it's not Week 1. No league "
-        "history, no 'since 2022', no championship-count throat-clearing. Plain prose, "
-        "no headline, no markdown.")
+        "history, no 'since 2022', no championship-count throat-clearing. "
+        "Get the direction right: the board tells you who is FAVORED in each game — "
+        "never say the underdog is winning by the margin. Plain prose, no headline, "
+        "no markdown.")
     return claude(sys, user, max_tokens=300).strip()

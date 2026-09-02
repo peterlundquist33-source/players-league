@@ -84,12 +84,20 @@ def _side(raw_side, teams, scoring_period, slot_counts):
 
 
 def build(season, week=None, phase=None):
-    d = espn(["mTeam", "mSettings", "mMatchupScore", "mRoster", "mScoreboard"], season)
+    views = ["mTeam", "mSettings", "mMatchupScore", "mRoster", "mScoreboard"]
+    d = espn(views, season)
 
     status = d.get("status", {})
     cur_week = status.get("currentMatchupPeriod", 1)
     latest_sp = status.get("latestScoringPeriod", 1)
     week = week or cur_week
+
+    # ESPN only attaches rosters for the CURRENT scoring period unless you ask for
+    # one explicitly — and by Tuesday morning it has already rolled past the week
+    # we're recapping, so the lineups would come back empty. Re-fetch pinned to the
+    # week we actually want.
+    if week != latest_sp:
+        d = espn(views, season, scoring_period=week)
 
     teams = {}
     for t in d.get("teams", []):

@@ -29,6 +29,13 @@
    background:var(--accent-tint);color:var(--accent);margin-left:.5rem;vertical-align:middle}
  .mx-intro{color:var(--text-muted);font-size:.95rem;line-height:1.7;margin-bottom:1.6rem;
    border-left:2px solid var(--accent);padding-left:1rem}
+ .mx-pick{margin-top:.85rem;padding-top:.7rem;border-top:1px dashed var(--border);
+   font-family:var(--font-display);font-weight:800;font-size:.82rem;color:var(--text)}
+ .mx-pick span{display:inline-block;font-size:.6rem;letter-spacing:.12em;font-weight:800;
+   text-transform:uppercase;color:var(--accent);background:var(--accent-tint);
+   padding:.18rem .45rem;border-radius:4px;margin-right:.5rem;vertical-align:middle}
+ .mx-pick.hit span{color:var(--accent)}
+ .mx-pick.miss span{color:var(--red);background:rgba(255,107,112,.12)}
  .mx-week-list a{display:flex;justify-content:space-between;align-items:center;
    background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);
    padding:1rem 1.2rem;margin-bottom:.7rem;transition:var(--transition)}
@@ -45,6 +52,28 @@
  .gr-chip b{color:var(--text)}
  .gr-cite{font-size:.78rem;color:var(--text-muted);padding:.6rem 1.3rem 0}
  .gr-cite .up{color:var(--accent);font-weight:700} .gr-cite .down{color:var(--red);font-weight:700}
+ .pw-hd{display:flex;align-items:center;gap:.9rem;padding:1rem 1.3rem;border-bottom:1px solid var(--border)}
+ .pw-rank{font-family:var(--font-display);font-weight:900;font-size:2.1rem;line-height:1;
+   color:var(--text-light);min-width:2ch;text-align:center;font-variant-numeric:tabular-nums}
+ .pw-rank.top{color:var(--accent)}
+ .pw-move{font-family:var(--font-display);font-size:.68rem;font-weight:800;letter-spacing:.03em;
+   padding:.15rem .4rem;border-radius:4px;background:var(--surface-2);color:var(--text-muted)}
+ .pw-move.up{color:var(--accent);background:var(--accent-tint)}
+ .pw-move.down{color:var(--red);background:rgba(255,107,112,.12)}
+ .pw-score{margin-left:auto;text-align:right}
+ .pw-score b{font-family:var(--font-display);font-weight:900;font-size:1.25rem;color:var(--text);
+   font-variant-numeric:tabular-nums}
+ .pw-score span{display:block;font-size:.62rem;color:var(--text-muted);letter-spacing:.08em;
+   text-transform:uppercase;font-weight:700}
+ .pw-stats{display:flex;flex-wrap:wrap;gap:.35rem;padding:.7rem 1.3rem;border-bottom:1px solid var(--border)}
+ .pw-stat{font-family:var(--font-display);font-size:.66rem;font-weight:800;letter-spacing:.04em;
+   padding:.2rem .5rem;border-radius:4px;background:var(--surface-2);color:var(--text-muted)}
+ .pw-stat b{color:var(--text);font-weight:800}
+ .pw-stat.good b{color:var(--accent)} .pw-stat.bad b{color:var(--red)}
+ .pw-note{font-size:.72rem;color:var(--text-muted);padding:.55rem 1.3rem 0;font-style:italic}
+ .pw-foot{margin-top:2rem;padding-top:1.2rem;border-top:1px solid var(--border);
+   font-size:.78rem;color:var(--text-muted);line-height:1.7}
+ .pw-foot a{color:var(--accent);font-weight:700}
 </style></head>
 <body class="polish">
 <nav class="nav"><div class="nav-inner"><a href="../home.html" class="nav-logo">PLAYERS LEAGUE<span class="sub">Fantasy Football · Est. 2022</span></a><div class="nav-toggle"><span></span><span></span><span></span></div><div class="nav-links"><a href="../weekend.html">Weekend</a><a href="../home.html">Home</a><a href="../teams.html">Teams</a><a href="../awards.html">Awards</a><a href="../history.html">History</a><a href="../analytics.html">Analytics</a><a href="../matchups/index.html" class="active">Matchups</a><a href="../rankings.html">Rankings</a></div></div></nav>
