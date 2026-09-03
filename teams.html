@@ -16,410 +16,92 @@
 <link rel="preload" href="css/fonts/plex-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="css/style.css?v=3">
 <!-- HEAD:end -->
-  <style>
-    /* Teams-data.js content overrides — light theme */
-    #tp-h2h > div,
-    #tp-seasons > div {
-      border-bottom: 1px solid #2f333b !important;
-      padding: 0.5rem 0.1rem !important;
-    }
-    #tp-h2h > div:last-child,
-    #tp-seasons > div:last-child {
-      border-bottom: none !important;
-    }
-    /* Ensure readable text in data-driven content */
-    #tp-h2h span:first-child,
-    #tp-seasons span:first-child { color: #f5f7fa !important; font-weight: 500; }
-
-    /* Season records: force a clean aligned grid instead of squished flex
-       Columns: Year | W-L | PF | Team name (name truncates, never jumbles) */
-    #tp-seasons > div {
-      display: grid !important;
-      grid-template-columns: 3.2rem 3.2rem 5.5rem 1fr !important;
-      align-items: center !important;
-      column-gap: 0.5rem !important;
-    }
-    #tp-seasons > div > span {
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-    }
-    /* Team-name column (4th span) can use the remaining space, right-aligned */
-    #tp-seasons > div > span:nth-child(4) {
-      text-align: right;
-      color: #a7aebb !important;
-    }
-    /* Head-to-head rows: keep two-column layout tidy */
-    #tp-h2h > div {
-      display: grid !important;
-      grid-template-columns: 1fr auto !important;
-      align-items: center !important;
-      column-gap: 0.75rem !important;
-    }
-
-    @media (max-width: 480px) {
-      /* Narrow phone: Year | W-L | PF | Name(flex, truncates) */
-      #tp-seasons > div {
-        grid-template-columns: 2.6rem 2.8rem 4.4rem 1fr !important;
-        column-gap: 0.4rem !important;
-        font-size: 0.8rem !important;
-      }
-      #tp-seasons > div > span:nth-child(3) { font-size: 0.74rem !important; }
-      #tp-seasons > div > span:nth-child(4) { font-size: 0.72rem !important; }
-    }
-
-    select#team-select {
-      background: #1e2128;
-      color: #f5f7fa;
-      border: 2px solid #2f333b;
-      padding: 0.75rem 1.5rem;
-      border-radius: 4px;
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-      font-size: 0.95rem;
-      font-weight: 600;
-      min-width: 260px;
-      cursor: pointer;
-      transition: border-color 0.18s ease;
-    }
-    select#team-select:focus {
-      outline: none;
-      border-color: #f5f7fa;
-    }
-
-    /* ---------- Banner rafters (gym championship banners) ---------- */
-    .pl-rafters {
-      position: relative;
-      display: flex;
-      gap: 0.85rem;
-      padding: 1.9rem 0.4rem 0.6rem;
-      overflow-x: auto;
-      scrollbar-width: thin;
-    }
-    /* the rafter rail the banners hang from */
-    .pl-rafters::before {
-      content: "";
-      position: absolute;
-      top: 0.7rem; left: 0.2rem; right: 0.2rem;
-      height: 4px;
-      border-radius: 2px;
-      background: linear-gradient(180deg, #444a56, #191c22);
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.45);
-    }
-
-    .pl-banner {
-      position: relative;
-      flex: 0 0 auto;
-      width: 100px;
-      margin-top: 1rem;
-      padding: 0.65rem 0.4rem 1.6rem;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
-      gap: 0.3rem;
-      color: var(--text);
-      background:
-        repeating-linear-gradient(90deg, rgba(255,255,255,0.03) 0 1px, transparent 1px 6px),
-        linear-gradient(180deg, #2b2f39 0%, #1f232b 50%, #14161c 100%);
-      border-top: 3px solid var(--border-strong);
-      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.06);
-      clip-path: polygon(0 0, 100% 0, 100% 80%, 50% 97%, 0 80%);
-      filter: drop-shadow(0 4px 7px rgba(0, 0, 0, 0.55));
-    }
-    /* hanger strap up to the rail */
-    .pl-banner::before {
-      content: "";
-      position: absolute;
-      top: -1rem; left: 50%;
-      transform: translateX(-50%);
-      width: 3px; height: 1rem;
-      background: var(--border-strong);
-    }
-
-    .pl-banner .b-icon  { font-size: 1.4rem; line-height: 1; margin-bottom: 0.1rem; }
-    .pl-banner .b-label {
-      font-family: var(--font-display);
-      font-size: 0.56rem;
-      font-weight: 800;
-      letter-spacing: 0.04em;
-      text-transform: uppercase;
-      line-height: 1.2;
-      min-height: 1.9em;
-      display: flex;
-      align-items: center;
-    }
-    .pl-banner .b-year {
-      font-family: var(--font-display);
-      font-size: 0.72rem;
-      font-weight: 800;
-      color: var(--text-muted);
-    }
-
-    .pl-banner.tier-champ {
-      width: 114px;
-      padding-top: 0.8rem;
-      border-top-color: var(--accent);
-      background:
-        repeating-linear-gradient(90deg, rgba(69,224,138,0.06) 0 1px, transparent 1px 6px),
-        linear-gradient(180deg, #21331f 0%, #1a251f 50%, #14161c 100%);
-      box-shadow: inset 0 1px 0 rgba(69, 224, 138, 0.2);
-      filter: drop-shadow(0 5px 11px rgba(69, 224, 138, 0.22));
-    }
-    .pl-banner.tier-champ .b-icon { font-size: 1.7rem; }
-    .pl-banner.tier-champ .b-label { color: var(--accent); font-size: 0.6rem; }
-    .pl-banner.tier-champ .b-year  { color: var(--accent-dim); }
-
-    .pl-banner.tier-silver { border-top-color: #9aa3b1; }
-    .pl-banner.tier-major  { border-top-color: var(--accent-dim); }
-    .pl-banner.tier-dishonor {
-      border-top-color: #8a5a5a;
-      opacity: 0.82;
-    }
-
-    .pl-rafters-empty {
-      color: var(--text-muted);
-      font-size: 0.82rem;
-      padding: 0.4rem 0 0.2rem;
-    }
-
-    @media (prefers-reduced-motion: no-preference) {
-      .pl-banner { transition: transform 0.18s ease; }
-      .pl-banner:hover { transform: translateY(3px); }
-    }
-
-    /* ---------- Team tile grid (hover for a fun fact) ---------- */
-    .team-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
-      gap: 0.7rem;
-      max-width: 1000px;
-      margin: 0 auto 2.5rem;
-    }
-
-    .team-tile {
-      position: relative;
-      overflow: hidden;
-      display: flex;
-      flex-direction: column;
-      gap: 0.32rem;
-      min-height: 128px;
-      padding: 1rem 1.1rem;
-      text-align: left;
-      font-family: var(--font-body);
-      color: var(--text);
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-      cursor: pointer;
-      transition: border-color 0.18s ease, transform 0.18s ease, box-shadow 0.18s ease;
-    }
-
-    .team-tile:hover,
-    .team-tile:focus-visible {
-      outline: none;
-      border-color: var(--accent);
-      transform: translateY(-3px);
-      box-shadow: var(--shadow-md);
-    }
-
-    .team-tile.active {
-      border-color: var(--accent);
-      box-shadow: inset 0 0 0 1px var(--accent), var(--shadow-md);
-    }
-
-    .tile-mono {
-      width: 30px; height: 30px;
-      display: flex; align-items: center; justify-content: center;
-      border-radius: 50%;
-      background: var(--surface-2);
-      color: var(--accent);
-      font-family: var(--font-display);
-      font-weight: 800;
-      font-size: 0.85rem;
-    }
-
-    .tile-name {
-      font-family: var(--font-display);
-      font-weight: 800;
-      font-size: 0.92rem;
-      text-transform: uppercase;
-      letter-spacing: 0.02em;
-      line-height: 1.15;
-    }
-
-    .tile-rec { color: var(--text-muted); font-size: 0.76rem; }
-
-    .tile-cta {
-      position: relative;
-      z-index: 2;
-      margin-top: auto;
-      font-family: var(--font-display);
-      font-size: 0.58rem;
-      font-weight: 800;
-      letter-spacing: 0.11em;
-      text-transform: uppercase;
-      color: var(--accent);
-      opacity: 0;
-      transition: opacity 0.16s ease;
-    }
-
-    .tile-fact {
-      position: absolute;
-      inset: 0;
-      display: flex;
-      align-items: center;
-      padding: 1.7rem 1.05rem 2.1rem;
-      font-size: 0.8rem;
-      line-height: 1.5;
-      color: var(--text-body);
-      background: linear-gradient(165deg, var(--surface-2), var(--surface) 75%);
-      opacity: 0;
-      pointer-events: none;
-      transition: opacity 0.16s ease;
-    }
-
-    .tile-fact::before {
-      content: "FUN FACT";
-      position: absolute;
-      top: 0.62rem; left: 1.05rem;
-      font-family: var(--font-display);
-      font-size: 0.52rem;
-      font-weight: 800;
-      letter-spacing: 0.16em;
-      color: var(--accent);
-    }
-
-    .team-tile.show-fact .tile-fact { opacity: 1; }
-    .team-tile.show-fact .tile-cta { opacity: 0.9; }
-
-    @media (hover: hover) {
-      .team-tile:hover .tile-fact,
-      .team-tile:focus-visible .tile-fact { opacity: 1; }
-      .team-tile:hover .tile-cta,
-      .team-tile:focus-visible .tile-cta { opacity: 0.9; }
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      .team-tile { transition: none; }
-      .team-tile:hover, .team-tile:focus-visible { transform: none; }
-      .tile-fact, .tile-cta { transition: none; }
-    }
-  </style>
 </head>
 <body>
 
-  <!-- Navigation -->
-  <!-- NAV:start -->
+<!-- NAV:start -->
 <svg width="0" height="0" style="position:absolute" aria-hidden="true"><symbol id="i-trophy" viewBox="0 0 24 24"><path d="M7 4h10v5a5 5 0 0 1-10 0V4z M7 6H4v2a3 3 0 0 0 3 3 M17 6h3v2a3 3 0 0 1-3 3 M12 14v4 M8 20h8"/></symbol><symbol id="i-dress" viewBox="0 0 24 24"><path d="M9 3l3 3 3-3 M8 9l1-6 M16 9l-1-6 M8 9L5 20h14L16 9 M8 9h8"/></symbol><symbol id="i-flag" viewBox="0 0 24 24"><path d="M5 21V4 M5 4h12l-2 4 2 4H5"/></symbol><symbol id="i-crown" viewBox="0 0 24 24"><path d="M4 18h16 M4 18L3 8l5 4 4-6 4 6 5-4-1 10"/></symbol><symbol id="i-star" viewBox="0 0 24 24"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1L3.2 9.5l6.1-.9L12 3z"/></symbol><symbol id="i-chart" viewBox="0 0 24 24"><path d="M4 19h16 M7 16V9 M12 16V5 M17 16v-6"/></symbol></svg><nav class="nav" aria-label="Primary"><div class="nav-inner"><a href="home.html" class="nav-logo">Players League</a><button class="nav-toggle" type="button" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button><div class="nav-links"><a href="home.html">Home</a><a href="rankings.html">Rankings</a><a href="matchups/index.html">Matchups</a><a href="analytics.html">Analytics</a><a href="teams.html" class="active" aria-current="page">Teams</a><a href="history.html">History</a><a href="awards.html">Awards</a><a href="weekend.html">Weekend</a></div></div></nav>
 <!-- NAV:end -->
 
-  <!-- Ticker Bar -->
-  <div class="ticker-wrap">
-    <div class="ticker-label">League News</div>
-    <div class="ticker-track">
-      <div class="ticker-inner">
-        <span>🏆 2025 Champion: Adam Stockwell — "Sutton Deez Nutz" 10-4, 1,939.3 PF</span>
-        <span>🔥 All-time single-week record: Adam Stockwell 205.6 pts — Week 10, 2023</span>
-        <span>👗 Logan Rezac: 2025 last place — dress for golf punishment</span>
-        <span>📊 4 seasons, 4 different champions — zero repeat winners</span>
-        <span>👑 Career wins leader: Adam Stockwell 34-22 (.607)</span>
-        <span>🏈 Players Weekend 2026 — August 20–23</span>
-      </div>
-    </div>
-  </div>
-
-  <!-- Page Header -->
   <section class="page-header">
-    <h1>TEAM <span class="gold">PROFILES</span></h1>
+    <span class="eyebrow">Teams</span>
+    <h1>Team <span class="gold">Profiles</span></h1>
     <p>Hover or tap a team for a fun fact &mdash; it&rsquo;s different every visit. Open one for
        full history, head-to-head, and career stats.</p>
   </section>
 
-  <!-- Team Grid -->
   <section class="section">
 
     <div class="team-grid" id="team-grid"><!-- tiles built from TEAM_DATA by the script below --></div>
 
     <!-- Team Profile (hidden until selected) -->
-    <div id="team-profile" style="display:none;">
+    <div id="team-profile" hidden>
 
-      <!-- Header Stats bar -->
-      <div style="background:#13151a;border-radius:4px;padding:1.1rem 1.4rem;margin-bottom:1.1rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:0.75rem;">
+      <div class="profile-head">
         <div>
-          <h2 id="tp-name" style="font-size:1.3rem;font-weight:900;color:#ffffff;text-transform:uppercase;letter-spacing:0.3px;margin-bottom:0.1rem;"></h2>
-          <p id="tp-career" style="color:#a7aebb;font-size:0.8rem;"></p>
+          <h2 id="tp-name"></h2>
+          <p id="tp-career" class="muted small"></p>
         </div>
-        <div id="tp-win-pct" style="font-size:2rem;font-weight:900;color:#45e08a;line-height:1;"></div>
+        <div id="tp-win-pct" class="profile-pct"></div>
       </div>
 
-      <!-- Banner Rafters -->
-      <div class="info-block" style="margin-bottom:1.1rem;">
-        <h3>🏟️ The Rafters</h3>
+      <div class="info-block">
+        <h3>The Rafters</h3>
         <div id="tp-banners" class="pl-rafters"></div>
       </div>
 
-      <!-- Franchise Recap -->
-      <div class="info-block" style="margin-bottom:1.1rem;">
-        <h3>📖 Franchise Recap</h3>
-        <p id="tp-article" style="font-size:0.95rem;line-height:1.7;color:#f5f7fa;"></p>
+      <div class="info-block">
+        <h3>Franchise Recap</h3>
+        <p id="tp-article" class="prose"></p>
       </div>
 
-      <!-- Rival -->
-      <div class="info-block" style="margin-bottom:1.1rem;">
-        <h3>⚔️ Biggest Rival</h3>
-        <p id="tp-rival" style="font-size:0.9rem;"></p>
+      <div class="info-block">
+        <h3>Biggest Rival</h3>
+        <p id="tp-rival" class="prose"></p>
       </div>
 
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1.1rem;">
-
-        <!-- Season-by-Season -->
-        <div style="background:#1e2128;border:1px solid #2f333b;border-top:3px solid #3c414c;border-radius:4px;padding:1.1rem;box-shadow:0 1px 4px rgba(0,0,0,0.07);">
-          <div style="font-size:0.7rem;font-weight:800;color:#f5f7fa;text-transform:uppercase;letter-spacing:1px;margin-bottom:0.75rem;">📅 Season by Season</div>
-          <div id="tp-seasons" style="font-size:0.85rem;"></div>
+      <div class="profile-cols">
+        <div class="card">
+          <span class="eyebrow">Season by Season</span>
+          <div id="tp-seasons" class="datalist seasons"></div>
         </div>
-
-        <!-- Head-to-Head -->
-        <div style="background:#1e2128;border:1px solid #2f333b;border-top:3px solid #3c414c;border-radius:4px;padding:1.1rem;box-shadow:0 1px 4px rgba(0,0,0,0.07);">
-          <div style="font-size:0.7rem;font-weight:800;color:#f5f7fa;text-transform:uppercase;letter-spacing:1px;margin-bottom:0.75rem;">🆚 Head-to-Head All-Time</div>
-          <div id="tp-h2h" style="font-size:0.85rem;"></div>
+        <div class="card">
+          <span class="eyebrow">Head-to-Head All-Time</span>
+          <div id="tp-h2h" class="datalist h2h"></div>
         </div>
-
       </div>
 
-      <!-- Stat Cards -->
-      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:0.85rem;">
-        <div style="background:#1e2128;border:1px solid #2f333b;border-radius:4px;padding:1rem;text-align:center;box-shadow:0 1px 4px rgba(0,0,0,0.07);">
-          <div style="color:#a7aebb;font-size:0.65rem;text-transform:uppercase;letter-spacing:1px;margin-bottom:0.4rem;font-weight:700;">Best Single Week</div>
-          <div id="tp-best" style="color:#45e08a;font-size:2rem;font-weight:900;line-height:1;margin-bottom:0.15rem;"></div>
-          <div id="tp-best-info" style="color:#a7aebb;font-size:0.75rem;"></div>
+      <div class="tiles">
+        <div class="tile">
+          <span class="stat-label">Best Single Week</span>
+          <div id="tp-best" class="stat pos"></div>
+          <div id="tp-best-info" class="stat-sub"></div>
         </div>
-        <div id="tp-low-card" style="background:#1e2128;border:1px solid #2f333b;border-radius:4px;padding:1rem;text-align:center;box-shadow:0 1px 4px rgba(0,0,0,0.07);">
-          <div style="color:#a7aebb;font-size:0.65rem;text-transform:uppercase;letter-spacing:1px;margin-bottom:0.4rem;font-weight:700;">Lowest Single Week</div>
-          <div id="tp-low" style="color:#ff6b70;font-size:2rem;font-weight:900;line-height:1;margin-bottom:0.15rem;"></div>
-          <div id="tp-low-info" style="color:#a7aebb;font-size:0.75rem;"></div>
+        <div class="tile" id="tp-low-card">
+          <span class="stat-label">Lowest Single Week</span>
+          <div id="tp-low" class="stat neg"></div>
+          <div id="tp-low-info" class="stat-sub"></div>
         </div>
-        <div id="tp-whi-card" style="background:#1e2128;border:1px solid #2f333b;border-radius:4px;padding:1rem;text-align:center;box-shadow:0 1px 4px rgba(0,0,0,0.07);">
-          <div style="color:#a7aebb;font-size:0.65rem;text-transform:uppercase;letter-spacing:1px;margin-bottom:0.4rem;font-weight:700;">👑 Weeks Leading League</div>
-          <div id="tp-whi" style="color:#45e08a;font-size:2rem;font-weight:900;line-height:1;margin-bottom:0.15rem;"></div>
-          <div style="color:#a7aebb;font-size:0.75rem;">top scorer of all 12 · reg. season</div>
+        <div class="tile" id="tp-whi-card">
+          <span class="stat-label">Weeks Leading League</span>
+          <div id="tp-whi" class="stat pos"></div>
+          <div class="stat-sub">top scorer of all 12 · reg. season</div>
         </div>
-        <div id="tp-wlo-card" style="background:#1e2128;border:1px solid #2f333b;border-radius:4px;padding:1rem;text-align:center;box-shadow:0 1px 4px rgba(0,0,0,0.07);">
-          <div style="color:#a7aebb;font-size:0.65rem;text-transform:uppercase;letter-spacing:1px;margin-bottom:0.4rem;font-weight:700;">💀 Weeks Last in League</div>
-          <div id="tp-wlo" style="color:#ff6b70;font-size:2rem;font-weight:900;line-height:1;margin-bottom:0.15rem;"></div>
-          <div style="color:#a7aebb;font-size:0.75rem;">bottom scorer of all 12 · reg. season</div>
+        <div class="tile" id="tp-wlo-card">
+          <span class="stat-label">Weeks Last in League</span>
+          <div id="tp-wlo" class="stat neg"></div>
+          <div class="stat-sub">bottom scorer of all 12 · reg. season</div>
         </div>
-        <div style="background:#1e2128;border:1px solid #2f333b;border-radius:4px;padding:1rem;text-align:center;box-shadow:0 1px 4px rgba(0,0,0,0.07);">
-          <div style="color:#a7aebb;font-size:0.65rem;text-transform:uppercase;letter-spacing:1px;margin-bottom:0.4rem;font-weight:700;">Career Points For</div>
-          <div id="tp-pf" style="color:#45e08a;font-size:2rem;font-weight:900;line-height:1;"></div>
+        <div class="tile">
+          <span class="stat-label">Career Points For</span>
+          <div id="tp-pf" class="stat"></div>
         </div>
       </div>
 
     </div><!-- /team-profile -->
   </section>
 
-  <!-- Footer -->
-  <!-- FOOTER:start -->
+<!-- FOOTER:start -->
 <footer class="footer"><p><span class="gold">Players League</span> &middot; Est. 2022</p></footer>
 <!-- FOOTER:end -->
 
@@ -428,23 +110,45 @@
   <script src="js/records.js"></script>
   <script>
 
+    // Banner glyphs come from the shared icon set, chosen by what the banner is
+    // for; the emoji in records.js is data the design no longer renders.
+    var BANNER_ICON = {
+      'Champion': 'trophy', 'Runner-Up': 'star', 'Cinderella': 'star', '#1 Seed': 'crown',
+      'Scoring Title': 'chart', 'Playoff Berth': 'flag', 'The Dress': 'dress', 'Last Place': 'dress'
+    };
+    var TIER_ICON = { champ: 'trophy', silver: 'star', major: 'flag', minor: 'flag', dishonor: 'dress' };
+    function icon(name, cls) {
+      return '<svg class="icon' + (cls ? ' ' + cls : '') + '" aria-hidden="true"><use href="#i-' + name + '"/></svg>';
+    }
+    function bannerIcon(a) {
+      var k = BANNER_ICON[a.label] || (/Title$/.test(a.label) ? 'flag' : null) || TIER_ICON[a.tier] || 'flag';
+      return icon(k);
+    }
+    // the season list from teams-data.js marks title seasons with an emoji;
+    // swap it for the trophy glyph rather than editing the data file
+    function deEmoji(html) {
+      return html.replace(/\s?🏆/g, ' ' + icon('trophy'))
+                 .replace(/\s?👗/g, ' ' + icon('dress', 'neg'))
+                 .replace(/[\u{1F300}-\u{1FAFF}☀-➿]️?\s?/gu, '');
+    }
+
     function showTeam(name) {
       var p = document.getElementById('team-profile');
-      if (!name || !TEAM_DATA[name]) { p.style.display = 'none'; return; }
+      if (!name || !TEAM_DATA[name]) { p.hidden = true; return; }
       var t = TEAM_DATA[name];
-      p.style.display = 'block';
+      p.hidden = false;
 
       document.getElementById('tp-name').textContent = name;
       document.getElementById('tp-career').textContent =
         t.career_w + '-' + t.career_l + ' career (' + t.wp + '%) | ' + t.career_pf + ' career PF';
       document.getElementById('tp-win-pct').textContent = t.wp + '%';
       document.getElementById('tp-rival').innerHTML =
-        'Biggest rivalry: <strong style="color:#f5f7fa;font-size:1rem;">' + t.rival + '</strong>' +
-        ' — All-time record: <strong style="color:#f5f7fa;">' + t.rival_rec + '</strong>';
+        'Biggest rivalry: <strong class="strong">' + t.rival + '</strong>' +
+        ' — All-time record: <strong class="strong">' + t.rival_rec + '</strong>';
       var articleEl = document.getElementById('tp-article');
       if (articleEl) articleEl.textContent = t.article || '';
-      document.getElementById('tp-seasons').innerHTML = t.seasons_html;
-      document.getElementById('tp-h2h').innerHTML = t.h2h_html;
+      document.getElementById('tp-seasons').innerHTML = deEmoji(t.seasons_html);
+      document.getElementById('tp-h2h').innerHTML = deEmoji(t.h2h_html);
       document.getElementById('tp-best').textContent = t.best_score;
       document.getElementById('tp-best-info').textContent = t.best_info;
       document.getElementById('tp-pf').textContent = t.career_pf;
@@ -467,7 +171,7 @@
       }
       el.innerHTML = list.map(function (a) {
         return '<div class="pl-banner tier-' + a.tier + '" title="' + a.label + ' ' + a.year + '">' +
-               '<span class="b-icon">' + a.icon + '</span>' +
+               bannerIcon(a) +
                '<span class="b-label">' + a.label + '</span>' +
                '<span class="b-year">' + a.year + '</span></div>';
       }).join('');
@@ -477,7 +181,7 @@
       var w = (RECORDS && RECORDS.weekly && RECORDS.weekly[name]) || null;
       var show = function (id, on) {
         var c = document.getElementById(id);
-        if (c) c.style.display = on ? '' : 'none';
+        if (c) c.hidden = !on;
       };
       if (!w) {
         show('tp-whi-card', false); show('tp-wlo-card', false); show('tp-low-card', false);
