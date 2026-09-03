@@ -162,12 +162,20 @@ def _rec(t):
     return f'{w}-{l}' + (f'-{tie}' if tie else '')
 
 
+# Markup rules for everything this file emits: no inline styles, no emoji.
+# Meaning is carried by classes the stylesheet owns (strong / muted / pos / neg /
+# cell-self), so the design can change without touching the generator.
+
 def _pill(luck):
     if luck >= 0.5:
-        return f'<span class="pill-luck pos">+{luck:.1f} 🍀</span>'
+        return f'<span class="pill-luck pos">+{luck:.1f}</span>'
     if luck <= -0.5:
-        return f'<span class="pill-luck neg">{luck:.1f} 💀</span>'
+        return f'<span class="pill-luck neg">{luck:.1f}</span>'
     return f'<span class="pill-luck neu">{luck:+.1f}</span>'
+
+
+def _h3(text):
+    return f'<h3 class="sub-title">{text}</h3>'
 
 
 def _xw_table(rows, extra_cols=True):
@@ -177,9 +185,9 @@ def _xw_table(rows, extra_cols=True):
     for i, r in enumerate(rows, 1):
         mid = (f'<td>{r["pf"]:.0f}</td><td>{r["pa"]:.0f}</td>' if extra_cols else '')
         b += (f'<tr><td><span class="rank-num">{i}</span></td>'
-              f'<td style="font-weight:600;color:var(--text);">{r["owner"]}</td>'
+              f'<td class="strong">{r["owner"]}</td>'
               f'<td>{r["xw"]:.1f}</td><td>{r["aw"]:.1f}</td>{mid}<td>{_pill(r["luck"])}</td></tr>')
-    return ('<div class="table-scroll" style="overflow-x:auto;"><table class="data-table sticky-first">'
+    return ('<div class="table-scroll"><table class="data-table sticky-first">'
             f'<thead><tr>{cols}</tr></thead><tbody>{b}</tbody></table></div>')
 
 
@@ -197,9 +205,9 @@ def _grid(rows, key, weeks):
             else:
                 cls = ' class="pf-high"' if v == hi[w] else ' class="pf-low"' if v == lo[w] else ""
                 cells += f'<td{cls}>{v:.1f}</td>'
-        body += (f'<tr><td style="font-weight:600;color:var(--text);">{r["owner"]}</td>'
-                 f'{cells}<td style="font-weight:700;">{sum(r[key].values()):.1f}</td></tr>')
-    return (f'<table class="data-table sticky-first" style="font-size:0.8rem;min-width:640px;">'
+        body += (f'<tr><td class="strong">{r["owner"]}</td>'
+                 f'{cells}<td class="strong">{sum(r[key].values()):.1f}</td></tr>')
+    return (f'<table class="data-table sticky-first grid-table">'
             f'<thead><tr><th>Owner</th>{hdr}<th>Tot</th></tr></thead><tbody>{body}</tbody></table>')
 
 
@@ -207,21 +215,21 @@ def _swap_section(agg, title, blurb):
     rows, owners = agg["rows"], agg["owners"]
     by_o = {r["owner"]: r for r in rows}
 
-    summ = (f'<h3 style="color:var(--accent);font-size:1.05rem;margin:2rem 0 .4rem;">{title}</h3>'
-            f'<p class="section-sub">{blurb} Your real record is the diagonal.</p>'
-            '<div class="table-scroll" style="overflow-x:auto;"><table class="data-table sticky-first">'
+    summ = (_h3(title)
+            + f'<p class="section-sub">{blurb} Your real record is the diagonal.</p>'
+            '<div class="table-scroll"><table class="data-table sticky-first">'
             '<thead><tr><th>Owner</th><th>Actual</th><th>Avg W</th>'
             '<th>Best case</th><th>Worst case</th></tr></thead><tbody>')
     for r in sorted(rows, key=lambda r: (-r["actual_rec"][0], r["actual_rec"][1])):
         bo, br = r["swap_best"]
         wo, wr = r["swap_worst"]
-        summ += (f'<tr><td style="font-weight:600;color:var(--text);">{r["owner"]}</td>'
-                 f'<td style="font-weight:700;">{_rec(r["actual_rec"])}</td>'
+        summ += (f'<tr><td class="strong">{r["owner"]}</td>'
+                 f'<td class="strong">{_rec(r["actual_rec"])}</td>'
                  f'<td>{r["swap_avg_w"]:.1f}</td>'
-                 f'<td><span style="color:var(--green);">{_rec(br)}</span> '
-                 f'<span style="color:var(--text-muted);font-size:.85em;">({bo})</span></td>'
-                 f'<td><span style="color:var(--red);">{_rec(wr)}</span> '
-                 f'<span style="color:var(--text-muted);font-size:.85em;">({wo})</span></td></tr>')
+                 f'<td><span class="pos">{_rec(br)}</span> '
+                 f'<span class="muted small">({bo})</span></td>'
+                 f'<td><span class="neg">{_rec(wr)}</span> '
+                 f'<span class="muted small">({wo})</span></td></tr>')
     summ += '</tbody></table></div>'
 
     hdr = "".join(f'<th>{b.split()[0]}</th>' for b in owners)
@@ -233,15 +241,15 @@ def _swap_section(agg, title, blurb):
         for b in owners:
             w, l, _ = r["swap"][b]
             if a == b:
-                cells += f'<td style="background:var(--surface-3);font-weight:800;color:var(--text);">{w}-{l}</td>'
+                cells += f'<td class="cell-self">{w}-{l}</td>'
             else:
-                c = "var(--green)" if w > aw else "var(--red)" if w < aw else "var(--text-muted)"
-                cells += f'<td style="color:{c};">{w}-{l}</td>'
-        body += f'<tr><td style="font-weight:600;color:var(--text);">{a}</td>{cells}</tr>'
-    matrix = ('<p class="section-sub" style="margin-top:1rem;">Full grid — row = whose scores, '
+                c = "pos" if w > aw else "neg" if w < aw else "muted"
+                cells += f'<td class="{c}">{w}-{l}</td>'
+        body += f'<tr><td class="strong">{a}</td>{cells}</tr>'
+    matrix = ('<p class="section-sub tight">Full grid — row = whose scores, '
               'column = whose schedule. Green = better than their real record, red = worse.</p>'
-              '<div class="table-scroll" style="overflow-x:auto;">'
-              '<table class="data-table sticky-first" style="font-size:0.78rem;min-width:720px;">'
+              '<div class="table-scroll">'
+              '<table class="data-table sticky-first grid-table" data-nosort>'
               f'<thead><tr><th>Scores \\ Sched</th>{hdr}</tr></thead><tbody>{body}</tbody></table></div>')
     return summ + matrix
 
@@ -251,7 +259,8 @@ def render_html(cur, alltime):
     played = len(weeks)
     n = cur["n"]
 
-    head = (f'<h2 class="section-title">📊 Expected Wins Analysis</h2><div class="gold-line"></div>'
+    head = (f'<span class="eyebrow">Expected Wins</span>'
+            f'<h2 class="section-title">Expected Wins Analysis</h2>'
             f'<p class="section-sub">Every week your score is measured against <strong>all '
             f'{n - 1} other teams</strong>, not just your opponent — that\'s Expected Wins. '
             f'Actual minus expected = luck. '
@@ -267,19 +276,17 @@ def render_html(cur, alltime):
                                     f'Schedule Swap — {cur["season"]}',
                                     "Everyone's weekly scores this season, run through every "
                                     "other owner's schedule.")
-                    + '<h3 style="color:var(--accent);font-size:1.05rem;margin:2rem 0 .4rem;">'
-                    'Points For — by week</h3><div class="table-scroll" style="overflow-x:auto;">'
+                    + _h3('Points For — by week') + '<div class="table-scroll">'
                     + _grid(rows, "pf_by_week", weeks) + '</div>'
-                    + '<h3 style="color:var(--accent);font-size:1.05rem;margin:2rem 0 .4rem;">'
-                    'Points Against — by week</h3><div class="table-scroll" style="overflow-x:auto;">'
+                    + _h3('Points Against — by week') + '<div class="table-scroll">'
                     + _grid(rows, "pa_by_week", weeks) + '</div>')
     else:
         ph = "".join(f'<tr><td><span class="rank-num">{i}</span></td>'
-                     f'<td style="font-weight:600;color:var(--text);">{r["owner"]}</td>'
-                     f'<td style="color:var(--text-muted);">{r.get("team","")}</td>'
+                     f'<td class="strong">{r["owner"]}</td>'
+                     f'<td class="muted">{r.get("team","")}</td>'
                      f'<td>0.0</td><td>0.0</td><td><span class="pill-luck neu">0.0</span></td></tr>'
                      for i, r in enumerate(sorted(rows, key=lambda r: r["owner"]), 1))
-        cur_html = (head + '<div class="table-scroll" style="overflow-x:auto;"><table class="data-table">'
+        cur_html = (head + '<div class="table-scroll"><table class="data-table">'
                     '<thead><tr><th>#</th><th>Owner</th><th>Team</th><th>Exp W</th>'
                     '<th>Actual W</th><th>Luck</th></tr></thead><tbody>' + ph + '</tbody></table></div>')
 
@@ -287,12 +294,12 @@ def render_html(cur, alltime):
     if alltime:
         yr0, yr1 = alltime["seasons"][0], alltime["seasons"][-1]
         at_html = (
-            '<div style="border-top:2px solid var(--border);margin-top:3rem;padding-top:1.5rem;">'
-            f'<h2 class="section-title">🏆 All-Time ({yr0}–{yr1})</h2><div class="gold-line"></div>'
+            '<div class="subsection">'
+            f'<span class="eyebrow">Since {yr0}</span>'
+            f'<h2 class="section-title">All-Time ({yr0}–{yr1})</h2>'
             '<p class="section-sub">The same math pooled across every regular-season week in '
             'league history.</p>'
-            '<h3 style="color:var(--accent);font-size:1.05rem;margin:1.5rem 0 .4rem;">'
-            'All-Time Expected Wins &amp; Luck</h3>'
+            + _h3('All-Time Expected Wins &amp; Luck')
             + _xw_table(alltime["rows"])
             + _swap_section(alltime, "All-Time Schedule Swap",
                             "Every owner's weekly scores across all seasons, run through "
@@ -306,16 +313,16 @@ def render_html(cur, alltime):
 
 def _sched_diff(rows):
     sd = sorted((r for r in rows if r["sched"] is not None), key=lambda r: -r["sched"])
-    out = ('<h3 style="color:var(--accent);font-size:1.05rem;margin:2rem 0 .4rem;">Schedule Difficulty</h3>'
-           '<p class="section-sub">Average all-play wins your opponents would have earned. '
+    out = (_h3('Schedule Difficulty')
+           + '<p class="section-sub">Average all-play wins your opponents would have earned. '
            'Higher = easier slate.</p>'
-           '<div class="table-scroll" style="overflow-x:auto;"><table class="data-table sticky-first">'
+           '<div class="table-scroll"><table class="data-table sticky-first">'
            '<thead><tr><th>Owner</th><th>Avg Wins Faced</th><th></th></tr></thead><tbody>')
     for j, r in enumerate(sd):
         tag = "Easiest" if j == 0 else "Hardest" if j == len(sd) - 1 else ""
-        col = "var(--green)" if j == 0 else "var(--red)" if j == len(sd) - 1 else "var(--text-muted)"
-        out += (f'<tr><td style="font-weight:600;color:var(--text);">{r["owner"]}</td>'
-                f'<td>{r["sched"]:.2f}</td><td style="color:{col};">{tag}</td></tr>')
+        col = "pos" if j == 0 else "neg" if j == len(sd) - 1 else "muted"
+        out += (f'<tr><td class="strong">{r["owner"]}</td>'
+                f'<td>{r["sched"]:.2f}</td><td class="{col}">{tag}</td></tr>')
     return out + '</tbody></table></div>'
 
 

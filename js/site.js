@@ -86,11 +86,25 @@
     });
   }
 
+  function enhanceTables(root) {
+    (root || document).querySelectorAll("table.data-table").forEach(function (t) {
+      if (t.dataset.enhanced) return;
+      // a table whose body is filled later (the analytics All-Time tab) must not
+      // be marked done while it's still empty
+      if (!t.tBodies[0] || !t.tBodies[0].rows.length) return;
+      t.dataset.enhanced = "1";
+      enhance(t);
+    });
+  }
+
   function init() {
-    document.querySelectorAll("table.data-table").forEach(enhance);
+    enhanceTables(document);
     markScrollable();
   }
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", init);
   else init();
   window.addEventListener("resize", markScrollable);
+
+  // pages that build tables after load (the analytics All-Time tab) call these
+  window.PL = { enhanceTables: enhanceTables, markScrollable: markScrollable };
 })();
