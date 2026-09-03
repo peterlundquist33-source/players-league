@@ -232,10 +232,31 @@ def run_rankings(season, dry=False):
     return page
 
 
+def run_render(season):
+    """Re-render every generated page from the cached run data — no ESPN, no AI.
+    For when render.py changes and the copy shouldn't."""
+    when = lambda d: (d.get("generated") or "")[:10] or None   # keep the page's own date
+    for f in sorted(DATA.glob(f"{season}-week-[0-9][0-9].json")):
+        d = json.loads(f.read_text())
+        print("rendered", R.week_page(d["data"], d["copies"], d["intro"],
+                                      stamp=when(d)).relative_to(ROOT))
+    R.index_page(season)
+    boards = sorted(DATA.glob(f"{season}-power-week-*.json"))
+    if boards:
+        d = json.loads(boards[-1].read_text())
+        print("rendered", R.power_page(d["board"], d["copies"], d["intro"],
+                                       stamp=when(d)).relative_to(ROOT))
+    g = DATA / f"{season}-rankings.json"
+    if g.exists():
+        d = json.loads(g.read_text())
+        print("rendered", R.rankings_page(d["grades"], d["copies"], d["intro"],
+                                          stamp=when(d)).relative_to(ROOT))
+
+
 if __name__ == "__main__":
     ap = argparse.ArgumentParser()
     ap.add_argument("phase", choices=["auto", "preview", "recap", "rankings", "power", "site",
-                                      "facts", "records"],
+                                      "facts", "records", "render"],
                     nargs="?", default="auto")
     ap.add_argument("--season", type=int, default=2026)
     ap.add_argument("--week", type=int, default=None)
@@ -250,6 +271,8 @@ if __name__ == "__main__":
         import chrome as SITE
         for pg in SITE.stamp_all():
             print("stamped", pg)
+    elif a.phase == "render":
+        run_render(a.season)
     elif a.phase == "facts":
         FA.update(a.season, force=a.force)
     elif a.phase == "records":

@@ -14,94 +14,25 @@
 <link rel="preload" href="../css/fonts/plex-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="../css/style.css?v=3">
 <!-- HEAD:end -->
-<style>
- .mx-wrap{max-width:820px;margin:0 auto;padding:2rem 1.25rem 3rem}
- .mx-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);
-   box-shadow:var(--shadow-md);margin-bottom:1.1rem;overflow:hidden}
- .mx-score{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;
-   gap:.5rem;padding:1.1rem 1.3rem;border-bottom:1px solid var(--border)}
- .mx-team{display:flex;flex-direction:column;gap:.15rem}
- .mx-team.away{text-align:right}
- .mx-owner{font-family:var(--font-display);font-weight:800;font-size:1.05rem;color:var(--text)}
- .mx-sub{font-size:.72rem;color:var(--text-muted)}
- .mx-pts{font-family:var(--font-display);font-weight:900;font-size:1.5rem;
-   font-variant-numeric:tabular-nums;color:var(--text)}
- .mx-pts.win{color:var(--accent)}
- .mx-vs{font-family:var(--font-display);font-weight:800;font-size:.7rem;color:var(--text-light);
-   letter-spacing:.1em;padding:0 .4rem}
- .mx-body{padding:1.1rem 1.3rem}
- .mx-head{font-family:var(--font-display);font-weight:800;font-size:1.05rem;color:var(--text);
-   margin-bottom:.5rem;line-height:1.3}
- .mx-body p{color:var(--text-body);font-size:.9rem;line-height:1.65;margin-bottom:.6rem}
- .mx-body p:last-child{margin-bottom:0}
- .mx-badge{display:inline-block;font-family:var(--font-display);font-size:.6rem;font-weight:800;
-   letter-spacing:.1em;text-transform:uppercase;padding:.2rem .5rem;border-radius:4px;
-   background:var(--accent-tint);color:var(--accent);margin-left:.5rem;vertical-align:middle}
- .mx-intro{color:var(--text-muted);font-size:.95rem;line-height:1.7;margin-bottom:1.6rem;
-   border-left:2px solid var(--accent);padding-left:1rem}
- .mx-pick{margin-top:.85rem;padding-top:.7rem;border-top:1px dashed var(--border);
-   font-family:var(--font-display);font-weight:800;font-size:.82rem;color:var(--text)}
- .mx-pick span{display:inline-block;font-size:.6rem;letter-spacing:.12em;font-weight:800;
-   text-transform:uppercase;color:var(--accent);background:var(--accent-tint);
-   padding:.18rem .45rem;border-radius:4px;margin-right:.5rem;vertical-align:middle}
- .mx-pick.hit span{color:var(--accent)}
- .mx-pick.miss span{color:var(--red);background:rgba(255,107,112,.12)}
- .mx-week-list a{display:flex;justify-content:space-between;align-items:center;
-   background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);
-   padding:1rem 1.2rem;margin-bottom:.7rem;transition:var(--transition)}
- .mx-week-list a:hover{border-color:var(--accent);transform:translateY(-2px)}
- .mx-week-list .wk{font-family:var(--font-display);font-weight:800;color:var(--text)}
- .gr-hd{display:flex;align-items:center;gap:1rem;padding:1rem 1.3rem;border-bottom:1px solid var(--border)}
- .gr-grade{font-family:var(--font-display);font-weight:900;font-size:2rem;line-height:1;
-   color:var(--accent);min-width:2.4ch;text-align:center}
- .gr-grade.lo{color:var(--red)}
- .gr-rank{font-size:.72rem;color:var(--text-muted);font-weight:700}
- .gr-pos{display:flex;flex-wrap:wrap;gap:.35rem;padding:.7rem 1.3rem;border-bottom:1px solid var(--border)}
- .gr-chip{font-family:var(--font-display);font-size:.66rem;font-weight:800;letter-spacing:.04em;
-   padding:.2rem .5rem;border-radius:4px;background:var(--surface-2);color:var(--text-muted)}
- .gr-chip b{color:var(--text)}
- .gr-cite{font-size:.78rem;color:var(--text-muted);padding:.6rem 1.3rem 0}
- .gr-cite .up{color:var(--accent);font-weight:700} .gr-cite .down{color:var(--red);font-weight:700}
- .pw-hd{display:flex;align-items:center;gap:.9rem;padding:1rem 1.3rem;border-bottom:1px solid var(--border)}
- .pw-rank{font-family:var(--font-display);font-weight:900;font-size:2.1rem;line-height:1;
-   color:var(--text-light);min-width:2ch;text-align:center;font-variant-numeric:tabular-nums}
- .pw-rank.top{color:var(--accent)}
- .pw-move{font-family:var(--font-display);font-size:.68rem;font-weight:800;letter-spacing:.03em;
-   padding:.15rem .4rem;border-radius:4px;background:var(--surface-2);color:var(--text-muted)}
- .pw-move.up{color:var(--accent);background:var(--accent-tint)}
- .pw-move.down{color:var(--red);background:rgba(255,107,112,.12)}
- .pw-score{margin-left:auto;text-align:right}
- .pw-score b{font-family:var(--font-display);font-weight:900;font-size:1.25rem;color:var(--text);
-   font-variant-numeric:tabular-nums}
- .pw-score span{display:block;font-size:.62rem;color:var(--text-muted);letter-spacing:.08em;
-   text-transform:uppercase;font-weight:700}
- .pw-stats{display:flex;flex-wrap:wrap;gap:.35rem;padding:.7rem 1.3rem;border-bottom:1px solid var(--border)}
- .pw-stat{font-family:var(--font-display);font-size:.66rem;font-weight:800;letter-spacing:.04em;
-   padding:.2rem .5rem;border-radius:4px;background:var(--surface-2);color:var(--text-muted)}
- .pw-stat b{color:var(--text);font-weight:800}
- .pw-stat.good b{color:var(--accent)} .pw-stat.bad b{color:var(--red)}
- .pw-note{font-size:.72rem;color:var(--text-muted);padding:.55rem 1.3rem 0;font-style:italic}
- .pw-foot{margin-top:2rem;padding-top:1.2rem;border-top:1px solid var(--border);
-   font-size:.78rem;color:var(--text-muted);line-height:1.7}
- .pw-foot a{color:var(--accent);font-weight:700}
-</style></head>
+</head>
 <body>
 <!-- NAV:start -->
 <svg width="0" height="0" style="position:absolute" aria-hidden="true"><symbol id="i-trophy" viewBox="0 0 24 24"><path d="M7 4h10v5a5 5 0 0 1-10 0V4z M7 6H4v2a3 3 0 0 0 3 3 M17 6h3v2a3 3 0 0 1-3 3 M12 14v4 M8 20h8"/></symbol><symbol id="i-dress" viewBox="0 0 24 24"><path d="M9 3l3 3 3-3 M8 9l1-6 M16 9l-1-6 M8 9L5 20h14L16 9 M8 9h8"/></symbol><symbol id="i-flag" viewBox="0 0 24 24"><path d="M5 21V4 M5 4h12l-2 4 2 4H5"/></symbol><symbol id="i-crown" viewBox="0 0 24 24"><path d="M4 18h16 M4 18L3 8l5 4 4-6 4 6 5-4-1 10"/></symbol><symbol id="i-star" viewBox="0 0 24 24"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1L3.2 9.5l6.1-.9L12 3z"/></symbol><symbol id="i-chart" viewBox="0 0 24 24"><path d="M4 19h16 M7 16V9 M12 16V5 M17 16v-6"/></symbol></svg><nav class="nav" aria-label="Primary"><div class="nav-inner"><a href="../home.html" class="nav-logo">Players League</a><button class="nav-toggle" type="button" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button><div class="nav-links"><a href="../home.html">Home</a><a href="../rankings.html">Rankings</a><a href="../matchups/index.html" class="active" aria-current="page">Matchups</a><a href="../analytics.html">Analytics</a><a href="../teams.html">Teams</a><a href="../history.html">History</a><a href="../awards.html">Awards</a><a href="../weekend.html">Weekend</a></div></div></nav>
 <!-- NAV:end -->
 <section class="page-header">
-  <h1>WEEK 1 <span class="gold">PREVIEW</span></h1>
+  <span class="eyebrow">Matchups</span>
+  <h1>Week 1 <span class="gold">Preview</span></h1>
   <p>2026 season · generated 2026-09-02</p>
 </section>
 <div class="mx-wrap">
   <p class="mx-intro">Six games and four of them are inside two and a half points, led by Leif&#x27;s 0.8-point edge over Mitchell — a margin that will be decided by whichever kicker gets a garbage-time field goal. Kaleb by 1.4 over Isaac, Grant by 2.4 at CJ, and Christian by 2.1 at Peter aren&#x27;t much sturdier. The only real separation is John, favored by 8.8 at home against Noah, with Logan&#x27;s 6.8-point cushion over Adam a distant second.</p>
-  <article class="mx-card reveal">
+  <article class="mx-card">
   <div class="mx-score">
     <div class="mx-team away">
       <span class="mx-owner">Noah</span>
       <span class="mx-sub">Achane Smokin CiGarretts · 0-0 · proj</span>
     </div>
-    <div style="text-align:center">
+    <div class="mx-mid">
       <div class="mx-pts">113.2</div>
       <div class="mx-vs">vs</div>
       <div class="mx-pts">122.0</div>
@@ -116,13 +47,13 @@
     <p>Noah wins the running back battle and loses everywhere else. Achane and Cook at 18 and 15 is a real edge, but Achane is landing in Miami-Las Vegas, a 40.5 total with the Dolphins as underdogs, which is the kind of game that produces 11 touches and a shrug. Everything above that gets ugly: Drake Maye in Seattle, Colston Loveland at 12 against John&#x27;s choice of Brock Bowers (16) or Trey McBride (14), and a receiver room built on questionable tags. Mike Evans and Josh Downs are both flagged, and behind them it&#x27;s Michael Wilson and Romeo Doubs. The #12 power ranking isn&#x27;t an insult, it&#x27;s arithmetic.</p><p>John&#x27;s points come from the best game on the board. Stafford, Kyren Williams and Puka Nacua all sit in Rams-49ers with a 48.5 total, which is a lot of eggs in one basket but a very good basket. Nacua&#x27;s questionable tag is the only thing standing between John and a comfortable Sunday, and Brian Thomas Jr. plus Quentin Johnston are functional insurance. Bowers and McBride at tight end means John can bench a 14-point player.</p><div class="mx-pick"><span>The Pick</span> John by 12</div>
   </div>
 </article>
-<article class="mx-card reveal">
+<article class="mx-card">
   <div class="mx-score">
     <div class="mx-team away">
       <span class="mx-owner">Isaac</span>
       <span class="mx-sub">A Slap in the Face · 0-0 · proj</span>
     </div>
-    <div style="text-align:center">
+    <div class="mx-mid">
       <div class="mx-pts">117.1</div>
       <div class="mx-vs">vs</div>
       <div class="mx-pts">118.5</div>
@@ -137,13 +68,13 @@
     <p>Isaac wins the wideout column on paper — Ja&#x27;Marr Chase, Malik Nabers and Terry McLaurin give him 46 to Kaleb&#x27;s 41 — but five of his seven receivers carry a questionable tag, including Chase, Nabers and DK Metcalf. Strip one of those out and the depth behind it is Adonai Mitchell at 8. Kaleb gives the edge back everywhere else: Justin Herbert (19) over Bo Nix (16), Ashton Jeanty and Breece Hall (35) over Javonte Williams and Cam Skattebo (29), Harold Fannin (11) over T.J. Hockenson (9). That&#x27;s +11 across three spots against a +5 that depends on medical reports.</p><p>The game environments favor Kaleb too. Nix is at Kansas City in a 42.5 total, the lowest-scoring spot on either roster, while Herbert gets Arizona as a 10.5-point favorite. Chase in a 50.5-total game is Isaac&#x27;s real ceiling, and Nabers should see volume with the Giants chasing Dallas. Kaleb, ranked 4th to Isaac&#x27;s 10th, just needs his running backs to suit up.</p><div class="mx-pick"><span>The Pick</span> Kaleb by 9</div>
   </div>
 </article>
-<article class="mx-card reveal">
+<article class="mx-card">
   <div class="mx-score">
     <div class="mx-team away">
       <span class="mx-owner">Grant</span>
       <span class="mx-sub">Amon that inhaler · 0-0 · proj</span>
     </div>
-    <div style="text-align:center">
+    <div class="mx-mid">
       <div class="mx-pts">120.2</div>
       <div class="mx-vs">vs</div>
       <div class="mx-pts">117.8</div>
@@ -158,13 +89,13 @@
     <p>Two teams separated by one power ranking slot and about two projected points, which means the difference is receiver certainty. Grant&#x27;s top three go 45 to CJ&#x27;s 39, and more importantly they&#x27;re actually functional: Amon-Ra St. Brown (19) in a 49.5-total game Detroit is favored by seven, Jaylen Waddle, Christian Watson in a Minnesota-Green Bay coin flip. CJ&#x27;s wideout room is Rashee Rice at 14 and then a pile of question marks — Emeka Egbuka questionable in a 50.5-total shootout at Cincinnati, Alec Pierce questionable, Parker Washington as the only healthy third option worth starting.</p><p>Backfields are a dead heat at 31, though CJ&#x27;s is held together with tape: Pacheco on IR, Charbonnet out, Hubbard and Henderson questionable, leaving Jonathan Taylor and Quinshon Judkins to carry it. Joe Burrow&#x27;s 18 in a 50.5-point game is CJ&#x27;s real edge and his best path to a shootout ceiling. Grant just needs Zay Flowers to clear his tag; Baker Mayfield sitting on the bench at 16 is insurance nobody else in this game has.</p><div class="mx-pick"><span>The Pick</span> Grant by 7</div>
   </div>
 </article>
-<article class="mx-card reveal">
+<article class="mx-card">
   <div class="mx-score">
     <div class="mx-team away">
       <span class="mx-owner">Adam</span>
       <span class="mx-sub">Uncut Cokerr · 0-0 · proj</span>
     </div>
-    <div style="text-align:center">
+    <div class="mx-mid">
       <div class="mx-pts">116.1</div>
       <div class="mx-vs">vs</div>
       <div class="mx-pts">122.9</div>
@@ -179,13 +110,13 @@
     <p>The whole thing runs through Philadelphia. Logan has Jalen Hurts (21) and Saquon Barkley (18) in a game his own opponent&#x27;s quarterback is playing in — Adam counters with Jayden Daniels (17) as a 4.5-point road underdog, which at least means late throwing volume in a 45.5-total game. But Logan&#x27;s top two backs project 32 to Adam&#x27;s 27, and Kenneth Walker III against Denver in a 42.5-total game is the least appealing environment on either roster. Adam&#x27;s edges are real but small: 46 to 44 at receiver on the strength of Jaxon Smith-Njigba, Chris Olave chasing points down seven in Detroit, and Rome Odunze, plus two points at tight end.</p><p>The risk profile favors Logan anyway. Jeremiyah Love, Michael Pittman Jr., Luther Burden III and De&#x27;Zhaun Stribling all carry tags, but Logan has thirteen bodies at RB/WR to absorb it. Adam has Sam LaPorta questionable with Mark Andrews right behind him, which is fine, and five receivers total, two of whom project single digits. Thin roster, decent lineup.</p><div class="mx-pick"><span>The Pick</span> Logan by 9</div>
   </div>
 </article>
-<article class="mx-card reveal">
+<article class="mx-card">
   <div class="mx-score">
     <div class="mx-team away">
       <span class="mx-owner">Christian</span>
       <span class="mx-sub">The Aura Farm · 0-0 · proj</span>
     </div>
-    <div style="text-align:center">
+    <div class="mx-mid">
       <div class="mx-pts">118.3</div>
       <div class="mx-vs">vs</div>
       <div class="mx-pts">116.2</div>
@@ -200,13 +131,13 @@
     <p>Two points separate these projections, which means the decision comes from the questionable tags, and Peter has more of them. Tucker Kraft is his only tight end — if the Packers hold him out at Minnesota, Peter is starting nothing at the position while Christian falls back on Chig Okonkwo. Tee Higgins is the other one that matters, and he&#x27;s in the week&#x27;s best game environment (Cincinnati-Tampa, 50.5). Christian&#x27;s tags are cushioned: Kittle out means Okonkwo slides up, Shakir and Tuten are depth pieces on a roster that&#x27;s five deep at both receiver and running back.</p><p>The top-end talent favors Peter — Lamar Jackson in a 48.5 at Indianapolis, Bijan Robinson, A.J. Brown — but Bijan&#x27;s Falcons are three-point dogs in a 41.5 game, the lowest-scoring script on either roster. Christian&#x27;s points come from Dallas-New York and Philadelphia-Washington, cleaner totals with CeeDee Lamb, DeVonta Smith and Brandon Aubrey attached. Trevor Lawrence in a 40.5 is the soft spot, but Christian&#x27;s floor is simply higher, and Week 1 rewards the roster that doesn&#x27;t need Saturday injury news to break right.</p><div class="mx-pick"><span>The Pick</span> Christian by 9</div>
   </div>
 </article>
-<article class="mx-card reveal">
+<article class="mx-card">
   <div class="mx-score">
     <div class="mx-team away">
       <span class="mx-owner">Leif</span>
       <span class="mx-sub">Joey Lunchbox · 0-0 · proj</span>
     </div>
-    <div style="text-align:center">
+    <div class="mx-mid">
       <div class="mx-pts">117.4</div>
       <div class="mx-vs">vs</div>
       <div class="mx-pts">116.6</div>
