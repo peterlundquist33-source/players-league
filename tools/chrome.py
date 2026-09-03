@@ -85,6 +85,24 @@ def head(page, depth=0, title=None, desc=None):
     )
 
 
+# The whole icon set: one size, one colour (currentColor), used via
+# <svg class="icon"><use href="#i-trophy"/></svg>. Stroked, 24-unit grid.
+ICONS = {
+    "trophy": "M7 4h10v5a5 5 0 0 1-10 0V4z M7 6H4v2a3 3 0 0 0 3 3 M17 6h3v2a3 3 0 0 1-3 3 M12 14v4 M8 20h8",
+    "dress":  "M9 3l3 3 3-3 M8 9l1-6 M16 9l-1-6 M8 9L5 20h14L16 9 M8 9h8",
+    "flag":   "M5 21V4 M5 4h12l-2 4 2 4H5",
+    "crown":  "M4 18h16 M4 18L3 8l5 4 4-6 4 6 5-4-1 10",
+    "star":   "M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1L3.2 9.5l6.1-.9L12 3z",
+    "chart":  "M4 19h16 M7 16V9 M12 16V5 M17 16v-6",
+}
+
+
+def icons():
+    syms = "".join(
+        f'<symbol id="i-{k}" viewBox="0 0 24 24"><path d="{d}"/></symbol>' for k, d in ICONS.items())
+    return f'<svg width="0" height="0" style="position:absolute" aria-hidden="true">{syms}</svg>'
+
+
 def nav(active, depth=0):
     """`active` is a nav label ("Home") or a page href."""
     up = _rel(depth)
@@ -93,6 +111,7 @@ def nav(active, depth=0):
         attrs = ' class="active" aria-current="page"' if active in (label, href) else ""
         links.append(f'<a href="{up}{href}"{attrs}>{label}</a>')
     return (
+        icons() +
         '<nav class="nav" aria-label="Primary"><div class="nav-inner">'
         f'<a href="{up}home.html" class="nav-logo">Players League</a>'
         '<button class="nav-toggle" type="button" aria-label="Menu" aria-expanded="false">'

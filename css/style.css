@@ -352,22 +352,60 @@ body, table, .stat, .countdown, [class*="stat-val"], [class*="pill"] {
 
 /* ---------- Stat tile / stat strip ---------- */
 .stat-strip {
-  max-width: var(--measure);
-  margin: 0 auto;
-  padding: 0 var(--s-6);
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-  gap: 0;
+  grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
   border: var(--hair);
   border-radius: var(--r);
   background: var(--surface);
   box-shadow: var(--lift);
   overflow: hidden;
 }
-.stat-strip > div { padding: var(--s-4) var(--s-4); border-right: var(--hair); }
+.stat-strip > div { padding: var(--s-4); border-right: var(--hair); min-width: 0; }
 .stat-strip > div:last-child { border-right: 0; }
-.stat { font-family: var(--font-display); font-weight: 700; font-size: var(--fs-22); letter-spacing: -0.02em; line-height: 1.1; }
-.stat-label { font-size: var(--fs-12); color: var(--text-3); margin-top: var(--s-1); }
+.stat-label { display: block; font-size: var(--fs-12); font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-3); margin-bottom: var(--s-2); }
+.stat { font-family: var(--font-display); font-weight: 700; font-size: var(--fs-28); letter-spacing: -0.025em; line-height: 1; color: var(--text); }
+.stat-sub { font-size: var(--fs-12); color: var(--text-2); margin-top: var(--s-2); }
+
+/* ---------- Utilities ---------- */
+.strong { font-weight: 600; color: var(--text); }
+.muted  { color: var(--text-2); }
+.narrow { max-width: 720px; }
+.band   { background: var(--bg-2); border-top: var(--hair); border-bottom: var(--hair); }
+.icon-lg { width: 28px; height: 28px; stroke-width: 1.5; }
+
+/* ---------- Feature cards (champion / last place) ---------- */
+.feature-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: var(--s-4); }
+.feature-card {
+  display: flex; align-items: flex-start; gap: var(--s-4);
+  background: var(--surface);
+  border: var(--hair);
+  border-radius: var(--r);
+  box-shadow: var(--shadow), var(--lift);
+  padding: var(--s-6);
+}
+.feature-card .icon-lg { flex: none; margin-top: 2px; color: var(--accent); }
+.feature-card.neg .icon-lg { color: var(--neg); }
+.feature-card.neg .eyebrow { color: var(--neg); }
+.feature-card .eyebrow { color: var(--accent); }
+.feature-card h2 { font-size: var(--fs-22); margin-bottom: var(--s-1); }
+.feature-team { font-style: italic; color: var(--text); font-weight: 500; margin-bottom: var(--s-1); }
+.feature-meta { color: var(--text-2); font-size: var(--fs-13); }
+
+/* ---------- Champions roll ---------- */
+.champ-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: var(--s-4); }
+.champ-card {
+  background: var(--surface);
+  border: var(--hair);
+  border-radius: var(--r);
+  box-shadow: var(--lift);
+  padding: var(--s-4) var(--s-6);
+  display: grid; grid-template-columns: auto 1fr; column-gap: var(--s-3); align-items: start;
+}
+.champ-card .icon { color: var(--accent); margin-top: 3px; }
+.champ-card .eyebrow { margin-bottom: var(--s-1); }
+.champ-name { font-family: var(--font-display); font-weight: 700; font-size: var(--fs-16); letter-spacing: -0.01em; }
+.champ-team { color: var(--text-2); font-size: var(--fs-13); }
+.champ-line { color: var(--text-2); font-size: var(--fs-12); margin-top: var(--s-1); }
 
 /* ---------- Tabs ---------- */
 .tab-switcher { display: flex; gap: var(--s-6); border-bottom: var(--hair); margin-bottom: var(--s-6); overflow-x: auto; }
@@ -470,9 +508,11 @@ body, table, .stat, .countdown, [class*="stat-val"], [class*="pill"] {
   .hero, .page-header { padding: var(--s-8) var(--s-4) var(--s-6); }
   .section { padding: var(--s-6) var(--s-4); }
   .card-grid { grid-template-columns: 1fr; }
-  .stat-strip { padding: 0; grid-template-columns: repeat(2, 1fr); }
+  .stat-strip { grid-template-columns: repeat(2, 1fr); }
   .stat-strip > div:nth-child(2n) { border-right: 0; }
   .stat-strip > div { border-bottom: var(--hair); }
+  .stat-strip > div:last-child { border-bottom: 0; }
+  .stat-strip > div:last-child:nth-child(odd) { grid-column: span 2; border-right: 0; }
 }
 @media (max-width: 480px) {
   .data-table th, .data-table td { padding: 6px var(--s-2); font-size: var(--fs-12); white-space: nowrap; }
