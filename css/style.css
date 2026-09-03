@@ -554,6 +554,53 @@ body, table, .stat, .countdown, [class*="stat-val"], [class*="pill"] {
 .tile .stat.pos { color: var(--pos); }
 .tile .stat.neg { color: var(--neg); }
 
+/* ---------- Weekend ---------- */
+.wk-hero {
+  position: relative; overflow: hidden; isolation: isolate;
+  border-bottom: var(--hair);
+}
+.wk-hero-photo {
+  position: absolute; inset: 0; z-index: -1;
+  width: 100%; height: 100%; object-fit: cover; object-position: center 55%;
+}
+.wk-hero::after {
+  content: ""; position: absolute; inset: 0; z-index: -1;
+  background: linear-gradient(180deg, rgba(14, 17, 23, 0.55) 0%, rgba(14, 17, 23, 0.72) 60%, var(--bg) 100%);
+}
+.wk-hero-inner { max-width: var(--measure); margin: 0 auto; padding: var(--s-16) var(--s-6) var(--s-12); }
+.wk-hero .eyebrow { color: var(--accent); }
+.wk-hero h1 { color: #fff; }
+.wk-hero .lede { color: #dfe4ea; font-size: var(--fs-18); max-width: 44ch; margin: 0 0 var(--s-6); }
+.countdown { display: flex; gap: var(--s-6); flex-wrap: wrap; margin-bottom: var(--s-4); }
+.cd { display: flex; flex-direction: column; gap: 2px; }
+.cd-val {
+  font-family: var(--font-display); font-weight: 700; font-size: var(--fs-28);
+  font-variant-numeric: tabular-nums; letter-spacing: -0.02em; line-height: 1; color: #fff; min-width: 2ch;
+}
+.cd-lbl { font-size: var(--fs-12); font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: #aeb7c3; }
+.wk-tags { display: flex; gap: var(--s-2); flex-wrap: wrap; }
+.wk-tags .chip { background: rgba(14, 17, 23, 0.55); color: #dfe4ea; border-color: rgba(255, 255, 255, 0.22); }
+
+.wk-days {
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--s-3);
+  list-style: none; margin: 0; padding: 0;
+}
+.wk-day {
+  display: block; color: inherit; text-decoration: none;
+  background: var(--surface); border: var(--hair); border-radius: var(--r); overflow: hidden;
+  box-shadow: var(--lift); transition: border-color .15s var(--ease);
+}
+.wk-day:hover, .wk-day:focus-visible { border-color: var(--line-2); outline: none; }
+.wk-day img { display: block; width: 100%; aspect-ratio: 3 / 2; object-fit: cover; }
+.wk-day-meta { padding: var(--s-3) var(--s-4); display: flex; align-items: baseline; gap: var(--s-2); }
+.wk-day-dow { font-family: var(--font-display); font-weight: 700; font-size: var(--fs-14); color: var(--accent); }
+.wk-day-lbl { font-size: var(--fs-13); color: var(--text-2); }
+@media (max-width: 640px) {
+  .wk-hero-inner { padding: var(--s-12) var(--s-4) var(--s-8); }
+  .countdown { gap: var(--s-4); }
+  .wk-days { grid-template-columns: 1fr 1fr; }
+}
+
 /* ---------- Teams: tile grid ---------- */
 .team-grid {
   display: grid; grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));

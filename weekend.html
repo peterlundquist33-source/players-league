@@ -16,178 +16,68 @@
 <link rel="preload" href="css/fonts/plex-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="css/style.css?v=3">
 <!-- HEAD:end -->
-  <style>
-  /* ===== Scoped Weekend-page enhancements (.weekend-page only) ===== */
-
-  /* Hero with real photo background */
-  .weekend-page .wk-hero {
-    position:relative; min-height:78vh; display:flex; align-items:center; justify-content:center;
-    text-align:center; overflow:hidden;
-    background:#13151a;
-    border-bottom:3px solid var(--blue);
-  }
-  .weekend-page .wk-hero::before {
-    content:''; position:absolute; inset:0;
-    background:url('img/weekend/cabin.jpg') center 55%/cover no-repeat;
-    transform:scale(1.05); z-index:0;
-  }
-  .weekend-page .wk-hero::after {
-    content:''; position:absolute; inset:0; z-index:1;
-    background:linear-gradient(180deg, rgba(11,12,14,0.55) 0%, rgba(11,12,14,0.62) 55%, rgba(11,12,14,0.82) 100%);
-  }
-  .weekend-page .wk-hero-inner { position:relative; z-index:2; padding:3rem 1.5rem; width:100%; }
-
-  /* Glance rail with photo nodes */
-  .weekend-page .glance-wrap { padding-top:1.5rem; padding-bottom:0.5rem; }
-  .weekend-page .glance-rail {
-    display:flex; justify-content:space-between; align-items:flex-start;
-    gap:0.5rem; position:relative; max-width:820px; margin:0 auto; padding:0.5rem 0.25rem;
-  }
-  .weekend-page .glance-rail::before {
-    content:''; position:absolute; left:9%; right:9%; top:33px; height:3px;
-    background:linear-gradient(90deg,var(--blue),var(--amber)); border-radius:2px; z-index:0;
-  }
-  .weekend-page .glance-node {
-    display:flex; flex-direction:column; align-items:center; gap:0.3rem;
-    flex:1; position:relative; z-index:1; text-align:center; transition:transform 0.18s ease;
-  }
-  .weekend-page .glance-node:hover { transform:translateY(-3px); }
-  .weekend-page .glance-node:focus-visible { outline:2px solid var(--blue); outline-offset:3px; border-radius:10px; }
-  .weekend-page .glance-thumb {
-    width:66px; height:66px; border-radius:50%; object-fit:cover;
-    border:3px solid #fff; box-shadow:0 0 0 2px var(--blue), var(--shadow-md);
-    transition:box-shadow 0.18s ease, transform 0.18s ease;
-  }
-  .weekend-page .glance-node:hover .glance-thumb { box-shadow:0 0 0 2px var(--amber), var(--shadow-lg); }
-  .weekend-page .glance-day { font-size:0.74rem; font-weight:900; text-transform:uppercase; letter-spacing:0.5px; color:var(--text); margin-top:0.15rem; }
-  .weekend-page .glance-lbl { font-size:0.6rem; text-transform:uppercase; letter-spacing:0.5px; color:var(--text-muted); }
-
-  /* Reveal-on-scroll */
-  .weekend-page .reveal { opacity:0; transform:translateY(22px); transition:opacity 0.6s ease, transform 0.6s ease; }
-  .weekend-page .reveal.in { opacity:1; transform:none; }
-
-  /* Day-card scroll-snap row on wider screens */
-  @media (min-width:900px) {
-    .weekend-page .card-grid:has(.day-card) {
-      display:flex; gap:0.9rem; overflow-x:auto; scroll-snap-type:x mandatory;
-      padding-bottom:0.75rem; scrollbar-width:thin;
-    }
-    .weekend-page .day-card { flex:0 0 340px; scroll-snap-align:start; }
-  }
-
-  /* Photo-topped day cards */
-  .weekend-page .day-card { padding:0; overflow:hidden; transition:transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease; }
-  .weekend-page .day-card:hover { transform:translateY(-4px); box-shadow:var(--shadow-lg); border-color:var(--blue); }
-  .weekend-page .day-photo {
-    position:relative; height:150px; overflow:hidden;
-  }
-  .weekend-page .day-photo img { width:100%; height:100%; object-fit:cover; transition:transform 0.4s ease; }
-  .weekend-page .day-card:hover .day-photo img { transform:scale(1.06); }
-  .weekend-page .day-photo::after {
-    content:''; position:absolute; inset:0;
-    background:linear-gradient(180deg, rgba(11,12,14,0) 40%, rgba(11,12,14,0.72) 100%);
-  }
-  .weekend-page .day-photo .day-tag {
-    position:absolute; left:0.9rem; bottom:0.7rem; z-index:1; color:#fff;
-  }
-  .weekend-page .day-photo .day-dow {
-    font-size:0.66rem; text-transform:uppercase; letter-spacing:2px; color:#f5f7fa; font-weight:800;
-  }
-  .weekend-page .day-photo .day-title {
-    font-size:1.02rem; font-weight:800; line-height:1.25; margin-top:0.1rem; text-shadow:0 1px 6px rgba(0,0,0,0.5);
-  }
-  .weekend-page .day-body { padding:1rem 1.2rem 1.2rem; }
-
-  /* Callout (no emoji, clean amber banner) */
-  .weekend-page .callout-burst {
-    margin-top:0.9rem; background:linear-gradient(135deg,#262a32,#262a32);
-    border:1px solid var(--amber); border-left:4px solid var(--amber);
-    border-radius:var(--radius); padding:0.7rem 0.85rem;
-  }
-  .weekend-page .callout-kicker { font-size:0.68rem; text-transform:uppercase; letter-spacing:1.5px; color:var(--amber); font-weight:900; }
-  .weekend-page .callout-main { color:var(--text); font-size:0.92rem; font-weight:800; margin-top:0.2rem; letter-spacing:0.3px; }
-
-  /* Confetti pieces (paper, brand colors — no emoji) */
-  .weekend-page .confetti-pc { position:fixed; z-index:2000; width:9px; height:14px; border-radius:2px; pointer-events:none; will-change:transform,opacity; }
-
-  @media (prefers-reduced-motion:reduce) {
-    .weekend-page .reveal { opacity:1 !important; transform:none !important; transition:none !important; }
-    .weekend-page .glance-node, .weekend-page .day-card, .weekend-page .day-photo img { transition:none !important; }
-    .weekend-page .wk-hero::before { transform:none; }
-  }
-  </style>
 </head>
-<body class="weekend-page">
+<body>
 
-  <!-- NAV:start -->
+<!-- NAV:start -->
 <svg width="0" height="0" style="position:absolute" aria-hidden="true"><symbol id="i-trophy" viewBox="0 0 24 24"><path d="M7 4h10v5a5 5 0 0 1-10 0V4z M7 6H4v2a3 3 0 0 0 3 3 M17 6h3v2a3 3 0 0 1-3 3 M12 14v4 M8 20h8"/></symbol><symbol id="i-dress" viewBox="0 0 24 24"><path d="M9 3l3 3 3-3 M8 9l1-6 M16 9l-1-6 M8 9L5 20h14L16 9 M8 9h8"/></symbol><symbol id="i-flag" viewBox="0 0 24 24"><path d="M5 21V4 M5 4h12l-2 4 2 4H5"/></symbol><symbol id="i-crown" viewBox="0 0 24 24"><path d="M4 18h16 M4 18L3 8l5 4 4-6 4 6 5-4-1 10"/></symbol><symbol id="i-star" viewBox="0 0 24 24"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1L3.2 9.5l6.1-.9L12 3z"/></symbol><symbol id="i-chart" viewBox="0 0 24 24"><path d="M4 19h16 M7 16V9 M12 16V5 M17 16v-6"/></symbol></svg><nav class="nav" aria-label="Primary"><div class="nav-inner"><a href="home.html" class="nav-logo">Players League</a><button class="nav-toggle" type="button" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button><div class="nav-links"><a href="home.html">Home</a><a href="rankings.html">Rankings</a><a href="matchups/index.html">Matchups</a><a href="analytics.html">Analytics</a><a href="teams.html">Teams</a><a href="history.html">History</a><a href="awards.html">Awards</a><a href="weekend.html" class="active" aria-current="page">Weekend</a></div></div></nav>
 <!-- NAV:end -->
 
   <section class="wk-hero">
+    <img class="wk-hero-photo" src="img/weekend/cabin.jpg" alt="" width="1280" height="853" fetchpriority="high">
     <div class="wk-hero-inner">
-      <div style="font-size:0.8rem;letter-spacing:4px;text-transform:uppercase;color:var(--amber);margin-bottom:0.75rem;">August 26–29, 2027</div>
-      <h1 style="font-family:'Playfair Display',serif;font-size:clamp(2.5rem,7vw,4.5rem);font-weight:900;color:#ffffff;margin-bottom:0.5rem;">Players <span style="color:#f5f7fa;">Weekend</span></h1>
-      <p style="color:#f5f7fa;font-size:1.1rem;font-weight:300;margin-bottom:3rem;">Four days at the lake. One dress. Bragging rights on the line.</p>
+      <span class="eyebrow">August 26–29, 2027</span>
+      <h1>Players Weekend</h1>
+      <p class="lede">Four days at the lake. One dress. Bragging rights on the line.</p>
 
-      <div id="countdown" style="display:flex;gap:clamp(0.75rem,3vw,2rem);justify-content:center;flex-wrap:wrap;margin-bottom:2.5rem;">
-        <div style="background:rgba(11,12,14,0.55);border:1px solid rgba(255,255,255,0.35);border-radius:12px;padding:1.25rem 1.5rem;min-width:85px;backdrop-filter:blur(10px);">
-          <div id="cd-days" style="font-family:'Playfair Display',serif;font-size:clamp(2rem,5vw,3rem);font-weight:700;color:#f5f7fa;line-height:1;">--</div>
-          <div style="font-size:0.65rem;text-transform:uppercase;letter-spacing:2px;color:#f5f7fa;margin-top:0.3rem;">Days</div>
-        </div>
-        <div style="background:rgba(11,12,14,0.55);border:1px solid rgba(255,255,255,0.35);border-radius:12px;padding:1.25rem 1.5rem;min-width:85px;backdrop-filter:blur(10px);">
-          <div id="cd-hours" style="font-family:'Playfair Display',serif;font-size:clamp(2rem,5vw,3rem);font-weight:700;color:#f5f7fa;line-height:1;">--</div>
-          <div style="font-size:0.65rem;text-transform:uppercase;letter-spacing:2px;color:#f5f7fa;margin-top:0.3rem;">Hours</div>
-        </div>
-        <div style="background:rgba(11,12,14,0.55);border:1px solid rgba(255,255,255,0.35);border-radius:12px;padding:1.25rem 1.5rem;min-width:85px;backdrop-filter:blur(10px);">
-          <div id="cd-min" style="font-family:'Playfair Display',serif;font-size:clamp(2rem,5vw,3rem);font-weight:700;color:#f5f7fa;line-height:1;">--</div>
-          <div style="font-size:0.65rem;text-transform:uppercase;letter-spacing:2px;color:#f5f7fa;margin-top:0.3rem;">Minutes</div>
-        </div>
-        <div style="background:rgba(11,12,14,0.55);border:1px solid rgba(255,255,255,0.35);border-radius:12px;padding:1.25rem 1.5rem;min-width:85px;backdrop-filter:blur(10px);">
-          <div id="cd-sec" style="font-family:'Playfair Display',serif;font-size:clamp(2rem,5vw,3rem);font-weight:700;color:#f5f7fa;line-height:1;">--</div>
-          <div style="font-size:0.65rem;text-transform:uppercase;letter-spacing:2px;color:#f5f7fa;margin-top:0.3rem;">Seconds</div>
-        </div>
+      <div id="countdown" class="countdown" aria-label="Countdown to Players Weekend">
+        <div class="cd"><span id="cd-days" class="cd-val">--</span><span class="cd-lbl">Days</span></div>
+        <div class="cd"><span id="cd-hours" class="cd-val">--</span><span class="cd-lbl">Hours</span></div>
+        <div class="cd"><span id="cd-min" class="cd-val">--</span><span class="cd-lbl">Minutes</span></div>
+        <div class="cd"><span id="cd-sec" class="cd-val">--</span><span class="cd-lbl">Seconds</span></div>
       </div>
 
-      <div style="display:flex;gap:0.75rem;justify-content:center;flex-wrap:wrap;">
-        <div style="background:rgba(11,12,14,0.5);border:1px solid rgba(255,255,255,0.3);border-radius:8px;padding:0.5rem 1.1rem;color:#d2d7df;font-size:0.8rem;letter-spacing:0.5px;">Draft</div>
-        <div style="background:rgba(11,12,14,0.5);border:1px solid rgba(255,255,255,0.3);border-radius:8px;padding:0.5rem 1.1rem;color:#d2d7df;font-size:0.8rem;letter-spacing:0.5px;">Lake</div>
-        <div style="background:rgba(11,12,14,0.5);border:1px solid rgba(255,255,255,0.3);border-radius:8px;padding:0.5rem 1.1rem;color:#d2d7df;font-size:0.8rem;letter-spacing:0.5px;">Golf</div>
-        <div style="background:rgba(11,12,14,0.5);border:1px solid rgba(255,255,255,0.3);border-radius:8px;padding:0.5rem 1.1rem;color:#d2d7df;font-size:0.8rem;letter-spacing:0.5px;">Glory</div>
+      <div class="wk-tags">
+        <span class="chip">Draft</span>
+        <span class="chip">Lake</span>
+        <span class="chip">Golf</span>
+        <span class="chip">Glory</span>
       </div>
     </div>
   </section>
 
   <!-- Weekend at a Glance -->
-  <section class="section glance-wrap" aria-label="Weekend at a glance">
-    <div class="glance-rail" role="list">
-      <a href="#plan" class="glance-node" role="listitem"><img class="glance-thumb" src="img/weekend/sun.jpg" alt="Arrivals" loading="lazy"><span class="glance-day">Thu</span><span class="glance-lbl">Arrivals</span></a>
-      <a href="#plan" class="glance-node" role="listitem"><img class="glance-thumb" src="img/weekend/golf.jpg" alt="Golf" loading="lazy"><span class="glance-day">Fri</span><span class="glance-lbl">Golf</span></a>
-      <a href="#plan" class="glance-node" role="listitem"><img class="glance-thumb" src="img/weekend/boat.jpg" alt="Boat and draft" loading="lazy"><span class="glance-day">Sat</span><span class="glance-lbl">Boat + Draft</span></a>
-      <a href="#plan" class="glance-node" role="listitem"><img class="glance-thumb" src="img/weekend/cabin.jpg" alt="Head out" loading="lazy"><span class="glance-day">Sun</span><span class="glance-lbl">Head Out</span></a>
-    </div>
+  <section class="section" aria-label="Weekend at a glance">
+    <span class="eyebrow">At a glance</span>
+    <ul class="wk-days">
+      <li><a href="#plan" class="wk-day"><img src="img/weekend/sun.jpg" alt="Arrivals" width="1200" height="800" loading="lazy"><span class="wk-day-meta"><span class="wk-day-dow">Thu</span><span class="wk-day-lbl">Arrivals</span></span></a></li>
+      <li><a href="#plan" class="wk-day"><img src="img/weekend/golf.jpg" alt="Golf" width="1200" height="800" loading="lazy"><span class="wk-day-meta"><span class="wk-day-dow">Fri</span><span class="wk-day-lbl">Golf</span></span></a></li>
+      <li><a href="#plan" class="wk-day"><img src="img/weekend/boat.jpg" alt="Boat and draft" width="1200" height="798" loading="lazy"><span class="wk-day-meta"><span class="wk-day-dow">Sat</span><span class="wk-day-lbl">Boat + Draft</span></span></a></li>
+      <li><a href="#plan" class="wk-day"><img src="img/weekend/cabin.jpg" alt="Head out" width="1280" height="853" loading="lazy"><span class="wk-day-meta"><span class="wk-day-dow">Sun</span><span class="wk-day-lbl">Head Out</span></span></a></li>
+    </ul>
   </section>
 
   <!-- Plan (TBD) -->
-  <section class="section reveal" id="plan">
-    <h2 class="section-title" style="text-align:center;">The Plan</h2>
-    <div class="gold-line" style="margin:0 auto 0.85rem;"></div>
-    <div style="text-align:center;color:var(--text-muted);max-width:620px;margin:0 auto;padding:3rem 1rem;border:2px dashed rgba(255,255,255,0.18);border-radius:12px;">
-      <p style="font-size:1.05rem;color:var(--text);font-weight:600;margin-bottom:0.5rem;">Details for 2027 are still being sorted out.</p>
+  <section class="section" id="plan">
+    <span class="eyebrow">2027</span>
+    <h2 class="section-title">The Plan</h2>
+    <div class="empty">
+      <p class="strong">Details for 2027 are still being sorted out.</p>
       <p>Arrivals, tee times, the draft slot, dinner spots, and the last-place punishment will go here once they're locked in.</p>
     </div>
   </section>
 
   <!-- Past Weekends -->
   <section class="section">
-    <h2 class="section-title" style="text-align:center;">Past Weekends</h2>
-    <div class="gold-line" style="margin:0 auto 1.5rem;"></div>
-    <div style="text-align:center;color:var(--muted);padding:3rem 1rem;border:2px dashed rgba(255,255,255,0.2);border-radius:12px;">
+    <span class="eyebrow">Archive</span>
+    <h2 class="section-title">Past Weekends</h2>
+    <div class="empty">
       <p>Photos and memories from past cabin weekends will live here.</p>
-      <p style="font-size:0.85rem;margin-top:0.5rem;">Send your best pics to get them posted.</p>
+      <p class="small">Send your best pics to get them posted.</p>
     </div>
   </section>
 
-  <!-- FOOTER:start -->
+<!-- FOOTER:start -->
 <footer class="footer"><p><span class="gold">Players League</span> &middot; Est. 2022</p></footer>
 <!-- FOOTER:end -->
 
@@ -220,65 +110,6 @@
 
   updateCountdown();
   setInterval(updateCountdown, 1000);
-
-  // Nav toggle
-
-  // ===== Weekend-page enhancements =====
-  (function(){
-    var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-    // Reveal-on-scroll
-    var reveals = document.querySelectorAll('.weekend-page .reveal');
-    if (reduce || !('IntersectionObserver' in window)) {
-      reveals.forEach(function(el){ el.classList.add('in'); });
-    } else {
-      var ro = new IntersectionObserver(function(entries){
-        entries.forEach(function(e){
-          if (e.isIntersecting) { e.target.classList.add('in'); ro.unobserve(e.target); }
-        });
-      }, { threshold: 0.12 });
-      reveals.forEach(function(el){ ro.observe(el); });
-    }
-
-    // One-time confetti burst on callouts entering view (paper pieces, brand colors)
-    var COLORS = ['#333844','#333844','#3c414c','#ffffff','#2a2f37'];
-    function burst(cx, cy){
-      for (var i=0;i<22;i++){
-        (function(){
-          var pc = document.createElement('div');
-          pc.className = 'confetti-pc';
-          pc.style.background = COLORS[Math.floor(Math.random()*COLORS.length)];
-          pc.style.left = cx + 'px';
-          pc.style.top = cy + 'px';
-          document.body.appendChild(pc);
-          var ang = Math.random()*Math.PI*2;
-          var dist = 70 + Math.random()*140;
-          var dx = Math.cos(ang)*dist;
-          var dy = Math.sin(ang)*dist - 90;
-          var rot = (Math.random()*720-360);
-          pc.animate([
-            { transform:'translate(0,0) rotate(0deg)', opacity:1 },
-            { transform:'translate('+dx+'px,'+dy+'px) rotate('+rot+'deg)', opacity:0 }
-          ], { duration: 1200 + Math.random()*600, easing:'cubic-bezier(.2,.6,.3,1)' })
-            .onfinish = function(){ pc.remove(); };
-        })();
-      }
-    }
-
-    if (!reduce && ('IntersectionObserver' in window)) {
-      var callouts = document.querySelectorAll('.weekend-page .callout-burst');
-      var co = new IntersectionObserver(function(entries){
-        entries.forEach(function(e){
-          if (e.isIntersecting) {
-            var r = e.target.getBoundingClientRect();
-            burst(r.left + r.width/2, r.top + r.height/2);
-            co.unobserve(e.target);
-          }
-        });
-      }, { threshold: 0.6 });
-      callouts.forEach(function(el){ co.observe(el); });
-    }
-  })();
   </script>
 <script src="js/site.js"></script>
 </body>
