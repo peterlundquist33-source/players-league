@@ -3,8 +3,19 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Players Weekend — Players League</title>
-  <link rel="stylesheet" href="css/style.css?v=green-1">
+<!-- HEAD:start -->
+<title>Players Weekend — Players League</title>
+<meta name="description" content="The lake weekend: countdown, itinerary and the live draft.">
+<meta property="og:title" content="Players Weekend — Players League">
+<meta property="og:description" content="The lake weekend: countdown, itinerary and the live draft.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="img/weekend/hero.jpg">
+<meta name="theme-color" content="#0e1117">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="preload" href="css/fonts/archivo-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="css/fonts/plex-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="css/style.css?v=3">
+<!-- HEAD:end -->
   <style>
   /* ===== Scoped Weekend-page enhancements (.weekend-page only) ===== */
 
@@ -105,27 +116,12 @@
     .weekend-page .wk-hero::before { transform:none; }
   }
   </style>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="icon" type="image/svg+xml" href="favicon.svg">
 </head>
 <body class="weekend-page">
 
-  <nav class="nav">
-    <div class="nav-inner">
-      <a href="home.html" class="nav-logo">PLAYERS LEAGUE<span class="sub">Fantasy Football · Est. 2022</span></a>
-      <div class="nav-toggle"><span></span><span></span><span></span></div>
-      <div class="nav-links">
-        <a href="weekend.html" class="active">Weekend</a>
-        <a href="home.html">Home</a>
-        <a href="teams.html">Teams</a>
-        <a href="awards.html">Awards</a>
-        <a href="history.html">History</a>
-        <a href="analytics.html">Analytics</a>
-        <a href="matchups/index.html">Matchups</a>
-        <a href="rankings.html">Rankings</a>
-      </div>
-    </div>
-  </nav>
+  <!-- NAV:start -->
+<nav class="nav" aria-label="Primary"><div class="nav-inner"><a href="home.html" class="nav-logo">Players League</a><button class="nav-toggle" type="button" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button><div class="nav-links"><a href="home.html">Home</a><a href="rankings.html">Rankings</a><a href="matchups/index.html">Matchups</a><a href="analytics.html">Analytics</a><a href="teams.html">Teams</a><a href="history.html">History</a><a href="awards.html">Awards</a><a href="weekend.html" class="active" aria-current="page">Weekend</a></div></div></nav>
+<!-- NAV:end -->
 
   <section class="wk-hero">
     <div class="wk-hero-inner">
@@ -191,9 +187,9 @@
     </div>
   </section>
 
-  <footer class="footer">
-    <p><span style="color:var(--amber);">PLAYERS LEAGUE</span> &mdash; Lake Weekend &bull; Est. 2022</p>
-  </footer>
+  <!-- FOOTER:start -->
+<footer class="footer"><p><span class="gold">Players League</span> &middot; Est. 2022</p></footer>
+<!-- FOOTER:end -->
 
   <script>
   // Countdown to Players Weekend — August 28, 2027
@@ -226,9 +222,6 @@
   setInterval(updateCountdown, 1000);
 
   // Nav toggle
-  document.querySelector('.nav-toggle').addEventListener('click', function() {
-    document.querySelector('.nav-links').classList.toggle('open');
-  });
 
   // ===== Weekend-page enhancements =====
   (function(){
@@ -287,5 +280,6 @@
     }
   })();
   </script>
+<script src="js/site.js"></script>
 </body>
 </html>

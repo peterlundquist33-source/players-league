@@ -1,37 +1,20 @@
 """Render generated copy + matchup data into matchups/ pages, styled like the site."""
 import html, pathlib, datetime
 from lib import ROOT
+import chrome as SITE
 
 OUT = ROOT / "matchups"
-CSS = "../css/style.css?v=green-1"
-
-NAV_ITEMS = [("weekend.html", "Weekend"), ("home.html", "Home"), ("teams.html", "Teams"),
-             ("awards.html", "Awards"), ("history.html", "History"),
-             ("analytics.html", "Analytics"), ("matchups/index.html", "Matchups"),
-             ("rankings.html", "Rankings")]
 
 
-def _nav(active, depth=1):
-    up = "../" * depth
-    parts = []
-    for href, label in NAV_ITEMS:
-        cls = ' class="active"' if label == active else ""
-        parts.append('<a href="%s%s"%s>%s</a>' % (up, href, cls, label))
-    links = "".join(parts)
-    return ('<nav class="nav"><div class="nav-inner">'
-            '<a href="%shome.html" class="nav-logo">PLAYERS LEAGUE'
-            '<span class="sub">Fantasy Football · Est. 2022</span></a>'
-            '<div class="nav-toggle"><span></span><span></span><span></span></div>'
-            '<div class="nav-links">%s</div></div></nav>' % (up, links))
-
-
-def _page(title, active, body, depth=1):
+def _page(title, active, body, depth=1, page=None):
+    """Shared chrome comes from site.py so generated pages match the static ones
+    exactly; only the page-specific component styles live here."""
     return f'''<!DOCTYPE html>
 <html lang="en"><head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>{html.escape(title)} — Players League</title>
-<link rel="icon" type="image/svg+xml" href="{"../" * depth}favicon.svg">
-<link rel="stylesheet" href="{"../" * depth}css/style.css?v=green-1">
+<!-- HEAD:start -->
+{SITE.head(page or "", depth, title=f"{title} — Players League")}
+<!-- HEAD:end -->
 <style>
  .mx-wrap{{max-width:820px;margin:0 auto;padding:2rem 1.25rem 3rem}}
  .mx-card{{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);
@@ -103,13 +86,15 @@ def _page(title, active, body, depth=1):
    font-size:.78rem;color:var(--text-muted);line-height:1.7}}
  .pw-foot a{{color:var(--accent);font-weight:700}}
 </style></head>
-<body class="polish">
-{_nav(active, depth)}
+<body>
+<!-- NAV:start -->
+{SITE.nav(active, depth)}
+<!-- NAV:end -->
 {body}
-<footer class="footer"><p><span class="gold">PLAYERS LEAGUE</span> &mdash; Est. 2022</p></footer>
-<script>document.querySelector('.nav-toggle').addEventListener('click',function(){{
- document.querySelector('.nav-links').classList.toggle('open');}});</script>
-<script src="{"../" * depth}js/polish.js"></script>
+<!-- FOOTER:start -->
+{SITE.footer()}
+<!-- FOOTER:end -->
+{SITE.scripts(depth)}
 </body></html>'''
 
 
@@ -183,7 +168,7 @@ def week_page(league, copies, intro):
 </div>'''
     OUT.mkdir(exist_ok=True)
     path = OUT / f"{season}-week-{wk:02d}.html"
-    path.write_text(_page(f"Week {wk} {badge}", "Matchups", body))
+    path.write_text(_page(f"Week {wk} {badge}", "Matchups", body, page=f"matchups/{path.name}"))
     return path
 
 
@@ -235,7 +220,8 @@ def rankings_page(g, copies, intro):
             'actually stands now, see the <a href="rankings.html">weekly power rankings</a>.'
             '</div></div>'
             % (season, stamp, html.escape(intro), cards))
-    (ROOT / "draft-grades.html").write_text(_page("Draft Grades", "Rankings", body, depth=0))
+    (ROOT / "draft-grades.html").write_text(_page("Draft Grades", "Rankings", body, depth=0,
+                                                  page="draft-grades.html"))
     return ROOT / "draft-grades.html"
 
 
@@ -313,7 +299,8 @@ def power_page(board, copies, intro):
             '<a href="analytics.html">analytics page</a> · '
             '<a href="draft-grades.html">%d draft grades</a>.</div></div>'
             % (title, blurb, html.escape(intro), cards, season))
-    (ROOT / "rankings.html").write_text(_page("Power Rankings", "Rankings", body, depth=0))
+    (ROOT / "rankings.html").write_text(_page("Power Rankings", "Rankings", body, depth=0,
+                                              page="rankings.html"))
     return ROOT / "rankings.html"
 
 
@@ -330,4 +317,4 @@ def index_page(season):
     body = ('<section class="page-header"><h1>MATCHUP <span class="gold">CENTRAL</span></h1>'
             '<p>Weekly previews and recaps · %d</p></section>'
             '<div class="mx-wrap"><div class="mx-week-list">%s</div></div>' % (season, listing))
-    (OUT / "index.html").write_text(_page("Matchups", "Matchups", body))
+    (OUT / "index.html").write_text(_page("Matchups", "Matchups", body, page="matchups/index.html"))

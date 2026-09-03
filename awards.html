@@ -3,29 +3,26 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Awards — Players League</title>
-  <link rel="stylesheet" href="css/style.css?v=green-1">
-  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+<!-- HEAD:start -->
+<title>Awards — Players League</title>
+<meta name="description" content="Champions, records, and who wore the dress.">
+<meta property="og:title" content="Awards — Players League">
+<meta property="og:description" content="Champions, records, and who wore the dress.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="img/weekend/hero.jpg">
+<meta name="theme-color" content="#0e1117">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="preload" href="css/fonts/archivo-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="css/fonts/plex-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="css/style.css?v=3">
+<!-- HEAD:end -->
 </head>
-<body class="polish">
+<body>
 
   <!-- Navigation -->
-  <nav class="nav">
-    <div class="nav-inner">
-      <a href="home.html" class="nav-logo">PLAYERS LEAGUE<span class="sub">Fantasy Football · Est. 2022</span></a>
-      <div class="nav-toggle"><span></span><span></span><span></span></div>
-      <div class="nav-links">
-        <a href="weekend.html">Weekend</a>
-        <a href="home.html">Home</a>
-        <a href="teams.html">Teams</a>
-        <a href="awards.html" class="active">Awards</a>
-        <a href="history.html">History</a>
-        <a href="analytics.html">Analytics</a>
-        <a href="matchups/index.html">Matchups</a>
-        <a href="rankings.html">Rankings</a>
-      </div>
-    </div>
-  </nav>
+  <!-- NAV:start -->
+<nav class="nav" aria-label="Primary"><div class="nav-inner"><a href="home.html" class="nav-logo">Players League</a><button class="nav-toggle" type="button" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button><div class="nav-links"><a href="home.html">Home</a><a href="rankings.html">Rankings</a><a href="matchups/index.html">Matchups</a><a href="analytics.html">Analytics</a><a href="teams.html">Teams</a><a href="history.html">History</a><a href="awards.html" class="active" aria-current="page">Awards</a><a href="weekend.html">Weekend</a></div></div></nav>
+<!-- NAV:end -->
 
   <!-- Ticker Bar -->
   <div class="ticker-wrap">
@@ -170,16 +167,9 @@
   </section>
 
   <!-- Footer -->
-  <footer class="footer">
-    <p><span class="gold">PLAYERS LEAGUE</span> &mdash; Est. 2022</p>
-  </footer>
-
-  <script src="js/gate.js"></script>
-  <script>
-    document.querySelector('.nav-toggle')?.addEventListener('click', () => {
-      document.querySelector('.nav-links').classList.toggle('open');
-    });
-  </script>
-  <script src="js/polish.js"></script>
+  <!-- FOOTER:start -->
+<footer class="footer"><p><span class="gold">Players League</span> &middot; Est. 2022</p></footer>
+<!-- FOOTER:end -->
+  <script src="js/site.js"></script>
 </body>
 </html>

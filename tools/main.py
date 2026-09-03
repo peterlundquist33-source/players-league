@@ -234,7 +234,7 @@ def run_rankings(season, dry=False):
 
 if __name__ == "__main__":
     ap = argparse.ArgumentParser()
-    ap.add_argument("phase", choices=["auto", "preview", "recap", "rankings", "power",
+    ap.add_argument("phase", choices=["auto", "preview", "recap", "rankings", "power", "site",
                                       "facts", "records"],
                     nargs="?", default="auto")
     ap.add_argument("--season", type=int, default=2026)
@@ -246,6 +246,10 @@ if __name__ == "__main__":
         run_rankings(a.season, a.dry)
     elif a.phase == "power":
         run_power(a.season, a.week, a.dry)
+    elif a.phase == "site":
+        import chrome as SITE
+        for pg in SITE.stamp_all():
+            print("stamped", pg)
     elif a.phase == "facts":
         FA.update(a.season, force=a.force)
     elif a.phase == "records":

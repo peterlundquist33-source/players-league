@@ -3,11 +3,20 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Analytics — Players League</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
+<!-- HEAD:start -->
+<title>Analytics — Players League</title>
+<meta name="description" content="Expected wins, luck, schedule strength, schedule swaps and weekly scoring records.">
+<meta property="og:title" content="Analytics — Players League">
+<meta property="og:description" content="Expected wins, luck, schedule strength, schedule swaps and weekly scoring records.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="img/weekend/hero.jpg">
+<meta name="theme-color" content="#0e1117">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="preload" href="css/fonts/archivo-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="css/fonts/plex-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="css/style.css?v=3">
+<!-- HEAD:end -->
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css?v=green-1">
   <style>
     select#season-select {
       background:#1e2128; color:#f5f7fa; border:2px solid #2f333b;
@@ -18,27 +27,13 @@
     }
     select#season-select:hover, select#season-select:focus { border-color:#f5f7fa; outline:none; }
   </style>
-  <link rel="icon" type="image/svg+xml" href="favicon.svg">
 </head>
-<body class="polish">
+<body>
 
   <!-- Navigation -->
-  <nav class="nav">
-    <div class="nav-inner">
-      <a href="home.html" class="nav-logo">PLAYERS LEAGUE<span class="sub">Fantasy Football · Est. 2022</span></a>
-      <div class="nav-toggle"><span></span><span></span><span></span></div>
-      <div class="nav-links">
-        <a href="weekend.html">Weekend</a>
-        <a href="home.html">Home</a>
-        <a href="teams.html">Teams</a>
-        <a href="awards.html">Awards</a>
-        <a href="history.html">History</a>
-        <a href="analytics.html" class="active">Analytics</a>
-        <a href="matchups/index.html">Matchups</a>
-        <a href="rankings.html">Rankings</a>
-      </div>
-    </div>
-  </nav>
+  <!-- NAV:start -->
+<nav class="nav" aria-label="Primary"><div class="nav-inner"><a href="home.html" class="nav-logo">Players League</a><button class="nav-toggle" type="button" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button><div class="nav-links"><a href="home.html">Home</a><a href="rankings.html">Rankings</a><a href="matchups/index.html">Matchups</a><a href="analytics.html" class="active" aria-current="page">Analytics</a><a href="teams.html">Teams</a><a href="history.html">History</a><a href="awards.html">Awards</a><a href="weekend.html">Weekend</a></div></div></nav>
+<!-- NAV:end -->
 
   <!-- Page Header -->
   <section class="page-header">
@@ -283,16 +278,12 @@
   </section>
 
   <!-- Footer -->
-  <footer class="footer">
-    <p><span class="gold">PLAYERS LEAGUE</span> &mdash; Est. 2022 &mdash; Analytics based on 2025 regular season data &mdash; ⛺ Lake Weekend</p>
-  </footer>
+  <!-- FOOTER:start -->
+<footer class="footer"><p><span class="gold">Players League</span> &middot; Est. 2022</p></footer>
+<!-- FOOTER:end -->
 
   <script src="js/teams-data.js?v=20260729-espn-weekly-top10"></script>
-  <script src="js/gate.js?v=20260729-espn-weekly-top10"></script>
   <script>
-    document.querySelector('.nav-toggle')?.addEventListener('click', () => {
-      document.querySelector('.nav-links').classList.toggle('open');
-    });
 
     function switchTab(tab, btn) {
       document.querySelectorAll('.analytics-section').forEach(s => s.classList.remove('active'));
@@ -450,6 +441,6 @@
     // initial render
     renderSeason('2025');
   </script>
-  <script src="js/polish.js"></script>
+<script src="js/site.js"></script>
 </body>
 </html>
