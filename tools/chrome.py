@@ -113,7 +113,7 @@ def nav(active, depth=0):
     return (
         icons() +
         '<nav class="nav" aria-label="Primary"><div class="nav-inner">'
-        f'<a href="{up}home.html" class="nav-logo">Players League</a>'
+        f'<a href="{up}index.html" class="nav-logo">Players League</a>'
         '<button class="nav-toggle" type="button" aria-label="Menu" aria-expanded="false">'
         '<span></span><span></span><span></span></button>'
         f'<div class="nav-links">{"".join(links)}</div>'

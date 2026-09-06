@@ -14,6 +14,16 @@ import homepage as HP
 import analytics as AN
 import facts as FA
 import records as RC
+import opening as OP
+
+
+def _opening(season):
+    """Rebuild the root index.html board; never let it break a run."""
+    try:
+        OP.build(season)
+        print("rebuilt index.html")
+    except Exception as e:
+        print(f"opening page skipped: {e}")
 
 DATA = ROOT / "tools" / "data"
 
@@ -132,6 +142,7 @@ def run(phase_arg, season, week, dry, force=False):
 
     page = R.week_page(data, copies, intro)
     R.index_page(season)
+    _opening(season)
 
     if phase == "preview" and not dry:
         try:
@@ -201,6 +212,7 @@ def run_power(season, week=None, dry=False):
          "board": slim, "copies": copies, "intro": intro, "nudges": reasons},
         indent=2, default=str))
     print(f"wrote {page.relative_to(ROOT)}")
+    _opening(season)
     return page
 
 
@@ -229,6 +241,7 @@ def run_rankings(season, dry=False):
         {"generated": datetime.datetime.now().isoformat(timespec="seconds"),
          "mode": g["mode"], "grades": g, "copies": copies, "intro": intro}, indent=2, default=str))
     print(f"wrote {page.relative_to(ROOT)}")
+    _opening(season)
     return page
 
 
@@ -251,12 +264,13 @@ def run_render(season):
         d = json.loads(g.read_text())
         print("rendered", R.rankings_page(d["grades"], d["copies"], d["intro"],
                                           stamp=when(d)).relative_to(ROOT))
+    _opening(season)
 
 
 if __name__ == "__main__":
     ap = argparse.ArgumentParser()
     ap.add_argument("phase", choices=["auto", "preview", "recap", "rankings", "power", "site",
-                                      "facts", "records", "render"],
+                                      "facts", "records", "render", "opening"],
                     nargs="?", default="auto")
     ap.add_argument("--season", type=int, default=2026)
     ap.add_argument("--week", type=int, default=None)
@@ -277,5 +291,7 @@ if __name__ == "__main__":
         FA.update(a.season, force=a.force)
     elif a.phase == "records":
         RC.update(a.season)
+    elif a.phase == "opening":
+        _opening(a.season)
     else:
         run(a.phase, a.season, a.week, a.dry, a.force)
