@@ -28,6 +28,10 @@ Roughly 90% the actual matchup:
   options, depth), not just who happens to be slotted.
 - Where each team stands: record, scoring, all-play, recent form, power ranking.
 
+Do NOT state a projected final score for either team — you have not been given one.
+Talk in positional edges, depth, injuries, and the real NFL lines instead. You may
+still commit to the PICK margin below.
+
 The remaining ~10%: at most one line on the owners — a live rivalry or a track
 record. If nothing fits, skip it entirely and write more football.
 
@@ -268,9 +272,10 @@ def _matchup_facts(m, phase, ctx=None):
 
     if phase == "preview":
         ao, ho = a.get("optimal_proj", a["projected"]), h.get("optimal_proj", h["projected"])
-        lines.append(f'\nBest-lineup projection (from the full roster, since lineups may not '
-                     f'be locked): {A} ~{ao:.0f}, {H} ~{ho:.0f} '
-                     f'({A if ao >= ho else H} projects ahead by ~{abs(ao - ho):.0f}).')
+        stronger = A if ao >= ho else H
+        lines.append(f'\nOn the full-roster read (best available lineups), {stronger} is the '
+                     f'stronger side going in. Do NOT print a projected point total for '
+                     f'either team — you have not been given one; argue it through positions.')
         games = (ctx or {}).get("nfl") or {}
         lines.append(f'\n{A} — full roster by position (proj pts, best first):')
         lines += _roster_block(a, games)
@@ -736,13 +741,11 @@ def write_intro(league, week, phase):
         if phase != "preview":
             return (f'{a["owner"]} {a["actual"]} at {h["owner"]} {h["actual"]} — '
                     f'{m["winner"]} won by {m["margin"]}')
-        # spell out who is favored; given only two bare numbers the direction
-        # gets flipped about half the time
-        ap, hp = a["projected"], h["projected"]
-        fav, dog, gap = ((h["owner"], a["owner"], hp - ap) if hp >= ap
-                         else (a["owner"], h["owner"], ap - hp))
-        return (f'{a["owner"]} at {h["owner"]} — projected {a["owner"]} {ap}, '
-                f'{h["owner"]} {hp}. {fav} is FAVORED by {abs(gap):.1f} over {dog}.')
+        # spell out who is favored — direction only, no score projections.
+        # (given bare numbers alone the writer flips the direction ~half the time)
+        ap, hp = a.get("optimal_proj", a["projected"]), h.get("optimal_proj", h["projected"])
+        fav, dog = (h["owner"], a["owner"]) if hp >= ap else (a["owner"], h["owner"])
+        return f'{a["owner"]} at {h["owner"]} — {fav} is favored over {dog}.'
 
     board = "\n".join(_line(m) for m in league["matchups"])
     stakes = ""
@@ -757,9 +760,11 @@ def write_intro(league, week, phase):
         "\n\nWrite a 2-3 sentence intro for the week's matchup page. Analysis first, dry "
         "wit second. It's about THIS WEEK: the closest game on the slate, the biggest "
         "mismatch, and what's at stake in the standings if it's not Week 1. Lead with "
-        "the numbers and let at most one line be funny. No league "
+        "the football and let at most one line be funny. No league "
         "history, no 'since 2022', no championship-count throat-clearing. "
         "Get the direction right: the board tells you who is FAVORED in each game — "
-        "never say the underdog is winning by the margin. Plain prose, no headline, "
-        "no markdown.")
+        "never say the underdog is winning. Do NOT talk about 'the projections' or "
+        "give a predicted score for anyone — frame the close game and the mismatch "
+        "through rosters, positions, injuries and the real NFL lines. Plain prose, "
+        "no headline, no markdown.")
     return claude(sys, user, max_tokens=300).strip()

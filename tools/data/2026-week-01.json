@@ -1,5 +1,5 @@
 {
-  "generated": "2026-09-03T13:17:57",
+  "generated": "2026-09-06T13:19:02",
   "phase": "preview",
   "data": {
     "season": 2026,
@@ -164,7 +164,7 @@
               "pro": "CHI",
               "proj": 12.3,
               "actual": 0.0,
-              "injury": "",
+              "injury": "QUESTIONABLE",
               "started": true
             },
             {
@@ -256,7 +256,7 @@
               "pro": "CHI",
               "proj": 12.3,
               "actual": 0.0,
-              "injury": "",
+              "injury": "QUESTIONABLE",
               "started": true
             },
             {
@@ -360,11 +360,11 @@
               "started": false
             },
             {
-              "name": "Jonah Coleman",
+              "name": "Dontayvion Wicks",
               "slot": "BE",
-              "pos": "RB",
-              "pro": "DEN",
-              "proj": 4.1,
+              "pos": "WR",
+              "pro": "PHI",
+              "proj": 7.3,
               "actual": 0.0,
               "injury": "",
               "started": false
@@ -1372,7 +1372,7 @@
               "pro": "IND",
               "proj": 9.7,
               "actual": 0.0,
-              "injury": "QUESTIONABLE",
+              "injury": "",
               "started": false
             },
             {
@@ -1436,16 +1436,6 @@
               "started": true
             },
             {
-              "name": "Ja'Kobi Lane",
-              "slot": "BE",
-              "pos": "WR",
-              "pro": "BAL",
-              "proj": 6.5,
-              "actual": 0.0,
-              "injury": "",
-              "started": false
-            },
-            {
               "name": "MarShawn Lloyd",
               "slot": "FLEX",
               "pos": "RB",
@@ -1454,6 +1444,16 @@
               "actual": 0.0,
               "injury": "",
               "started": true
+            },
+            {
+              "name": "Devaughn Vele",
+              "slot": "BE",
+              "pos": "WR",
+              "pro": "NO",
+              "proj": 9.3,
+              "actual": 0.0,
+              "injury": "",
+              "started": false
             }
           ]
         },
@@ -2047,7 +2047,7 @@
               "pro": "CHI",
               "proj": 12.4,
               "actual": 0.0,
-              "injury": "",
+              "injury": "QUESTIONABLE",
               "started": true
             },
             {
@@ -2139,7 +2139,7 @@
               "pro": "CHI",
               "proj": 12.4,
               "actual": 0.0,
-              "injury": "",
+              "injury": "QUESTIONABLE",
               "started": true
             },
             {
@@ -2291,7 +2291,7 @@
             },
             {
               "name": "George Pickens",
-              "slot": "WR",
+              "slot": "FLEX",
               "pos": "WR",
               "pro": "DAL",
               "proj": 14.7,
@@ -2301,7 +2301,7 @@
             },
             {
               "name": "Tee Higgins",
-              "slot": "FLEX",
+              "slot": "WR",
               "pos": "WR",
               "pro": "CIN",
               "proj": 13.0,
@@ -2383,7 +2383,7 @@
             },
             {
               "name": "George Pickens",
-              "slot": "WR",
+              "slot": "FLEX",
               "pos": "WR",
               "pro": "DAL",
               "proj": 14.7,
@@ -2393,7 +2393,7 @@
             },
             {
               "name": "Tee Higgins",
-              "slot": "FLEX",
+              "slot": "WR",
               "pos": "WR",
               "pro": "CIN",
               "proj": 13.0,
@@ -3338,53 +3338,53 @@
   },
   "copies": [
     {
-      "headline": "John's Tight Ends Outgun Noah's Backfield",
-      "body": "The gap here is at tight end and the top of the receiver room. John can start Brock Bowers (16) and still leave Trey McBride (14) on his bench, while Noah's best tight end is rookie Colston Loveland at 12 with Brenton Strange behind him. Add Puka Nacua's 21 in a Rams-Niners game with a 48.5 total \u2014 the highest on the board \u2014 and John's ceiling is simply higher. Noah's counterpunch is real but narrow: De'Von Achane (18) and James Cook (15) give him a seven-point edge at running back, except Achane's Dolphins are 3.5-point dogs in a 40.5-point game, the ugliest environment on the slate.\nThe swing factor is Nacua's questionable tag, and it's the whole game. Without him John's receiver group thins to Quentin Johnston and Brian Thomas Jr. Noah's wideouts aren't much better \u2014 Mike Evans and Josh Downs are both dinged, and Garrett Wilson sits in a 38.5-total game. John's the worse team on paper at #11; this week the matchups don't care.",
+      "headline": "Noah's Backfield Can't Cover John's Tight Ends",
+      "body": "The margin lives at tight end and the third receiver. John gets Brock Bowers (16) and Trey McBride (14) \u2014 two starting-caliber options where Noah has Colston Loveland (12) and Brenton Strange (8). McBride's Cardinals are 10.5-point road dogs at the Chargers with a 46.5 total, which is the exact script that turns a tight end into a target hog. Puka Nacua at 21 is questionable but plays in the week's biggest game, Rams-Niners at 48.5, and Matthew Stafford throws in it too. That's a stacked correlation Noah can't answer.\nNoah's edge is the backfield, De'Von Achane (18) and James Cook III (15) for a seven-point cushion, but Achane's game is a 40.5-point plod in Vegas with Miami getting points. Mike Evans and Josh Downs both carry tags, and behind them it's Michael Wilson at 10. John's #11 power ranking is a preseason artifact; this roster is deeper than it reads.",
       "pick": {
         "owner": "John",
-        "margin": 8
-      }
-    },
-    {
-      "headline": "Isaac's Receiver Room Is One Big Injury Report",
-      "body": "The projections say a one-point game, which is the fantasy equivalent of a coin flip, but the tags break the tie. Isaac's top three receivers \u2014 Ja'Marr Chase, Malik Nabers, DK Metcalf \u2014 are all questionable, as are Wan'Dale Robinson and Jakobi Meyers, so his one clear positional edge (46 to 41 on the best three) is also the one most likely to evaporate by Sunday morning. Terry McLaurin and Adonai Mitchell are the safety net, and that's not a net. Chase in a 50.5-point game against Tampa is the ceiling; without him, Isaac is starting a WR3 he didn't plan on.\nKaleb's advantages are structural. Justin Herbert as a 10.5-point home favorite is the steadiest QB here \u2014 Bo Nix travels to Kansas City in a 42.5-point game with the lowest total on the slate. Ashton Jeanty and Breece Hall carry their own tags, but RB is the deeper room, Harold Fannin beats Hockenson, and Kaleb needs less to go right.",
-      "pick": {
-        "owner": "Kaleb",
         "margin": 11
       }
     },
     {
-      "headline": "Two Bad Rosters, One Reluctant Winner",
-      "body": "This is the 9-versus-10 game and it looks like it, with a two-point projection gap decided almost entirely at receiver. Grant's top three (Amon-Ra St. Brown 19, Zay Flowers 14, Jaylen Waddle 12) beat CJ's by six, and St. Brown gets the best environment on the slate \u2014 Detroit favored by seven with a 49.5 total, New Orleans throwing from behind all afternoon. CJ counters with Joe Burrow (18) in a 50.5-point game against Tampa, the highest total on the board, which is the cleanest edge either team has. Running backs are a dead heat: Omarion Hampton (18) against Arizona as a 10.5-point favorite versus Jonathan Taylor (18) as a home underdog.\nCJ's problem is the questionable tags stacked behind everything. Emeka Egbuka, Alec Pierce, Chuba Hubbard and TreVeyon Henderson are all uncertain, with Pacheco on IR and Charbonnet out, so the RB depth is theoretical. If Egbuka and Pierce both sit, Parker Washington and Ja'Kobi Lane are starting, and that's a 20-point receiver room. Grant has Flowers questionable too but Christian Watson and Chris Godwin behind him. Burrow's ceiling keeps this close; Grant's floor wins it.",
+      "headline": "Isaac's Injury Report Is Longer Than His Bench",
+      "body": "Isaac's whole case is the receiver room, and it comes with five question marks. Ja'Marr Chase in a 50.5-total game against Tampa is the single best asset on either roster, and Malik Nabers gets a 48.5 total with the Giants catching points, which usually means late volume. But if Chase and Nabers both sit, the WR3 slot falls to Adonai Mitchell and the +5 edge evaporates instantly. Behind Bo Nix in Kansas City \u2014 a 42.5 total, the lowest number on the board for either team \u2014 sits Malik Willis. That is not a backup plan, that is a hostage situation.\nKaleb wins the other three spots and does it with cleaner games. Justin Herbert as a 10.5-point favorite with Ladd McConkey, plus Drake London chasing in Pittsburgh, plus Harold Fannin at tight end where Isaac has two nine-point guys. Jeanty and Hall carry tags too, but RJ Harvey exists and Isaac's ceiling is entirely contingent on inactive lists. Twelfth-ranked roster, thinnest margin for error.",
+      "pick": {
+        "owner": "Kaleb",
+        "margin": 14
+      }
+    },
+    {
+      "headline": "CJ's Receiver Room Is A Waiting Room",
+      "body": "Grant wins this at wide receiver or not at all. Amon-Ra St. Brown gets New Orleans in a 49.5-total game Detroit is favored to control, and even with Zay Flowers questionable, Grant can slide Jaylen Waddle or Christian Watson in without much bleeding \u2014 45 from his top three against CJ's 39. CJ's problem is that his best three includes Emeka Egbuka with a tag and Parker Washington, and if Egbuka sits he's starting Alec Pierce as a WR2 in a game Indianapolis is getting 3.5 in. That's a real hole, not a rounding error.\nRunning back is dead even on paper, but CJ's depth chart is a hospital ward \u2014 Pacheco on IR, Charbonnet out, Hubbard and Henderson both questionable \u2014 so Jonathan Taylor and Quinshon Judkins carry it alone. Joe Burrow in a 50.5 shootout with Tampa is the one clean CJ edge, worth two points over Kyler Murray. Not enough to cover the receiver gap.",
       "pick": {
         "owner": "Grant",
-        "margin": 8
+        "margin": 9
       }
     },
     {
-      "headline": "Logan's Eagles Stack Outruns Adam's Depth",
-      "body": "The math is simple and it lives in Philadelphia. Logan runs Jalen Hurts (21) and Saquon Barkley (18) out of the same 45.5-total game where the Eagles are favored by 5.5 \u2014 the exact script where Hurts vultures a goal-line score and Barkley closes it out on the ground. Adam counters with Jayden Daniels (17) on the losing end of that same game, which at least means garbage-time volume, but he's giving up four at quarterback and five at running back with Kenneth Walker III stuck in a 42.5-total slog against Denver. Rico Dowdle and Bucky Irving at 12 apiece is fine depth, not a fix.\nAdam's edge is receiver, and it's only two points: Jaxon Smith-Njigba, Chris Olave chasing a 49.5 in Detroit as a seven-point dog, Rome Odunze. Sam LaPorta questionable at tight end is the real crack \u2014 Mark Andrews at 10 softens it. Logan has five questionable receivers, which sounds worse than it is when four of them are interchangeable.",
+      "headline": "Logan's Eagles Stack Outguns Adam's Depth",
+      "body": "The math is simple and it isn't kind to Adam: Logan is up four at quarterback with Jalen Hurts and five at running back with Saquon Barkley, and both of those points come from the same game Adam's Jayden Daniels is stuck chasing in. Philadelphia laying 5.5 with a 44.5 total is the profile where the favorite grinds, Barkley eats fourth-quarter carries and Hurts vultures at the goal line. Daniels will throw plenty and probably run for a score, but 17 against a stacked 39 is a hole. Adam's counterpunch is receiver, where Jaxon Smith-Njigba, Chris Olave in a 49.5-total game in Detroit and Rome Odunze give him a two-point edge, plus Sam LaPorta or Mark Andrews at tight end.\nThat's four points of surplus against nine of deficit, and Adam's questionable tags sit on the wrong guys. Logan's injury notes barely matter with Xavier Worthy and Rashid Shaheed behind them; Adam's tight end room is a coin flip between two banged-up names. Kenneth Walker in a 42.5-total Kansas City game is the thin backfield floor Logan doesn't have. Power ranking says Adam is the better team over sixteen weeks. This week, the roster read says otherwise.",
       "pick": {
         "owner": "Logan",
-        "margin": 8
+        "margin": 9
       }
     },
     {
-      "headline": "Peter's Tight End Depth Is One Guy",
-      "body": "Three points separate the #2 and #3 power rankings, and the tiebreaker is health. Christian's edge is receiver volume: CeeDee Lamb in a 48.5-total game the Cowboys are barely favored in, DeVonta Smith against Washington, and Jameson Williams as the third option in a Lions game with a 49.5 total. Peter counters with George Pickens (same Dallas game, so he's stacking that shootout) and A.J. Brown, but Tee Higgins is questionable and the Bengals-Bucs 50.5 is the fattest total on the board \u2014 if Higgins sits, Peter's WR3 falls to Denzel Boston at 8.\nPeter wins quarterback with Lamar Jackson, who has Indianapolis and a 48.5 total, and Bijan Robinson gets chase-mode volume as a 3.5-point dog in Pittsburgh. But Tucker Kraft is Peter's only tight end and he's tagged; Christian at least has Chig Okonkwo behind a questionable George Kittle. Christian's running back room also survives a Bhayshul Tuten scratch \u2014 Chase Brown, Travis Etienne and Aaron Jones is four deep. Peter's ceiling is higher. His floor is a hole.",
+      "headline": "Peter's Depth Is A Rumor, Not A Roster",
+      "body": "The top lines are nearly identical \u2014 31 to 31 at running back, 44 to 42 across three receivers, Lamar Jackson buying Peter two points over Trevor Lawrence in a Ravens-Colts game with a 48.5 total. So this comes down to who survives Sunday morning. Christian has Chase Brown and Travis Etienne locked into a 40.5-total Jaguars grinder and a 49.5 Saints shootout where New Orleans is chasing seven points and throwing to Etienne late. CeeDee Lamb and DeVonta Smith are both playing in games their teams are favored to control. Kittle's questionable, but Chig Okonkwo is a real fallback.\nPeter's problem is everything behind Bijan Robinson and George Pickens. Tucker Kraft is his only tight end and he's tagged. Tee Higgins is questionable in the week's best game (50.5 total), and Jalen Nailor at 8 is what replaces him. Brooks and Monangai are both dinged. That's five question marks on a roster with no answers underneath them.",
       "pick": {
         "owner": "Christian",
-        "margin": 6
+        "margin": 11
       }
     },
     {
-      "headline": "One Point Apart, Two Injury Reports Deep",
-      "body": "Leif projects ahead by a single point, which means this comes down to whose questionable tags clear. Christian McCaffrey (18) in a 48.5-total game at the Rams is the swing on both ends \u2014 if he sits, Derrick Henry (16), David Montgomery (13) and Woody Marks fill in fine, but Leif's 35-point running back edge evaporates fast. Josh Allen at Houston in a 44.5 total is the low-ceiling version of a great quarterback, and Mitchell's Jaxson Dart is a 2.5-point home underdog against Dallas in a 48.5 \u2014 that's a lot of fourth-quarter throwing for an 18-point projection.\nMitchell's advantage is receiver, and it's real: Nico Collins, Courtland Sutton and DJ Moore for 39 against Leif's 36, with Marvin Harrison Jr. and Jayden Reed both volatile. But Mitchell's backfield behind Jahmyr Gibbs is rubble \u2014 Rachaad White questionable, Josh Jacobs day-to-day, Kaleb Johnson projecting one point. Gibbs against New Orleans keeps him alive; a Detroit blowout where Detroit sits on it doesn't.",
+      "headline": "Leif's Backfield Outweighs Mitchell's Lunchbox",
+      "body": "The margin lives at running back, where Leif can start Derrick Henry against a Colts team getting 3.5 in a 48.5-total game and David Montgomery as a fallback if Christian McCaffrey's questionable tag turns ugly. Mitchell has Jahmyr Gibbs, who is the single best player in this game with Detroit favored by seven, and then a cliff: Rachaad White is questionable, Josh Jacobs is day-to-day, Kaleb Johnson projects for a point. One bad Sunday inactive report and Mitchell is starting Chris Brooks.\nReceiver is Mitchell's actual edge \u2014 Nico Collins, Courtland Sutton and DJ Moore beat Leif's top three by three, and Tyler Warren adds a couple at tight end. But that assumes Warren plays. Josh Allen in a 44.5 game against Houston is a steadier floor than Jaxson Dart chasing Dallas, even if Dart's game script is the more entertaining one. Leif's depth wins a close one.",
       "pick": {
         "owner": "Leif",
-        "margin": 6
+        "margin": 9
       }
     }
   ],
-  "intro": "Leif over Mitchell by 0.7 is the closest line on the board, with Kaleb-Isaac (1.4) not far behind \u2014 four of the six games project inside three points, which is another way of saying nobody's roster has separated from anybody else's yet. The exception is John, favored by 8.8 over Noah, the widest gap of the week and the only matchup where the projections have picked a side with any conviction. Nothing's at stake in the standings, which means every one of these is purely about who has to hear about it until Sunday."
+  "intro": "Christian at Peter is the one worth watching all afternoon \u2014 two rosters built the same way, running back depth over receiver ceiling, and neither side has a starter with a real injury designation, which means it comes down to whichever backfield the coaching staff decides to split three ways. Leif at Mitchell is the opposite kind of game: Leif fields a top-end quarterback and two receivers attached to offenses favored by a touchdown or more, while Mitchell is leaning on a tight end room and a defense that has to travel. Kaleb, Grant, John and Logan are all favored in games that look like they'll be decided by Sunday night, which is a polite way of saying the Monday game probably won't matter to anyone."
 }

@@ -31,10 +31,10 @@ def _page(title, active, body, depth=1, page=None):
 def _matchup_card(m, copy, phase):
     h, a = m["home"], m["away"]
     if phase == "preview":
-        a_pts, h_pts = f'{a["projected"]:.1f}', f'{h["projected"]:.1f}'
+        # no per-team score projections on previews — just the matchup
+        a_pts = h_pts = ""
         a_win = h_win = False
-        a_sub = f'{a["record"]} · proj'
-        h_sub = f'{h["record"]} · proj'
+        a_sub, h_sub = a["record"], h["record"]
     else:
         a_pts, h_pts = f'{a["actual"]:.1f}', f'{h["actual"]:.1f}'
         a_win = a["actual"] > h["actual"]
@@ -54,18 +54,20 @@ def _matchup_card(m, copy, phase):
                      "nailed it" if hit else "wrong"))
     a_cls = " win" if a_win else ""
     h_cls = " win" if h_win else ""
-    mid = "vs" if phase == "preview" else "—"
+    if phase == "preview":
+        mid_inner = '<div class="mx-vs">vs</div>'
+    else:
+        mid_inner = ('<div class="mx-pts{a_cls}">{a_pts}</div>'
+                     '<div class="mx-vs">&mdash;</div>'
+                     '<div class="mx-pts{h_cls}">{h_pts}</div>').format(
+            a_cls=a_cls, h_cls=h_cls, a_pts=a_pts, h_pts=h_pts)
     return '''<article class="mx-card">
   <div class="mx-score">
     <div class="mx-team away">
       <span class="mx-owner">{a_owner}</span>
       <span class="mx-sub">{a_team} · {a_sub}</span>
     </div>
-    <div class="mx-mid">
-      <div class="mx-pts{a_cls}">{a_pts}</div>
-      <div class="mx-vs">{mid}</div>
-      <div class="mx-pts{h_cls}">{h_pts}</div>
-    </div>
+    <div class="mx-mid">{mid_inner}</div>
     <div class="mx-team">
       <span class="mx-owner">{h_owner}</span>
       <span class="mx-sub">{h_team} · {h_sub}</span>
@@ -78,7 +80,7 @@ def _matchup_card(m, copy, phase):
 </article>'''.format(
         a_owner=html.escape(a["owner"]), a_team=html.escape(a["team"]), a_sub=a_sub,
         h_owner=html.escape(h["owner"]), h_team=html.escape(h["team"]), h_sub=h_sub,
-        a_cls=a_cls, h_cls=h_cls, a_pts=a_pts, h_pts=h_pts, mid=mid,
+        mid_inner=mid_inner,
         head=html.escape(copy["headline"]), paras=paras)
 
 
