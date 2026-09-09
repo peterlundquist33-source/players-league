@@ -42,6 +42,8 @@ SECTIONS = [
      "The superlatives — the good and the cursed. The Dress lives here"),
     ("09", "Weekend",         "weekend.html",
      "The trip. The countdown is running — next up, August 2027"),
+    ("10", "Podcast",         "podcast.html",
+     "The whole league previewed on video — Week 1 is up now"),
 ]
 DEFAULT_LIT = "03"
 

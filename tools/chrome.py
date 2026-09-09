@@ -25,6 +25,7 @@ NAV = [
     ("history.html", "History"),
     ("awards.html", "Awards"),
     ("weekend.html", "Weekend"),
+    ("podcast.html", "Podcast"),
 ]
 
 # per-page title + meta description. Pages not listed keep their own <title>.
@@ -47,6 +48,8 @@ PAGES = {
                     "Champions, records, and who wore the dress."),
     "weekend.html": ("Players Weekend — Players League",
                      "The lake weekend: countdown, itinerary and the live draft."),
+    "podcast.html": ("Podcast — Players League",
+                     "The Players League podcast — the whole league previewed on video."),
 }
 DEFAULT_DESC = "Players League — a 12-team fantasy football league, est. 2022."
 OG_IMAGE = "img/weekend/hero.jpg"
@@ -194,7 +197,7 @@ def stamp(path):
 
 STATIC = ["home.html", "teams.html", "awards.html", "history.html",
           "analytics.html", "weekend.html", "rankings.html", "draft-grades.html",
-          "matchups/index.html"]
+          "matchups/index.html", "podcast.html"]
 
 
 def stamp_all(extra=()):
