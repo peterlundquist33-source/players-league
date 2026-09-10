@@ -1,5 +1,5 @@
 {
-  "generated": "2026-09-06T13:19:02",
+  "generated": "2026-09-10T13:17:36",
   "phase": "preview",
   "data": {
     "season": 2026,
@@ -114,35 +114,25 @@
           "owner_full": "John Lundquist",
           "record": "0-0",
           "actual": 0.0,
-          "projected": 122.0,
-          "optimal_proj": 122.4,
+          "projected": 115.6,
+          "optimal_proj": 116.7,
           "starters": [
             {
               "name": "Puka Nacua",
               "slot": "WR",
               "pos": "WR",
               "pro": "LAR",
-              "proj": 21.1,
-              "actual": 0.0,
-              "injury": "QUESTIONABLE",
-              "started": true
-            },
-            {
-              "name": "Brock Bowers",
-              "slot": "TE",
-              "pos": "TE",
-              "pro": "LV",
-              "proj": 15.6,
+              "proj": 21.0,
               "actual": 0.0,
               "injury": "",
               "started": true
             },
             {
               "name": "Trey McBride",
-              "slot": "FLEX",
+              "slot": "TE",
               "pos": "TE",
               "pro": "ARI",
-              "proj": 14.4,
+              "proj": 14.3,
               "actual": 0.0,
               "injury": "",
               "started": true
@@ -164,12 +154,12 @@
               "pro": "CHI",
               "proj": 12.3,
               "actual": 0.0,
-              "injury": "QUESTIONABLE",
+              "injury": "",
               "started": true
             },
             {
               "name": "Brian Thomas Jr.",
-              "slot": "WR",
+              "slot": "FLEX",
               "pos": "WR",
               "pro": "JAX",
               "proj": 10.1,
@@ -178,11 +168,21 @@
               "started": true
             },
             {
-              "name": "Matthew Stafford",
+              "name": "Caleb Williams",
               "slot": "QB",
               "pos": "QB",
-              "pro": "LAR",
-              "proj": 17.5,
+              "pro": "CHI",
+              "proj": 16.3,
+              "actual": 0.0,
+              "injury": "",
+              "started": true
+            },
+            {
+              "name": "Quentin Johnston",
+              "slot": "WR",
+              "pos": "WR",
+              "pro": "LAC",
+              "proj": 10.4,
               "actual": 0.0,
               "injury": "",
               "started": true
@@ -214,27 +214,27 @@
               "slot": "WR",
               "pos": "WR",
               "pro": "LAR",
-              "proj": 21.1,
-              "actual": 0.0,
-              "injury": "QUESTIONABLE",
-              "started": true
-            },
-            {
-              "name": "Brock Bowers",
-              "slot": "TE",
-              "pos": "TE",
-              "pro": "LV",
-              "proj": 15.6,
+              "proj": 21.0,
               "actual": 0.0,
               "injury": "",
               "started": true
             },
             {
+              "name": "Brock Bowers",
+              "slot": "BE",
+              "pos": "TE",
+              "pro": "LV",
+              "proj": 0.0,
+              "actual": 0.0,
+              "injury": "DOUBTFUL",
+              "started": false
+            },
+            {
               "name": "Trey McBride",
-              "slot": "FLEX",
+              "slot": "TE",
               "pos": "TE",
               "pro": "ARI",
-              "proj": 14.4,
+              "proj": 14.3,
               "actual": 0.0,
               "injury": "",
               "started": true
@@ -256,12 +256,12 @@
               "pro": "CHI",
               "proj": 12.3,
               "actual": 0.0,
-              "injury": "QUESTIONABLE",
+              "injury": "",
               "started": true
             },
             {
               "name": "Brian Thomas Jr.",
-              "slot": "WR",
+              "slot": "FLEX",
               "pos": "WR",
               "pro": "JAX",
               "proj": 10.1,
@@ -271,23 +271,23 @@
             },
             {
               "name": "Caleb Williams",
-              "slot": "BE",
+              "slot": "QB",
               "pos": "QB",
               "pro": "CHI",
               "proj": 16.3,
               "actual": 0.0,
               "injury": "",
-              "started": false
+              "started": true
             },
             {
               "name": "Quentin Johnston",
-              "slot": "BE",
+              "slot": "WR",
               "pos": "WR",
               "pro": "LAC",
               "proj": 10.4,
               "actual": 0.0,
               "injury": "",
-              "started": false
+              "started": true
             },
             {
               "name": "Blake Corum",
@@ -321,13 +321,13 @@
             },
             {
               "name": "Matthew Stafford",
-              "slot": "QB",
+              "slot": "BE",
               "pos": "QB",
               "pro": "LAR",
               "proj": 17.5,
               "actual": 0.0,
               "injury": "",
-              "started": true
+              "started": false
             },
             {
               "name": "Cam Little",
@@ -378,15 +378,15 @@
           "owner_full": "Noah Thesing",
           "record": "0-0",
           "actual": 0.0,
-          "projected": 113.2,
-          "optimal_proj": 113.1,
+          "projected": 111.8,
+          "optimal_proj": 117.8,
           "starters": [
             {
               "name": "James Cook III",
               "slot": "RB",
               "pos": "RB",
               "pro": "BUF",
-              "proj": 14.9,
+              "proj": 15.9,
               "actual": 0.0,
               "injury": "",
               "started": true
@@ -426,8 +426,8 @@
               "slot": "QB",
               "pos": "QB",
               "pro": "NE",
-              "proj": 16.2,
-              "actual": 0.0,
+              "proj": 16.3,
+              "actual": 9.8,
               "injury": "",
               "started": true
             },
@@ -436,9 +436,9 @@
               "slot": "WR",
               "pos": "WR",
               "pro": "SF",
-              "proj": 10.6,
+              "proj": 10.7,
               "actual": 0.0,
-              "injury": "QUESTIONABLE",
+              "injury": "",
               "started": true
             },
             {
@@ -446,8 +446,8 @@
               "slot": "FLEX",
               "pos": "RB",
               "pro": "NE",
-              "proj": 10.5,
-              "actual": 0.0,
+              "proj": 14.0,
+              "actual": 14.5,
               "injury": "",
               "started": true
             },
@@ -478,7 +478,7 @@
               "slot": "RB",
               "pos": "RB",
               "pro": "BUF",
-              "proj": 14.9,
+              "proj": 15.9,
               "actual": 0.0,
               "injury": "",
               "started": true
@@ -518,8 +518,8 @@
               "slot": "QB",
               "pos": "QB",
               "pro": "NE",
-              "proj": 16.2,
-              "actual": 0.0,
+              "proj": 16.3,
+              "actual": 9.8,
               "injury": "",
               "started": true
             },
@@ -528,9 +528,9 @@
               "slot": "WR",
               "pos": "WR",
               "pro": "SF",
-              "proj": 10.6,
+              "proj": 10.7,
               "actual": 0.0,
-              "injury": "QUESTIONABLE",
+              "injury": "",
               "started": true
             },
             {
@@ -538,8 +538,8 @@
               "slot": "FLEX",
               "pos": "RB",
               "pro": "NE",
-              "proj": 10.5,
-              "actual": 0.0,
+              "proj": 14.0,
+              "actual": 14.5,
               "injury": "",
               "started": true
             },
@@ -550,7 +550,7 @@
               "pro": "IND",
               "proj": 9.1,
               "actual": 0.0,
-              "injury": "QUESTIONABLE",
+              "injury": "",
               "started": false
             },
             {
@@ -608,7 +608,7 @@
               "slot": "BE",
               "pos": "RB",
               "pro": "BUF",
-              "proj": 2.1,
+              "proj": 5.1,
               "actual": 0.0,
               "injury": "",
               "started": false
@@ -629,7 +629,7 @@
               "pos": "D/ST",
               "pro": "NE",
               "proj": 4.7,
-              "actual": 0.0,
+              "actual": 7.0,
               "injury": "",
               "started": false
             },
@@ -657,17 +657,17 @@
           "owner_full": "Kaleb Nelson",
           "record": "0-0",
           "actual": 0.0,
-          "projected": 118.5,
-          "optimal_proj": 118.6,
+          "projected": 119.0,
+          "optimal_proj": 119.0,
           "starters": [
             {
               "name": "Ashton Jeanty",
               "slot": "RB",
               "pos": "RB",
               "pro": "LV",
-              "proj": 18.1,
+              "proj": 18.3,
               "actual": 0.0,
-              "injury": "QUESTIONABLE",
+              "injury": "",
               "started": true
             },
             {
@@ -687,7 +687,7 @@
               "pro": "NYJ",
               "proj": 16.5,
               "actual": 0.0,
-              "injury": "QUESTIONABLE",
+              "injury": "",
               "started": true
             },
             {
@@ -695,7 +695,7 @@
               "slot": "WR",
               "pos": "WR",
               "pro": "LAC",
-              "proj": 13.8,
+              "proj": 13.7,
               "actual": 0.0,
               "injury": "",
               "started": true
@@ -707,7 +707,7 @@
               "pro": "TEN",
               "proj": 12.0,
               "actual": 0.0,
-              "injury": "QUESTIONABLE",
+              "injury": "",
               "started": true
             },
             {
@@ -735,7 +735,7 @@
               "slot": "D/ST",
               "pos": "D/ST",
               "pro": "MIN",
-              "proj": 4.1,
+              "proj": 4.4,
               "actual": 0.0,
               "injury": "",
               "started": true
@@ -757,9 +757,9 @@
               "slot": "RB",
               "pos": "RB",
               "pro": "LV",
-              "proj": 18.1,
+              "proj": 18.3,
               "actual": 0.0,
-              "injury": "QUESTIONABLE",
+              "injury": "",
               "started": true
             },
             {
@@ -779,7 +779,7 @@
               "pro": "NYJ",
               "proj": 16.5,
               "actual": 0.0,
-              "injury": "QUESTIONABLE",
+              "injury": "",
               "started": true
             },
             {
@@ -787,7 +787,7 @@
               "slot": "WR",
               "pos": "WR",
               "pro": "LAC",
-              "proj": 13.8,
+              "proj": 13.7,
               "actual": 0.0,
               "injury": "",
               "started": true
@@ -799,7 +799,7 @@
               "pro": "TEN",
               "proj": 12.0,
               "actual": 0.0,
-              "injury": "QUESTIONABLE",
+              "injury": "",
               "started": true
             },
             {
@@ -859,7 +859,7 @@
               "pro": "NYJ",
               "proj": 5.1,
               "actual": 0.0,
-              "injury": "QUESTIONABLE",
+              "injury": "",
               "started": false
             },
             {
@@ -877,7 +877,7 @@
               "slot": "D/ST",
               "pos": "D/ST",
               "pro": "MIN",
-              "proj": 4.1,
+              "proj": 4.4,
               "actual": 0.0,
               "injury": "",
               "started": true
@@ -897,7 +897,7 @@
               "slot": "BE",
               "pos": "WR",
               "pro": "LV",
-              "proj": 9.1,
+              "proj": 10.0,
               "actual": 0.0,
               "injury": "",
               "started": false
@@ -931,7 +931,7 @@
               "pro": "CIN",
               "proj": 19.9,
               "actual": 0.0,
-              "injury": "QUESTIONABLE",
+              "injury": "",
               "started": true
             },
             {
@@ -1023,7 +1023,7 @@
               "pro": "CIN",
               "proj": 19.9,
               "actual": 0.0,
-              "injury": "QUESTIONABLE",
+              "injury": "",
               "started": true
             },
             {
@@ -1073,7 +1073,7 @@
               "pro": "PIT",
               "proj": 12.2,
               "actual": 0.0,
-              "injury": "QUESTIONABLE",
+              "injury": "",
               "started": false
             },
             {
@@ -1093,7 +1093,7 @@
               "pro": "TEN",
               "proj": 10.4,
               "actual": 0.0,
-              "injury": "QUESTIONABLE",
+              "injury": "",
               "started": false
             },
             {
@@ -1190,8 +1190,8 @@
           "owner_full": "Cj Woda",
           "record": "0-0",
           "actual": 0.0,
-          "projected": 117.8,
-          "optimal_proj": 118.0,
+          "projected": 117.6,
+          "optimal_proj": 117.7,
           "starters": [
             {
               "name": "Jonathan Taylor",
@@ -1230,7 +1230,7 @@
               "pro": "TB",
               "proj": 14.0,
               "actual": 0.0,
-              "injury": "QUESTIONABLE",
+              "injury": "",
               "started": true
             },
             {
@@ -1278,7 +1278,7 @@
               "slot": "FLEX",
               "pos": "RB",
               "pro": "GB",
-              "proj": 12.9,
+              "proj": 12.6,
               "actual": 0.0,
               "injury": "",
               "started": true
@@ -1322,7 +1322,7 @@
               "pro": "TB",
               "proj": 14.0,
               "actual": 0.0,
-              "injury": "QUESTIONABLE",
+              "injury": "",
               "started": true
             },
             {
@@ -1330,9 +1330,9 @@
               "slot": "BE",
               "pos": "RB",
               "pro": "NE",
-              "proj": 10.1,
+              "proj": 0.0,
               "actual": 0.0,
-              "injury": "QUESTIONABLE",
+              "injury": "OUT",
               "started": false
             },
             {
@@ -1350,7 +1350,7 @@
               "slot": "BE",
               "pos": "WR",
               "pro": "JAX",
-              "proj": 10.8,
+              "proj": 11.3,
               "actual": 0.0,
               "injury": "",
               "started": false
@@ -1360,9 +1360,9 @@
               "slot": "BE",
               "pos": "RB",
               "pro": "CAR",
-              "proj": 11.5,
+              "proj": 11.8,
               "actual": 0.0,
-              "injury": "QUESTIONABLE",
+              "injury": "",
               "started": false
             },
             {
@@ -1372,7 +1372,7 @@
               "pro": "IND",
               "proj": 9.7,
               "actual": 0.0,
-              "injury": "",
+              "injury": "QUESTIONABLE",
               "started": false
             },
             {
@@ -1440,7 +1440,7 @@
               "slot": "FLEX",
               "pos": "RB",
               "pro": "GB",
-              "proj": 12.9,
+              "proj": 12.6,
               "actual": 0.0,
               "injury": "",
               "started": true
@@ -1464,7 +1464,7 @@
           "owner_full": "Grant Sawyer",
           "record": "0-0",
           "actual": 0.0,
-          "projected": 120.2,
+          "projected": 114.4,
           "optimal_proj": 120.3,
           "starters": [
             {
@@ -1513,7 +1513,7 @@
               "pos": "RB",
               "pro": "SEA",
               "proj": 13.6,
-              "actual": 0.0,
+              "actual": 7.8,
               "injury": "",
               "started": true
             },
@@ -1605,7 +1605,7 @@
               "pos": "RB",
               "pro": "SEA",
               "proj": 13.6,
-              "actual": 0.0,
+              "actual": 7.8,
               "injury": "",
               "started": true
             },
@@ -1614,7 +1614,7 @@
               "slot": "BE",
               "pos": "WR",
               "pro": "GB",
-              "proj": 11.1,
+              "proj": 10.9,
               "actual": 0.0,
               "injury": "",
               "started": false
@@ -1733,8 +1733,8 @@
           "owner_full": "logan rezac",
           "record": "0-0",
           "actual": 0.0,
-          "projected": 122.9,
-          "optimal_proj": 123.3,
+          "projected": 123.0,
+          "optimal_proj": 123.4,
           "starters": [
             {
               "name": "Justin Jefferson",
@@ -1783,7 +1783,7 @@
               "pro": "CHI",
               "proj": 12.0,
               "actual": 0.0,
-              "injury": "QUESTIONABLE",
+              "injury": "",
               "started": true
             },
             {
@@ -1801,7 +1801,7 @@
               "slot": "TE",
               "pos": "TE",
               "pro": "NYG",
-              "proj": 9.4,
+              "proj": 9.5,
               "actual": 0.0,
               "injury": "",
               "started": true
@@ -1875,7 +1875,7 @@
               "pro": "CHI",
               "proj": 12.0,
               "actual": 0.0,
-              "injury": "QUESTIONABLE",
+              "injury": "",
               "started": true
             },
             {
@@ -1895,7 +1895,7 @@
               "pro": "PIT",
               "proj": 12.3,
               "actual": 0.0,
-              "injury": "QUESTIONABLE",
+              "injury": "",
               "started": false
             },
             {
@@ -1913,7 +1913,7 @@
               "slot": "TE",
               "pos": "TE",
               "pro": "NYG",
-              "proj": 9.4,
+              "proj": 9.5,
               "actual": 0.0,
               "injury": "",
               "started": true
@@ -1945,7 +1945,7 @@
               "pro": "SF",
               "proj": 9.6,
               "actual": 0.0,
-              "injury": "QUESTIONABLE",
+              "injury": "",
               "started": false
             },
             {
@@ -1953,7 +1953,7 @@
               "slot": "BE",
               "pos": "RB",
               "pro": "LV",
-              "proj": 6.8,
+              "proj": 7.1,
               "actual": 0.0,
               "injury": "",
               "started": false
@@ -1964,7 +1964,7 @@
               "pos": "WR",
               "pro": "SEA",
               "proj": 8.4,
-              "actual": 0.0,
+              "actual": 1.4,
               "injury": "",
               "started": false
             },
@@ -1997,7 +1997,7 @@
           "owner_full": "Adam Stockwell",
           "record": "0-0",
           "actual": 0.0,
-          "projected": 116.1,
+          "projected": 123.5,
           "optimal_proj": 116.2,
           "starters": [
             {
@@ -2006,7 +2006,7 @@
               "pos": "WR",
               "pro": "SEA",
               "proj": 18.9,
-              "actual": 0.0,
+              "actual": 26.2,
               "injury": "",
               "started": true
             },
@@ -2057,7 +2057,7 @@
               "pro": "DET",
               "proj": 11.0,
               "actual": 0.0,
-              "injury": "QUESTIONABLE",
+              "injury": "",
               "started": true
             },
             {
@@ -2098,7 +2098,7 @@
               "pos": "WR",
               "pro": "SEA",
               "proj": 18.9,
-              "actual": 0.0,
+              "actual": 26.2,
               "injury": "",
               "started": true
             },
@@ -2149,7 +2149,7 @@
               "pro": "DET",
               "proj": 11.0,
               "actual": 0.0,
-              "injury": "QUESTIONABLE",
+              "injury": "",
               "started": true
             },
             {
@@ -2248,7 +2248,7 @@
               "pos": "RB",
               "pro": "SEA",
               "proj": 6.4,
-              "actual": 0.0,
+              "actual": 2.9,
               "injury": "",
               "started": false
             }
@@ -2266,8 +2266,8 @@
           "owner_full": "Peter Lundquist",
           "record": "0-0",
           "actual": 0.0,
-          "projected": 115.9,
-          "optimal_proj": 116.1,
+          "projected": 106.8,
+          "optimal_proj": 115.5,
           "starters": [
             {
               "name": "Bijan Robinson",
@@ -2284,9 +2284,9 @@
               "slot": "WR",
               "pos": "WR",
               "pro": "NE",
-              "proj": 14.3,
-              "actual": 0.0,
-              "injury": "",
+              "proj": 14.2,
+              "actual": 5.6,
+              "injury": "QUESTIONABLE",
               "started": true
             },
             {
@@ -2306,7 +2306,7 @@
               "pro": "CIN",
               "proj": 13.0,
               "actual": 0.0,
-              "injury": "QUESTIONABLE",
+              "injury": "",
               "started": true
             },
             {
@@ -2324,9 +2324,9 @@
               "slot": "TE",
               "pos": "TE",
               "pro": "GB",
-              "proj": 9.1,
+              "proj": 9.0,
               "actual": 0.0,
-              "injury": "QUESTIONABLE",
+              "injury": "",
               "started": true
             },
             {
@@ -2334,7 +2334,7 @@
               "slot": "RB",
               "pos": "RB",
               "pro": "CAR",
-              "proj": 11.5,
+              "proj": 11.2,
               "actual": 0.0,
               "injury": "QUESTIONABLE",
               "started": true
@@ -2344,7 +2344,7 @@
               "slot": "D/ST",
               "pos": "D/ST",
               "pro": "LAR",
-              "proj": 6.2,
+              "proj": 6.1,
               "actual": 0.0,
               "injury": "",
               "started": true
@@ -2376,9 +2376,9 @@
               "slot": "WR",
               "pos": "WR",
               "pro": "NE",
-              "proj": 14.3,
-              "actual": 0.0,
-              "injury": "",
+              "proj": 14.2,
+              "actual": 5.6,
+              "injury": "QUESTIONABLE",
               "started": true
             },
             {
@@ -2398,7 +2398,7 @@
               "pro": "CIN",
               "proj": 13.0,
               "actual": 0.0,
-              "injury": "QUESTIONABLE",
+              "injury": "",
               "started": true
             },
             {
@@ -2416,9 +2416,9 @@
               "slot": "TE",
               "pos": "TE",
               "pro": "GB",
-              "proj": 9.1,
+              "proj": 9.0,
               "actual": 0.0,
-              "injury": "QUESTIONABLE",
+              "injury": "",
               "started": true
             },
             {
@@ -2426,7 +2426,7 @@
               "slot": "RB",
               "pos": "RB",
               "pro": "CAR",
-              "proj": 11.5,
+              "proj": 11.2,
               "actual": 0.0,
               "injury": "QUESTIONABLE",
               "started": true
@@ -2448,7 +2448,7 @@
               "pro": "CHI",
               "proj": 10.3,
               "actual": 0.0,
-              "injury": "QUESTIONABLE",
+              "injury": "",
               "started": false
             },
             {
@@ -2476,7 +2476,7 @@
               "slot": "BE",
               "pos": "WR",
               "pro": "LV",
-              "proj": 8.2,
+              "proj": 9.1,
               "actual": 0.0,
               "injury": "",
               "started": false
@@ -2496,7 +2496,7 @@
               "slot": "D/ST",
               "pos": "D/ST",
               "pro": "LAR",
-              "proj": 6.2,
+              "proj": 6.1,
               "actual": 0.0,
               "injury": "",
               "started": true
@@ -2530,7 +2530,7 @@
           "owner_full": "Christian Massett",
           "record": "0-0",
           "actual": 0.0,
-          "projected": 118.7,
+          "projected": 125.6,
           "optimal_proj": 118.8,
           "starters": [
             {
@@ -2578,9 +2578,9 @@
               "slot": "FLEX",
               "pos": "RB",
               "pro": "JAX",
-              "proj": 12.9,
+              "proj": 12.8,
               "actual": 0.0,
-              "injury": "QUESTIONABLE",
+              "injury": "",
               "started": true
             },
             {
@@ -2600,7 +2600,7 @@
               "pro": "SF",
               "proj": 8.4,
               "actual": 0.0,
-              "injury": "QUESTIONABLE",
+              "injury": "",
               "started": true
             },
             {
@@ -2618,8 +2618,8 @@
               "slot": "D/ST",
               "pos": "D/ST",
               "pro": "SEA",
-              "proj": 7.1,
-              "actual": 0.0,
+              "proj": 7.2,
+              "actual": 14.0,
               "injury": "",
               "started": true
             }
@@ -2670,9 +2670,9 @@
               "slot": "FLEX",
               "pos": "RB",
               "pro": "JAX",
-              "proj": 12.9,
+              "proj": 12.8,
               "actual": 0.0,
-              "injury": "QUESTIONABLE",
+              "injury": "",
               "started": true
             },
             {
@@ -2702,7 +2702,7 @@
               "pro": "SF",
               "proj": 8.4,
               "actual": 0.0,
-              "injury": "QUESTIONABLE",
+              "injury": "",
               "started": true
             },
             {
@@ -2732,7 +2732,7 @@
               "pro": "BUF",
               "proj": 9.5,
               "actual": 0.0,
-              "injury": "QUESTIONABLE",
+              "injury": "",
               "started": false
             },
             {
@@ -2750,8 +2750,8 @@
               "slot": "D/ST",
               "pos": "D/ST",
               "pro": "SEA",
-              "proj": 7.1,
-              "actual": 0.0,
+              "proj": 7.2,
+              "actual": 14.0,
               "injury": "",
               "started": true
             },
@@ -2760,7 +2760,7 @@
               "slot": "BE",
               "pos": "QB",
               "pro": "GB",
-              "proj": 15.3,
+              "proj": 14.9,
               "actual": 0.0,
               "injury": "",
               "started": false
@@ -2799,15 +2799,15 @@
           "owner_full": "Mitchell Max",
           "record": "0-0",
           "actual": 0.0,
-          "projected": 116.7,
-          "optimal_proj": 116.8,
+          "projected": 117.5,
+          "optimal_proj": 117.5,
           "starters": [
             {
               "name": "Jahmyr Gibbs",
               "slot": "RB",
               "pos": "RB",
               "pro": "DET",
-              "proj": 21.7,
+              "proj": 22.4,
               "actual": 0.0,
               "injury": "",
               "started": true
@@ -2829,7 +2829,7 @@
               "pro": "IND",
               "proj": 12.2,
               "actual": 0.0,
-              "injury": "QUESTIONABLE",
+              "injury": "",
               "started": true
             },
             {
@@ -2869,7 +2869,7 @@
               "pro": "WSH",
               "proj": 8.9,
               "actual": 0.0,
-              "injury": "QUESTIONABLE",
+              "injury": "",
               "started": true
             },
             {
@@ -2889,7 +2889,7 @@
               "pro": "LAC",
               "proj": 10.7,
               "actual": 0.0,
-              "injury": "QUESTIONABLE",
+              "injury": "",
               "started": true
             }
           ],
@@ -2899,7 +2899,7 @@
               "slot": "RB",
               "pos": "RB",
               "pro": "DET",
-              "proj": 21.7,
+              "proj": 22.4,
               "actual": 0.0,
               "injury": "",
               "started": true
@@ -2931,7 +2931,7 @@
               "pro": "IND",
               "proj": 12.2,
               "actual": 0.0,
-              "injury": "QUESTIONABLE",
+              "injury": "",
               "started": true
             },
             {
@@ -2969,7 +2969,7 @@
               "slot": "BE",
               "pos": "WR",
               "pro": "GB",
-              "proj": 11.1,
+              "proj": 10.9,
               "actual": 0.0,
               "injury": "",
               "started": false
@@ -2981,7 +2981,7 @@
               "pro": "WSH",
               "proj": 8.9,
               "actual": 0.0,
-              "injury": "QUESTIONABLE",
+              "injury": "",
               "started": true
             },
             {
@@ -3021,7 +3021,7 @@
               "pro": "LAC",
               "proj": 10.7,
               "actual": 0.0,
-              "injury": "QUESTIONABLE",
+              "injury": "",
               "started": true
             },
             {
@@ -3059,7 +3059,7 @@
               "slot": "BE",
               "pos": "RB",
               "pro": "GB",
-              "proj": 7.7,
+              "proj": 7.6,
               "actual": 0.0,
               "injury": "",
               "started": false
@@ -3073,7 +3073,7 @@
           "owner_full": "Leif Engen",
           "record": "0-0",
           "actual": 0.0,
-          "projected": 117.4,
+          "projected": 114.3,
           "optimal_proj": 117.5,
           "starters": [
             {
@@ -3083,7 +3083,7 @@
               "pro": "SF",
               "proj": 18.4,
               "actual": 0.0,
-              "injury": "QUESTIONABLE",
+              "injury": "",
               "started": true
             },
             {
@@ -3162,7 +3162,7 @@
               "pos": "K",
               "pro": "SEA",
               "proj": 9.8,
-              "actual": 0.0,
+              "actual": 6.6,
               "injury": "",
               "started": true
             }
@@ -3175,7 +3175,7 @@
               "pro": "SF",
               "proj": 18.4,
               "actual": 0.0,
-              "injury": "QUESTIONABLE",
+              "injury": "",
               "started": true
             },
             {
@@ -3263,7 +3263,7 @@
               "slot": "BE",
               "pos": "WR",
               "pro": "GB",
-              "proj": 10.2,
+              "proj": 10.0,
               "actual": 0.0,
               "injury": "",
               "started": false
@@ -3304,7 +3304,7 @@
               "pos": "K",
               "pro": "SEA",
               "proj": 9.8,
-              "actual": 0.0,
+              "actual": 6.6,
               "injury": "",
               "started": true
             },
@@ -3313,7 +3313,7 @@
               "slot": "BE",
               "pos": "WR",
               "pro": "MIA",
-              "proj": 6.8,
+              "proj": 7.4,
               "actual": 0.0,
               "injury": "",
               "started": false
@@ -3338,53 +3338,53 @@
   },
   "copies": [
     {
-      "headline": "Noah's Backfield Can't Cover John's Tight Ends",
-      "body": "The margin lives at tight end and the third receiver. John gets Brock Bowers (16) and Trey McBride (14) \u2014 two starting-caliber options where Noah has Colston Loveland (12) and Brenton Strange (8). McBride's Cardinals are 10.5-point road dogs at the Chargers with a 46.5 total, which is the exact script that turns a tight end into a target hog. Puka Nacua at 21 is questionable but plays in the week's biggest game, Rams-Niners at 48.5, and Matthew Stafford throws in it too. That's a stacked correlation Noah can't answer.\nNoah's edge is the backfield, De'Von Achane (18) and James Cook III (15) for a seven-point cushion, but Achane's game is a 40.5-point plod in Vegas with Miami getting points. Mike Evans and Josh Downs both carry tags, and behind them it's Michael Wilson at 10. John's #11 power ranking is a preseason artifact; this roster is deeper than it reads.",
+      "headline": "John's Rams Stack Can't Cover the Backfield Gap",
+      "body": "This gets decided at running back, where Noah is holding De'Von Achane and James Cook III (34 projected for the top two) against Kyren Williams and D'Andre Swift at 26. Achane's game is the ugliest on the board \u2014 Miami at Las Vegas, 40.5 total, three-point dog \u2014 but a trailing Dolphins offense funnels through him anyway, and Cook is in a 44.5-total coin flip in Houston where Buffalo needs him. John's counter is a Rams stack: Stafford, Kyren and Puka Nacua in a 48.5 against San Francisco, the best real game either side owns. Nacua at 21 is genuinely the top single player here.\nThe problem is what's behind it. Brock Bowers is doubtful, which turns a tight end edge into Trey McBride and nothing, and Keaton Mitchell is questionable in a room that doesn't need him. John's WR3 slot is Brian Thomas Jr. or Quentin Johnston at 10 \u2014 fine, not scary. Noah's receiving room is thin and Jordyn Tyson is on IR, but the back-end depth and two usable defenses cover more ground than John's, and #6 versus #11 in the power rankings isn't an accident.",
       "pick": {
-        "owner": "John",
-        "margin": 11
+        "owner": "Noah",
+        "margin": 9
       }
     },
     {
-      "headline": "Isaac's Injury Report Is Longer Than His Bench",
-      "body": "Isaac's whole case is the receiver room, and it comes with five question marks. Ja'Marr Chase in a 50.5-total game against Tampa is the single best asset on either roster, and Malik Nabers gets a 48.5 total with the Giants catching points, which usually means late volume. But if Chase and Nabers both sit, the WR3 slot falls to Adonai Mitchell and the +5 edge evaporates instantly. Behind Bo Nix in Kansas City \u2014 a 42.5 total, the lowest number on the board for either team \u2014 sits Malik Willis. That is not a backup plan, that is a hostage situation.\nKaleb wins the other three spots and does it with cleaner games. Justin Herbert as a 10.5-point favorite with Ladd McConkey, plus Drake London chasing in Pittsburgh, plus Harold Fannin at tight end where Isaac has two nine-point guys. Jeanty and Hall carry tags too, but RJ Harvey exists and Isaac's ceiling is entirely contingent on inactive lists. Twelfth-ranked roster, thinnest margin for error.",
+      "headline": "Isaac's Receivers Can't Cover Every Hole",
+      "body": "Isaac wins receiver and loses everywhere else, which is a bad trade when the everywhere-else includes quarterback and both running back slots. Ja'Marr Chase in a 50.5-total game against Tampa is the single best asset on the field, and McLaurin, Metcalf and a questionable Malik Nabers give him a real three-deep. But Bo Nix at Kansas City in a 43.5 total is the lowest-ceiling starting quarterback in this game by a wide margin, and Malik Willis in a 40.5 total isn't a pivot. Behind him: Javonte Williams and Cam Skattebo in the same 48.5-point Cowboys-Giants game, then nothing.\nKaleb's edge is boring and structural \u2014 Herbert as a 9.5-point home favorite, Ashton Jeanty getting volume against Miami, Breece Hall in a game the Jets will likely be chasing. Harold Fannin Jr. beats either Hockenson or Kincaid at tight end. Isaac is 12th in the power rankings for exactly this reason: one elite position, four soft ones.",
       "pick": {
         "owner": "Kaleb",
-        "margin": 14
-      }
-    },
-    {
-      "headline": "CJ's Receiver Room Is A Waiting Room",
-      "body": "Grant wins this at wide receiver or not at all. Amon-Ra St. Brown gets New Orleans in a 49.5-total game Detroit is favored to control, and even with Zay Flowers questionable, Grant can slide Jaylen Waddle or Christian Watson in without much bleeding \u2014 45 from his top three against CJ's 39. CJ's problem is that his best three includes Emeka Egbuka with a tag and Parker Washington, and if Egbuka sits he's starting Alec Pierce as a WR2 in a game Indianapolis is getting 3.5 in. That's a real hole, not a rounding error.\nRunning back is dead even on paper, but CJ's depth chart is a hospital ward \u2014 Pacheco on IR, Charbonnet out, Hubbard and Henderson both questionable \u2014 so Jonathan Taylor and Quinshon Judkins carry it alone. Joe Burrow in a 50.5 shootout with Tampa is the one clean CJ edge, worth two points over Kyler Murray. Not enough to cover the receiver gap.",
-      "pick": {
-        "owner": "Grant",
-        "margin": 9
-      }
-    },
-    {
-      "headline": "Logan's Eagles Stack Outguns Adam's Depth",
-      "body": "The math is simple and it isn't kind to Adam: Logan is up four at quarterback with Jalen Hurts and five at running back with Saquon Barkley, and both of those points come from the same game Adam's Jayden Daniels is stuck chasing in. Philadelphia laying 5.5 with a 44.5 total is the profile where the favorite grinds, Barkley eats fourth-quarter carries and Hurts vultures at the goal line. Daniels will throw plenty and probably run for a score, but 17 against a stacked 39 is a hole. Adam's counterpunch is receiver, where Jaxon Smith-Njigba, Chris Olave in a 49.5-total game in Detroit and Rome Odunze give him a two-point edge, plus Sam LaPorta or Mark Andrews at tight end.\nThat's four points of surplus against nine of deficit, and Adam's questionable tags sit on the wrong guys. Logan's injury notes barely matter with Xavier Worthy and Rashid Shaheed behind them; Adam's tight end room is a coin flip between two banged-up names. Kenneth Walker in a 42.5-total Kansas City game is the thin backfield floor Logan doesn't have. Power ranking says Adam is the better team over sixteen weeks. This week, the roster read says otherwise.",
-      "pick": {
-        "owner": "Logan",
-        "margin": 9
-      }
-    },
-    {
-      "headline": "Peter's Depth Is A Rumor, Not A Roster",
-      "body": "The top lines are nearly identical \u2014 31 to 31 at running back, 44 to 42 across three receivers, Lamar Jackson buying Peter two points over Trevor Lawrence in a Ravens-Colts game with a 48.5 total. So this comes down to who survives Sunday morning. Christian has Chase Brown and Travis Etienne locked into a 40.5-total Jaguars grinder and a 49.5 Saints shootout where New Orleans is chasing seven points and throwing to Etienne late. CeeDee Lamb and DeVonta Smith are both playing in games their teams are favored to control. Kittle's questionable, but Chig Okonkwo is a real fallback.\nPeter's problem is everything behind Bijan Robinson and George Pickens. Tucker Kraft is his only tight end and he's tagged. Tee Higgins is questionable in the week's best game (50.5 total), and Jalen Nailor at 8 is what replaces him. Brooks and Monangai are both dinged. That's five question marks on a roster with no answers underneath them.",
-      "pick": {
-        "owner": "Christian",
         "margin": 11
       }
     },
     {
-      "headline": "Leif's Backfield Outweighs Mitchell's Lunchbox",
-      "body": "The margin lives at running back, where Leif can start Derrick Henry against a Colts team getting 3.5 in a 48.5-total game and David Montgomery as a fallback if Christian McCaffrey's questionable tag turns ugly. Mitchell has Jahmyr Gibbs, who is the single best player in this game with Detroit favored by seven, and then a cliff: Rachaad White is questionable, Josh Jacobs is day-to-day, Kaleb Johnson projects for a point. One bad Sunday inactive report and Mitchell is starting Chris Brooks.\nReceiver is Mitchell's actual edge \u2014 Nico Collins, Courtland Sutton and DJ Moore beat Leif's top three by three, and Tyler Warren adds a couple at tight end. But that assumes Warren plays. Josh Allen in a 44.5 game against Houston is a steadier floor than Jaxson Dart chasing Dallas, even if Dart's game script is the more entertaining one. Leif's depth wins a close one.",
+      "headline": "CJ's Backfield Is a Hospital Wing",
+      "body": "Receiver decides this one. Grant's top three go for 45 against CJ's 40, and the gap is really about floor: Amon-Ra St. Brown gets Detroit as a seven-point home favorite in a 50.5-point game, the best script on either roster, while CJ leans on Rashee Rice and Emeka Egbuka with Alec Pierce questionable behind them. Egbuka at least lands in the same Cincinnati shootout that makes Joe Burrow the one clear CJ edge, worth two on Kyler Murray in a 46.5-total division game.\nThe running backs tie at 31 on paper, but CJ's depth chart is a casualty report \u2014 TreVeyon Henderson and Zach Charbonnet out, Isiah Pacheco on IR. One Jonathan Taylor tweak and he's starting MarShawn Lloyd. Grant has Omarion Hampton against Arizona with the Chargers laying 9.5, plus Tony Pollard and Jadarian Price in reserve. Zay Flowers questionable is Grant's only real worry, and Christian Watson and Chris Godwin cover it.",
+      "pick": {
+        "owner": "Grant",
+        "margin": 11
+      }
+    },
+    {
+      "headline": "Logan's Eagles Stack Meets Adam's Fragile Backfield",
+      "body": "The Philadelphia game is the whole thing. Logan owns both sides of the Eagles offense in Jalen Hurts (21) and Saquon Barkley (18) against a Washington defense that's a 5.5-point road underdog, and Adam is on the other end of it with Jayden Daniels chasing in a 44.5-total game that projects tight and low-scoring rather than open. That's a four-point QB gap on paper and a wider one if Philly leads and Barkley grinds out the fourth quarter. Logan's edge at running back is real too: Adam's best two are Kenneth Walker III (15) in a 43.5-total Chiefs game and Rico Dowdle (12) behind a modest Pittsburgh total.\nAdam's counter is receiver depth, and it's thin at the top rather than wide \u2014 Jaxon Smith-Njigba (19) and Chris Olave (15), whose Saints are seven-point dogs in a 50.5 shootout, plus a questionable Rome Odunze. Two points at wideout and two at tight end don't cover nine elsewhere. Logan can also absorb a Jeremiyah Love scratch with Dobbins and five viable wideouts; Adam can't absorb a Walker dud.",
+      "pick": {
+        "owner": "Logan",
+        "margin": 11
+      }
+    },
+    {
+      "headline": "Peter's Depth Chart Is Held Together By Question Marks",
+      "body": "The top-line numbers say this is a coin flip \u2014 Peter wins QB by two with Lamar Jackson in a 47.5-total game at Indianapolis, Christian wins receiver by two \u2014 but coin flips are decided underneath, and that's where Peter is exposed. A.J. Brown and Jalen McMillan are both questionable, which drags Tee Higgins (50.5 in Cincinnati, the best number on either roster) from luxury to necessity, and if Brown sits, the WR3 is Jalen Nailor at nine. Behind Bijan Robinson, who's playing in a 42.5-total game in Pittsburgh as an underdog, sits a questionable Jonathon Brooks and Kyle Monangai. Tucker Kraft is a fine tight end but the margin there is one point.\nChristian's edge is that nothing has to break right. Chase Brown gets the 50.5 with Cincinnati, Travis Etienne is in a Detroit game projected for 50.5 as a seven-point dog that throws late, and Bhayshul Tuten is a genuine RB3 at 13. CeeDee Lamb and DeVonta Smith are both favored. George Kittle in a game with no posted line is the one soft spot, and Christian can absorb it.",
+      "pick": {
+        "owner": "Christian",
+        "margin": 9
+      }
+    },
+    {
+      "headline": "Leif's Running Backs Outlast Mitchell's Quarterback Experiment",
+      "body": "Leif wins this in the backfield and at quarterback, which is a nice place to have your edges. Christian McCaffrey and Derrick Henry are 35 projected points before you get to David Montgomery, and Henry lands in Indianapolis as a 3.5-point favorite in a 47.5 game \u2014 exactly the script where Baltimore leans on him in the fourth quarter. Josh Allen at Houston in a 44.5 total isn't a fireworks show, but Allen's floor is other people's ceiling. Mitchell's answer at quarterback is Jaxson Dart against Dallas, a 3-point home dog in a 48.5 game, which at least means volume. It also means a rookie deciding your week.\nMitchell's real strength is receiver, where Nico Collins, Courtland Sutton and DJ Moore top Leif's trio by four, plus a two-point edge at tight end with Tyler Warren. That's six points of cushion against seven points of RB and QB. The problem is behind Jahmyr Gibbs: Josh Jacobs is day-to-day at zero, Rachaad White and Chris Brooks are single-digit filler, and Tank Dell is on IR. Gibbs in a 50.5 total against New Orleans has to carry it alone. Leif's Mahomes tag is the only crack, and he doesn't need him.",
       "pick": {
         "owner": "Leif",
         "margin": 9
       }
     }
   ],
-  "intro": "Christian at Peter is the one worth watching all afternoon \u2014 two rosters built the same way, running back depth over receiver ceiling, and neither side has a starter with a real injury designation, which means it comes down to whichever backfield the coaching staff decides to split three ways. Leif at Mitchell is the opposite kind of game: Leif fields a top-end quarterback and two receivers attached to offenses favored by a touchdown or more, while Mitchell is leaning on a tight end room and a defense that has to travel. Kaleb, Grant, John and Logan are all favored in games that look like they'll be decided by Sunday night, which is a polite way of saying the Monday game probably won't matter to anyone."
+  "intro": "Christian at Peter is the one worth watching all afternoon \u2014 two rosters built the same way, heavy at the top and thin behind it, so whichever bench spot cracks first decides it. Grant at CJ is the opposite problem: Grant walks in with the deeper skill group at every position that matters, and CJ needs the kind of Week 1 chaos that usually only helps the other guy. Everything else lands somewhere in between, which in Week 1 means we're all just guessing with extra confidence."
 }
