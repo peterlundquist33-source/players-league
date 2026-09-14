@@ -5,6 +5,7 @@
   python3 tools/main.py recap  --week 10 --season 2025
   python3 tools/main.py auto               # detect phase from ESPN state
   python3 tools/main.py auto  --dry        # no AI calls, placeholder copy
+  python3 tools/main.py madness            # Monday pre-MNF board + group-chat post
 """
 import argparse, datetime, json, os, sys
 from lib import ROOT, load_env
@@ -245,6 +246,30 @@ def run_rankings(season, dry=False):
     return page
 
 
+def run_madness(season, week=None, dry=False):
+    """Monday Night Madness: where every matchup stands before the Monday night game,
+    with the site's own win chances, and the post for the group chat."""
+    import madness as MD
+    load_env()
+    data = L.build(season, week, "recap")   # phase only labels; we want live actuals
+    wk = data["week"]
+    states = MD.game_states(season, wk)
+    if not states:
+        print("NFL scoreboard unavailable — treating every game as final")
+    MD.compute(data, states, author=os.environ.get("MNM_AUTHOR", "Peter"))
+    alive = [m for m in data["matchups"] if not m["madness"]["final"]]
+    print(f"season {season} · week {wk} · {len(alive)} of {len(data['matchups'])} alive")
+    post = MD.placeholder(data) if dry else MD.write_post(data)
+    page = R.madness_page(data, post)
+    R.index_page(season)
+    DATA.mkdir(parents=True, exist_ok=True)
+    (DATA / f"{season}-madness-week-{wk:02d}.json").write_text(json.dumps(
+        {"generated": datetime.datetime.now().isoformat(timespec="seconds"),
+         "data": data, "post": post}, indent=2))
+    print(f"wrote {page.relative_to(ROOT)}")
+    return page
+
+
 def run_render(season):
     """Re-render every generated page from the cached run data — no ESPN, no AI.
     For when render.py changes and the copy shouldn't."""
@@ -259,6 +284,9 @@ def run_render(season):
         d = json.loads(boards[-1].read_text())
         print("rendered", R.power_page(d["board"], d["copies"], d["intro"],
                                        stamp=when(d)).relative_to(ROOT))
+    for f in sorted(DATA.glob(f"{season}-madness-week-[0-9][0-9].json")):
+        d = json.loads(f.read_text())
+        print("rendered", R.madness_page(d["data"], d["post"], stamp=when(d)).relative_to(ROOT))
     g = DATA / f"{season}-rankings.json"
     if g.exists():
         d = json.loads(g.read_text())
@@ -269,8 +297,8 @@ def run_render(season):
 
 if __name__ == "__main__":
     ap = argparse.ArgumentParser()
-    ap.add_argument("phase", choices=["auto", "preview", "recap", "rankings", "power", "site",
-                                      "facts", "records", "render", "opening"],
+    ap.add_argument("phase", choices=["auto", "preview", "recap", "madness", "rankings", "power",
+                                      "site", "facts", "records", "render", "opening"],
                     nargs="?", default="auto")
     ap.add_argument("--season", type=int, default=2026)
     ap.add_argument("--week", type=int, default=None)
@@ -285,6 +313,8 @@ if __name__ == "__main__":
         import chrome as SITE
         for pg in SITE.stamp_all():
             print("stamped", pg)
+    elif a.phase == "madness":
+        run_madness(a.season, a.week, a.dry)
     elif a.phase == "render":
         run_render(a.season)
     elif a.phase == "facts":

@@ -614,6 +614,28 @@ body, table, .stat, .countdown, [class*="stat-val"], [class*="pill"] {
 .mx-week-list .wk { font-family: var(--font-display); font-weight: 700; }
 .mx-foot { margin-top: var(--s-8); padding-top: var(--s-4); border-top: var(--hair); font-size: var(--fs-13); color: var(--text-3); line-height: 1.7; }
 .mx-foot a { color: var(--accent); }
+/* Monday Night Madness */
+.mx-badge.live { color: var(--gold, #e3b341); background: rgba(227, 179, 65, 0.12); }
+.mnm-h2 { font-family: var(--font-display); font-weight: 700; font-size: var(--fs-22); margin: var(--s-8) 0 var(--s-2); }
+.mnm-post-wrap { position: relative; margin-bottom: var(--s-8); }
+.mnm-post {
+  background: var(--surface); border: var(--hair); border-radius: var(--r); box-shadow: var(--lift);
+  padding: var(--s-6); margin: 0; white-space: pre-wrap; word-wrap: break-word;
+  font-family: inherit; font-size: var(--fs-14); line-height: 1.65; color: var(--text-2);
+}
+.mnm-copy {
+  position: absolute; top: var(--s-3); right: var(--s-3); cursor: pointer;
+  font: inherit; font-size: var(--fs-12); font-weight: 600; letter-spacing: 0.04em;
+  color: var(--accent); background: var(--accent-tint); border: 1px solid var(--accent-line);
+  border-radius: 6px; padding: 6px 10px; transition: background .15s var(--ease);
+}
+.mnm-copy:hover, .mnm-copy:focus-visible { background: var(--surface-3); outline: none; }
+.mnm-copy.done { color: var(--pos); border-color: var(--pos); }
+.mnm-detail { padding: var(--s-3) var(--s-6) var(--s-4); }
+.mnm-row { display: flex; gap: var(--s-3); align-items: baseline; font-size: var(--fs-13); color: var(--text-2); margin-bottom: var(--s-1); }
+.mnm-row b { color: var(--text); margin-right: var(--s-1); }
+.mnm-win { font-family: var(--font-display); font-weight: 700; font-variant-numeric: tabular-nums; color: var(--accent); min-width: 3.2em; }
+.mnm-need { font-size: var(--fs-12); color: var(--text-3); margin-top: var(--s-2); }
 /* card head + tag row shared by the grade and power cards */
 .mx-hd { display: flex; align-items: center; gap: var(--s-4); padding: var(--s-4) var(--s-6); border-bottom: var(--hair); }
 .mx-tags { display: flex; flex-wrap: wrap; gap: var(--s-1); padding: var(--s-3) var(--s-6); border-bottom: var(--hair); }

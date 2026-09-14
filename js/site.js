@@ -108,3 +108,23 @@
   // pages that build tables after load (the analytics All-Time tab) call these
   window.PL = { enhanceTables: enhanceTables, markScrollable: markScrollable };
 })();
+
+// Monday Night Madness: copy the post for the group chat
+document.querySelectorAll('.mnm-copy[data-copy]').forEach(function (btn) {
+  btn.addEventListener('click', function () {
+    var el = document.getElementById(btn.dataset.copy);
+    if (!el) return;
+    var done = function () {
+      btn.textContent = 'Copied';
+      btn.classList.add('done');
+      setTimeout(function () { btn.textContent = 'Copy for the group chat'; btn.classList.remove('done'); }, 2000);
+    };
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(el.textContent).then(done);
+    } else {
+      var r = document.createRange(); r.selectNodeContents(el);
+      var sel = window.getSelection(); sel.removeAllRanges(); sel.addRange(r);
+      try { document.execCommand('copy'); done(); } catch (e) {}
+    }
+  });
+});

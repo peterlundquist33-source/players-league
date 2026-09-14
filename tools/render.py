@@ -105,6 +105,63 @@ def week_page(league, copies, intro, stamp=None):
     return path
 
 
+def _madness_card(m):
+    a, h, x = m["away"], m["home"], m["madness"]
+    if x["final"]:
+        a_cls = " win" if m["winner"] == a["owner"] else ""
+        h_cls = " win" if m["winner"] == h["owner"] else ""
+        tag = '<span class="mx-badge">Final</span>'
+        detail = ""
+    else:
+        a_cls = h_cls = ""
+        tag = '<span class="mx-badge live">Alive</span>'
+        rows = []
+        for side, pend, win in ((a, x["away_pending"], x["away_win"]),
+                                (h, x["home_pending"], x["home_win"])):
+            who = (", ".join(f'{html.escape(p["name"])} ({p["pos"]} {p["pro"]}, proj {p["proj"]:g})'
+                             for p in pend) or "done")
+            rows.append(f'<div class="mnm-row"><span class="mnm-win">{win}%</span>'
+                        f'<span class="mnm-who"><b>{html.escape(side["owner"])}</b> {who}</span></div>')
+        detail = ('<div class="mnm-detail">%s<div class="mnm-need">%s trails by %g</div></div>'
+                  % ("".join(rows), html.escape(x["trailer"]), x["deficit"]))
+    return f'''<article class="mx-card">
+  <div class="mx-score">
+    <div class="mx-team away"><span class="mx-owner">{html.escape(a["owner"])}</span><span class="mx-sub">{html.escape(a["team"])}</span></div>
+    <div class="mx-mid"><div class="mx-pts{a_cls}">{a["actual"]:.1f}</div>{tag}<div class="mx-pts{h_cls}">{h["actual"]:.1f}</div></div>
+    <div class="mx-team home"><span class="mx-owner">{html.escape(h["owner"])}</span><span class="mx-sub">{html.escape(h["team"])}</span></div>
+  </div>
+  {detail}
+</article>'''
+
+
+def madness_page(league, post, stamp=None):
+    """The Monday Night Madness page: the post (copy-ready) + a live board."""
+    wk, season = league["week"], league["season"]
+    stamp = stamp or datetime.date.today().isoformat()
+    alive = [m for m in league["matchups"] if not m["madness"]["final"]]
+    final = [m for m in league["matchups"] if m["madness"]["final"]]
+    cards = "\n".join(_madness_card(m) for m in alive + final)
+    body = f'''<section class="page-header">
+  <span class="eyebrow">Matchups</span>
+  <h1>Week {wk} <span class="gold">Monday Night Madness</span></h1>
+  <p>{season} season · {len(alive)} alive going into Monday night · generated {stamp}</p>
+</section>
+<div class="mx-wrap">
+  <div class="mnm-post-wrap">
+    <button class="mnm-copy" type="button" data-copy="mnm-post">Copy for the group chat</button>
+    <pre class="mnm-post" id="mnm-post">{html.escape(post)}</pre>
+  </div>
+  <h2 class="mnm-h2">The board</h2>
+  <p class="mx-foot" style="margin-top:0">Win chances are the site's own model, not ESPN's: every starter still to play counts his projection with a normal spread, and the margin falls out of that.</p>
+  {cards}
+</div>'''
+    OUT.mkdir(exist_ok=True)
+    path = OUT / f"{season}-week-{wk:02d}-madness.html"
+    path.write_text(_page(f"Week {wk} Monday Night Madness", "Matchups", body,
+                          page=f"matchups/{path.name}"))
+    return path
+
+
 def _grade_card(t, copy):
     lo = " lo" if t["grade"][0] in "DF" else ""
     chips = "".join(
@@ -240,7 +297,7 @@ def power_page(board, copies, intro, stamp=None):
 
 def index_page(season):
     OUT.mkdir(exist_ok=True)
-    weeks = sorted(OUT.glob("%d-week-*.html" % season), reverse=True)
+    weeks = sorted(OUT.glob("%d-week-[0-9][0-9].html" % season), reverse=True)
     rows = []
     for w in weeks:
         n = int(w.stem.split("-")[-1])
@@ -248,8 +305,17 @@ def index_page(season):
         rows.append('<a href="%s"><span class="wk">Week %d</span>'
                     '<span class="mx-badge">%s</span></a>' % (w.name, n, badge))
     listing = "\n".join(rows) or '<p class="mx-intro">No weeks generated yet.</p>'
+    madness = sorted(OUT.glob("%d-week-[0-9][0-9]-madness.html" % season), reverse=True)
+    mrows = "\n".join('<a href="%s"><span class="wk">Week %d</span>'
+                      '<span class="mx-badge live">Monday</span></a>'
+                      % (w.name, int(w.stem.split("-")[2])) for w in madness)
+    mblock = ('<h2 class="mnm-h2">Monday Night Madness</h2>'
+              '<p class="mx-foot" style="margin-top:0">Where every game stands going into '
+              'Monday night, plus the post for the group chat.</p>'
+              '<div class="mx-week-list">%s</div>' % mrows) if mrows else ""
     body = ('<section class="page-header"><span class="eyebrow">Matchups</span>'
             '<h1>Matchup <span class="gold">Central</span></h1>'
             '<p>Weekly previews and recaps · %d</p></section>'
-            '<div class="mx-wrap"><div class="mx-week-list">%s</div></div>' % (season, listing))
+            '<div class="mx-wrap"><div class="mx-week-list">%s</div>%s</div>'
+            % (season, listing, mblock))
     (OUT / "index.html").write_text(_page("Matchups", "Matchups", body, page="matchups/index.html"))
