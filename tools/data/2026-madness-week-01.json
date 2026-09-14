@@ -1,5 +1,5 @@
 {
-  "generated": "2026-09-14T19:29:26",
+  "generated": "2026-09-14T19:30:33",
   "data": {
     "season": 2026,
     "week": 1,
@@ -112,7 +112,7 @@
           "owner": "John",
           "owner_full": "John Lundquist",
           "record": "0-0",
-          "actual": 0.0,
+          "actual": 159.46,
           "projected": 159.5,
           "optimal_proj": 116.8,
           "starters": [
@@ -177,7 +177,7 @@
               "pos": "QB",
               "pro": "CHI",
               "proj": 16.4,
-              "actual": 37.3,
+              "actual": 37.26,
               "injury": "",
               "started": true,
               "done": true
@@ -235,7 +235,7 @@
               "pro": "LV",
               "proj": 0.0,
               "actual": 0.0,
-              "injury": "QUESTIONABLE",
+              "injury": "OUT",
               "started": false
             },
             {
@@ -288,7 +288,7 @@
               "pos": "QB",
               "pro": "CHI",
               "proj": 16.4,
-              "actual": 37.3,
+              "actual": 37.26,
               "injury": "",
               "started": true,
               "done": true
@@ -404,7 +404,7 @@
           "owner": "Noah",
           "owner_full": "Noah Thesing",
           "record": "0-0",
-          "actual": 0.0,
+          "actual": 84.22,
           "projected": 84.2,
           "optimal_proj": 117.7,
           "starters": [
@@ -458,7 +458,7 @@
               "pos": "QB",
               "pro": "NE",
               "proj": 16.3,
-              "actual": 9.8,
+              "actual": 9.82,
               "injury": "",
               "started": true,
               "done": true
@@ -559,7 +559,7 @@
               "pos": "QB",
               "pro": "NE",
               "proj": 16.3,
-              "actual": 9.8,
+              "actual": 9.82,
               "injury": "",
               "started": true,
               "done": true
@@ -690,20 +690,20 @@
             }
           ]
         },
-        "played": false,
-        "margin": null,
-        "winner": null,
+        "played": true,
+        "margin": 75.2,
+        "winner": "John",
         "madness": {
           "final": true,
           "away_pending": [],
           "home_pending": [],
           "away_win": 0,
           "home_win": 100,
-          "away_expected": 0.0,
-          "home_expected": 0.0,
-          "leader": "Noah",
-          "trailer": "John",
-          "deficit": 0.0
+          "away_expected": 84.2,
+          "home_expected": 159.5,
+          "leader": "John",
+          "trailer": "Noah",
+          "deficit": 75.2
         }
       },
       {
@@ -713,7 +713,7 @@
           "owner": "Kaleb",
           "owner_full": "Kaleb Nelson",
           "record": "0-0",
-          "actual": 0.0,
+          "actual": 107.36,
           "projected": 116.3,
           "optimal_proj": 117.3,
           "starters": [
@@ -789,7 +789,7 @@
               "pos": "QB",
               "pro": "LAC",
               "proj": 19.0,
-              "actual": 13.3,
+              "actual": 13.26,
               "injury": "",
               "started": true,
               "done": true
@@ -900,7 +900,7 @@
               "pos": "QB",
               "pro": "LAC",
               "proj": 19.0,
-              "actual": 13.3,
+              "actual": 13.26,
               "injury": "",
               "started": true,
               "done": true
@@ -962,7 +962,7 @@
               "pos": "QB",
               "pro": "DET",
               "proj": 15.8,
-              "actual": 16.4,
+              "actual": 16.44,
               "injury": "",
               "started": false
             },
@@ -995,7 +995,7 @@
           "owner": "Isaac",
           "owner_full": "Isaac Douglas",
           "record": "0-0",
-          "actual": 0.0,
+          "actual": 84.5,
           "projected": 100.6,
           "optimal_proj": 116.2,
           "starters": [
@@ -1271,9 +1271,9 @@
             }
           ]
         },
-        "played": false,
-        "margin": null,
-        "winner": null,
+        "played": true,
+        "margin": 22.9,
+        "winner": "Kaleb",
         "madness": {
           "final": false,
           "away_pending": [
@@ -1294,13 +1294,13 @@
               "state": "pre"
             }
           ],
-          "away_win": 74,
-          "home_win": 26,
-          "away_expected": 16.1,
-          "home_expected": 8.9,
-          "leader": "Isaac",
-          "trailer": "Kaleb",
-          "deficit": 0.0
+          "away_win": 8,
+          "home_win": 92,
+          "away_expected": 100.6,
+          "home_expected": 116.3,
+          "leader": "Kaleb",
+          "trailer": "Isaac",
+          "deficit": 22.9
         }
       },
       {
@@ -1310,7 +1310,7 @@
           "owner": "CJ",
           "owner_full": "Cj Woda",
           "record": "0-0",
-          "actual": 0.0,
+          "actual": 108.26,
           "projected": 122.6,
           "optimal_proj": 117.4,
           "starters": [
@@ -1364,7 +1364,7 @@
               "pos": "QB",
               "pro": "CIN",
               "proj": 18.2,
-              "actual": 14.2,
+              "actual": 14.16,
               "injury": "",
               "started": true,
               "done": true
@@ -1466,7 +1466,7 @@
               "pro": "NE",
               "proj": 0.0,
               "actual": 0.0,
-              "injury": "QUESTIONABLE",
+              "injury": "OUT",
               "started": false
             },
             {
@@ -1475,7 +1475,7 @@
               "pos": "QB",
               "pro": "CIN",
               "proj": 18.2,
-              "actual": 14.2,
+              "actual": 14.16,
               "injury": "",
               "started": true,
               "done": true
@@ -1602,7 +1602,7 @@
           "owner": "Grant",
           "owner_full": "Grant Sawyer",
           "record": "0-0",
-          "actual": 0.0,
+          "actual": 115.14,
           "projected": 127.4,
           "optimal_proj": 120.6,
           "starters": [
@@ -1678,7 +1678,7 @@
               "pos": "QB",
               "pro": "TB",
               "proj": 16.3,
-              "actual": 11.6,
+              "actual": 11.64,
               "injury": "",
               "started": true,
               "done": true
@@ -1808,7 +1808,7 @@
               "pos": "QB",
               "pro": "MIN",
               "proj": 16.4,
-              "actual": -0.4,
+              "actual": -0.38,
               "injury": "QUESTIONABLE",
               "started": false
             },
@@ -1839,7 +1839,7 @@
               "pos": "QB",
               "pro": "TB",
               "proj": 16.3,
-              "actual": 11.6,
+              "actual": 11.64,
               "injury": "",
               "started": true,
               "done": true
@@ -1878,9 +1878,9 @@
             }
           ]
         },
-        "played": false,
-        "margin": null,
-        "winner": null,
+        "played": true,
+        "margin": 6.9,
+        "winner": "Grant",
         "madness": {
           "final": false,
           "away_pending": [
@@ -1901,13 +1901,13 @@
               "state": "pre"
             }
           ],
-          "away_win": 42,
-          "home_win": 58,
-          "away_expected": 12.2,
-          "home_expected": 14.4,
+          "away_win": 66,
+          "home_win": 34,
+          "away_expected": 127.3,
+          "home_expected": 122.7,
           "leader": "Grant",
           "trailer": "CJ",
-          "deficit": 0.0
+          "deficit": 6.9
         }
       },
       {
@@ -1917,7 +1917,7 @@
           "owner": "Logan",
           "owner_full": "logan rezac",
           "record": "0-0",
-          "actual": 0.0,
+          "actual": 137.22,
           "projected": 137.2,
           "optimal_proj": 122.5,
           "starters": [
@@ -1982,7 +1982,7 @@
               "pos": "QB",
               "pro": "PHI",
               "proj": 21.1,
-              "actual": 24.7,
+              "actual": 24.72,
               "injury": "",
               "started": true,
               "done": true
@@ -2083,7 +2083,7 @@
               "pos": "QB",
               "pro": "PHI",
               "proj": 21.1,
-              "actual": 24.7,
+              "actual": 24.72,
               "injury": "",
               "started": true,
               "done": true
@@ -2199,7 +2199,7 @@
           "owner": "Adam",
           "owner_full": "Adam Stockwell",
           "record": "0-0",
-          "actual": 0.0,
+          "actual": 122.16,
           "projected": 136.9,
           "optimal_proj": 117.2,
           "starters": [
@@ -2275,7 +2275,7 @@
               "pos": "QB",
               "pro": "WSH",
               "proj": 16.8,
-              "actual": 17.7,
+              "actual": 17.66,
               "injury": "",
               "started": true,
               "done": true
@@ -2376,7 +2376,7 @@
               "pos": "QB",
               "pro": "WSH",
               "proj": 16.8,
-              "actual": 17.7,
+              "actual": 17.66,
               "injury": "",
               "started": true,
               "done": true
@@ -2475,9 +2475,9 @@
             }
           ]
         },
-        "played": false,
-        "margin": null,
-        "winner": null,
+        "played": true,
+        "margin": 15.1,
+        "winner": "Logan",
         "madness": {
           "final": false,
           "away_pending": [
@@ -2490,13 +2490,13 @@
             }
           ],
           "home_pending": [],
-          "away_win": 95,
-          "home_win": 5,
-          "away_expected": 14.7,
-          "home_expected": 0.0,
-          "leader": "Adam",
-          "trailer": "Logan",
-          "deficit": 0.0
+          "away_win": 48,
+          "home_win": 52,
+          "away_expected": 136.9,
+          "home_expected": 137.2,
+          "leader": "Logan",
+          "trailer": "Adam",
+          "deficit": 15.1
         }
       },
       {
@@ -2506,7 +2506,7 @@
           "owner": "Peter",
           "owner_full": "Peter Lundquist",
           "record": "0-0",
-          "actual": 0.0,
+          "actual": 113.76,
           "projected": 113.8,
           "optimal_proj": 114.7,
           "starters": [
@@ -2560,7 +2560,7 @@
               "pos": "QB",
               "pro": "BAL",
               "proj": 19.1,
-              "actual": 25.0,
+              "actual": 24.96,
               "injury": "",
               "started": true,
               "done": true
@@ -2661,7 +2661,7 @@
               "pos": "QB",
               "pro": "BAL",
               "proj": 19.1,
-              "actual": 25.0,
+              "actual": 24.96,
               "injury": "",
               "started": true,
               "done": true
@@ -2788,7 +2788,7 @@
           "owner": "Christian",
           "owner_full": "Christian Massett",
           "record": "0-0",
-          "actual": 0.0,
+          "actual": 112.4,
           "projected": 112.4,
           "optimal_proj": 118.2,
           "starters": [
@@ -3038,7 +3038,7 @@
               "pos": "QB",
               "pro": "GB",
               "proj": 14.9,
-              "actual": 19.5,
+              "actual": 19.48,
               "injury": "",
               "started": false
             },
@@ -3064,20 +3064,20 @@
             }
           ]
         },
-        "played": false,
-        "margin": null,
-        "winner": null,
+        "played": true,
+        "margin": 1.4,
+        "winner": "Peter",
         "madness": {
           "final": true,
           "away_pending": [],
           "home_pending": [],
           "away_win": 0,
           "home_win": 100,
-          "away_expected": 0.0,
-          "home_expected": 0.0,
-          "leader": "Christian",
-          "trailer": "Peter",
-          "deficit": 0.0
+          "away_expected": 112.4,
+          "home_expected": 113.8,
+          "leader": "Peter",
+          "trailer": "Christian",
+          "deficit": 1.4
         }
       },
       {
@@ -3087,7 +3087,7 @@
           "owner": "Mitchell",
           "owner_full": "Mitchell Max",
           "record": "0-0",
-          "actual": 0.0,
+          "actual": 119.4,
           "projected": 137.0,
           "optimal_proj": 117.5,
           "starters": [
@@ -3337,7 +3337,7 @@
               "pos": "QB",
               "pro": "IND",
               "proj": 15.2,
-              "actual": 9.0,
+              "actual": 9.04,
               "injury": "",
               "started": false
             },
@@ -3379,7 +3379,7 @@
           "owner": "Leif",
           "owner_full": "Leif Engen",
           "record": "0-0",
-          "actual": 0.0,
+          "actual": 126.16,
           "projected": 126.2,
           "optimal_proj": 117.1,
           "starters": [
@@ -3411,7 +3411,7 @@
               "pos": "QB",
               "pro": "BUF",
               "proj": 19.3,
-              "actual": 35.7,
+              "actual": 35.66,
               "injury": "",
               "started": true,
               "done": true
@@ -3512,7 +3512,7 @@
               "pos": "QB",
               "pro": "BUF",
               "proj": 19.3,
-              "actual": 35.7,
+              "actual": 35.66,
               "injury": "",
               "started": true,
               "done": true
@@ -3655,9 +3655,9 @@
             }
           ]
         },
-        "played": false,
-        "margin": null,
-        "winner": null,
+        "played": true,
+        "margin": 6.8,
+        "winner": "Leif",
         "madness": {
           "final": false,
           "away_pending": [],
@@ -3677,17 +3677,17 @@
               "state": "pre"
             }
           ],
-          "away_win": 1,
-          "home_win": 99,
-          "away_expected": 0.0,
-          "home_expected": 17.6,
+          "away_win": 8,
+          "home_win": 92,
+          "away_expected": 126.2,
+          "home_expected": 137.0,
           "leader": "Leif",
           "trailer": "Mitchell",
-          "deficit": 0.0
+          "deficit": 6.8
         }
       }
     ],
     "madness_author": "Peter"
   },
-  "post": "Week 1 Monday Night Madness\n\nSeason five is officially live and Week 1 already gave us tight end zeroes, kickers doing nothing and four matchups still breathing tonight. Cabin draft feels like yesterday, and some of you clearly still have lake water in your ears.\n\nGGs\n\nAchane Smokin CiGarretts vs Pukachu\n\nJohn rode Caleb Williams for 37.3 and D'Andre Swift for 32.4, which is a truly unfair thing to do to a man in Week 1. Noah got 16.9 from Mike Evans and 14.5 from Rhamondre Stevenson and then the floor fell out. Colston Loveland put up a clean 0.0 and the Titans D/ST went negative at minus 1.0, so Noah managed to draft a defense that actively worked against him. Postseason assassin, regular season victim, right on schedule.\n\nThe Aura Farm vs The Basement Of KK\n\nI got 31.3 from Bijan Robinson and 25.0 from Lamar Jackson and that was more than enough to handle Christian. He had a nice day from Trevor Lawrence at 26.1 and Chase Brown at 18.8, but Brandon Aubrey chipping in 2.0 is not what you want from the guy you probably reached on. My Rams D/ST gave me 1.0 and I still cruised, which should tell you everything about The Aura Farm's farming.\n\n1% Leif\n\nJoey Lunchbox vs Finding Nico\n\nLeif is done and holding a lead that is not a lead. Mitchell still has Courtland Sutton projected for 11.7 and the Broncos D/ST at 5.9, so he needs roughly nothing to close this out. Leif got 35.7 from Josh Allen and 35.3 from Derrick Henry and is about to lose anyway because Kyle Pitts Sr. went 0.0 and the Texans D/ST went minus 4.0. Brutal way to start.\n\n5% Logan\n\nUncut Cokerr vs Runnin' Rezac\n\nLogan is finished and Adam still has Kenneth Walker III projected for 14.7. Logan did his part with Justin Jefferson at 31.2 and Isaiah Likely at 27.8, but the Chargers D/ST posting a perfect 0.0 is the kind of detail that follows a man. Defending champ closing it out with a running back still on the field. Start measuring for the dress early, Logan.\n\n26% Kaleb\n\nA Slap in the Face vs PA Dive Your Way\n\nKaleb is down to Harrison Butker and 8.9 of projection, while Isaac still has Bo Nix projected for 16.1. Ashton Jeanty went for 32.7 and Breece Hall added 19.8, so Kaleb did the hard part and now needs a kicker to outscore a starting quarterback. Isaac got 24.2 from Javonte Williams and 14.1 from Cam Skattebo and is sitting pretty. Kaleb needs a Butker special and some Nix indifference.\n\n58% CJ\n\nAmon that inhaler vs Burrowed Treasure\n\nThis is the one. Grant has Jaylen Waddle projected for 12.2, CJ has Rashee Rice projected for 14.4, and that gap is basically the whole ballgame. Grant got 28.7 from Amon-Ra St. Brown and 26.0 from Zay Flowers and then Harrison Mevis handed him 1.0 like a kicker who forgot he was employed. CJ countered with Jonathan Taylor at 25.1 and Parker Washington at 19.3 out of nowhere. Coin flip with a slight Rice lean.\n\nLeague notes: Noah is your Week 1 high scorer at 0.0, which is either a scoring glitch or the most honest stat line in league history. No standings yet so nobody is in last place, though Logan is doing his best to get comfortable early. John already has bragging rights over me in his back pocket and I refuse to acknowledge it further.\n\nFun MNF game so send picks. I want a first TD winner. Good luck players and happy Monday!"
+  "post": "Week 1 Monday Night Madness\n\nSeason five is open and Week 1 already gave us a 75 point beatdown and a 1.4 point heart attack. Four games still breathing tonight, so keep your phone charged.\n\nGGs\n\nAchane Smokin CiGarretts vs Pukachu\n\nJohn dropped 159.46 and it wasn't even that close, Caleb Williams went for 37.26 and D'Andre Swift added 32.4 like it was nothing. Noah countered with the Titans D/ST at negative 1.0 and Colston Loveland at a clean 0.0, which is a bold way to defend nothing since Mike Evans at 16.9 was his ceiling. Getting beat by 75.2 in Week 1 is a rough way to start the title tour, Noah. John's already the week's high man and the whole league knows he's going to bring it up every day until Sunday.\n\nThe Aura Farm vs The Basement Of KK\n\nI won by 1.4 and I will be taking that with zero shame. Bijan Robinson went 31.3 and Lamar chipped in 24.96, and my Rams D/ST scoring exactly 1.0 point almost cost me the whole thing. Christian, Brandon Aubrey kicked 2.0 points, that's the entire margin plus change. You had Trevor Lawrence at 26.1 and still lost to me by a Gatorade cap.\n\n8% Isaac\nA Slap in the Face vs PA Dive Your Way\n\nKaleb is up 22.9 and only has Harrison Butker left, projected 8.9. Isaac needs Bo Nix, projected 16.1, to go absolutely nuclear for like 31 plus while Butker shanks everything in Kansas City. Ashton Jeanty going 32.7 for Kaleb did most of the damage here. Isaac, praying for a Bo Nix five touchdown game is not a strategy, it's a hobby.\n\n8% Leif\nJoey Lunchbox vs Finding Nico\n\nLeif is done at 126.16 and Mitchell still has Courtland Sutton, projected 11.7, plus the Broncos D/ST, projected 5.9, needing only 6.8. That's basically a walk. Leif got 35.66 from Josh Allen and 35.3 from Derrick Henry and is somehow going to lose because the Texans D/ST posted negative 4.0 and Kyle Pitts gave him a 0.0. Starting Pitts in 2026 is a personality choice, Leif.\n\n34% CJ\nBurrowed Treasure vs Amon that inhaler\n\nGrant leads by 6.9 with Jaylen Waddle left, projected 12.2, and CJ counters with Rashee Rice, projected 14.4. So it's a straight Waddle versus Rice foot race with a seven point head start for Grant. CJ, Parker Washington put up 19.3 for you and you might still lose, and if Harrison Mevis and his 1.0 point beat you I don't want to hear it.\n\n48% Adam\nUncut Cokerr vs Runnin' Rezac\n\nLogan is finished at 137.22 and Adam needs 15.1 from Kenneth Walker III, projected 14.7. That is the coin flip of the night. Logan got 31.2 from Justin Jefferson and 27.8 from Isaiah Likely and still had the Chargers D/ST post a big fat 0.0, so he better hope Walker gets vultured at the goal line. Logan needing a KC running back to have a quiet night is the most Logan sentence I've ever typed.\n\nLeague notes: John's 159.46 is your Week 1 high and the only score above 140 so far. Kickers were a war crime across the board, Aubrey 2.0, Dicker 2.0, Mevis 1.0, and defenses were worse with Leif's Texans at negative 4.0 and Noah's Titans at negative 1.0. My 1.4 point win over Christian is the bad beat of the week and I'm sorry, but also I'm not.\n\nFun MNF game so send picks. I want a first TD winner. Good luck players and happy Monday!"
 }
