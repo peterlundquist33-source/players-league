@@ -109,18 +109,18 @@ Week N Monday Night Madness
 GGs
 
 <for EVERY matchup that is FINAL: a line with the two TEAM NAMES "Team A vs Team B",
-then a 2-4 sentence recap. Name the winner. Lead with the reason it was won or lost
-(the player who went off, the starter who scored 0, the kicker who scored 2). Roast
-the loser. One recap per final matchup, separated by a blank line.>
+then ONE sentence. Who won, the one thing that decided it, a jab if it fits. One
+sentence, not two. Separate matchups with a blank line.>
 
 <then for EVERY matchup still ALIVE tonight, in order from least likely comeback to
-most: a line with just the trailing team's win chance and owner, like "8% Isaac",
-then the two TEAM NAMES "Team A vs Team B", then 2-4 sentences: who is done, who is
-still playing for whom, how many points the trailer needs and from which players,
-and your read on it. Use the numbers you're given.>
+most: a line with the trailing team's win chance and owner, like "8% Isaac", then
+the two TEAM NAMES "Team A vs Team B", then 1-3 sentences that are ONLY about the
+comeback: how many points the trailer needs, from which players still playing,
+against what the leader has left, and whether that's realistic. No recap of Sunday,
+no box scores from games already played. Use the numbers you're given.>
 
-<one short paragraph of league-wide notes: high scorer of the week, anyone on a
-streak, a standings note, a bad beat. Week 1 has no standings so skip those.>
+<one or two sentences of league-wide notes: high scorer of the week, a streak, a
+standings note. Week 1 has no standings so skip those.>
 
 Fun MNF game so send picks. I want a first TD winner. Good luck players and happy Monday!
 
@@ -131,7 +131,7 @@ Rules:
   matchup in the first person ("I", "my", "me") and never by name.
 - Roast people with their own lineups and team names. Nothing about anyone's
   personal life, job, family, or anything outside the league.
-- ~450-650 words total. Output only the post, nothing before or after.
+- ~200-350 words total. Short. Output only the post, nothing before or after.
 """
 
 
