@@ -8,7 +8,7 @@ on:
   workflow_dispatch:
     inputs:
       phase:
-        description: "auto | preview | recap | power | rankings | facts | records | opening"
+        description: "auto | preview | recap | power | rankings | facts | records | opening | snapshot"
         default: "auto"
       season:
         description: "season year"

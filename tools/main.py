@@ -267,10 +267,26 @@ def run_render(season):
     _opening(season)
 
 
+def run_snapshot(season, week=None):
+    """Dump the live league state (standings + matchups w/ actuals) to
+    tools/data/live.json. No AI, no page writes, no 'all games final' guard —
+    this is for reading in-progress scores between the Thursday/Tuesday runs."""
+    load_env()
+    data = L.build(season, week, None)
+    out = ROOT / "tools" / "data" / "live.json"
+    out.write_text(json.dumps({
+        "generated": datetime.datetime.utcnow().isoformat(timespec="seconds") + "Z",
+        "data": data,
+    }, indent=1))
+    played = sum(1 for m in data["matchups"] if m["played"])
+    print(f"snapshot: season {season} · week {data['week']} · "
+          f"{played}/{len(data['matchups'])} matchups with scores → {out.relative_to(ROOT)}")
+
+
 if __name__ == "__main__":
     ap = argparse.ArgumentParser()
     ap.add_argument("phase", choices=["auto", "preview", "recap", "rankings", "power", "site",
-                                      "facts", "records", "render", "opening"],
+                                      "facts", "records", "render", "opening", "snapshot"],
                     nargs="?", default="auto")
     ap.add_argument("--season", type=int, default=2026)
     ap.add_argument("--week", type=int, default=None)
@@ -293,5 +309,7 @@ if __name__ == "__main__":
         RC.update(a.season)
     elif a.phase == "opening":
         _opening(a.season)
+    elif a.phase == "snapshot":
+        run_snapshot(a.season, a.week)
     else:
         run(a.phase, a.season, a.week, a.dry, a.force)
