@@ -256,7 +256,7 @@ def run_madness(season, week=None, dry=False):
     states = MD.game_states(season, wk)
     if not states:
         print("NFL scoreboard unavailable — treating every game as final")
-    MD.compute(data, states, author=os.environ.get("MNM_AUTHOR", "Peter"))
+    MD.compute(data, states)
     alive = [m for m in data["matchups"] if not m["madness"]["final"]]
     print(f"season {season} · week {wk} · {len(alive)} of {len(data['matchups'])} alive")
     post = MD.placeholder(data) if dry else MD.write_post(data)

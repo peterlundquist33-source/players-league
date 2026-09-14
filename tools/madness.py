@@ -59,7 +59,7 @@ def _pending(side, states):
     return out
 
 
-def compute(league, states, author=None):
+def compute(league, states):
     """Attach a `madness` block to every matchup and return the league dict."""
     for m in league["matchups"]:
         a, h = m["away"], m["home"]
@@ -85,7 +85,6 @@ def compute(league, states, author=None):
             "leader": lead["owner"], "trailer": trail["owner"],
             "deficit": round(lead["actual"] - trail["actual"], 1),
         }
-    league["madness_author"] = author or ""
     return league
 
 
@@ -128,8 +127,8 @@ Fun MNF game so send picks. I want a first TD winner. Good luck players and happ
 Rules:
 - Only use players, scores and numbers from the DATA block. Quote scores as given.
 - Use owners' first names for people and the TEAM NAMES on the "vs" lines.
-- If an AUTHOR is named, that owner is writing the post: refer to that owner's own
-  matchup in the first person ("I", "my", "me") and never by name.
+- Third person throughout. Every owner, including whoever posts this, is referred
+  to by first name. Never "I", "my", "me", "we".
 - Roast people with their own lineups and team names. Nothing about anyone's
   personal life, job, family, or anything outside the league.
 - ~200-350 words total. Short. Output only the post, nothing before or after.
@@ -173,12 +172,10 @@ def write_post(league):
     data = "\n\n".join(_lines(m) for m in finals + alive)
     standings = "\n".join(f'{owner(s["owner"])}: {s["record"]}, {s["pf"]} PF'
                           for s in league["standings"])
-    author = league.get("madness_author") or ""
     user = (
         f"League background (light touch):\n{LEAGUE_FACTS}\n\n"
         f"Week {wk}. {len(finals)} matchups final, {len(alive)} alive tonight.\n"
         f"Current high score: {top_side['owner']} {top_side['actual']}.\n"
-        + (f"AUTHOR: {author}\n" if author else "")
         + f"\nDATA:\n{data}\n\nStandings:\n{standings}\n\nWrite the Week {wk} post."
     )
     allowed = set(re.findall(r"\b\d{2,3}\.\d\b", user))
