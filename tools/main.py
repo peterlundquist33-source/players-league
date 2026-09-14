@@ -270,6 +270,35 @@ def run_madness(season, week=None, dry=False):
     return page
 
 
+def run_probe(season, week=None):
+    """Dump the shape of ESPN's live matchup payload (keys only, no roster spam) so we
+    can see what the API actually exposes — e.g. whether a win probability is in there."""
+    from lib import espn
+    load_env()
+    d = espn(["mMatchupScore", "mScoreboard", "mLiveScoring", "mMatchup"], season, week)
+    cur = d.get("status", {}).get("currentMatchupPeriod")
+    print("currentMatchupPeriod", cur)
+    hits = set()
+    def walk(o, path=""):
+        if isinstance(o, dict):
+            for k, v in o.items():
+                if "prob" in k.lower() or "chance" in k.lower() or "odds" in k.lower():
+                    hits.add(f"{path}.{k} = {v!r}"[:160])
+                walk(v, f"{path}.{k}")
+        elif isinstance(o, list):
+            for v in o[:3]:
+                walk(v, path + "[]")
+    walk(d)
+    print("probability-ish keys:", sorted(hits) or "none")
+    for s in d.get("schedule", []):
+        if s.get("matchupPeriodId") == (week or cur):
+            print("schedule entry keys:", sorted(s.keys()))
+            h = s.get("home", {})
+            print("side keys:", sorted(h.keys()))
+            print("side scalars:", {k: v for k, v in h.items() if not isinstance(v, (dict, list))})
+            break
+
+
 def run_render(season):
     """Re-render every generated page from the cached run data — no ESPN, no AI.
     For when render.py changes and the copy shouldn't."""
@@ -298,7 +327,7 @@ def run_render(season):
 if __name__ == "__main__":
     ap = argparse.ArgumentParser()
     ap.add_argument("phase", choices=["auto", "preview", "recap", "madness", "rankings", "power",
-                                      "site", "facts", "records", "render", "opening"],
+                                      "site", "facts", "records", "render", "opening", "probe"],
                     nargs="?", default="auto")
     ap.add_argument("--season", type=int, default=2026)
     ap.add_argument("--week", type=int, default=None)
@@ -313,6 +342,8 @@ if __name__ == "__main__":
         import chrome as SITE
         for pg in SITE.stamp_all():
             print("stamped", pg)
+    elif a.phase == "probe":
+        run_probe(a.season, a.week)
     elif a.phase == "madness":
         run_madness(a.season, a.week, a.dry)
     elif a.phase == "render":
