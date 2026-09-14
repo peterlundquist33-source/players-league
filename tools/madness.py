@@ -113,7 +113,8 @@ then ONE sentence. Who won, the one thing that decided it, a jab if it fits. One
 sentence, not two. Separate matchups with a blank line.>
 
 <then for EVERY matchup still ALIVE tonight, in order from least likely comeback to
-most: a line with the trailing team's win chance and owner, like "8% Isaac", then
+most: a line with the underdog's win chance and owner (the side with the LOWER win
+chance, whether or not they lead on points right now), like "8% Isaac", then
 the two TEAM NAMES "Team A vs Team B", then 1-3 sentences that are ONLY about the
 comeback: how many points the trailer needs, from which players still playing,
 against what the leader has left, and whether that's realistic. No recap of Sunday,
