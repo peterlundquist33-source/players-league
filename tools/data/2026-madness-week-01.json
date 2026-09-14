@@ -1,5 +1,5 @@
 {
-  "generated": "2026-09-14T19:30:33",
+  "generated": "2026-09-14T19:35:53",
   "data": {
     "season": 2026,
     "week": 1,
@@ -115,6 +115,7 @@
           "actual": 159.46,
           "projected": 159.5,
           "optimal_proj": 116.8,
+          "win_prob": 1.0,
           "starters": [
             {
               "name": "Puka Nacua",
@@ -407,6 +408,7 @@
           "actual": 84.22,
           "projected": 84.2,
           "optimal_proj": 117.7,
+          "win_prob": 0.0,
           "starters": [
             {
               "name": "James Cook III",
@@ -699,6 +701,7 @@
           "home_pending": [],
           "away_win": 0,
           "home_win": 100,
+          "source": "espn",
           "away_expected": 84.2,
           "home_expected": 159.5,
           "leader": "John",
@@ -716,6 +719,7 @@
           "actual": 107.36,
           "projected": 116.3,
           "optimal_proj": 117.3,
+          "win_prob": 0.97,
           "starters": [
             {
               "name": "Ashton Jeanty",
@@ -998,6 +1002,7 @@
           "actual": 84.5,
           "projected": 100.6,
           "optimal_proj": 116.2,
+          "win_prob": 0.03,
           "starters": [
             {
               "name": "Ja'Marr Chase",
@@ -1294,8 +1299,9 @@
               "state": "pre"
             }
           ],
-          "away_win": 8,
-          "home_win": 92,
+          "away_win": 3,
+          "home_win": 97,
+          "source": "espn",
           "away_expected": 100.6,
           "home_expected": 116.3,
           "leader": "Kaleb",
@@ -1313,6 +1319,7 @@
           "actual": 108.26,
           "projected": 122.6,
           "optimal_proj": 117.4,
+          "win_prob": 0.31,
           "starters": [
             {
               "name": "Jonathan Taylor",
@@ -1605,6 +1612,7 @@
           "actual": 115.14,
           "projected": 127.4,
           "optimal_proj": 120.6,
+          "win_prob": 0.69,
           "starters": [
             {
               "name": "Amon-Ra St. Brown",
@@ -1901,8 +1909,9 @@
               "state": "pre"
             }
           ],
-          "away_win": 66,
-          "home_win": 34,
+          "away_win": 69,
+          "home_win": 31,
+          "source": "espn",
           "away_expected": 127.3,
           "home_expected": 122.7,
           "leader": "Grant",
@@ -1920,6 +1929,7 @@
           "actual": 137.22,
           "projected": 137.2,
           "optimal_proj": 122.5,
+          "win_prob": 0.52,
           "starters": [
             {
               "name": "Justin Jefferson",
@@ -2202,6 +2212,7 @@
           "actual": 122.16,
           "projected": 136.9,
           "optimal_proj": 117.2,
+          "win_prob": 0.48,
           "starters": [
             {
               "name": "Jaxon Smith-Njigba",
@@ -2492,6 +2503,7 @@
           "home_pending": [],
           "away_win": 48,
           "home_win": 52,
+          "source": "espn",
           "away_expected": 136.9,
           "home_expected": 137.2,
           "leader": "Logan",
@@ -2509,6 +2521,7 @@
           "actual": 113.76,
           "projected": 113.8,
           "optimal_proj": 114.7,
+          "win_prob": 1.0,
           "starters": [
             {
               "name": "Bijan Robinson",
@@ -2725,7 +2738,7 @@
               "pro": "TB",
               "proj": 0.0,
               "actual": 0.0,
-              "injury": "QUESTIONABLE",
+              "injury": "OUT",
               "started": false
             },
             {
@@ -2791,6 +2804,7 @@
           "actual": 112.4,
           "projected": 112.4,
           "optimal_proj": 118.2,
+          "win_prob": 0.0,
           "starters": [
             {
               "name": "CeeDee Lamb",
@@ -3073,6 +3087,7 @@
           "home_pending": [],
           "away_win": 0,
           "home_win": 100,
+          "source": "espn",
           "away_expected": 112.4,
           "home_expected": 113.8,
           "leader": "Peter",
@@ -3090,6 +3105,7 @@
           "actual": 119.4,
           "projected": 137.0,
           "optimal_proj": 117.5,
+          "win_prob": 0.89,
           "starters": [
             {
               "name": "Jahmyr Gibbs",
@@ -3382,6 +3398,7 @@
           "actual": 126.16,
           "projected": 126.2,
           "optimal_proj": 117.1,
+          "win_prob": 0.11,
           "starters": [
             {
               "name": "Christian McCaffrey",
@@ -3677,8 +3694,9 @@
               "state": "pre"
             }
           ],
-          "away_win": 8,
-          "home_win": 92,
+          "away_win": 11,
+          "home_win": 89,
+          "source": "espn",
           "away_expected": 126.2,
           "home_expected": 137.0,
           "leader": "Leif",
@@ -3689,5 +3707,5 @@
     ],
     "madness_author": "Peter"
   },
-  "post": "Week 1 Monday Night Madness\n\nSeason five is open and Week 1 already gave us a 75 point beatdown and a 1.4 point heart attack. Four games still breathing tonight, so keep your phone charged.\n\nGGs\n\nAchane Smokin CiGarretts vs Pukachu\n\nJohn dropped 159.46 and it wasn't even that close, Caleb Williams went for 37.26 and D'Andre Swift added 32.4 like it was nothing. Noah countered with the Titans D/ST at negative 1.0 and Colston Loveland at a clean 0.0, which is a bold way to defend nothing since Mike Evans at 16.9 was his ceiling. Getting beat by 75.2 in Week 1 is a rough way to start the title tour, Noah. John's already the week's high man and the whole league knows he's going to bring it up every day until Sunday.\n\nThe Aura Farm vs The Basement Of KK\n\nI won by 1.4 and I will be taking that with zero shame. Bijan Robinson went 31.3 and Lamar chipped in 24.96, and my Rams D/ST scoring exactly 1.0 point almost cost me the whole thing. Christian, Brandon Aubrey kicked 2.0 points, that's the entire margin plus change. You had Trevor Lawrence at 26.1 and still lost to me by a Gatorade cap.\n\n8% Isaac\nA Slap in the Face vs PA Dive Your Way\n\nKaleb is up 22.9 and only has Harrison Butker left, projected 8.9. Isaac needs Bo Nix, projected 16.1, to go absolutely nuclear for like 31 plus while Butker shanks everything in Kansas City. Ashton Jeanty going 32.7 for Kaleb did most of the damage here. Isaac, praying for a Bo Nix five touchdown game is not a strategy, it's a hobby.\n\n8% Leif\nJoey Lunchbox vs Finding Nico\n\nLeif is done at 126.16 and Mitchell still has Courtland Sutton, projected 11.7, plus the Broncos D/ST, projected 5.9, needing only 6.8. That's basically a walk. Leif got 35.66 from Josh Allen and 35.3 from Derrick Henry and is somehow going to lose because the Texans D/ST posted negative 4.0 and Kyle Pitts gave him a 0.0. Starting Pitts in 2026 is a personality choice, Leif.\n\n34% CJ\nBurrowed Treasure vs Amon that inhaler\n\nGrant leads by 6.9 with Jaylen Waddle left, projected 12.2, and CJ counters with Rashee Rice, projected 14.4. So it's a straight Waddle versus Rice foot race with a seven point head start for Grant. CJ, Parker Washington put up 19.3 for you and you might still lose, and if Harrison Mevis and his 1.0 point beat you I don't want to hear it.\n\n48% Adam\nUncut Cokerr vs Runnin' Rezac\n\nLogan is finished at 137.22 and Adam needs 15.1 from Kenneth Walker III, projected 14.7. That is the coin flip of the night. Logan got 31.2 from Justin Jefferson and 27.8 from Isaiah Likely and still had the Chargers D/ST post a big fat 0.0, so he better hope Walker gets vultured at the goal line. Logan needing a KC running back to have a quiet night is the most Logan sentence I've ever typed.\n\nLeague notes: John's 159.46 is your Week 1 high and the only score above 140 so far. Kickers were a war crime across the board, Aubrey 2.0, Dicker 2.0, Mevis 1.0, and defenses were worse with Leif's Texans at negative 4.0 and Noah's Titans at negative 1.0. My 1.4 point win over Christian is the bad beat of the week and I'm sorry, but also I'm not.\n\nFun MNF game so send picks. I want a first TD winner. Good luck players and happy Monday!"
+  "post": "Week 1 Monday Night Madness\n\nSeason five is officially underway and we already have a 75 point beatdown, a 1.4 point heart attack, and four games riding on Monday night. Perfect.\n\nGGs\n\nAchane Smokin CiGarretts vs Pukachu\n\nJohn dropped 159.46 and it was never close, Pukachu wins by 75.2. Caleb Williams went for 37.26 and D'Andre Swift added 32.4, which is a sentence nobody expected to read in September. Noah countered with Colston Loveland at 0.0 and a Titans D/ST that went negative one, so his top two guys combined for less than John's quarterback. The postseason assassin will have to assassinate in November, because this was a mugging.\n\nThe Aura Farm vs The Basement Of KK\n\nI won by 1.4 and I will be honest, I aged about six years watching it. Bijan Robinson went 31.3 and Lamar chipped in 24.96 while my Rams D/ST contributed a whole 1.0 point. Christian, if Brandon Aubrey puts up anything more than 2.0 you win that game and I have to go on a walk. The Aura Farm has no aura. Back to me.\n\n3% Isaac\n\nA Slap in the Face vs PA Dive Your Way\n\nKaleb leads by 22.9 and is done except for Harrison Butker, projected 8.9. Isaac has Bo Nix and a projection of 16.1 to erase a 22.9 point hole, which means he needs Nix to roughly double his projection while Butker never leaves the sideline. Ashton Jeanty went 32.7 for Kaleb and that was pretty much the ballgame. This is a slap in the face alright, and Isaac is the one holding the cheek.\n\n11% Leif\n\nJoey Lunchbox vs Finding Nico\n\nLeif is done at 126.16 and leads by 6.8, but Mitchell still has Courtland Sutton projected 11.7 and the Broncos D/ST projected 5.9. Any normal Sutton night ends this. Leif got 35.66 from Josh Allen and 35.3 from Derrick Henry and is somehow still probably losing, because he also started Kyle Pitts for 0.0 and a Texans D/ST that scored negative four. Lunchbox packed a banana peel and a rock.\n\n31% CJ\n\nAmon that inhaler vs Burrowed Treasure\n\nGrant leads by 6.9 with Jaylen Waddle left, projected 12.2, and CJ has Rashee Rice projected 14.4. Basically a coin flip weighted toward Grant, whoever's Denver or KC guy sees the ball first probably decides it. Amon-Ra went 28.7 and Zay Flowers 26.0 for Grant, and his kicker Harrison Mevis put up a proud 1.0. Parker Washington scoring 19.3 for CJ is the most Week 1 thing on this entire scoreboard.\n\n48% Adam\n\nUncut Cokerr vs Runnin' Rezac\n\nLogan is done at 137.22 and leads by 15.1, Adam has Kenneth Walker III projected 14.7. So the defending champ needs Walker to beat his projection by half a point to steal it, and honestly Adam beating a projection by exactly enough is the most Adam thing imaginable. Logan got 31.2 from Jefferson and 27.8 from Isaiah Likely and then started a Chargers D/ST that scored 0.0, which could end up costing him the entire week. Dress watch begins early for one of you.\n\nJohn takes week one high score at 159.46 and gets to be insufferable about it, which means the Lundquist head to head sits at 6-3 him and he will mention it roughly nine more times before Sunday. Christian losing by 1.4 with a 2.0 kicker is the bad beat of the week and it is not particularly close. Four games alive, three of them within seven points.\n\nFun MNF game so send picks. I want a first TD winner. Good luck players and happy Monday!"
 }
