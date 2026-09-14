@@ -141,6 +141,10 @@ def madness_page(league, post, stamp=None):
     alive = [m for m in league["matchups"] if not m["madness"]["final"]]
     final = [m for m in league["matchups"] if m["madness"]["final"]]
     cards = "\n".join(_madness_card(m) for m in alive + final)
+    modeled = any(m["madness"].get("source") == "model" for m in alive)
+    note = ("Win chances are ESPN's own, the same numbers the app shows." if not modeled else
+            "ESPN didn't send win chances this run, so these are the site's own: every starter "
+            "still to play counts his projection with a normal spread.")
     body = f'''<section class="page-header">
   <span class="eyebrow">Matchups</span>
   <h1>Week {wk} <span class="gold">Monday Night Madness</span></h1>
@@ -152,7 +156,7 @@ def madness_page(league, post, stamp=None):
     <pre class="mnm-post" id="mnm-post">{html.escape(post)}</pre>
   </div>
   <h2 class="mnm-h2">The board</h2>
-  <p class="mx-foot" style="margin-top:0">Win chances are the site's own model, not ESPN's: every starter still to play counts his projection with a normal spread, and the margin falls out of that.</p>
+  <p class="mx-foot" style="margin-top:0">{note}</p>
   {cards}
 </div>'''
     OUT.mkdir(exist_ok=True)

@@ -81,6 +81,8 @@ def _side(raw_side, teams, scoring_period, slot_counts):
         "projected": round(raw_side.get("totalProjectedPointsLive")
                            or proj_total, 1),
         "optimal_proj": _optimal(players, slot_counts),
+        # ESPN's own live win chance (0-1); None if the payload doesn't carry it
+        "win_prob": raw_side.get("winProbability"),
         "starters": starters,
         "players": players,
     }

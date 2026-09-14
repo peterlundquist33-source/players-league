@@ -2,12 +2,9 @@
 
 Runs Monday afternoon, after the Sunday slate is final and before kickoff. For each
 matchup we bank what's already scored, list every starter who still has a game to
-play, and put a win probability on both sides from the site's own model (the ESPN
-app shows a number too; this one is ours and it says so on the page).
-
-Model: each still-to-play starter contributes his ESPN projection with a normal
-spread proportional to that projection; the matchup margin is then normal and the
-win probability is one Phi() away. Crude, honest, and it moves the right direction.
+play, and show ESPN's own win probability for both sides (the same number the app
+shows). If ESPN ever stops sending it, a simple normal model on the remaining
+starters' projections fills in and the page says so.
 """
 import math, re
 from lib import claude
@@ -70,15 +67,20 @@ def compute(league, states, author=None):
         a_exp = a["actual"] + sum(p["proj"] for p in ap)
         h_exp = h["actual"] + sum(p["proj"] for p in hp)
         var = sum(_sd(p["proj"]) ** 2 for p in ap + hp)
+        source = "espn"
         if not ap and not hp:
             a_win = 1.0 if a["actual"] > h["actual"] else 0.0
+        elif a.get("win_prob") is not None and h.get("win_prob") is not None:
+            a_win = float(a["win_prob"])          # the number the ESPN app shows
         else:
+            source = "model"
             a_win = _phi((a_exp - h_exp) / math.sqrt(var))
         lead, trail = (a, h) if a["actual"] >= h["actual"] else (h, a)
         m["madness"] = {
             "final": not ap and not hp,
             "away_pending": ap, "home_pending": hp,
             "away_win": round(100 * a_win), "home_win": round(100 * (1 - a_win)),
+            "source": source,
             "away_expected": round(a_exp, 1), "home_expected": round(h_exp, 1),
             "leader": lead["owner"], "trailer": trail["owner"],
             "deficit": round(lead["actual"] - trail["actual"], 1),
