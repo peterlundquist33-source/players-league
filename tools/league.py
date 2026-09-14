@@ -16,7 +16,7 @@ def _proj_and_actual(entry, scoring_period):
             actual = s.get("appliedTotal", 0.0) or 0.0
         elif s.get("statSourceId") == 1:    # projected
             proj = s.get("appliedTotal", 0.0) or 0.0
-    return round(proj, 1), round(actual, 1)
+    return round(proj, 1), round(actual, 2)
 
 
 FLEX_POS = {"RB", "WR", "TE"}
@@ -74,7 +74,10 @@ def _side(raw_side, teams, scoring_period, slot_counts):
         "owner": owner(t["owner"]),
         "owner_full": t["owner"],
         "record": t["record"],
-        "actual": round(raw_side.get("totalPoints", 0.0), 1),
+        # ESPN leaves totalPoints at 0 until the matchup period closes, so mid-week
+        # (Monday Night Madness) fall back to the live total, then the starters' sum
+        "actual": round(raw_side.get("totalPoints") or raw_side.get("totalPointsLive")
+                        or sum(p["actual"] for p in starters), 2),
         "projected": round(raw_side.get("totalProjectedPointsLive")
                            or proj_total, 1),
         "optimal_proj": _optimal(players, slot_counts),
