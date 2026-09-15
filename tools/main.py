@@ -331,14 +331,22 @@ def run_render(season):
 if __name__ == "__main__":
     ap = argparse.ArgumentParser()
     ap.add_argument("phase", choices=["auto", "preview", "recap", "madness", "rankings", "power",
-                                      "site", "facts", "records", "render", "opening", "probe"],
+                                      "site", "facts", "records", "render", "opening", "probe",
+                                      "podcast"],
                     nargs="?", default="auto")
     ap.add_argument("--season", type=int, default=2026)
     ap.add_argument("--week", type=int, default=None)
     ap.add_argument("--dry", action="store_true")
     ap.add_argument("--force", action="store_true")
     a = ap.parse_args()
-    if a.phase == "rankings":
+    if a.phase == "podcast":
+        # Podcast prep CSV on its own, without generating the week's preview page.
+        # --dry keeps it to facts (rosters, projections, injuries, slots): no AI copy.
+        import podcast as PC
+        import league as L
+        wk = a.week or L.build(a.season, None, "preview")["week"]
+        PC.build_csv(a.season, wk, a.dry)
+    elif a.phase == "rankings":
         run_rankings(a.season, a.dry)
     elif a.phase == "power":
         run_power(a.season, a.week, a.dry)

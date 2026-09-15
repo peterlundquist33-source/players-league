@@ -9,7 +9,7 @@ on:
   workflow_dispatch:
     inputs:
       phase:
-        description: "auto | preview | recap | madness | power | rankings | facts | records | opening"
+        description: "auto | preview | recap | madness | power | rankings | facts | records | opening | podcast"
         default: "auto"
       season:
         description: "season year"
@@ -19,6 +19,10 @@ on:
         default: ""
       force:
         description: "rebuild even if the page exists"
+        type: boolean
+        default: false
+      dry:
+        description: "facts only, no AI copy (podcast phase)"
         type: boolean
         default: false
 
@@ -62,7 +66,8 @@ jobs:
           python3 tools/main.py "${{ steps.phase.outputs.phase }}" \
             --season "${{ github.event.inputs.season || '2026' }}" \
             ${{ github.event.inputs.week && format('--week {0}', github.event.inputs.week) || '' }} \
-            ${{ github.event.inputs.force == 'true' && '--force' || '' }}
+            ${{ github.event.inputs.force == 'true' && '--force' || '' }} \
+            ${{ github.event.inputs.dry == 'true' && '--dry' || '' }}
 
       - name: Commit & push if changed
         run: |
