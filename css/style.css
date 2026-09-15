@@ -612,6 +612,10 @@ body, table, .stat, .countdown, [class*="stat-val"], [class*="pill"] {
 }
 .mx-week-list a:hover, .mx-week-list a:focus-visible { border-color: var(--line-2); outline: none; }
 .mx-week-list .wk { font-family: var(--font-display); font-weight: 700; }
+.mx-week-list .mx-row-main { display: flex; flex-direction: column; gap: 2px; }
+.mx-week-list .mx-sub { font-size: var(--fs-13); color: var(--text-3); }
+.mx-badge.preview { color: var(--text-2); background: var(--surface-2, rgba(255,255,255,0.06)); border: var(--hair); }
+.mx-key { margin: 0 0 var(--s-4); font-size: var(--fs-13); color: var(--text-3); line-height: 1.8; }
 .mx-foot { margin-top: var(--s-8); padding-top: var(--s-4); border-top: var(--hair); font-size: var(--fs-13); color: var(--text-3); line-height: 1.7; }
 .mx-foot a { color: var(--accent); }
 /* Monday Night Madness */

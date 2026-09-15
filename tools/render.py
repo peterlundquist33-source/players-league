@@ -86,12 +86,13 @@ def _matchup_card(m, copy, phase):
 
 def week_page(league, copies, intro, stamp=None):
     wk, phase, season = league["week"], league["phase"], league["season"]
-    badge = "Preview" if phase == "preview" else "Final"
+    kind = "preview" if phase == "preview" else "recap"
+    badge = "Preview" if kind == "preview" else "Recap"
     cards = "\n".join(_matchup_card(m, copies[i], phase)
                       for i, m in enumerate(league["matchups"]))
     stamp = stamp or datetime.date.today().isoformat()   # a re-render keeps its original date
-    body = f'''<section class="page-header">
-  <span class="eyebrow">Matchups</span>
+    body = f'''<section class="page-header" data-phase="{kind}">
+  <span class="eyebrow">Matchups · {badge}</span>
   <h1>Week {wk} <span class="gold">{badge}</span></h1>
   <p>{season} season · generated {stamp}</p>
 </section>
@@ -305,12 +306,28 @@ def index_page(season):
     rows = []
     for w in weeks:
         n = int(w.stem.split("-")[-1])
-        badge = "Final" if "FINAL</SPAN>" in w.read_text().upper() else "Preview"
-        rows.append('<a href="%s"><span class="wk">Week %d</span>'
-                    '<span class="mx-badge">%s</span></a>' % (w.name, n, badge))
+        text = w.read_text()
+        # Pages carry data-phase; older ones only had the "Final" header.
+        if 'data-phase="preview"' in text:
+            kind = "preview"
+        elif 'data-phase="recap"' in text or "FINAL</SPAN>" in text.upper():
+            kind = "recap"
+        else:
+            kind = "preview"
+        if kind == "recap":
+            label, blurb, cls = "Recap", "Final scores, results, and what it all meant", ""
+        else:
+            label, blurb, cls = "Preview", "The matchups, the lines, and our picks", " preview"
+        rows.append('<a href="%s" class="mx-row-%s"><span class="mx-row-main">'
+                    '<span class="wk">Week %d %s</span>'
+                    '<span class="mx-sub">%s</span></span>'
+                    '<span class="mx-badge%s">%s</span></a>'
+                    % (w.name, kind, n, label, blurb, cls, label))
     listing = "\n".join(rows) or '<p class="mx-intro">No weeks generated yet.</p>'
     madness = sorted(OUT.glob("%d-week-[0-9][0-9]-madness.html" % season), reverse=True)
-    mrows = "\n".join('<a href="%s"><span class="wk">Week %d</span>'
+    mrows = "\n".join('<a href="%s" class="mx-row-madness"><span class="mx-row-main">'
+                      '<span class="wk">Week %d Monday Night</span>'
+                      '<span class="mx-sub">Where every game stands before MNF</span></span>'
                       '<span class="mx-badge live">Monday</span></a>'
                       % (w.name, int(w.stem.split("-")[2])) for w in madness)
     mblock = ('<h2 class="mnm-h2">Monday Night Madness</h2>'
@@ -320,6 +337,9 @@ def index_page(season):
     body = ('<section class="page-header"><span class="eyebrow">Matchups</span>'
             '<h1>Matchup <span class="gold">Central</span></h1>'
             '<p>Weekly previews and recaps · %d</p></section>'
-            '<div class="mx-wrap"><div class="mx-week-list">%s</div>%s</div>'
+            '<div class="mx-wrap"><p class="mx-key"><span class="mx-badge preview">Preview</span> '
+            'goes up Thursday before the games. <span class="mx-badge">Recap</span> lands Tuesday '
+            'once every score is final.</p>'
+            '<div class="mx-week-list">%s</div>%s</div>'
             % (season, listing, mblock))
     (OUT / "index.html").write_text(_page("Matchups", "Matchups", body, page="matchups/index.html"))
