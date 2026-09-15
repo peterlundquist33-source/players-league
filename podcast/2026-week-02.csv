@@ -105,3 +105,203 @@ REFERENCE  ·  raw matchup data
 ,Christian vs Adam,Sunday Night,117-124,WSH @ DAL
 ,Logan vs Leif,Sunday Afternoon,120-128,SEA @ ARI
 ,Peter vs Mitchell,Thursday Night,115-121,WSH @ DAL
+
+REFERENCE  ·  rosters with draft round (Team of the Week block)
+
+,Owner,Player,Pos,NFL,Draft Rd.,Proj
+,Isaac,Ja'Marr Chase,WR,CIN,1,19
+,Isaac,Bo Nix,QB,DEN,10,18
+,Isaac,Javonte Williams,RB,DAL,2,17
+,Isaac,Malik Nabers,WR,NYG,3,15
+,Isaac,Malik Willis,QB,MIA,14,14
+,Isaac,Terry McLaurin,WR,WSH,4,12
+,Isaac,Cam Skattebo,RB,NYG,5,12
+,Isaac,DK Metcalf,WR,PIT,6,11
+,Isaac,Jaylen Warren,RB,PIT,7,11
+,Isaac,Dalton Kincaid,TE,BUF,12,10
+,Isaac,T.J. Hockenson,TE,MIN,11,10
+,Isaac,Wan'Dale Robinson,WR,TEN,8,10
+,Isaac,Jakobi Meyers,WR,JAX,9,10
+,Isaac,Adonai Mitchell,WR,NYJ,13,9
+,Isaac,Chris Boswell,K,PIT,15,8
+,Isaac,Lions D/ST,D/ST,DET,16,4
+,Noah,Drake Maye,QB,NE,5,18
+,Noah,De'Von Achane,RB,MIA,2,17
+,Noah,James Cook III,RB,BUF,1,16
+,Noah,Garrett Wilson,WR,NYJ,3,15
+,Noah,Rhamondre Stevenson,RB,NE,7,13
+,Noah,Mike Evans,WR,SF,6,12
+,Noah,Colston Loveland,TE,CHI,4,11
+,Noah,Romeo Doubs,WR,NE,10,11
+,Noah,Michael Wilson,WR,ARI,9,10
+,Noah,Josh Downs,WR,IND,8,9
+,Noah,Tyjae Spears,RB,TEN,12,9
+,Noah,Brenton Strange,TE,JAX,13,8
+,Noah,Ray Davis,RB,BUF,14,2
+,Noah,Jordyn Tyson,WR,NO,11,0
+,Noah,Eddy Pineiro,K,SF,15,10
+,Noah,Patriots D/ST,D/ST,NE,16,7
+,Noah,Titans D/ST,D/ST,TEN,FA/waiver,4
+,John,Puka Nacua,WR,LAR,1,21
+,John,Caleb Williams,QB,CHI,7,19
+,John,Matthew Stafford,QB,LAR,13,18
+,John,Brock Bowers,TE,LV,2,15
+,John,Trey McBride,TE,ARI,3,14
+,John,D'Andre Swift,RB,CHI,5,14
+,John,Kyren Williams,RB,LAR,4,14
+,John,Quentin Johnston,WR,LAC,8,10
+,John,Brian Thomas Jr.,WR,JAX,6,9
+,John,Blake Corum,RB,LAR,9,9
+,John,Makai Lemon,WR,PHI,10,9
+,John,Dontayvion Wicks,WR,PHI,FA/waiver,8
+,John,Keaton Mitchell,RB,LAC,12,8
+,John,Chris Bell,WR,MIA,FA/waiver,7
+,John,Michael Mayer,TE,LV,FA/waiver,6
+,John,Cam Little,K,JAX,14,8
+,John,Jaguars D/ST,D/ST,JAX,16,4
+,Grant,Amon-Ra St. Brown,WR,DET,1,20
+,Grant,Baker Mayfield,QB,TB,13,17
+,Grant,Omarion Hampton,RB,LAC,2,16
+,Grant,Zay Flowers,WR,BAL,3,15
+,Grant,Jadarian Price,RB,SEA,5,13
+,Grant,Christian Watson,WR,GB,6,12
+,Grant,Jaylen Waddle,WR,DEN,4,12
+,Grant,Tony Pollard,RB,TEN,7,11
+,Grant,Dallas Goedert,TE,PHI,11,11
+,Grant,Jacory Croskey-Merritt,RB,WSH,8,10
+,Grant,Chris Godwin Jr.,WR,TB,9,10
+,Grant,Juwan Johnson,TE,NO,14,9
+,Grant,Tank Bigsby,RB,PHI,12,3
+,Grant,Kyler Murray,QB,MIN,10,0
+,Grant,Harrison Mevis,K,LAR,15,10
+,Grant,Ravens D/ST,D/ST,BAL,16,7
+,Kaleb,Justin Herbert,QB,LAC,8,19
+,Kaleb,Ashton Jeanty,RB,LV,1,18
+,Kaleb,Jared Goff,QB,DET,14,17
+,Kaleb,Breece Hall,RB,NYJ,3,16
+,Kaleb,Drake London,WR,ATL,2,16
+,Kaleb,Ladd McConkey,WR,LAC,4,14
+,Kaleb,Carnell Tate,WR,TEN,5,11
+,Kaleb,RJ Harvey,RB,DEN,9,10
+,Kaleb,Harold Fannin Jr.,TE,CLE,6,10
+,Kaleb,Jordan Addison,WR,MIN,7,10
+,Kaleb,KC Concepcion,WR,CLE,10,9
+,Kaleb,Keenan Allen,WR,IND,12,9
+,Kaleb,Tre Tucker,WR,LV,15,8
+,Kaleb,Kenyon Sadiq,TE,NYJ,11,8
+,Kaleb,Harrison Butker,K,KC,16,10
+,Kaleb,Vikings D/ST,D/ST,MIN,13,4
+,CJ,Jonathan Taylor,RB,IND,1,18
+,CJ,Joe Burrow,QB,CIN,6,17
+,CJ,Rashee Rice,WR,KC,2,15
+,CJ,Tyler Shough,QB,NO,14,15
+,CJ,Chuba Hubbard,RB,CAR,8,14
+,CJ,Emeka Egbuka,WR,TB,4,14
+,CJ,Parker Washington,WR,JAX,7,12
+,CJ,Quinshon Judkins,RB,CLE,3,12
+,CJ,MarShawn Lloyd,RB,GB,FA/waiver,12
+,CJ,Alec Pierce,WR,IND,9,11
+,CJ,Jake Ferguson,TE,DAL,10,10
+,CJ,Devaughn Vele,WR,NO,FA/waiver,9
+,CJ,TreVeyon Henderson,RB,NE,5,9
+,CJ,Isiah Pacheco,RB,DET,11,0
+,CJ,Zach Charbonnet,RB,SEA,12,0
+,CJ,Ka'imi Fairbairn,K,HOU,13,10
+,CJ,Steelers D/ST,D/ST,PIT,15,6
+,Christian,CeeDee Lamb,WR,DAL,1,18
+,Christian,Jordan Love,QB,GB,14,16
+,Christian,Trevor Lawrence,QB,JAX,7,16
+,Christian,Chase Brown,RB,CIN,2,15
+,Christian,DeVonta Smith,WR,PHI,4,14
+,Christian,Travis Etienne Jr.,RB,NO,3,13
+,Christian,Jameson Williams,WR,DET,6,12
+,Christian,Deebo Samuel Sr.,WR,SF,9,12
+,Christian,Aaron Jones Sr.,RB,MIN,10,11
+,Christian,George Kittle,TE,SF,8,10
+,Christian,Khalil Shakir,WR,BUF,11,10
+,Christian,Bhayshul Tuten,RB,JAX,5,9
+,Christian,Chig Okonkwo,TE,WSH,16,8
+,Christian,Dylan Sampson,RB,CLE,15,5
+,Christian,Brandon Aubrey,K,DAL,12,11
+,Christian,Seahawks D/ST,D/ST,SEA,13,8
+,Adam,Brock Purdy,QB,SF,12,20
+,Adam,Jayden Daniels,QB,WSH,7,19
+,Adam,Jaxon Smith-Njigba,WR,SEA,1,18
+,Adam,Kenneth Walker III,RB,KC,2,18
+,Adam,Chris Olave,WR,NO,3,16
+,Adam,Bucky Irving,RB,TB,4,14
+,Adam,Rome Odunze,WR,CHI,5,12
+,Adam,Jalen Coker,WR,CAR,10,11
+,Adam,Sam LaPorta,TE,DET,6,11
+,Adam,Rico Dowdle,RB,PIT,8,10
+,Adam,Mark Andrews,TE,BAL,11,10
+,Adam,Kenny Gainwell,RB,TB,9,10
+,Adam,George Holani,RB,SEA,FA/waiver,8
+,Adam,Cyrus Allen,WR,KC,16,4
+,Adam,Will Reichard,K,MIN,14,9
+,Adam,Eagles D/ST,D/ST,PHI,15,7
+,Logan,Jalen Hurts,QB,PHI,6,20
+,Logan,Justin Jefferson,WR,MIN,1,18
+,Logan,Saquon Barkley,RB,PHI,2,17
+,Logan,Tetairoa McMillan,WR,CAR,4,14
+,Logan,Jeremiyah Love,RB,ARI,3,13
+,Logan,Luther Burden III,WR,CHI,5,12
+,Logan,J.K. Dobbins,RB,DEN,8,12
+,Logan,Michael Pittman Jr.,WR,PIT,7,11
+,Logan,Isaiah Likely,TE,NYG,9,11
+,Logan,Xavier Worthy,WR,KC,10,11
+,Logan,Rashid Shaheed,WR,SEA,14,9
+,Logan,Tyler Allgeier,RB,ARI,11,7
+,Logan,Mike Washington Jr.,RB,LV,13,4
+,Logan,De'Zhaun Stribling,WR,SF,12,0
+,Logan,Chase McLaughlin,K,TB,16,9
+,Logan,Chargers D/ST,D/ST,LAC,15,7
+,Leif,Josh Allen,QB,BUF,3,23
+,Leif,Christian McCaffrey,RB,SF,1,22
+,Leif,Patrick Mahomes,QB,KC,13,18
+,Leif,Derrick Henry,RB,BAL,2,17
+,Leif,David Montgomery,RB,HOU,5,14
+,Leif,Davante Adams,WR,LAR,4,14
+,Leif,Kyle Pitts Sr.,TE,ATL,6,11
+,Leif,Stefon Diggs,WR,WSH,8,11
+,Leif,Jayden Reed,WR,GB,10,10
+,Leif,Marvin Harrison Jr.,WR,ARI,7,9
+,Leif,Caleb Douglas,WR,MIA,15,9
+,Leif,Kaelon Black,RB,SF,11,8
+,Leif,Justice Hill,RB,BAL,FA/waiver,8
+,Leif,Woody Marks,RB,HOU,9,7
+,Leif,Jason Myers,K,SEA,14,10
+,Leif,Texans D/ST,D/ST,HOU,12,7
+,Peter,Bijan Robinson,RB,ATL,1,23
+,Peter,Lamar Jackson,QB,BAL,5,20
+,Peter,Dak Prescott,QB,DAL,13,20
+,Peter,George Pickens,WR,DAL,3,15
+,Peter,Tee Higgins,WR,CIN,4,12
+,Peter,Tucker Kraft,TE,GB,6,11
+,Peter,Jordan Mason,RB,MIN,8,10
+,Peter,Kyle Monangai,RB,CHI,9,10
+,Peter,Denzel Boston,WR,CLE,16,9
+,Peter,Jonathon Brooks,RB,CAR,7,8
+,Peter,Jalen Nailor,WR,LV,12,7
+,Peter,Jalen McMillan,WR,TB,11,6
+,Peter,Chris Rodriguez Jr.,RB,JAX,10,6
+,Peter,A.J. Brown,WR,NE,2,0
+,Peter,Evan McPherson,K,CIN,15,8
+,Peter,Rams D/ST,D/ST,LAR,14,6
+,Mitchell,Jahmyr Gibbs,RB,DET,1,24
+,Mitchell,Jaxson Dart,QB,NYG,6,19
+,Mitchell,Nico Collins,WR,HOU,2,16
+,Mitchell,Daniel Jones,QB,IND,14,15
+,Mitchell,DJ Moore,WR,BUF,5,12
+,Mitchell,Tyler Warren,TE,IND,4,12
+,Mitchell,Courtland Sutton,WR,DEN,7,12
+,Mitchell,Matthew Golden,WR,GB,8,11
+,Mitchell,Travis Kelce,TE,KC,10,10
+,Mitchell,Chris Brooks,RB,GB,FA/waiver,10
+,Mitchell,Rachaad White,RB,WSH,9,8
+,Mitchell,Jerry Jeudy,WR,CLE,15,7
+,Mitchell,Josh Jacobs,RB,GB,3,0
+,Mitchell,Tank Dell,WR,HOU,11,0
+,Mitchell,Kaleb Johnson,RB,GB,FA/waiver,0
+,Mitchell,Cameron Dicker,K,LAC,13,10
+,Mitchell,Broncos D/ST,D/ST,DEN,12,7
