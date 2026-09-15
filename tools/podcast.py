@@ -365,6 +365,17 @@ def build_csv(season, week, dry=False):
         R.append(["", f'{a["owner"]} vs {h["owner"]}', assigned.get(i, ""),
                   f'{proj(a):.0f}-{proj(h):.0f}', nfl_game.get(i, "")])
 
+    # Team of the Week prep: every roster's core with the round each player went in.
+    sec("REFERENCE  ·  rosters with draft round (Team of the Week block)")
+    rounds = {(t["owner"], pk["name"]): pk["round"] for t in g["teams"] for pk in t["picks"]}
+    R.append(["", "Owner", "Player", "Pos", "NFL", "Draft Rd.", "Proj"])
+    for m in ms:
+        for side in (m["away"], m["home"]):
+            for pl in sorted(side["players"], key=lambda x: (x["pos"] not in ("QB", "RB", "WR", "TE"), -x["proj"])):
+                rd = rounds.get((side["owner"], pl["name"]))
+                R.append(["", side["owner"], pl["name"], pl["pos"], pl["pro"],
+                          rd if rd is not None else "FA/waiver", f'{pl["proj"]:.0f}'])
+
     out = io.StringIO()
     w = csv.writer(out)
     for row in R:
