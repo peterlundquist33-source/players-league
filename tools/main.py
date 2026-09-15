@@ -71,7 +71,9 @@ def _build_context(season, week, phase, data=None):
 
 def _attach_picks(season, week, matchups):
     """Hand each recap the pick its own preview made, so it can own the call."""
-    f = DATA / f"{season}-week-{week:02d}.json"
+    f = DATA / f"{season}-week-{week:02d}-preview.json"
+    if not f.exists():                       # pre-split runs kept one file per week
+        f = DATA / f"{season}-week-{week:02d}.json"
     if not f.exists():
         return
     try:
@@ -119,8 +121,8 @@ def run(phase_arg, season, week, dry, force=False):
     if not data["matchups"]:
         print("no matchups for this week — nothing to do"); return None
 
-    out = ROOT / "matchups" / f"{season}-week-{wk:02d}.html"
-    if phase == "preview" and out.exists() and "PREVIEW" in out.read_text() and not force:
+    out = ROOT / "matchups" / f"{season}-week-{wk:02d}-preview.html"
+    if phase == "preview" and out.exists() and not force:
         print(f"{out.name} preview already exists — skipping (use --force to rebuild)")
         return None
     if phase == "recap" and not all(m["played"] for m in data["matchups"]) and not force:
@@ -153,7 +155,8 @@ def run(phase_arg, season, week, dry, force=False):
             print(f"podcast prep skipped: {e}")
 
     DATA.mkdir(parents=True, exist_ok=True)
-    (DATA / f"{season}-week-{wk:02d}.json").write_text(json.dumps(
+    stem = f"{season}-week-{wk:02d}" + ("-preview" if phase == "preview" else "")
+    (DATA / f"{stem}.json").write_text(json.dumps(
         {"generated": datetime.datetime.now().isoformat(timespec="seconds"),
          "phase": phase, "data": data, "copies": copies, "intro": intro}, indent=2))
     print(f"wrote {page.relative_to(ROOT)}")
@@ -303,7 +306,8 @@ def run_render(season):
     """Re-render every generated page from the cached run data — no ESPN, no AI.
     For when render.py changes and the copy shouldn't."""
     when = lambda d: (d.get("generated") or "")[:10] or None   # keep the page's own date
-    for f in sorted(DATA.glob(f"{season}-week-[0-9][0-9].json")):
+    for f in sorted(list(DATA.glob(f"{season}-week-[0-9][0-9].json"))
+                    + list(DATA.glob(f"{season}-week-[0-9][0-9]-preview.json"))):
         d = json.loads(f.read_text())
         print("rendered", R.week_page(d["data"], d["copies"], d["intro"],
                                       stamp=when(d)).relative_to(ROOT))

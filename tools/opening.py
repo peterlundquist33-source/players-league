@@ -70,14 +70,14 @@ def _latest_power(season):
 
 
 def _latest_week(season):
-    best, best_n = None, -1
+    best, best_key = None, (-1, -1)
     for f in DATA.glob(f"{season}-week-*.json"):
-        m = re.fullmatch(r".*-week-(\d{2})", f.stem)
+        m = re.fullmatch(r".*-week-(\d{2})(-preview)?", f.stem)
         if not m:
             continue
-        n = int(m.group(1))
-        if n > best_n:
-            best, best_n = f, n
+        key = (int(m.group(1)), 0 if m.group(2) else 1)   # same week: recap beats preview
+        if key > best_key:
+            best, best_key = f, key
     return _load(best) if best else None
 
 

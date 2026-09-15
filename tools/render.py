@@ -101,7 +101,9 @@ def week_page(league, copies, intro, stamp=None):
   {cards}
 </div>'''
     OUT.mkdir(exist_ok=True)
-    path = OUT / f"{season}-week-{wk:02d}.html"
+    # Previews keep their own page so Tuesday's recap doesn't overwrite Thursday's read.
+    path = OUT / (f"{season}-week-{wk:02d}-preview.html" if kind == "preview"
+                  else f"{season}-week-{wk:02d}.html")
     path.write_text(_page(f"Week {wk} {badge}", "Matchups", body, page=f"matchups/{path.name}"))
     return path
 
@@ -302,18 +304,26 @@ def power_page(board, copies, intro, stamp=None):
 
 def index_page(season):
     OUT.mkdir(exist_ok=True)
-    weeks = sorted(OUT.glob("%d-week-[0-9][0-9].html" % season), reverse=True)
-    rows = []
+    weeks = (list(OUT.glob("%d-week-[0-9][0-9].html" % season))
+             + list(OUT.glob("%d-week-[0-9][0-9]-preview.html" % season)))
+    entries = []
     for w in weeks:
-        n = int(w.stem.split("-")[-1])
-        text = w.read_text()
-        # Pages carry data-phase; older ones only had the "Final" header.
-        if 'data-phase="preview"' in text:
-            kind = "preview"
-        elif 'data-phase="recap"' in text or "FINAL</SPAN>" in text.upper():
-            kind = "recap"
+        if w.stem.endswith("-preview"):
+            n, kind = int(w.stem.split("-")[-2]), "preview"
         else:
-            kind = "preview"
+            n = int(w.stem.split("-")[-1])
+            text = w.read_text()
+            # Pages carry data-phase; older ones only had the "Final" header.
+            if 'data-phase="preview"' in text:
+                kind = "preview"
+            elif 'data-phase="recap"' in text or "FINAL</SPAN>" in text.upper():
+                kind = "recap"
+            else:
+                kind = "preview"
+        entries.append((n, kind == "recap", w, kind))
+    rows = []
+    # Newest first; within a week the recap sits above its preview.
+    for n, _, w, kind in sorted(entries, key=lambda e: (e[0], e[1]), reverse=True):
         if kind == "recap":
             label, blurb, cls = "Recap", "Final scores, results, and what it all meant", ""
         else:

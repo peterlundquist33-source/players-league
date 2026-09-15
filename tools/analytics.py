@@ -312,15 +312,17 @@ def render_html(cur, alltime):
 
 
 def _sched_diff(rows):
+    # opp_allplay = how many of the other 11 your opponents would have beaten each
+    # week, so a higher number means you faced better teams: harder, not easier.
     sd = sorted((r for r in rows if r["sched"] is not None), key=lambda r: -r["sched"])
     out = (_h3('Schedule Difficulty')
            + '<p class="section-sub">Average all-play wins your opponents would have earned. '
-           'Higher = easier slate.</p>'
+           'Higher = tougher slate.</p>'
            '<div class="table-scroll"><table class="data-table sticky-first">'
            '<thead><tr><th>Owner</th><th>Avg Wins Faced</th><th></th></tr></thead><tbody>')
     for j, r in enumerate(sd):
-        tag = "Easiest" if j == 0 else "Hardest" if j == len(sd) - 1 else ""
-        col = "pos" if j == 0 else "neg" if j == len(sd) - 1 else "muted"
+        tag = "Hardest" if j == 0 else "Easiest" if j == len(sd) - 1 else ""
+        col = "neg" if j == 0 else "pos" if j == len(sd) - 1 else "muted"
         out += (f'<tr><td class="strong">{r["owner"]}</td>'
                 f'<td>{r["sched"]:.2f}</td><td class="{col}">{tag}</td></tr>')
     return out + '</tbody></table></div>'
