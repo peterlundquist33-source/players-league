@@ -45,6 +45,18 @@ SECTIONS = [
     ("10", "Podcast",         "podcast.html",
      "The whole league previewed on video — Week 1 is up now"),
 ]
+
+
+def _podcast_blurb():
+    """Latest published episode from podcast/episodes.json, if any."""
+    try:
+        eps = [e for e in json.loads((ROOT / "podcast" / "episodes.json").read_text()) if e.get("youtube")]
+        if eps:
+            e = max(eps, key=lambda x: x["n"])
+            return f'Episode {e["n"]} is up — {e["title"]}. The whole league on video, every week'
+    except Exception:
+        pass
+    return None
 DEFAULT_LIT = "03"
 
 
@@ -164,6 +176,8 @@ def build(season=2026):
     for num, label, href, blurb in SECTIONS:
         if blurb is None:
             blurb = marquee
+        if href == "podcast.html":
+            blurb = _podcast_blurb() or blurb
         lit = " is-lit" if num == DEFAULT_LIT else ""
         dflt = ' data-default="1"' if num == DEFAULT_LIT else ""
         cta = f"CHANNEL {num} · {label.upper()}"

@@ -326,6 +326,8 @@ def run_render(season):
         print("rendered", R.rankings_page(d["grades"], d["copies"], d["intro"],
                                           stamp=when(d)).relative_to(ROOT))
     _opening(season)
+    import podcast_page as PP
+    PP.update()
 
 
 if __name__ == "__main__":
