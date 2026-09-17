@@ -437,14 +437,15 @@ def odds_page(res, hist, stamp=None):
                 sd = g["sides"][o]
                 rows_html.append(
                     f'<tr><td class="strong">{html.escape(o)}</td>'
-                    f'<td>{_pct(sd["win"]["playoff"])}</td><td>{_pct(sd["lose"]["playoff"])}</td><td>{delta(sd["win"]["playoff"], sd["lose"]["playoff"], True)}</td>'
-                    f'<td>{_pct(sd["win"]["dress"], False)}</td><td>{_pct(sd["lose"]["dress"], False)}</td><td>{delta(sd["lose"]["dress"], sd["win"]["dress"], False)}</td>'
+                    f'<td class="g-po first">{_pct(sd["win"]["playoff"])}</td><td class="g-po">{_pct(sd["lose"]["playoff"])}</td><td class="g-po last">{delta(sd["win"]["playoff"], sd["lose"]["playoff"], True)}</td>'
+                    f'<td class="g-dr first">{_pct(sd["win"]["dress"], False)}</td><td class="g-dr">{_pct(sd["lose"]["dress"], False)}</td><td class="g-dr last">{delta(sd["lose"]["dress"], sd["win"]["dress"], False)}</td>'
                     f'<td class="muted">{swing(g, o):.0f}</td></tr>')
         lev = (f'<section class="section"><span class="eyebrow">Week {res["next_week"]}</span><h2 class="section-title">What\'s on the line</h2>'
                f'<p class="section-sub">Each team\'s odds if they win this week versus if they lose. Games are ordered by how much is riding on them.</p>'
                f'<div class="table-scroll"><table class="data-table lev-table" data-nosort><thead><tr><th>Team</th>'
-               f'<th colspan="3">Playoffs</th><th colspan="3">Dress</th><th>Stakes</th></tr>'
-               f'<tr class="lev-sub"><th></th><th>Win</th><th>Lose</th><th>Swing</th><th>Win</th><th>Lose</th><th>Swing</th><th>pts</th></tr></thead>'
+               f'<th colspan="3" class="g-po grp">Make the playoffs</th><th colspan="3" class="g-dr grp">Wear the Dress</th><th>Stakes</th></tr>'
+               f'<tr class="lev-sub"><th></th><th class="g-po first">if win</th><th class="g-po">if lose</th><th class="g-po last">swing</th>'
+               f'<th class="g-dr first">if win</th><th class="g-dr">if lose</th><th class="g-dr last">swing</th><th>pts</th></tr></thead>'
                f'<tbody>{"".join(rows_html)}</tbody></table></div>'
                f'<p class="mx-foot">Swing = the gap between the win and lose scenarios. Stakes = playoff swing + Dress swing, the single number for how much this game matters to that team.</p></section>')
     trend = _trend_svg(hist, [r["owner"] for r in rows], "dress")

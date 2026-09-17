@@ -917,6 +917,14 @@ body, table, .stat, .countdown, [class*="stat-val"], [class*="pill"] {
 .dress-team { color: var(--text-3); font-size: var(--fs-13); margin-top: 2px; }
 .data-table td.dress-col { font-weight: 700; }
 .lev-table th { text-align: center; }
+.lev-table .g-po { background: rgba(69, 224, 138, .06); }
+.lev-table .g-dr { background: rgba(255, 107, 112, .07); }
+.lev-table th.grp { font-family: var(--font-display); font-size: var(--fs-14); letter-spacing: .04em; }
+.lev-table th.grp.g-po { color: var(--pos); background: rgba(69, 224, 138, .14); }
+.lev-table th.grp.g-dr { color: var(--neg); background: rgba(255, 107, 112, .16); }
+.lev-table .first { border-left: 2px solid var(--line-2); }
+.lev-table .last { border-right: 2px solid var(--line-2); }
+.lev-table tr.lev-head td.g-po, .lev-table tr.lev-head td.g-dr { background: var(--surface-2); }
 .lev-table th:first-child, .lev-table td:first-child { text-align: left; }
 .lev-table td { text-align: center; font-variant-numeric: tabular-nums; }
 .lev-table tr.lev-sub th { font-size: var(--fs-12); color: var(--text-3); font-weight: 500; text-transform: none; letter-spacing: 0; }
