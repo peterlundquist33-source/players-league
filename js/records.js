@@ -236,10 +236,10 @@ const LEAGUE_RECORDS = {
         "note": ""
       },
       {
-        "icon": "\ud83c\udf96\ufe0f",
-        "label": "West Title",
-        "year": 2026,
-        "tier": "major",
+        "icon": "\ud83c\udf9f\ufe0f",
+        "label": "Playoff Berth",
+        "year": 2023,
+        "tier": "minor",
         "note": ""
       },
       {
@@ -252,7 +252,7 @@ const LEAGUE_RECORDS = {
       {
         "icon": "\ud83c\udf9f\ufe0f",
         "label": "Playoff Berth",
-        "year": 2026,
+        "year": 2025,
         "tier": "minor",
         "note": ""
       }
@@ -269,13 +269,6 @@ const LEAGUE_RECORDS = {
         "icon": "\ud83c\udf9f\ufe0f",
         "label": "Playoff Berth",
         "year": 2024,
-        "tier": "minor",
-        "note": ""
-      },
-      {
-        "icon": "\ud83c\udf9f\ufe0f",
-        "label": "Playoff Berth",
-        "year": 2026,
         "tier": "minor",
         "note": ""
       }
@@ -299,6 +292,13 @@ const LEAGUE_RECORDS = {
         "icon": "\ud83c\udf9f\ufe0f",
         "label": "Playoff Berth",
         "year": 2022,
+        "tier": "minor",
+        "note": ""
+      },
+      {
+        "icon": "\ud83c\udf9f\ufe0f",
+        "label": "Playoff Berth",
+        "year": 2024,
         "tier": "minor",
         "note": ""
       },
@@ -361,6 +361,13 @@ const LEAGUE_RECORDS = {
         "year": 2022,
         "tier": "major",
         "note": ""
+      },
+      {
+        "icon": "\ud83c\udf9f\ufe0f",
+        "label": "Playoff Berth",
+        "year": 2022,
+        "tier": "minor",
+        "note": ""
       }
     ],
     "John Lundquist": [
@@ -368,27 +375,6 @@ const LEAGUE_RECORDS = {
         "icon": "\ud83c\udf96\ufe0f",
         "label": "East Title",
         "year": 2025,
-        "tier": "major",
-        "note": ""
-      },
-      {
-        "icon": "\ud83e\udd47",
-        "label": "#1 Seed",
-        "year": 2026,
-        "tier": "major",
-        "note": ""
-      },
-      {
-        "icon": "\ud83c\udf96\ufe0f",
-        "label": "East Title",
-        "year": 2026,
-        "tier": "major",
-        "note": ""
-      },
-      {
-        "icon": "\ud83d\udcca",
-        "label": "Scoring Title",
-        "year": 2026,
         "tier": "major",
         "note": ""
       },
@@ -410,13 +396,6 @@ const LEAGUE_RECORDS = {
         "icon": "\ud83c\udf9f\ufe0f",
         "label": "Playoff Berth",
         "year": 2025,
-        "tier": "minor",
-        "note": ""
-      },
-      {
-        "icon": "\ud83c\udf9f\ufe0f",
-        "label": "Playoff Berth",
-        "year": 2026,
         "tier": "minor",
         "note": ""
       }
@@ -439,6 +418,13 @@ const LEAGUE_RECORDS = {
       {
         "icon": "\ud83c\udf9f\ufe0f",
         "label": "Playoff Berth",
+        "year": 2023,
+        "tier": "minor",
+        "note": ""
+      },
+      {
+        "icon": "\ud83c\udf9f\ufe0f",
+        "label": "Playoff Berth",
         "year": 2024,
         "tier": "minor",
         "note": ""
@@ -449,13 +435,6 @@ const LEAGUE_RECORDS = {
         "year": 2025,
         "tier": "minor",
         "note": ""
-      },
-      {
-        "icon": "\ud83c\udf9f\ufe0f",
-        "label": "Playoff Berth",
-        "year": 2026,
-        "tier": "minor",
-        "note": ""
       }
     ],
     "Leif Engen": [
@@ -463,13 +442,6 @@ const LEAGUE_RECORDS = {
         "icon": "\ud83c\udf9f\ufe0f",
         "label": "Playoff Berth",
         "year": 2023,
-        "tier": "minor",
-        "note": ""
-      },
-      {
-        "icon": "\ud83c\udf9f\ufe0f",
-        "label": "Playoff Berth",
-        "year": 2026,
         "tier": "minor",
         "note": ""
       },
@@ -525,13 +497,6 @@ const LEAGUE_RECORDS = {
         "note": ""
       },
       {
-        "icon": "\ud83c\udf9f\ufe0f",
-        "label": "Playoff Berth",
-        "year": 2026,
-        "tier": "minor",
-        "note": ""
-      },
-      {
         "icon": "\ud83d\udc57",
         "label": "The Dress",
         "year": 2025,
@@ -558,6 +523,13 @@ const LEAGUE_RECORDS = {
         "icon": "\ud83c\udf9f\ufe0f",
         "label": "Playoff Berth",
         "year": 2023,
+        "tier": "minor",
+        "note": ""
+      },
+      {
+        "icon": "\ud83c\udf9f\ufe0f",
+        "label": "Playoff Berth",
+        "year": 2025,
         "tier": "minor",
         "note": ""
       }
@@ -594,15 +566,15 @@ const LEAGUE_RECORDS = {
       {
         "icon": "\ud83c\udf9f\ufe0f",
         "label": "Playoff Berth",
-        "year": 2025,
+        "year": 2024,
         "tier": "minor",
         "note": ""
       },
       {
-        "icon": "\ud83d\udebd",
-        "label": "Last Place",
-        "year": 2026,
-        "tier": "dishonor",
+        "icon": "\ud83c\udf9f\ufe0f",
+        "label": "Playoff Berth",
+        "year": 2025,
+        "tier": "minor",
         "note": ""
       }
     ],
@@ -645,6 +617,13 @@ const LEAGUE_RECORDS = {
       {
         "icon": "\ud83c\udf9f\ufe0f",
         "label": "Playoff Berth",
+        "year": 2022,
+        "tier": "minor",
+        "note": ""
+      },
+      {
+        "icon": "\ud83c\udf9f\ufe0f",
+        "label": "Playoff Berth",
         "year": 2024,
         "tier": "minor",
         "note": ""
@@ -653,13 +632,6 @@ const LEAGUE_RECORDS = {
         "icon": "\ud83c\udf9f\ufe0f",
         "label": "Playoff Berth",
         "year": 2025,
-        "tier": "minor",
-        "note": ""
-      },
-      {
-        "icon": "\ud83c\udf9f\ufe0f",
-        "label": "Playoff Berth",
-        "year": 2026,
         "tier": "minor",
         "note": ""
       }
