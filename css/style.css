@@ -916,10 +916,11 @@ body, table, .stat, .countdown, [class*="stat-val"], [class*="pill"] {
 .dress-who { font-family: var(--font-display); font-weight: 700; font-size: var(--fs-22); margin-top: 6px; }
 .dress-team { color: var(--text-3); font-size: var(--fs-13); margin-top: 2px; }
 .data-table td.dress-col { font-weight: 700; }
-.lev-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: var(--s-4); margin-top: var(--s-5); }
-.lev-card { display: grid; grid-template-columns: 1fr auto 1fr; gap: var(--s-3); align-items: center; background: var(--surface); border: var(--hair); border-radius: var(--r); padding: var(--s-4); }
-.lev-vs { color: var(--text-3); font-size: var(--fs-12); text-transform: uppercase; letter-spacing: .1em; }
-.lev-name { font-family: var(--font-display); font-weight: 700; font-size: var(--fs-16); margin-bottom: 4px; }
-.lev-line { font-size: var(--fs-13); color: var(--text-2); line-height: 1.7; font-variant-numeric: tabular-nums; }
-.lev-line b { color: var(--text); }
+.lev-table th { text-align: center; }
+.lev-table th:first-child, .lev-table td:first-child { text-align: left; }
+.lev-table td { text-align: center; font-variant-numeric: tabular-nums; }
+.lev-table tr.lev-sub th { font-size: var(--fs-12); color: var(--text-3); font-weight: 500; text-transform: none; letter-spacing: 0; }
+.lev-table tr.lev-head td { text-align: left; background: var(--surface-2); padding-top: 10px; padding-bottom: 6px; border-top: 2px solid var(--line-2); }
+.lev-table tr.lev-head b { font-family: var(--font-display); font-size: var(--fs-16); }
+.lev-tag { float: right; font-size: var(--fs-12); font-weight: 700; color: var(--accent); background: var(--accent-tint); padding: 2px 8px; border-radius: 999px; }
 .odds-trend { width: 100%; height: auto; margin-top: var(--s-5); background: var(--surface); border: var(--hair); border-radius: var(--r); }

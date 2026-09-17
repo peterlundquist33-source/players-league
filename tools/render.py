@@ -418,17 +418,35 @@ def odds_page(res, hist, stamp=None):
         for i, r in enumerate(rows))
     lev = ""
     if res.get("leverage"):
-        cards = []
-        for g in res["leverage"]:
-            def side(o):
-                s = g["sides"][o]
-                return (f'<div class="lev-side"><div class="lev-name">{html.escape(o)}</div>'
-                        f'<div class="lev-line"><span class="muted">Dress</span> win <b>{s["win"]["dress"]:g}%</b> · lose <b class="neg">{s["lose"]["dress"]:g}%</b></div>'
-                        f'<div class="lev-line"><span class="muted">Playoffs</span> win <b class="pos">{s["win"]["playoff"]:g}%</b> · lose <b>{s["lose"]["playoff"]:g}%</b></div></div>')
-            cards.append(f'<div class="lev-card">{side(g["away"])}<div class="lev-vs">at</div>{side(g["home"])}</div>')
+        def swing(g, o):
+            sd = g["sides"][o]
+            return (abs((sd["win"]["playoff"] or 0) - (sd["lose"]["playoff"] or 0))
+                    + abs((sd["win"]["dress"] or 0) - (sd["lose"]["dress"] or 0)))
+        games = sorted(res["leverage"], key=lambda g: -(swing(g, g["home"]) + swing(g, g["away"])))
+        def delta(a, b, good_up=True):
+            d = (a or 0) - (b or 0)
+            cls = "pos" if (d > 0) == good_up else "neg"
+            return f'<span class="{cls if abs(d) >= 0.05 else "muted"}">{"+" if d > 0 else ""}{d:g}</span>'
+        rows_html = []
+        for gi, g in enumerate(games):
+            tag = "Game of the week" if gi == 0 else ""
+            rows_html.append(f'<tr class="lev-head"><td colspan="8"><b>{html.escape(g["away"])} at {html.escape(g["home"])}</b>'
+                             f'<span class="muted"> · {html.escape(g["away_team"] or "")} vs {html.escape(g["home_team"] or "")}</span>'
+                             + (f'<span class="lev-tag">{tag}</span>' if tag else "") + '</td></tr>')
+            for o in (g["away"], g["home"]):
+                sd = g["sides"][o]
+                rows_html.append(
+                    f'<tr><td class="strong">{html.escape(o)}</td>'
+                    f'<td>{_pct(sd["win"]["playoff"])}</td><td>{_pct(sd["lose"]["playoff"])}</td><td>{delta(sd["win"]["playoff"], sd["lose"]["playoff"], True)}</td>'
+                    f'<td>{_pct(sd["win"]["dress"], False)}</td><td>{_pct(sd["lose"]["dress"], False)}</td><td>{delta(sd["lose"]["dress"], sd["win"]["dress"], False)}</td>'
+                    f'<td class="muted">{swing(g, o):.0f}</td></tr>')
         lev = (f'<section class="section"><span class="eyebrow">Week {res["next_week"]}</span><h2 class="section-title">What\'s on the line</h2>'
-               f'<p class="section-sub">Each team\'s odds if they win this week versus if they lose. Big gaps = big games.</p>'
-               f'<div class="lev-grid">{"".join(cards)}</div></section>')
+               f'<p class="section-sub">Each team\'s odds if they win this week versus if they lose. Games are ordered by how much is riding on them.</p>'
+               f'<div class="table-scroll"><table class="data-table lev-table" data-nosort><thead><tr><th>Team</th>'
+               f'<th colspan="3">Playoffs</th><th colspan="3">Dress</th><th>Stakes</th></tr>'
+               f'<tr class="lev-sub"><th></th><th>Win</th><th>Lose</th><th>Swing</th><th>Win</th><th>Lose</th><th>Swing</th><th>pts</th></tr></thead>'
+               f'<tbody>{"".join(rows_html)}</tbody></table></div>'
+               f'<p class="mx-foot">Swing = the gap between the win and lose scenarios. Stakes = playoff swing + Dress swing, the single number for how much this game matters to that team.</p></section>')
     trend = _trend_svg(hist, [r["owner"] for r in rows], "dress")
     trend_sec = (f'<section class="section"><span class="eyebrow">Trend</span><h2 class="section-title">Dress Watch, week by week</h2>'
                  f'<p class="section-sub">How each team\'s chance of finishing last has moved. The four most at risk are labeled.</p>{trend}</section>') if trend else ""
