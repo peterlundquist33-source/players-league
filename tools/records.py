@@ -28,7 +28,9 @@ END = "<!-- WEEKLY:end -->"
 
 FIRST_TO_FULL = {v: k for k, v in OWNERS.items()}
 DIVISIONS = {0: "East", 1: "West"}
-DRESS_YEARS = {2025}          # seasons the last-place owner actually wore the dress
+# Who actually wore the Dress each season (per Peter, 2026-09-17). The league has done
+# it every year since 2022; the wearer isn't always the last-place record (2022 was Kaleb).
+DRESS_WEARERS = {2022: "Kaleb", 2023: "Christian", 2024: "Leif", 2025: "Logan"}
 
 
 # ---------------------------------------------------------------- weekly high / low
@@ -148,11 +150,12 @@ def _achievements(through_season):
                 add(o, "📊", "Scoring Title", yr, "major")
             if t["seed"] <= n:                    # champs and runners-up made it too
                 add(o, "🎟️", "Playoff Berth", yr, "minor")
-            if dress == o:
-                if yr in DRESS_YEARS:
+            wearer = DRESS_WEARERS.get(yr)
+            if wearer:
+                if o == wearer:
                     add(o, "👗", "The Dress", yr, "dishonor")
-                else:
-                    add(o, "🚽", "Last Place", yr, "dishonor")
+            elif dress == o:
+                add(o, "🚽", "Last Place", yr, "dishonor")
 
     order = {"champ": 0, "silver": 1, "major": 2, "minor": 3, "dishonor": 4}
     for lst in ach.values():
