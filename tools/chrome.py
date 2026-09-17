@@ -13,7 +13,7 @@ overwrite it in place. Before this, all six navs had drifted apart.
 import re
 from lib import ROOT
 
-STYLE_VERSION = "4"
+STYLE_VERSION = "5"
 
 # (href, label) — the order the nav shows them in
 NAV = [
