@@ -117,6 +117,10 @@ def _achievements(through_season):
         teams = meta["teams"]
         if not teams or not any(t["wins"] or t["losses"] for t in teams):
             continue                                  # season hasn't been played
+        # ESPN only sets rankCalculatedFinal once the season is over; while a season is
+        # in progress playoffSeed is just the live standings, so nothing is banked yet.
+        if any(t["final_rank"] == 99 for t in teams):
+            continue                                  # season still in progress
 
         n = meta["n_playoff"]
         scoring_champ = max(teams, key=lambda t: t["pf"])["owner"]
@@ -142,7 +146,7 @@ def _achievements(through_season):
                 add(o, "🎖️", f'{DIVISIONS.get(t["division"], "Division")} Title', yr, "major")
             if scoring_champ == o:
                 add(o, "📊", "Scoring Title", yr, "major")
-            if t["seed"] <= n and t["final_rank"] not in (1, 2):
+            if t["seed"] <= n:                    # champs and runners-up made it too
                 add(o, "🎟️", "Playoff Berth", yr, "minor")
             if dress == o:
                 if yr in DRESS_YEARS:

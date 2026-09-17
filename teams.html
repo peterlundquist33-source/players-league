@@ -169,11 +169,20 @@
         el.innerHTML = '<span class="pl-rafters-empty">No banners in the rafters yet. There\'s time.</span>';
         return;
       }
-      el.innerHTML = list.map(function (a) {
-        return '<div class="pl-banner tier-' + a.tier + '" title="' + a.label + ' ' + a.year + '">' +
-               bannerIcon(a) +
-               '<span class="b-label">' + a.label + '</span>' +
-               '<span class="b-year">' + a.year + '</span></div>';
+      // High-school-gym style: one banner per honor, every year listed on it.
+      var groups = [], byKey = {};
+      list.forEach(function (a) {
+        var k = a.tier + '|' + a.label;
+        if (!byKey[k]) { byKey[k] = { label: a.label, tier: a.tier, icon: a, years: [] }; groups.push(byKey[k]); }
+        if (byKey[k].years.indexOf(a.year) < 0) byKey[k].years.push(a.year);
+      });
+      el.innerHTML = groups.map(function (g) {
+        g.years.sort();
+        var years = g.years.map(function (y) { return '<span>' + y + '</span>'; }).join('');
+        return '<div class="pl-banner tier-' + g.tier + (g.years.length > 1 ? ' multi' : '') + '" title="' + g.label + ' ' + g.years.join(', ') + '">' +
+               bannerIcon(g.icon) +
+               '<span class="b-label">' + g.label + (g.years.length > 1 ? ' ×' + g.years.length : '') + '</span>' +
+               '<span class="b-year b-years">' + years + '</span></div>';
       }).join('');
     }
 
