@@ -1,5 +1,5 @@
 """Render generated copy + matchup data into matchups/ pages, styled like the site."""
-import html, pathlib, datetime
+import html, pathlib, datetime, math
 from lib import ROOT
 import chrome as SITE
 
@@ -353,3 +353,96 @@ def index_page(season):
             '<div class="mx-week-list">%s</div>%s</div>'
             % (season, listing, mblock))
     (OUT / "index.html").write_text(_page("Matchups", "Matchups", body, page="matchups/index.html"))
+
+
+# ---------------------------------------------------------------- playoff & dress odds
+
+def _pct(v, hi_good=True):
+    if v is None:
+        return '<span class="muted">–</span>'
+    cls = ""
+    if v >= 99.95: cls = "pos" if hi_good else "neg"
+    elif v <= 0.05: cls = "neg" if hi_good else "pos"
+    txt = "&lt;0.1%" if 0 < v < 0.1 else ("&gt;99.9%" if 99.9 < v < 100 else f"{v:g}%")
+    return f'<span class="{cls}">{txt}</span>' if cls else txt
+
+
+def _trend_svg(hist, owners, key="dress"):
+    """Inline SVG: one line per owner, x = week, y = pct. Only the top movers get labels."""
+    if len(hist) < 2:
+        return ""
+    weeks = [h["week"] for h in hist]
+    series = {o: [] for o in owners}
+    for h in hist:
+        by = {r["owner"]: r[key] for r in h["rows"]}
+        for o in owners:
+            series[o].append(by.get(o))
+    W, H, L, T, R, B = 720, 260, 44, 14, 12, 28
+    def x(i): return L + (W - L - R) * (i / max(1, len(weeks) - 1))
+    ymax = max(10.0, max(v for s in series.values() for v in s if v is not None))
+    ymax = min(100.0, math.ceil(ymax / 10) * 10)
+    def y(v): return T + (H - T - B) * (1 - v / ymax)
+    palette = ["#e3b341", "#ff6b70", "#45e08a", "#7cc4ff", "#c98bff", "#ff9f43", "#5ee3d8", "#f472b6", "#a3e635", "#fb7185", "#93c5fd", "#fbbf24"]
+    out = [f'<svg class="odds-trend" viewBox="0 0 {W} {H}" role="img" aria-label="{key} % by week">']
+    for g in range(0, int(ymax) + 1, 10 if ymax > 30 else 5):
+        out.append(f'<line x1="{L}" x2="{W-R}" y1="{y(g):.1f}" y2="{y(g):.1f}" stroke="rgba(255,255,255,.08)"/>'
+                   f'<text x="{L-6}" y="{y(g)+4:.1f}" text-anchor="end" font-size="10" fill="#8a94a3">{g}%</text>')
+    for i, wk in enumerate(weeks):
+        out.append(f'<text x="{x(i):.1f}" y="{H-8}" text-anchor="middle" font-size="10" fill="#8a94a3">Wk {wk}</text>')
+    last = {o: s[-1] for o, s in series.items() if s[-1] is not None}
+    top = sorted(last, key=lambda o: -last[o])[:4]
+    for k, (o, s) in enumerate(series.items()):
+        pts = " ".join(f"{x(i):.1f},{y(v):.1f}" for i, v in enumerate(s) if v is not None)
+        col = palette[k % len(palette)]
+        hot = o in top
+        out.append(f'<polyline points="{pts}" fill="none" stroke="{col}" stroke-width="{2.4 if hot else 1.2}" opacity="{1 if hot else .45}"/>')
+        if hot:
+            out.append(f'<text x="{x(len(s)-1)+5:.1f}" y="{y(s[-1])+4:.1f}" font-size="11" font-weight="700" fill="{col}">{html.escape(o)}</text>')
+    out.append("</svg>")
+    return "".join(out)
+
+
+def odds_page(res, hist, stamp=None):
+    season, wk = res["season"], res["week"]
+    stamp = stamp or datetime.date.today().isoformat()
+    rows = res["rows"]
+    by_dress = sorted(rows, key=lambda r: -r["dress"])[:3]
+    watch = "".join(
+        f'<div class="dress-card{" lead" if i == 0 else ""}"><div class="dress-pct">{r["dress"]:g}%</div>'
+        f'<div class="dress-who">{html.escape(r["owner"])}</div><div class="dress-team">{html.escape(r["team"])} · {r["record"]}</div></div>'
+        for i, r in enumerate(by_dress))
+    table = "".join(
+        f'<tr><td><span class="rank-num">{i+1}</span></td><td class="strong">{html.escape(r["owner"])}<br><small class="muted">{html.escape(r["team"])}</small></td>'
+        f'<td>{r["record"]}</td><td>{r["avg_wins"]}</td><td>{_pct(r["playoff"])}</td><td>{_pct(r["bye"])}</td><td>{_pct(r["one"])}</td>'
+        f'<td class="dress-col">{_pct(r["dress"], hi_good=False)}</td></tr>'
+        for i, r in enumerate(rows))
+    lev = ""
+    if res.get("leverage"):
+        cards = []
+        for g in res["leverage"]:
+            def side(o):
+                s = g["sides"][o]
+                return (f'<div class="lev-side"><div class="lev-name">{html.escape(o)}</div>'
+                        f'<div class="lev-line"><span class="muted">Dress</span> win <b>{s["win"]["dress"]:g}%</b> · lose <b class="neg">{s["lose"]["dress"]:g}%</b></div>'
+                        f'<div class="lev-line"><span class="muted">Playoffs</span> win <b class="pos">{s["win"]["playoff"]:g}%</b> · lose <b>{s["lose"]["playoff"]:g}%</b></div></div>')
+            cards.append(f'<div class="lev-card">{side(g["away"])}<div class="lev-vs">at</div>{side(g["home"])}</div>')
+        lev = (f'<section class="section"><span class="eyebrow">Week {res["next_week"]}</span><h2 class="section-title">What\'s on the line</h2>'
+               f'<p class="section-sub">Each team\'s odds if they win this week versus if they lose. Big gaps = big games.</p>'
+               f'<div class="lev-grid">{"".join(cards)}</div></section>')
+    trend = _trend_svg(hist, [r["owner"] for r in rows], "dress")
+    trend_sec = (f'<section class="section"><span class="eyebrow">Trend</span><h2 class="section-title">Dress Watch, week by week</h2>'
+                 f'<p class="section-sub">How each team\'s chance of finishing last has moved. The four most at risk are labeled.</p>{trend}</section>') if trend else ""
+    body = f'''<section class="page-header"><span class="eyebrow">Odds</span>
+<h1>Playoff &amp; <span class="gold">Dress</span> Odds</h1>
+<p>Through Week {wk} · {res["games_left"]} games left · {res["sims"]:,} simulated seasons · updated {stamp}</p></section>
+<section class="section"><span class="eyebrow">Dress Watch</span><h2 class="section-title">Most likely to wear it</h2>
+<p class="section-sub">Chance of finishing last in the regular season. Record, then points for, breaks ties. Somebody has to.</p>
+<div class="dress-watch">{watch}</div></section>
+<section class="section"><span class="eyebrow">The board</span><h2 class="section-title">Every team</h2>
+<p class="section-sub">Seven teams make the playoffs; the #1 seed gets the bye. Strength = this season\'s scoring blended with the power model\'s roster projection.</p>
+<div class="table-scroll"><table class="data-table sticky-first"><thead><tr><th>#</th><th>Owner</th><th>Record</th><th>Proj W</th><th>Playoffs</th><th>Bye</th><th>#1 seed</th><th>Dress</th></tr></thead><tbody>{table}</tbody></table></div></section>
+{lev}
+{trend_sec}
+<section class="section"><p class="mx-foot">Method: every remaining game is simulated {res["sims"]:,} times. Each team\'s weekly score is drawn from a bell curve centered on its blended strength (real scoring this season plus the power model\'s roster projection, with the projection fading out as games pile up) with a spread taken from its own volatility. Seeds and last place follow the league rules: record, then points for.</p></section>'''
+    (ROOT / "odds.html").write_text(_page("Playoff & Dress Odds", "Odds", body, depth=0, page="odds.html"))
+    return ROOT / "odds.html"

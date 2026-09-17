@@ -907,3 +907,19 @@ body, table, .stat, .countdown, [class*="stat-val"], [class*="pill"] {
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { transition: none !important; animation: none !important; }
 }
+
+/* Playoff & Dress odds */
+.dress-watch { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: var(--s-4); margin-top: var(--s-5); }
+.dress-card { background: var(--surface); border: var(--hair); border-radius: var(--r); padding: var(--s-5); text-align: center; }
+.dress-card.lead { border-color: var(--neg); box-shadow: 0 0 0 3px var(--neg-tint); }
+.dress-pct { font-family: var(--font-display); font-weight: 700; font-size: clamp(2.4rem, 7vw, 3.6rem); line-height: 1; color: var(--neg); font-variant-numeric: tabular-nums; }
+.dress-who { font-family: var(--font-display); font-weight: 700; font-size: var(--fs-22); margin-top: 6px; }
+.dress-team { color: var(--text-3); font-size: var(--fs-13); margin-top: 2px; }
+.data-table td.dress-col { font-weight: 700; }
+.lev-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: var(--s-4); margin-top: var(--s-5); }
+.lev-card { display: grid; grid-template-columns: 1fr auto 1fr; gap: var(--s-3); align-items: center; background: var(--surface); border: var(--hair); border-radius: var(--r); padding: var(--s-4); }
+.lev-vs { color: var(--text-3); font-size: var(--fs-12); text-transform: uppercase; letter-spacing: .1em; }
+.lev-name { font-family: var(--font-display); font-weight: 700; font-size: var(--fs-16); margin-bottom: 4px; }
+.lev-line { font-size: var(--fs-13); color: var(--text-2); line-height: 1.7; font-variant-numeric: tabular-nums; }
+.lev-line b { color: var(--text); }
+.odds-trend { width: 100%; height: auto; margin-top: var(--s-5); background: var(--surface); border: var(--hair); border-radius: var(--r); }

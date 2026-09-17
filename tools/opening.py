@@ -44,6 +44,8 @@ SECTIONS = [
      "The trip. The countdown is running — next up, August 2027"),
     ("10", "Podcast",         "podcast.html",
      "The whole league previewed on video — Week 1 is up now"),
+    ("11", "Odds",            "odds.html",
+     "Playoff odds, bye odds — and who's most likely to wear the Dress"),
 ]
 
 

@@ -161,13 +161,31 @@ def run(phase_arg, season, week, dry, force=False):
          "phase": phase, "data": data, "copies": copies, "intro": intro}, indent=2))
     print(f"wrote {page.relative_to(ROOT)}")
 
-    # Tuesday recap doubles as the weekly power-rankings refresh.
+    # Tuesday recap doubles as the weekly power-rankings and odds refresh.
     if phase == "recap":
         try:
             run_power(season, wk, dry)
         except Exception as e:
             print(f"power rankings skipped: {e}")
+        try:
+            run_odds(season)
+        except Exception as e:
+            print(f"odds skipped: {e}")
     return page
+
+
+def run_odds(season):
+    """Playoff & Dress odds from a Monte Carlo of the remaining schedule; page + JSON."""
+    import odds as O
+    import power as PW
+    board = None
+    try:
+        board = PW.latest_board(season)
+    except Exception as e:
+        print(f"odds: no power board ({e}); using scoring only")
+    res = O.run(season, board)
+    print("rendered", R.odds_page(res, O.history(season)).relative_to(ROOT))
+    return res
 
 
 def run_power(season, week=None, dry=False):
@@ -325,6 +343,10 @@ def run_render(season):
         d = json.loads(g.read_text())
         print("rendered", R.rankings_page(d["grades"], d["copies"], d["intro"],
                                           stamp=when(d)).relative_to(ROOT))
+    import odds as O
+    oh = O.history(season)
+    if oh:
+        print("rendered", R.odds_page(oh[-1], oh, stamp=when(oh[-1]) if isinstance(oh[-1], dict) else None).relative_to(ROOT))
     _opening(season)
     import podcast_page as PP
     PP.update()
@@ -334,7 +356,7 @@ if __name__ == "__main__":
     ap = argparse.ArgumentParser()
     ap.add_argument("phase", choices=["auto", "preview", "recap", "madness", "rankings", "power",
                                       "site", "facts", "records", "render", "opening", "probe",
-                                      "podcast"],
+                                      "podcast", "odds"],
                     nargs="?", default="auto")
     ap.add_argument("--season", type=int, default=2026)
     ap.add_argument("--week", type=int, default=None)
@@ -348,6 +370,8 @@ if __name__ == "__main__":
         import league as L
         wk = a.week or L.build(a.season, None, "preview")["week"]
         PC.build_csv(a.season, wk, a.dry)
+    elif a.phase == "odds":
+        run_odds(a.season)
     elif a.phase == "rankings":
         run_rankings(a.season, a.dry)
     elif a.phase == "power":
