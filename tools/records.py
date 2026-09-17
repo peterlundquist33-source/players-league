@@ -29,8 +29,8 @@ END = "<!-- WEEKLY:end -->"
 FIRST_TO_FULL = {v: k for k, v in OWNERS.items()}
 DIVISIONS = {0: "East", 1: "West"}
 # Who actually wore the Dress each season (per Peter, 2026-09-17). The league has done
-# it every year since 2022; the wearer isn't always the last-place record (2022 was Kaleb).
-DRESS_WEARERS = {2022: "Kaleb", 2023: "Christian", 2024: "Leif", 2025: "Logan"}
+# it every year since 2022 (last place by record, then points for).
+DRESS_WEARERS = {2022: "Grant", 2023: "Christian", 2024: "Leif", 2025: "Logan"}
 
 
 # ---------------------------------------------------------------- weekly high / low
