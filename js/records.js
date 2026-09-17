@@ -310,8 +310,8 @@ const LEAGUE_RECORDS = {
         "note": ""
       },
       {
-        "icon": "\ud83d\udebd",
-        "label": "Last Place",
+        "icon": "\ud83d\udc57",
+        "label": "The Dress",
         "year": 2023,
         "tier": "dishonor",
         "note": ""
@@ -337,13 +337,6 @@ const LEAGUE_RECORDS = {
         "label": "Playoff Berth",
         "year": 2023,
         "tier": "minor",
-        "note": ""
-      },
-      {
-        "icon": "\ud83d\udebd",
-        "label": "Last Place",
-        "year": 2022,
-        "tier": "dishonor",
         "note": ""
       }
     ],
@@ -435,6 +428,13 @@ const LEAGUE_RECORDS = {
         "year": 2025,
         "tier": "minor",
         "note": ""
+      },
+      {
+        "icon": "\ud83d\udc57",
+        "label": "The Dress",
+        "year": 2022,
+        "tier": "dishonor",
+        "note": ""
       }
     ],
     "Leif Engen": [
@@ -446,8 +446,8 @@ const LEAGUE_RECORDS = {
         "note": ""
       },
       {
-        "icon": "\ud83d\udebd",
-        "label": "Last Place",
+        "icon": "\ud83d\udc57",
+        "label": "The Dress",
         "year": 2024,
         "tier": "dishonor",
         "note": ""
