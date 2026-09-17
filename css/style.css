@@ -534,8 +534,9 @@ body, table, .stat, .countdown, [class*="stat-val"], [class*="pill"] {
 }
 .tab-btn:hover { color: var(--text); }
 .tab-btn.active { color: var(--text); border-bottom-color: var(--accent); }
-.analytics-section { display: none; }
-.analytics-section.active { display: block; }
+.analytics-section, .rk-section { display: none; }
+.analytics-section.active, .rk-section.active { display: block; }
+.rk-tabs { max-width: var(--measure); margin: var(--s-6) auto 0; padding: 0 var(--s-6); }
 
 /* ---------- Timeline (history) ---------- */
 .timeline { position: relative; padding-left: var(--s-8); margin-top: var(--s-6); }

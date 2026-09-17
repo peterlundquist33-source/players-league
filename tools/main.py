@@ -174,8 +174,24 @@ def run(phase_arg, season, week, dry, force=False):
     return page
 
 
+def render_rankings(season):
+    """rankings.html = latest power board (with its saved copy) + latest odds, as tabs."""
+    import odds as O
+    when = lambda d: (d.get("generated") or "")[:10] or None
+    boards = sorted(DATA.glob(f"{season}-power-week-*.json"))
+    if not boards:
+        return None
+    d = json.loads(boards[-1].read_text())
+    oh = O.history(season)
+    odds = (oh[-1], oh, None) if oh else None
+    page = R.power_page(d["board"], d["copies"], d["intro"], stamp=when(d), odds=odds)
+    R.odds_redirect()
+    print("rendered", page.relative_to(ROOT))
+    return page
+
+
 def run_odds(season):
-    """Playoff & Dress odds from a Monte Carlo of the remaining schedule; page + JSON."""
+    """Playoff & Dress odds from a Monte Carlo of the remaining schedule; JSON + rankings tab."""
     import odds as O
     import power as PW
     board = None
@@ -184,7 +200,7 @@ def run_odds(season):
     except Exception as e:
         print(f"odds: no power board ({e}); using scoring only")
     res = O.run(season, board)
-    print("rendered", R.odds_page(res, O.history(season)).relative_to(ROOT))
+    render_rankings(season)
     return res
 
 
@@ -225,7 +241,7 @@ def run_power(season, week=None, dry=False):
             copies.append(W.power_team(r, board))
         intro = W.power_intro(board, board_text, reasons)
 
-    page = R.power_page(board, copies, intro)
+    page = R.power_page(board, copies, intro)   # re-rendered with the odds tab below
     DATA.mkdir(parents=True, exist_ok=True)
     slim = dict(board, rows=[{k: v for k, v in r.items() if k != "players"}
                              for r in board["rows"]])
@@ -233,6 +249,7 @@ def run_power(season, week=None, dry=False):
         {"generated": datetime.datetime.now().isoformat(timespec="seconds"),
          "board": slim, "copies": copies, "intro": intro, "nudges": reasons},
         indent=2, default=str))
+    render_rankings(season)
     print(f"wrote {page.relative_to(ROOT)}")
     _opening(season)
     return page
@@ -330,11 +347,7 @@ def run_render(season):
         print("rendered", R.week_page(d["data"], d["copies"], d["intro"],
                                       stamp=when(d)).relative_to(ROOT))
     R.index_page(season)
-    boards = sorted(DATA.glob(f"{season}-power-week-*.json"))
-    if boards:
-        d = json.loads(boards[-1].read_text())
-        print("rendered", R.power_page(d["board"], d["copies"], d["intro"],
-                                       stamp=when(d)).relative_to(ROOT))
+    render_rankings(season)
     for f in sorted(DATA.glob(f"{season}-madness-week-[0-9][0-9].json")):
         d = json.loads(f.read_text())
         print("rendered", R.madness_page(d["data"], d["post"], stamp=when(d)).relative_to(ROOT))
@@ -343,10 +356,6 @@ def run_render(season):
         d = json.loads(g.read_text())
         print("rendered", R.rankings_page(d["grades"], d["copies"], d["intro"],
                                           stamp=when(d)).relative_to(ROOT))
-    import odds as O
-    oh = O.history(season)
-    if oh:
-        print("rendered", R.odds_page(oh[-1], oh, stamp=when(oh[-1]) if isinstance(oh[-1], dict) else None).relative_to(ROOT))
     _opening(season)
     import podcast_page as PP
     PP.update()

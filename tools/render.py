@@ -272,7 +272,7 @@ def _power_card(r, copy):
                 html.escape(copy["headline"]), paras))
 
 
-def power_page(board, copies, intro, stamp=None):
+def power_page(board, copies, intro, stamp=None, odds=None):
     """board from power.compute(); copies aligned to board['rows']."""
     season, wk = board["season"], board["week"]
     stamp = stamp or datetime.date.today().isoformat()   # a re-render keeps its original date
@@ -288,15 +288,31 @@ def power_page(board, copies, intro, stamp=None):
         blurb = ('No games played yet — this board is pure roster strength: draft grade plus '
                  'what each roster projects to score · %s' % stamp)
     cards = "\n".join(_power_card(r, copies[i]) for i, r in enumerate(board["rows"]))
-    body = ('<section class="page-header"><span class="eyebrow">Rankings</span>'
-            '<h1>%s</h1><p>%s</p></section>'
-            '<div class="mx-wrap"><p class="mx-intro">%s</p>%s'
-            '<div class="mx-foot">The power score blends what you\'ve done (all-play record, '
-            'points per game, form) with what you\'re holding (roster projection, draft '
-            'grade). Results outweigh roster more each week. Full math on the '
-            '<a href="analytics.html">analytics page</a> · '
-            '<a href="draft-grades.html">%d draft grades</a>.</div></div>'
-            % (title, blurb, html.escape(intro), cards, season))
+    power_html = ('<section class="page-header"><span class="eyebrow">Rankings</span>'
+                  '<h1>%s</h1><p>%s</p></section>'
+                  '<div class="mx-wrap"><p class="mx-intro">%s</p>%s'
+                  '<div class="mx-foot">The power score blends what you\'ve done (all-play record, '
+                  'points per game, form) with what you\'re holding (roster projection, draft '
+                  'grade). Results outweigh roster more each week. Full math on the '
+                  '<a href="analytics.html">analytics page</a> · '
+                  '<a href="draft-grades.html">%d draft grades</a>.</div></div>'
+                  % (title, blurb, html.escape(intro), cards, season))
+    if odds is None:
+        body = power_html
+    else:
+        # Two tabs on one page: the board, and the playoff / Dress odds. #odds deep-links.
+        body = ('<div class="tab-switcher rk-tabs" role="tablist">'
+                '<button class="tab-btn active" data-tab="power">Power Rankings</button>'
+                '<button class="tab-btn" data-tab="odds">Dress Odds</button></div>'
+                '<section id="tab-power" class="rk-section active">%s</section>'
+                '<section id="tab-odds" class="rk-section">%s</section>'
+                '<script>(function(){var b=document.querySelectorAll(".rk-tabs .tab-btn");'
+                'function go(t){document.querySelectorAll(".rk-section").forEach(function(s){s.classList.toggle("active",s.id==="tab-"+t)});'
+                'b.forEach(function(x){x.classList.toggle("active",x.dataset.tab===t)});'
+                'if(history.replaceState)history.replaceState(null,"",t==="odds"?"#odds":location.pathname);}'
+                'b.forEach(function(x){x.addEventListener("click",function(){go(x.dataset.tab)})});'
+                'if(location.hash==="#odds")go("odds");})();</script>'
+                % (power_html, odds_body(odds[0], odds[1], odds[2])))
     (ROOT / "rankings.html").write_text(_page("Power Rankings", "Rankings", body, depth=0,
                                               page="rankings.html"))
     return ROOT / "rankings.html"
@@ -402,7 +418,7 @@ def _trend_svg(hist, owners, key="dress"):
     return "".join(out)
 
 
-def odds_page(res, hist, stamp=None):
+def odds_body(res, hist, stamp=None):
     season, wk = res["season"], res["week"]
     stamp = stamp or datetime.date.today().isoformat()
     rows = res["rows"]
@@ -451,7 +467,7 @@ def odds_page(res, hist, stamp=None):
     trend = _trend_svg(hist, [r["owner"] for r in rows], "dress")
     trend_sec = (f'<section class="section"><span class="eyebrow">Trend</span><h2 class="section-title">Dress Watch, week by week</h2>'
                  f'<p class="section-sub">How each team\'s chance of finishing last has moved. The four most at risk are labeled.</p>{trend}</section>') if trend else ""
-    body = f'''<section class="page-header"><span class="eyebrow">Odds</span>
+    body = f'''<section class="page-header"><span class="eyebrow">Rankings</span>
 <h1>Playoff &amp; <span class="gold">Dress</span> Odds</h1>
 <p>Through Week {wk} · {res["games_left"]} games left · {res["sims"]:,} simulated seasons · updated {stamp}</p></section>
 <section class="section"><span class="eyebrow">Dress Watch</span><h2 class="section-title">Most likely to wear it</h2>
@@ -463,5 +479,11 @@ def odds_page(res, hist, stamp=None):
 {lev}
 {trend_sec}
 <section class="section"><p class="mx-foot">Method: every remaining game is simulated {res["sims"]:,} times. Each team\'s weekly score is drawn from a bell curve centered on its blended strength (real scoring this season plus the power model\'s roster projection, with the projection fading out as games pile up) with a spread taken from its own volatility. Seeds and last place follow the league rules: record, then points for.</p></section>'''
-    (ROOT / "odds.html").write_text(_page("Playoff & Dress Odds", "Odds", body, depth=0, page="odds.html"))
+    return body
+
+
+def odds_redirect():
+    """odds.html used to be its own page; keep the link alive."""
+    (ROOT / "odds.html").write_text('<!DOCTYPE html><meta charset="utf-8"><meta http-equiv="refresh" content="0; url=rankings.html#odds">'
+                                    '<title>Dress Odds — Players League</title><a href="rankings.html#odds">Dress odds moved to the Rankings page.</a>\n')
     return ROOT / "odds.html"

@@ -28,7 +28,7 @@ SECTIONS = [
     ("01", "Standings",      "home.html",
      "Where all twelve sit right now — plus every champion since 2022"),
     ("02", "Power Rankings",  "rankings.html",
-     "The weekly board. Honest, with bite — every take backed by a number"),
+     "The weekly board, plus playoff odds and who's most likely to wear the Dress"),
     ("03", "Matchups",        "matchups/index.html", None),
     ("04", "Draft Grades",    "draft-grades.html",
      "How the 2026 draft actually went, scored 0 to 100. No curve"),
@@ -44,8 +44,6 @@ SECTIONS = [
      "The trip. The countdown is running — next up, August 2027"),
     ("10", "Podcast",         "podcast.html",
      "The whole league previewed on video — Week 1 is up now"),
-    ("11", "Odds",            "odds.html",
-     "Playoff odds, bye odds — and who's most likely to wear the Dress"),
 ]
 
 
