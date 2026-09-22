@@ -1,5 +1,5 @@
-"""Weekly power rankings — a hybrid: a deterministic model sets the board, the AI
-may nudge a team at most 2 spots.
+"""Weekly power rankings — a deterministic model sets the board and the AI writes
+the accompanying copy.
 
 The model score (0-100) blends two halves:
 
@@ -12,8 +12,8 @@ The weight shifts from roster to results as the season goes: week 1 is still mos
 about the roster you drafted, by week 6+ it's ~80% what you've done on the field.
 Preseason (no games played) the score is pure roster — that's the Week 0 board.
 
-Every number here is computed, never guessed; the AI only writes copy and proposes
-small ordering nudges that this module validates before applying.
+Every number and every rank here is computed, never guessed. The displayed power
+score is the ordering key, so a lower score can never rank above a higher one.
 """
 import json
 from lib import ROOT, load_env
@@ -50,7 +50,6 @@ DRAFT_W0, DRAFT_DECAY = 0.75, 0.09
 ROSTER_WEEKS = 3
 
 FORM_WEEKS = 3
-MAX_NUDGE = 2
 
 
 # ---------------------------------------------------------------- scaling
@@ -327,7 +326,11 @@ def previous(season, week):
         d = json.loads(best.read_text())
     except Exception:
         return {}
-    return {r["owner"]: r["rank"] for r in d.get("board", {}).get("rows", [])}
+    # Older saved boards allowed an AI review to move teams away from their
+    # displayed score. Movement should compare model order to model order, so
+    # use the saved base rank when reading those historical files.
+    return {r["owner"]: r.get("base_rank", r["rank"])
+            for r in d.get("board", {}).get("rows", [])}
 
 
 def apply_movement(board, season):
@@ -337,38 +340,6 @@ def apply_movement(board, season):
         r["prev_rank"] = pr
         r["move"] = (pr - r["rank"]) if pr else 0
     board["has_prev"] = bool(prev)
-    return board
-
-
-# ---------------------------------------------------------------- AI nudge
-
-def apply_nudge(board, deltas):
-    """deltas = {owner: int}. Re-sort by (base_rank - delta) and re-rank.
-
-    Any team that ends up more than MAX_NUDGE off its model rank gets pulled back,
-    so the AI can lean on the board but never overturn it.
-    """
-    rows = board["rows"]
-    d = {r["owner"]: max(-MAX_NUDGE, min(MAX_NUDGE, int(deltas.get(r["owner"], 0))))
-         for r in rows}
-
-    def _key(r):
-        delta = d[r["owner"]]
-        # the half-step makes a moved team land past the team it's passing rather
-        # than tying with it — without it, a swap (one down, one up) cancels out
-        bump = 0.5 if delta < 0 else -0.5 if delta > 0 else 0.0
-        return (r["base_rank"] - delta + bump, r["base_rank"])
-
-    ordered = sorted(rows, key=_key)
-    for i, r in enumerate(ordered, 1):
-        if abs(i - r["base_rank"]) > MAX_NUDGE:      # interaction pushed it too far
-            d[r["owner"]] = 0
-            ordered = sorted(rows, key=_key)
-            break
-    for i, r in enumerate(ordered, 1):
-        r["rank"] = i
-        r["nudge"] = r["base_rank"] - i
-    board["rows"] = ordered
     return board
 
 
@@ -456,7 +427,7 @@ def team_facts(r, board):
 
 
 def board_lines(board):
-    """One-line-per-team summary of the whole board, for the nudge + intro prompts."""
+    """One-line-per-team summary of the whole board for the intro prompt."""
     out = []
     for r in board["rows"]:
         bits = [f'{r["rank"]:2}. {r["owner"]:<10} score {r["score"]:5.1f}']

@@ -251,12 +251,6 @@ def _power_card(r, copy):
     if r.get("proj_avg"):
         stats.append('<span class="mx-tag">Roster proj <b>%.0f</b></span>' % r["proj_avg"])
 
-    note = ""
-    if r.get("nudge"):
-        d = r["nudge"]
-        note = ('<div class="mx-note">Moved %s %d %s from the model\'s order on review.</div>'
-                % ("up" if d > 0 else "down", abs(d),
-                   "spot" if abs(d) == 1 else "spots"))
     paras = "".join("<p>%s</p>" % html.escape(p.strip())
                     for p in copy["body"].split("\n") if p.strip())
     return ('<article class="mx-card">'
@@ -264,11 +258,11 @@ def _power_card(r, copy):
             '<div><div class="mx-owner">%s</div>'
             '<div class="mx-sub">%s</div>%s</div>'
             '<div class="pw-score"><b>%.1f</b><span>Model</span></div></div>'
-            '<div class="mx-tags">%s</div>%s'
+            '<div class="mx-tags">%s</div>'
             '<div class="mx-body"><div class="mx-head">%s</div>%s</div>'
             '</article>' % (
                 cls, r["rank"], html.escape(r["owner"]), html.escape(r["team"]), move,
-                r["score"], "".join(stats), note,
+                r["score"], "".join(stats),
                 html.escape(copy["headline"]), paras))
 
 
@@ -280,8 +274,8 @@ def power_page(board, copies, intro, stamp=None, odds=None):
              else "Week %d <span class=\"gold\">Power Rankings</span>" % wk)
     if board["gp"]:
         blurb = ('Through Week %d · %d%% results, %d%% roster strength — all-play record, '
-                 'points per game, recent form and current roster, with the order reviewed '
-                 'before publishing · %s'
+                 'points per game, recent form and current roster, ordered by the displayed '
+                 'power score · %s'
                  % (wk, round(board["w_results"] * 100),
                     round((1 - board["w_results"]) * 100), stamp))
     else:

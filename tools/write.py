@@ -608,83 +608,6 @@ HEADLINE: <4-9 words, punchy, specific to this team>
 <body: ONE paragraph, plain prose, no markdown, 70-95 words.>
 """
 
-SYSTEM_NUDGE = _VOICE + """
-
-You are reviewing a statistical model's power-ranking board before it publishes.
-The model is good — it weighs all-play record, points per game, recent form and
-roster strength. Your job is NOT to rewrite it. Your job is to catch the handful
-of things a formula structurally cannot see.
-
-Legitimate reasons to move a team:
-- A key player just got hurt, or is back, and the roster list shows it.
-- The model is still being dragged by one fluke week that no longer reflects them.
-- A team's scoring is trending hard in one direction inside the form window.
-- Points-per-game flatters a team that piled on in blowouts, or hides one that
-  keeps losing shootouts.
-
-NOT legitimate: a hunch, reputation, league history, "they always figure it out",
-or disagreeing with how the model weighs things.
-
-Rules:
-- You may move a team at most 2 spots, up or down.
-- Most weeks you should move ZERO to TWO teams. Moving lots of teams means you're
-  second-guessing the model, which is wrong.
-- Every move needs a concrete reason grounded in the data you were given.
-
-Output format — EXACTLY this, nothing else. One line per move:
-<Owner first name>: <+1 | +2 | -1 | -2> — <short reason, under 15 words>
-
-If nothing should move, output exactly:
-NONE
-"""
-
-
-def power_nudge(board, board_text):
-    """Ask for small, justified ordering adjustments.
-
-    Returns ({owner: requested delta}, {owner: reason}). The caller reports the
-    delta that was ACTUALLY applied — teams nudging past each other means the
-    requested move and the final move often differ.
-    """
-    valid = {r["owner"] for r in board["rows"]}
-    wk = board["week"]
-    when = (f"after Week {wk}" if wk else "preseason, before any games")
-    user = (
-        f"Players League power rankings, {when}. The model's board, best to worst:\n\n"
-        f"{board_text}\n\n"
-        "Per-team detail:\n\n"
-        + "\n\n".join(_pw_facts(r, board) for r in board["rows"])
-        + "\n\nReview this board. Which teams, if any, are misplaced for a reason the "
-          "model cannot see?"
-    )
-    raw = claude(SYSTEM_NUDGE, user, max_tokens=500).strip()
-    deltas, reasons = {}, {}
-    if raw.upper().startswith("NONE"):
-        return deltas, reasons
-    for line in raw.splitlines():
-        line = line.strip().lstrip("-•* ").strip()
-        if ":" not in line:
-            continue
-        name, _, rest = line.partition(":")
-        name = name.strip()
-        if name not in valid:
-            continue
-        rest = rest.strip()
-        sign = 1 if rest.startswith("+") else -1 if rest.startswith("-") else 0
-        digits = "".join(ch for ch in rest[:3] if ch.isdigit())
-        if not sign or not digits:
-            continue
-        delta = sign * int(digits[0])
-        if abs(delta) > 2:
-            delta = 2 * sign
-        deltas[name] = delta
-        for sep in ("—", "–", " - "):
-            if sep in rest:
-                reasons[name] = rest.split(sep, 1)[1].strip()
-                break
-    return deltas, reasons
-
-
 def _pw_facts(r, board):
     import power as PW
     return PW.team_facts(r, board)
@@ -707,7 +630,7 @@ def power_team(r, board):
     return out
 
 
-def power_intro(board, board_text, nudge_reasons):
+def power_intro(board, board_text):
     wk = board["week"]
     when = (f"after Week {wk}" if wk else "preseason")
     rows = board["rows"]
@@ -715,10 +638,6 @@ def power_intro(board, board_text, nudge_reasons):
     movers.sort(key=lambda r: -abs(r["move"]))
     mv = "\n".join(f'{r["owner"]}: #{r["prev_rank"]} -> #{r["rank"]}' for r in movers[:5])
     extra = f"\nBiggest movers since last week:\n{mv}\n" if mv else ""
-    if nudge_reasons:
-        extra += ("\nThe model's raw order was overridden on review for these teams, which is "
-                  "why their scores don't run in a straight line down the board:\n  "
-                  + "\n  ".join(nudge_reasons) + "\n")
     user = (f"Players League power rankings, {when}. Final board, best to worst:\n\n"
             f"{board_text}\n{extra}\n"
             f"Write the 3-4 sentence intro for this page.")

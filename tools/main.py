@@ -205,7 +205,12 @@ def run_odds(season):
 
 
 def run_power(season, week=None, dry=False):
-    """Weekly power rankings — model board, AI nudge, AI copy, page."""
+    """Weekly power rankings — deterministic model board, AI copy, page.
+
+    The displayed power score is the ranking. Copy can explain the board, but
+    it must never reorder it; otherwise a lower score can appear above a higher
+    one and the page stops being internally trustworthy.
+    """
     load_env()
     import power as PW
     board = PW.compute(season, week)
@@ -213,7 +218,6 @@ def run_power(season, week=None, dry=False):
     print(f'power board through week {board["week"]} '
           f'({board["gp"]} games, {board["w_results"]*100:.0f}% results)')
 
-    reasons = []
     if dry:
         copies = [{"headline": f'#{r["rank"]} {r["owner"]}', "body": "[dry run]"}
                   for r in board["rows"]]
@@ -221,25 +225,12 @@ def run_power(season, week=None, dry=False):
         PW.apply_movement(board, season)
     else:
         import write as W
-        deltas, why = W.power_nudge(board, board_text)
-        if deltas:
-            PW.apply_nudge(board, deltas)
-            board_text = PW.board_lines(board)
-            # report what actually happened — teams nudging past each other means
-            # the applied move often isn't the one that was asked for
-            reasons = [f'{r["owner"]} {r["nudge"]:+d}'
-                       + (f': {why[r["owner"]]}' if why.get(r["owner"]) else '')
-                       for r in board["rows"] if r.get("nudge")]
-            print("  nudges: " + ("; ".join(reasons) if reasons
-                                  else "requested, but they cancelled out"))
-        else:
-            print("  nudges: none — model board stands")
         PW.apply_movement(board, season)
         copies = []
         for r in board["rows"]:
             print(f'  writing #{r["rank"]} {r["owner"]}')
             copies.append(W.power_team(r, board))
-        intro = W.power_intro(board, board_text, reasons)
+        intro = W.power_intro(board, board_text)
 
     page = R.power_page(board, copies, intro)   # re-rendered with the odds tab below
     DATA.mkdir(parents=True, exist_ok=True)
@@ -247,7 +238,7 @@ def run_power(season, week=None, dry=False):
                              for r in board["rows"]])
     (DATA / f'{season}-power-week-{board["week"]:02d}.json').write_text(json.dumps(
         {"generated": datetime.datetime.now().isoformat(timespec="seconds"),
-         "board": slim, "copies": copies, "intro": intro, "nudges": reasons},
+         "board": slim, "copies": copies, "intro": intro},
         indent=2, default=str))
     render_rankings(season)
     print(f"wrote {page.relative_to(ROOT)}")
