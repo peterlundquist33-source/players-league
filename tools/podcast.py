@@ -70,6 +70,15 @@ from lore import rivalry_between
 _SLOT_PRIORITY = ["Sunday Night", "Monday Night", "Thursday Night",
                   "Friday Night Brazil", "Sunday Afternoon", "Sunday Noon"]
 
+# Commissioner pins: force a matchup into a slot, overriding the interest ranking.
+# {(season, week): {frozenset({owner, owner}): slot}}
+_SLOT_PINS = {
+    (2026, 3): {
+        frozenset({"Mitchell", "Christian"}): "Sunday Night",
+        frozenset({"Adam", "Leif"}): "Monday Night",
+    },
+}
+
 
 def _interest(m, roster_score):
     """How much this fantasy matchup matters to the league -> higher = primetime."""
@@ -88,14 +97,23 @@ def _interest(m, roster_score):
     return score
 
 
-def _assign_slots(matchups, roster_score, have_friday):
-    """Rank matchups by interest, map best -> best slot."""
+def _assign_slots(matchups, roster_score, have_friday, season=None, week=None):
+    """Rank matchups by interest, map best -> best slot. Pins win over the ranking."""
     slots = [s for s in _SLOT_PRIORITY if s != "Friday Night Brazil" or have_friday]
-    ranked = sorted(range(len(matchups)),
+    pins = _SLOT_PINS.get((season, week), {})
+
+    assigned, taken = {}, set()
+    for i, m in enumerate(matchups):
+        slot = pins.get(frozenset({m["away"]["owner"], m["home"]["owner"]}))
+        if slot in slots and slot not in taken:
+            assigned[i] = slot
+            taken.add(slot)
+
+    free = [s for s in slots if s not in taken]
+    ranked = sorted((i for i in range(len(matchups)) if i not in assigned),
                     key=lambda i: -_interest(matchups[i], roster_score))
-    assigned = {}
     for k, i in enumerate(ranked):
-        assigned[i] = slots[k] if k < len(slots) else "Sunday Noon"
+        assigned[i] = free[k] if k < len(free) else "Sunday Noon"
     return assigned
 
 
@@ -249,7 +267,7 @@ def build_csv(season, week, dry=False):
     have_friday = any(s == "Friday Night Brazil" for s, _, _ in games)
     playing = set(team_slot)               # NFL teams with a game this week
     roster_score = {t["owner"]: t["roster_score"] for t in g["teams"]}
-    assigned = _assign_slots(ms, roster_score, have_friday)
+    assigned = _assign_slots(ms, roster_score, have_friday, season, week)
 
     # flavor only: the single NFL game each matchup has the most points riding on
     nfl_game = {}
