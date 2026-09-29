@@ -1,0 +1,760 @@
+{
+  "generated": "2026-09-29T13:23:18",
+  "board": {
+    "season": 2026,
+    "week": 3,
+    "next_week": 4,
+    "gp": 3,
+    "w_results": 0.39,
+    "rows": [
+      {
+        "owner": "Adam",
+        "team": "Uncut Cokerr",
+        "score": 73.6,
+        "results_score": 91.6,
+        "roster_score": 62.1,
+        "gp": 3,
+        "record": "3-0",
+        "streak": "W3",
+        "pf": 463.9,
+        "pa": 396.3,
+        "pf_pg": 154.6,
+        "allplay": [
+          31,
+          2,
+          0
+        ],
+        "allplay_pct": 93.9,
+        "form": [
+          31,
+          2,
+          0
+        ],
+        "form_pct": 93.9,
+        "luck": 0.2,
+        "last3": [
+          156.26,
+          164.74,
+          142.94
+        ],
+        "best_week": [
+          2,
+          164.74
+        ],
+        "worst_week": [
+          3,
+          142.94
+        ],
+        "proj_next": 135.4,
+        "proj_avg": 126.4,
+        "next_opp": "Mitchell",
+        "draft_roster": 88.7,
+        "base_rank": 1,
+        "rank": 1,
+        "ranks": {
+          "pf_pg": "1st of 12",
+          "pf": "1st of 12",
+          "pa": "10th of 12",
+          "allplay_pct": "1st of 12",
+          "form_pct": "1st of 12",
+          "proj_avg": "1st of 12",
+          "draft_roster": "T-2nd of 12",
+          "luck": "6th of 12"
+        },
+        "prev_rank": 1,
+        "move": 0
+      },
+      {
+        "owner": "Leif",
+        "team": "Joey Lunchbox",
+        "score": 59.3,
+        "results_score": 68.4,
+        "roster_score": 53.5,
+        "gp": 3,
+        "record": "2-1",
+        "streak": "L1",
+        "pf": 411.1,
+        "pa": 353.8,
+        "pf_pg": 137.0,
+        "allplay": [
+          23,
+          10,
+          0
+        ],
+        "allplay_pct": 69.7,
+        "form": [
+          23,
+          10,
+          0
+        ],
+        "form_pct": 69.7,
+        "luck": -0.1,
+        "last3": [
+          126.16,
+          163.52,
+          121.46
+        ],
+        "best_week": [
+          2,
+          163.52
+        ],
+        "worst_week": [
+          3,
+          121.46
+        ],
+        "proj_next": 126.5,
+        "proj_avg": 124.5,
+        "next_opp": "Peter",
+        "draft_roster": 79.5,
+        "base_rank": 2,
+        "rank": 2,
+        "ranks": {
+          "pf_pg": "2nd of 12",
+          "pf": "2nd of 12",
+          "pa": "8th of 12",
+          "allplay_pct": "2nd of 12",
+          "form_pct": "2nd of 12",
+          "proj_avg": "T-3rd of 12",
+          "draft_roster": "12th of 12",
+          "luck": "7th of 12"
+        },
+        "prev_rank": 2,
+        "move": 0
+      },
+      {
+        "owner": "Christian",
+        "team": "The Aura Farm",
+        "score": 55.3,
+        "results_score": 47.6,
+        "roster_score": 60.2,
+        "gp": 3,
+        "record": "0-3",
+        "streak": "L3",
+        "pf": 381.1,
+        "pa": 427.7,
+        "pf_pg": 127.0,
+        "allplay": [
+          19,
+          14,
+          0
+        ],
+        "allplay_pct": 57.6,
+        "form": [
+          19,
+          14,
+          0
+        ],
+        "form_pct": 57.6,
+        "luck": -1.7,
+        "last3": [
+          112.4,
+          137.66,
+          131.08
+        ],
+        "best_week": [
+          2,
+          137.66
+        ],
+        "worst_week": [
+          1,
+          112.4
+        ],
+        "proj_next": 128.1,
+        "proj_avg": 124.5,
+        "next_opp": "Logan",
+        "draft_roster": 88.7,
+        "base_rank": 3,
+        "rank": 3,
+        "ranks": {
+          "pf_pg": "3rd of 12",
+          "pf": "3rd of 12",
+          "pa": "11th of 12",
+          "allplay_pct": "3rd of 12",
+          "form_pct": "3rd of 12",
+          "proj_avg": "T-3rd of 12",
+          "draft_roster": "T-2nd of 12",
+          "luck": "12th of 12"
+        },
+        "prev_rank": 4,
+        "move": 1
+      },
+      {
+        "owner": "John",
+        "team": "Pukachu",
+        "score": 53.1,
+        "results_score": 50.6,
+        "roster_score": 54.7,
+        "gp": 3,
+        "record": "1-2",
+        "streak": "L2",
+        "pf": 362.8,
+        "pa": 332.2,
+        "pf_pg": 120.9,
+        "allplay": [
+          18,
+          15,
+          0
+        ],
+        "allplay_pct": 54.5,
+        "form": [
+          18,
+          15,
+          0
+        ],
+        "form_pct": 54.5,
+        "luck": -0.6,
+        "last3": [
+          159.46,
+          81.72,
+          121.6
+        ],
+        "best_week": [
+          1,
+          159.46
+        ],
+        "worst_week": [
+          2,
+          81.72
+        ],
+        "proj_next": 120.8,
+        "proj_avg": 124.9,
+        "next_opp": "Isaac",
+        "draft_roster": 80.5,
+        "base_rank": 4,
+        "rank": 4,
+        "ranks": {
+          "pf_pg": "4th of 12",
+          "pf": "4th of 12",
+          "pa": "4th of 12",
+          "allplay_pct": "T-4th of 12",
+          "form_pct": "T-4th of 12",
+          "proj_avg": "2nd of 12",
+          "draft_roster": "T-9th of 12",
+          "luck": "T-9th of 12"
+        },
+        "prev_rank": 7,
+        "move": 3
+      },
+      {
+        "owner": "CJ",
+        "team": "Taylor Gang",
+        "score": 52.8,
+        "results_score": 54.1,
+        "roster_score": 51.9,
+        "gp": 3,
+        "record": "2-1",
+        "streak": "L1",
+        "pf": 350.7,
+        "pa": 333.8,
+        "pf_pg": 116.9,
+        "allplay": [
+          17,
+          16,
+          0
+        ],
+        "allplay_pct": 51.5,
+        "form": [
+          17,
+          16,
+          0
+        ],
+        "form_pct": 51.5,
+        "luck": 0.5,
+        "last3": [
+          118.16,
+          134.68,
+          97.9
+        ],
+        "best_week": [
+          2,
+          134.68
+        ],
+        "worst_week": [
+          3,
+          97.9
+        ],
+        "proj_next": 125.6,
+        "proj_avg": 120.3,
+        "next_opp": "Noah",
+        "draft_roster": 83.3,
+        "base_rank": 5,
+        "rank": 5,
+        "ranks": {
+          "pf_pg": "5th of 12",
+          "pf": "5th of 12",
+          "pa": "6th of 12",
+          "allplay_pct": "7th of 12",
+          "form_pct": "7th of 12",
+          "proj_avg": "5th of 12",
+          "draft_roster": "8th of 12",
+          "luck": "4th of 12"
+        },
+        "prev_rank": 3,
+        "move": -2
+      },
+      {
+        "owner": "Kaleb",
+        "team": "PA Dive Your Way",
+        "score": 50.5,
+        "results_score": 55.2,
+        "roster_score": 47.4,
+        "gp": 3,
+        "record": "2-1",
+        "streak": "W1",
+        "pf": 343.4,
+        "pa": 346.2,
+        "pf_pg": 114.5,
+        "allplay": [
+          18,
+          15,
+          0
+        ],
+        "allplay_pct": 54.5,
+        "form": [
+          18,
+          15,
+          0
+        ],
+        "form_pct": 54.5,
+        "luck": 0.4,
+        "last3": [
+          114.16,
+          96.38,
+          132.84
+        ],
+        "best_week": [
+          3,
+          132.84
+        ],
+        "worst_week": [
+          2,
+          96.38
+        ],
+        "proj_next": 115.7,
+        "proj_avg": 114.1,
+        "next_opp": "Grant",
+        "draft_roster": 86.0,
+        "base_rank": 6,
+        "rank": 6,
+        "ranks": {
+          "pf_pg": "7th of 12",
+          "pf": "7th of 12",
+          "pa": "7th of 12",
+          "allplay_pct": "T-4th of 12",
+          "form_pct": "T-4th of 12",
+          "proj_avg": "8th of 12",
+          "draft_roster": "T-4th of 12",
+          "luck": "5th of 12"
+        },
+        "prev_rank": 9,
+        "move": 3
+      },
+      {
+        "owner": "Peter",
+        "team": "The Basement Of KK",
+        "score": 49.3,
+        "results_score": 57.5,
+        "roster_score": 44.1,
+        "gp": 3,
+        "record": "3-0",
+        "streak": "W3",
+        "pf": 338.2,
+        "pa": 267.9,
+        "pf_pg": 112.7,
+        "allplay": [
+          16,
+          17,
+          0
+        ],
+        "allplay_pct": 48.5,
+        "form": [
+          16,
+          17,
+          0
+        ],
+        "form_pct": 48.5,
+        "luck": 1.5,
+        "last3": [
+          113.76,
+          98.1,
+          126.34
+        ],
+        "best_week": [
+          3,
+          126.34
+        ],
+        "worst_week": [
+          2,
+          98.1
+        ],
+        "proj_next": 113.2,
+        "proj_avg": 108.8,
+        "next_opp": "Leif",
+        "draft_roster": 89.1,
+        "base_rank": 7,
+        "rank": 7,
+        "ranks": {
+          "pf_pg": "8th of 12",
+          "pf": "8th of 12",
+          "pa": "1st of 12",
+          "allplay_pct": "8th of 12",
+          "form_pct": "8th of 12",
+          "proj_avg": "12th of 12",
+          "draft_roster": "1st of 12",
+          "luck": "1st of 12"
+        },
+        "prev_rank": 5,
+        "move": -2
+      },
+      {
+        "owner": "Mitchell",
+        "team": "Finding Nico",
+        "score": 47.2,
+        "results_score": 49.4,
+        "roster_score": 45.7,
+        "gp": 3,
+        "record": "1-2",
+        "streak": "W1",
+        "pf": 346.7,
+        "pa": 355.3,
+        "pf_pg": 115.6,
+        "allplay": [
+          18,
+          15,
+          0
+        ],
+        "allplay_pct": 54.5,
+        "form": [
+          18,
+          15,
+          0
+        ],
+        "form_pct": 54.5,
+        "luck": -0.6,
+        "last3": [
+          124.5,
+          73.0,
+          149.24
+        ],
+        "best_week": [
+          3,
+          149.24
+        ],
+        "worst_week": [
+          2,
+          73.0
+        ],
+        "proj_next": 120.1,
+        "proj_avg": 113.4,
+        "next_opp": "Adam",
+        "draft_roster": 84.6,
+        "base_rank": 8,
+        "rank": 8,
+        "ranks": {
+          "pf_pg": "6th of 12",
+          "pf": "6th of 12",
+          "pa": "9th of 12",
+          "allplay_pct": "T-4th of 12",
+          "form_pct": "T-4th of 12",
+          "proj_avg": "9th of 12",
+          "draft_roster": "7th of 12",
+          "luck": "T-9th of 12"
+        },
+        "prev_rank": 10,
+        "move": 2
+      },
+      {
+        "owner": "Isaac",
+        "team": "A Slap in the Face",
+        "score": 42.8,
+        "results_score": 37.1,
+        "roster_score": 46.5,
+        "gp": 3,
+        "record": "2-1",
+        "streak": "W2",
+        "pf": 300.3,
+        "pa": 297.3,
+        "pf_pg": 100.1,
+        "allplay": [
+          9,
+          24,
+          0
+        ],
+        "allplay_pct": 27.3,
+        "form": [
+          9,
+          24,
+          0
+        ],
+        "form_pct": 27.3,
+        "luck": 1.2,
+        "last3": [
+          89.94,
+          89.32,
+          121.08
+        ],
+        "best_week": [
+          3,
+          121.08
+        ],
+        "worst_week": [
+          2,
+          89.32
+        ],
+        "proj_next": 119.6,
+        "proj_avg": 117.0,
+        "next_opp": "John",
+        "draft_roster": 80.5,
+        "base_rank": 9,
+        "rank": 9,
+        "ranks": {
+          "pf_pg": "11th of 12",
+          "pf": "11th of 12",
+          "pa": "3rd of 12",
+          "allplay_pct": "11th of 12",
+          "form_pct": "11th of 12",
+          "proj_avg": "6th of 12",
+          "draft_roster": "T-9th of 12",
+          "luck": "2nd of 12"
+        },
+        "prev_rank": 11,
+        "move": 2
+      },
+      {
+        "owner": "Grant",
+        "team": "Amon that inhaler",
+        "score": 42.6,
+        "results_score": 46.6,
+        "roster_score": 40.0,
+        "gp": 3,
+        "record": "2-1",
+        "streak": "W2",
+        "pf": 315.9,
+        "pa": 279.4,
+        "pf_pg": 105.3,
+        "allplay": [
+          14,
+          19,
+          0
+        ],
+        "allplay_pct": 42.4,
+        "form": [
+          14,
+          19,
+          0
+        ],
+        "form_pct": 42.4,
+        "luck": 0.7,
+        "last3": [
+          116.34,
+          115.18,
+          84.42
+        ],
+        "best_week": [
+          1,
+          116.34
+        ],
+        "worst_week": [
+          3,
+          84.42
+        ],
+        "proj_next": 118.6,
+        "proj_avg": 110.8,
+        "next_opp": "Kaleb",
+        "draft_roster": 80.5,
+        "base_rank": 10,
+        "rank": 10,
+        "ranks": {
+          "pf_pg": "9th of 12",
+          "pf": "9th of 12",
+          "pa": "2nd of 12",
+          "allplay_pct": "9th of 12",
+          "form_pct": "9th of 12",
+          "proj_avg": "11th of 12",
+          "draft_roster": "T-9th of 12",
+          "luck": "3rd of 12"
+        },
+        "prev_rank": 8,
+        "move": -2
+      },
+      {
+        "owner": "Logan",
+        "team": "Runnin' Rezac",
+        "score": 42.3,
+        "results_score": 32.2,
+        "roster_score": 48.7,
+        "gp": 3,
+        "record": "0-3",
+        "streak": "L3",
+        "pf": 306.1,
+        "pa": 446.1,
+        "pf_pg": 102.0,
+        "allplay": [
+          13,
+          20,
+          0
+        ],
+        "allplay_pct": 39.4,
+        "form": [
+          13,
+          20,
+          0
+        ],
+        "form_pct": 39.4,
+        "luck": -1.2,
+        "last3": [
+          137.22,
+          86.36,
+          82.52
+        ],
+        "best_week": [
+          1,
+          137.22
+        ],
+        "worst_week": [
+          3,
+          82.52
+        ],
+        "proj_next": 122.7,
+        "proj_avg": 115.6,
+        "next_opp": "Christian",
+        "draft_roster": 85.7,
+        "base_rank": 11,
+        "rank": 11,
+        "ranks": {
+          "pf_pg": "10th of 12",
+          "pf": "10th of 12",
+          "pa": "12th of 12",
+          "allplay_pct": "10th of 12",
+          "form_pct": "10th of 12",
+          "proj_avg": "7th of 12",
+          "draft_roster": "6th of 12",
+          "luck": "11th of 12"
+        },
+        "prev_rank": 6,
+        "move": -5
+      },
+      {
+        "owner": "Noah",
+        "team": "Maye, Quit Football",
+        "score": 31.3,
+        "results_score": 9.7,
+        "roster_score": 45.0,
+        "gp": 3,
+        "record": "0-3",
+        "streak": "L3",
+        "pf": 249.0,
+        "pa": 333.2,
+        "pf_pg": 83.0,
+        "allplay": [
+          2,
+          31,
+          0
+        ],
+        "allplay_pct": 6.1,
+        "form": [
+          2,
+          31,
+          0
+        ],
+        "form_pct": 6.1,
+        "luck": -0.2,
+        "last3": [
+          84.22,
+          85.22,
+          79.56
+        ],
+        "best_week": [
+          2,
+          85.22
+        ],
+        "worst_week": [
+          3,
+          79.56
+        ],
+        "proj_next": 113.5,
+        "proj_avg": 111.8,
+        "next_opp": "CJ",
+        "draft_roster": 86.0,
+        "base_rank": 12,
+        "rank": 12,
+        "ranks": {
+          "pf_pg": "12th of 12",
+          "pf": "12th of 12",
+          "pa": "5th of 12",
+          "allplay_pct": "12th of 12",
+          "form_pct": "12th of 12",
+          "proj_avg": "10th of 12",
+          "draft_roster": "T-4th of 12",
+          "luck": "8th of 12"
+        },
+        "prev_rank": 12,
+        "move": 0
+      }
+    ],
+    "has_prev": true
+  },
+  "copies": [
+    {
+      "headline": "Adam Is Doing It Again, Obviously",
+      "body": "Three weeks, three wins, 463.9 points, and an all-play record of 31-2 \u2014 Adam has lost two matchups all season against the entire league, and he didn't play either of them. His 154.6 per game leads all 12 teams, and his luck sits at +0.2, meaning none of this is a gift. The draft-night roster graded 89, T-2nd, and it projects 126 a week going forward, best of anyone. He's 135 projected against Mitchell in Week 4. The defending champ is bored, and that's the problem.",
+      "pick": null
+    },
+    {
+      "headline": "Worst Draft Grade, Second-Best Scoring Team",
+      "body": "Leif's draft-night roster graded 80 out of 100, dead last of twelve, and he's answered by averaging 137.0 a game, second in the league, with a 23-10 all-play that says none of this is a fluke. Luck sits at -0.1 wins, so the 2-1 is exactly what he earned. The Week 3 dip to 121.5 was his season low and still lost him nothing structural: Henry, McCaffrey, and a questionable Josh Allen project this thing at 124 a week, T-3rd. Week 4 draws Peter, projected 126. Cabin-weekend panic looks pretty good in hindsight.",
+      "pick": null
+    },
+    {
+      "headline": "0-3 And Somehow The Third-Best Team",
+      "body": "Christian is 0-3 and it's borderline malpractice. He's averaging 127.0 a game, 3rd of 12, with an all-play record of 19-14 \u2014 again 3rd of 12 \u2014 and he has nothing to show for it because his luck sits at -1.7 wins, 12th of 12. He's allowed 427.7 points, the 11th-fewest, which is a polite way of saying everyone hits their ceiling against him. The draft-night roster graded 89, T-2nd. CeeDee Lamb, Kittle, Aaron Jones. Week 4 projects 128 against Logan. Just win one.",
+      "pick": null
+    },
+    {
+      "headline": "John's 1-2 Lies About His Roster",
+      "body": "The record says 1-2. Everything else says John is fine. He's 4th of 12 in points at 120.9 a game, 4th-fewest points against, an 18-15 all-play, and he's still minus-0.6 wins versus expected \u2014 scoring well and losing anyway is a real thing, and it's happening here. The Week 2 81.7 was ugly, the Week 1 159.5 was not. The roster projects 125 a week, 2nd of 12, even with Puka Nacua out and Trey McBride and Brock Bowers both demanding a start. Peter's still up there somewhere. John's the one with the tiebreaker.",
+      "pick": null
+    },
+    {
+      "headline": "CJ's 97.9 Exposes The Middle Class",
+      "body": "CJ spent two weeks looking like a contender and Week 3 looking like exactly what he is: 97.9, a loss, and an all-play record of 17-16 that says he's been winning slightly more than he's earned \u2014 plus 0.5 on luck, fourth-luckiest of twelve. The 116.9 average is real and fifth-best, but there's no ceiling here. Jonathan Taylor projects 20, Tyler Shough is starting at quarterback, and the whole operation lines up for 126 against Noah, who has made a career out of ruining functional teams.",
+      "pick": null
+    },
+    {
+      "headline": "Kaleb's 132.8 Finally Matches the Draft Hype",
+      "body": "Kaleb went from 96.4 in Week 2 to 132.8 in Week 3, and the jump is worth three spots \u2014 but check the all-play first. 18-15, T-4th of 12, luck at +0.4. That's a team that's genuinely earned 2-1 rather than stumbled into it. The draft graded 86, T-4th of 12, yet the roster index sits at 47 and projects 114 a week, 8th of 12. So the August version of this team was better than the September one. Ashton Jeanty and Drake London carry it. Breece Hall questionable. 116 projected against Grant.",
+      "pick": null
+    },
+    {
+      "headline": "3-0 Built On The Softest Schedule",
+      "body": "Peter is undefeated and it's largely because nobody's scored on him \u2014 267.9 points against, fewest of 12, while his own 112.7 average sits 8th. The all-play record is 16-17, which is a losing team wearing a winner's jersey, and the +1.5 luck figure is the luckiest in the league. His draft-night roster graded 89, best of 12, so the raw material was there; the current group projects 109 a week, 12th of 12. Bijan and Lamar are real. Week 2's 98.1 was not. Leif is next.",
+      "pick": null
+    },
+    {
+      "headline": "Nico's Out, Mitchell's Roster Bill Comes Due",
+      "body": "Mitchell's 149.2 in Week 3 was the real thing, and the 1-2 record undersells him: 18-15 all-play, 54%, T-4th of 12, with luck at -0.6. He's scoring 115.6 a game, 6th of 12, and losing anyway. The problem is the name on the team. Nico Collins is tagged OUT, Jordan Mason is on IR, and the roster projects 113 a week, 9th of 12 \u2014 which is how you land an 85 draft grade, 7th of 12, and still feel thin. Jahmyr Gibbs at 26 is doing heavy lifting. Week 4 against Adam, projected 120.",
+      "pick": null
+    },
+    {
+      "headline": "Two Wins Stapled To Nothing",
+      "body": "Isaac is 2-1 and the math hates it. 300.3 points, 100.1 a week, 11th of 12, with an all-play record of 9-24 \u2014 a 27% win rate dressed up as a winning team because his opponents have handed him the 3rd-fewest points against in the league. Luck sits at +1.2 wins, 2nd-highest. The 121.1 in Week 3 was real progress after 89.9 and 89.3, and the roster projects 117 a week, 6th of 12. Ja'Marr Chase and C.J. Stroud deserve better. John's next.",
+      "pick": null
+    },
+    {
+      "headline": "Grant's 2-1 Is A Rental, Not A Purchase",
+      "body": "Grant is 2-1 and nothing about it is earned. The all-play says 14-19, 42%, 9th of 12, and the +0.7 luck rating \u2014 3rd-luckiest \u2014 is the only reason the standings look friendly. He's averaging 105.3, 9th of 12, and just turned in an 84.4 in Week 3, his season low. Points against 279.4, 2nd-fewest, is the actual MVP. Amon-Ra St. Brown projects 20 and Baker Mayfield and Dallas Goedert are both OUT. The roster projects 111 a week, 11th of 12. Kaleb's next.",
+      "pick": null
+    },
+    {
+      "headline": "Logan's Offense Went Quiet After Week One",
+      "body": "Logan opened with 137.2 and has since produced 86.4 and 82.5, which is how a roster that graded 86 on draft night \u2014 6th of 12 \u2014 ends up 0-3 and dropping five spots to 11th. The mitigating evidence: 446.1 points against, the most in the league, and luck at -1.2 wins. The damning evidence: 102.0 per game, 10th of 12, and a 13-20 all-play. This is a guy who's taken two #1 seeds and won nothing with them, now scoring 82.5. Jefferson's questionable. Barkley, Hurts and 123 projected against Christian is the exit ramp.",
+      "pick": null
+    },
+    {
+      "headline": "Noah's Cinderella Story Missed Its Shoe",
+      "body": "Three weeks, three losses, and a scoring line that reads 84.2, 85.2, 79.6 \u2014 Noah has never cracked 86 in a game, which is roughly what his draft grade was (86 out of 100, T-4th of 12). That gap is the whole story. The all-play record is 2-31, six percent, 12th of 12, and luck is -0.2, meaning nobody robbed him. Drake Maye and James Cook III project fine; the lineup around them projects 112 a week, 10th of 12. The postseason assassin needs a postseason first.",
+      "pick": null
+    }
+  ],
+  "intro": "Adam is the runaway No. 1 and it isn't close: 3-0, 154.6 a game, and a 94% all-play mark that says he'd be beating basically everyone on the schedule, not just the guy he drew. At the other end, Noah is scoring 83.0 a game and has beaten 6% of the league in all-play, which is the statistical version of showing up to the wrong building. The board's ugliest fall belongs to Logan, who slid from sixth to eleventh at 0-3 despite a luck figure of -1.2 \u2014 though his 123 projection is higher than seven teams ranked above him, so the sympathy comes with an expiration date. Also worth staring at: Christian is 0-3 with the third-best scoring average in the league and Peter is 3-0 with the seventh, and their luck numbers (-1.7 and +1.5) explain the entire gap; note that Isaac at 42.8 and Grant at 42.6 are not actually tied, decimals matter."
+}
