@@ -2,10 +2,15 @@ name: Weekly matchups
 
 on:
   schedule:
-    # Sep–Jan only. Times are UTC.
-    - cron: "0 13 * 9-12,1 4"   # Thursdays ~7am CT — previews
-    - cron: "0 15 * 9-12,1 2"   # Tuesdays  ~9am CT — recaps
-    - cron: "0 18 * 9-12,1 1"   # Mondays   ~1pm CT — Monday Night Madness
+    # Sep–Jan only. Cron is UTC and has no timezone support, so each CT time is
+    # split by month: 9-10 are CDT (UTC-5), 11-12,1 are CST (UTC-6).
+    # DST ends Sun Nov 1, 2026, which is why the split lands on the month boundary.
+    # Wednesday 7pm CT fires as Thursday in UTC, hence DOW 4.
+    - cron: "0 0 * 9-10 4"      # Wednesdays 7pm CDT — previews
+    - cron: "0 1 * 11-12,1 4"   # Wednesdays 7pm CST — previews
+    - cron: "0 13 * 9-10 2"     # Tuesdays   8am CDT — recaps
+    - cron: "0 14 * 11-12,1 2"  # Tuesdays   8am CST — recaps
+    - cron: "0 18 * 9-12,1 1"   # Mondays    1pm CDT / 12pm CST — Monday Night Madness
   workflow_dispatch:
     inputs:
       phase:
@@ -48,7 +53,8 @@ jobs:
         run: |
           if [ "${{ github.event_name }}" = "schedule" ]; then
             case "${{ github.event.schedule }}" in
-              "0 13 * 9-12,1 4") echo "phase=preview" >> "$GITHUB_OUTPUT" ;;
+              "0 0 * 9-10 4"|"0 1 * 11-12,1 4")
+                                 echo "phase=preview" >> "$GITHUB_OUTPUT" ;;
               "0 18 * 9-12,1 1") echo "phase=madness" >> "$GITHUB_OUTPUT" ;;
               *)                 echo "phase=recap"   >> "$GITHUB_OUTPUT" ;;
             esac
