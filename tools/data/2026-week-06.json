@@ -1,5 +1,5 @@
 {
-  "generated": "2026-10-20T15:46:11",
+  "generated": "2026-10-20T17:48:42",
   "phase": "recap",
   "data": {
     "season": 2026,
@@ -1052,7 +1052,7 @@
               "pro": "ARI",
               "proj": 0.0,
               "actual": 0.0,
-              "injury": "OUT",
+              "injury": "QUESTIONABLE",
               "started": false
             },
             {
@@ -1295,7 +1295,7 @@
               "pro": "PHI",
               "proj": 0.0,
               "actual": 0.0,
-              "injury": "OUT",
+              "injury": "QUESTIONABLE",
               "started": true
             },
             {
@@ -1457,7 +1457,7 @@
               "pro": "PHI",
               "proj": 0.0,
               "actual": 0.0,
-              "injury": "OUT",
+              "injury": "QUESTIONABLE",
               "started": true
             },
             {
@@ -1987,7 +1987,7 @@
               "pro": "CLE",
               "proj": 0.0,
               "actual": 0.0,
-              "injury": "OUT",
+              "injury": "QUESTIONABLE",
               "started": false
             },
             {
@@ -2192,7 +2192,7 @@
               "pro": "HOU",
               "proj": 0.0,
               "actual": 0.0,
-              "injury": "OUT",
+              "injury": "QUESTIONABLE",
               "started": false
             },
             {
@@ -2447,7 +2447,7 @@
               "pro": "KC",
               "proj": 0.0,
               "actual": 0.0,
-              "injury": "OUT",
+              "injury": "QUESTIONABLE",
               "started": false
             },
             {
@@ -2630,7 +2630,7 @@
               "pro": "BUF",
               "proj": 0.0,
               "actual": 0.0,
-              "injury": "OUT",
+              "injury": "QUESTIONABLE",
               "started": true
             },
             {
@@ -2732,7 +2732,7 @@
               "pro": "IND",
               "proj": 0.0,
               "actual": 0.0,
-              "injury": "OUT",
+              "injury": "QUESTIONABLE",
               "started": false
             },
             {
@@ -2742,7 +2742,7 @@
               "pro": "BUF",
               "proj": 0.0,
               "actual": 0.0,
-              "injury": "OUT",
+              "injury": "QUESTIONABLE",
               "started": true
             },
             {
@@ -3017,7 +3017,7 @@
               "pro": "NYJ",
               "proj": 0.0,
               "actual": 0.0,
-              "injury": "OUT",
+              "injury": "QUESTIONABLE",
               "started": false
             },
             {
@@ -3312,7 +3312,7 @@
               "pro": "BAL",
               "proj": 0.0,
               "actual": 0.0,
-              "injury": "OUT",
+              "injury": "QUESTIONABLE",
               "started": false
             },
             {
@@ -3332,7 +3332,7 @@
               "pro": "CHI",
               "proj": 0.0,
               "actual": 0.0,
-              "injury": "OUT",
+              "injury": "QUESTIONABLE",
               "started": false
             },
             {
@@ -3450,35 +3450,35 @@
   },
   "copies": [
     {
-      "headline": "Noah's Receivers Vanish, Adam Stays Perfect",
-      "body": "Wideouts decided this. Adam got 39.7 from Jaxon Smith-Njigba and Chris Olave; Noah got 15.6 from Garrett Wilson and Michael Wilson, both of whom missed projection by roughly six and a half apiece. That 24.1-point gap at receiver is almost exactly the final margin, which tells you everything about the other positions canceling each other out \u2014 Colston Loveland's 18.5 and Drake Maye's 23.8 were real edges that went nowhere because Rhamondre Stevenson turned 13.3 of projection into 3.6.\nAdam won on his worst week of the year. He posted 132.7, a season low, with Mark Andrews contributing 1.4 and Bucky Irving coughing up nine points below projection, and still cleared Noah by three touchdowns on Kenneth Walker III's 27.9 and Tyler Bass outscoring Spencer Shrader by nearly ten. We called it by 21. Close enough.\nNoah also benched Hunter Henry's 14.8 for Josh Downs and the Browns defense for the 49ers, which is 11 points he didn't need to leave anywhere. At 1-5 with an all-play of 20-46, he isn't unlucky \u2014 he's 11th in scoring. Adam, 6-0 and first in everything, remains boring in the most expensive way possible.",
+      "headline": "Adam's Receivers Buried Noah's Wilsons",
+      "body": "The wideouts decided this one. Adam got 39.7 from Jaxon Smith-Njigba and Chris Olave; Noah got 15.6 from Garrett Wilson and Michael Wilson, a 24.1-point hole that happens to be the exact final margin. Everything else was noise. Noah actually won the game at quarterback and tight end \u2014 Drake Maye's 23.8 and Colston Loveland's 18.5 against Mark Andrews turning in 1.4 \u2014 and still never led in any meaningful way, because when your two starting receivers combine for less than Adam's kicker and flex, the math stops being negotiable.\nNoah's misses compound. Rhamondre Stevenson managed 3.6 on a 13.3 projection, and Hunter Henry put up 14.8 on the bench while Josh Downs started for 8.7. Six points of Browns D/ST also rotted there. Adam, meanwhile, posted his season low at 132.7 and won by 24.\nWe called Adam by 21. He's 6-0 with a 59-7 all-play, which means nothing about this is luck. Noah is 1-5 and 11th in scoring, which historically is right where he likes to lurk.",
       "pick": null
     },
     {
-      "headline": "Logan's Spare Parts Bury John's Stars",
-      "body": "The margin came from the places nobody drafts for. Germie Bernard put up 25.7 in Logan's flex, Isaiah Likely went for 23.9 at tight end, Chase McLaughlin kicked 18.6, and the Chiefs defense added 14 against a Jaguars unit that finished at negative two. That's four roster slots John lost by a combined 50-plus, which is the entire game. Logan's 152.5 is a season high and his third straight week climbing.\nJohn's problem was the top of his lineup going quiet all at once. Kyren Williams managed 9.7 against a 21.0 projection, Puka Nacua 14.0 on 22.8, Brock Bowers 11.0 on 19.8. D'Andre Swift's 23 was the only starter who beat his number by much, and one running back can't cover a 52.4-point hole. We had John by 16, which aged about as well as the Jaguars defense.\nJohn still scores 128.5 a game, second in the league, and is 41-25 on all-play \u2014 he's not broken, he just picked the worst week to be. Logan is 2-4 with the fifth-best scoring in the league and 1.5 wins of bad luck, which is a familiar kind of misery for a man who used to collect top seeds.",
+      "headline": "Logan's Pittsburgh Flyers Bury Pukachu",
+      "body": "The gap was everywhere but the margin came from the spots nobody drafts for. Germie Bernard put up 25.7 in Logan's flex against Brock Bowers' 11.0, Isaiah Likely went 23.9 on a John tight end room that got 12.3 from Trey McBride, and the Jaguars defense turned in minus-2.0 while the Chiefs banked 14.0. That's 42.3 from flex, tight end and defense alone, which is most of a 52.4-point win. Logan's kicker outscored John's by 8.6 for dessert.\nJohn actually won the only position he was supposed to dominate \u2014 D'Andre Swift and Kyren Williams took the backfield by 10.5 \u2014 but the Rams connection failed him. Puka Nacua managed 14.0 on a 22.8 projection, Kyren came in at 9.7 on 21.0, Bowers at 11.0 on 19.8. Wan'Dale Robinson's 5.2 was the final insult.\nWe picked John by 16; that aged like milk. Logan's at 152.5, his season high, and the all-play says 2-4 was always fiction. John drops to 3-3 scoring second-best in the league. Both of these guys are better than their records.",
       "pick": null
     },
     {
       "headline": "Isaac Starts Two Zeroes, Loses By 45",
-      "body": "The running back room ended this before lunch. Christian got 24.7 from Bhayshul Tuten and 14.9 from Alvin Kamara; Isaac got 13.0 from Javonte Williams and a pair of actual zeroes from Cam Skattebo and Saquon Barkley in the flex. That's a 26.6-point hole at one position, and Jameis Winston turning 17.8 projected into 6.5 while C.J. Stroud put up 23.0 on the bench made it unrecoverable. Matt Gay outscoring Brandon Aubrey 11.5 to 1.0 was the only column Isaac won.\nChristian didn't even need to be sharp. Pat Freiermuth missed by eight with Khalil Shakir sitting, Trevor Lawrence scored 27.3 in street clothes, and 124.3 still cleared the bar by 45. We had Christian by 14 and undersold it.\nBoth sit at 2-4, but only one deserves company there \u2014 Christian's 39-27 all-play is fourth in the league and 1.5 wins of bad luck. Isaac is 17-49 and last in scoring, which is its own kind of slap.",
+      "body": "The backfield ended this before noon. Christian got 39.6 from Bhayshul Tuten and Alvin Kamara; Isaac got 13.0 from Javonte Williams and then nothing at all, because Cam Skattebo and Saquon Barkley in the flex combined for a clean 0.0. Two empty roster spots is not a bad break, it's a lineup you have to answer for, especially with J.K. Dobbins (13.6) and Jakobi Meyers (13.3) sitting there. Add Jameis Winston posting 6.5 against an 17.8 projection while C.J. Stroud banked 23.0 on the bench and the quarterback gap alone was 13.7.\nChristian wasn't clean either \u2014 Pat Freiermuth gave him 3.1 on an 11.1 projection, Brandon Aubrey kicked for a single point, and Trevor Lawrence's 27.3 rotted next to Jordan Love. Didn't matter. Love, DeVonta Smith and George Kittle all cleared 17 and the margin never got interesting.\nWe had Christian by 14; he covered it three times over. At 2-4 with 127.7 a game and a 39-27 all-play, he's the best bad record in the league. Isaac, 79.0 for a season low and dead last in every scoring metric, is 2-4 and has earned less than that.",
       "pick": null
     },
     {
-      "headline": "Pitts and McCaffrey Outrun Leif's Dead Weight",
-      "body": "Leif won this at the two spots nobody drafts for: tight end and flex. Kyle Pitts put up 23.0, Christian McCaffrey put up 30.7, and that 13.6 and 18.6 edge covered a multitude of sins. And there were sins. Derrick Henry managed 5.0 on an 18.3 projection, Davante Adams gave back 6.9 on a 16.0, Josh Allen came in nearly seven under, and the Texans defense actively cost him two points. Grant won QB, RB, WR, kicker and defense and still lost by 6.8, which is the fantasy equivalent of losing a game you led in every category but points.\nGrant's problem is that his ceiling arrives in installments. Nine starters, nobody above 18.5, Tony Pollard and Christian Watson both landing well short, and Keon Coleman's 15.9 watching from the bench instead of replacing Watson's 9.4. Leif had the same bench sin \u2014 Stefon Diggs 16.4 while Adams flopped \u2014 but Leif had McCaffrey, so it didn't matter.\nLeif is 4-2 with an all-play of 40-26, third in the league in both scoring and deserved record; this isn't luck. Grant falls to 3-3 and is still winning slightly more than he's earned. We picked Leif by 16 and only missed because his flex did all the work alone.",
+      "headline": "Pitts and McCaffrey Outrun Grant's Special Teams",
+      "body": "Leif won this at the two spots nobody drafts for: tight end and flex. Kyle Pitts put up 23.0 against Brenton Strange's 9.4, and Christian McCaffrey's 30.7 in the flex buried Dallas Goedert's 12.1. That's a 32-point swing in two lineup slots, which is the only reason Leif survived getting beaten at quarterback, running back, receiver, kicker and defense. Grant's Chris Boswell outscored Jason Myers by 10.0 and the Ravens D/ST beat the Texans' minus-2.0 by a full 12.0, and it still wasn't enough.\nThe misses were everywhere. Derrick Henry managed 5.0 on an 18.3 projection, Davante Adams 6.9 on 16.0, Josh Allen 18.3 on 25.1. Stefon Diggs scored 16.4 on Leif's bench while Adams did nothing. Grant had his own version \u2014 Keon Coleman 15.9 benched behind Christian Watson's 9.4, which is the entire 6.8-point margin and then some.\nLeif is 4-2 with the 3rd-best scoring average and a 40-26 all-play; this one's earned. Grant falls to 3-3 at 39% all-play, still living on luck he hasn't repaid. We had Leif by 16 \u2014 close enough.",
       "pick": null
     },
     {
-      "headline": "CJ's Backfield Buries Mitchell's Empty Flex",
-      "body": "The running backs settled this before anyone checked a box score. Jonathan Taylor and Chuba Hubbard combined for 40.2 while Mitchell got 17.5 out of Rachaad White and a Tyjae Spears performance \u2014 1.8 points on an 8.7 projection \u2014 that qualifies as a rounding error. Add Tyler Shough outscoring Dak Prescott by 16 and the 39.9-point margin was already assembled by Sunday afternoon.\nMitchell actually won the receivers and won tight end by 9.3, which is remarkable given CJ started Juwan Johnson for a donut. It didn't matter, because DJ Moore gave him a zero in the flex with George Holani and his eight points watching from the bench, and Tyler Loop chipped in 3.4 at kicker. CJ won his own flex battle by leaving Emeka Egbuka's 17.8 unused, which is the kind of mistake you can afford at 4-2.\nMitchell is 1-5 with an all-play of 27-39 and minus-1.5 luck wins \u2014 he's scoring 7th and sitting dead last in the only column that counts. The human coin flip has landed tails five times.",
+      "headline": "CJ's Backfield Buries Mitchell's Dead Flex",
+      "body": "The running backs ended this one before noon. Jonathan Taylor and Chuba Hubbard combined for 40.2 while Mitchell got 17.5, and 15.7 of that was Rachaad White \u2014 Tyjae Spears managed 1.8 on an 8.7 projection, which is a stat line and not a performance. Add Tyler Shough's 27 against Dak Prescott's 11.0, plus eight points of kicker gap, and CJ had a 39.9-point win locked up without his tight end scoring a single point.\nMitchell's flex was a zero. DJ Moore did nothing while George Holani put up 8.0 on the bench, and the 85.5 total is his worst of the season. He's 1-5 with an all-play of 27-39 now, which means the bad luck story is running out of road \u2014 the scoring has come down to meet the record.\nCJ wins his fourth, though Emeka Egbuka's 17.8 rotting behind Emanuel Wilson suggests he's not exactly optimizing. We had him by 11; he took it by 40. The human coin flip has landed tails five times.",
       "pick": null
     },
     {
       "headline": "Peter's Receivers Vanish, Kaleb Walks Away",
-      "body": "Wideouts decided this one and it wasn't close. Kaleb got 31.2 from Drake London and Carnell Tate; Peter got 15.8 from George Pickens plus whatever Denzel Boston was doing \u2014 2.5 points on a 13.5 projection, with Romeo Doubs and his 11.2 sitting on the bench. Add A.J. Brown at 5.7 against a 12.7 projection and Bijan Robinson turning a 23.0 projection into 7.3, and Peter's 69.8 is less a bad week than a full systems failure. Only Dameon Pierce and Tucker Kraft showed up.\nKaleb didn't exactly play a clean game either. Harold Fannin Jr. and Ladd McConkey combined for 4.6, and Tre Tucker put up 26.7 in street clothes. He didn't need any of it. Ashton Jeanty and RJ Harvey carried the backfield and the Bucs defense outscored Peter's entire receiving corps' worst two.\nWe picked Peter by 13, which looks generous now. Both sit 4-2, both are running hot on luck \u2014 Kaleb's all-play is 24-42 \u2014 but Peter's the one who went from 163.0 in Week 4 to this. The 2022 title keeps getting further away.",
+      "body": "The wideouts decided this one and it wasn't close: Kaleb got 31.2 from Drake London and Carnell Tate's 19.0 breakout, Peter got 15.8 total and most of that was George Pickens doing it alone. Add the running backs \u2014 Ashton Jeanty 15.8 and RJ Harvey 14.6 against Bijan Robinson's 7.3 \u2014 and Kaleb had the thing banked before the kickers mattered. Bijan was projected for 23.0. He produced less than Dameon Pierce. That's how you post 69.8, a season low by 25-plus.\nPeter's misses compounded: Denzel Boston 2.5 on a 13.5 projection with Romeo Doubs and his 11.2 sitting right there, A.J. Brown 5.7 on 12.7. We picked Peter by 13, which looks worse every time you reread the box score. Kaleb didn't earn this cleanly either \u2014 Tre Tucker put up 26.7 on his bench while Ladd McConkey managed 2.7 \u2014 but 94.4 was plenty.\nBoth sit 4-2 with all-plays in the 40s and 30s, meaning the 2022 champ and the 2023 champ are each running about a win and a half ahead of their actual football. Someone has to pay that back.",
       "pick": null
     }
   ],
-  "intro": "Leif over Grant by 6.8 was the only game that required watching past the early window, and Logan's 152.52 was the week's high-water mark by a comfortable 20 points. On the other end, Peter's 69.78 was the lowest score of the slate by nearly 16, and Isaac's 78.98 wasn't far behind, which means two teams combined for less than Logan did by himself. Five of the six margins cleared 24 points, so if you were hoping for drama, you watched the wrong league this week."
+  "intro": "Leif-Grant was the only game that required any sweating, a 6.8-point margin that stood alone on a slate where four of six teams won by 24 or more. Logan's 152.5 was the week's ceiling and John's 100.1 couldn't get within 50 of it, while Christian needed nothing special to bury Isaac's 78.98. Peter put up 69.78 and still had the decency to show up Monday morning."
 }
