@@ -1,0 +1,341 @@
+{
+ "season": 2026,
+ "week": 6,
+ "next_week": 7,
+ "games_left": 48,
+ "sims": 10000,
+ "rows": [
+  {
+   "owner": "Adam",
+   "team": "Uncut Cokerr",
+   "record": "6-0",
+   "pf": 905.1,
+   "playoff": 100.0,
+   "bye": 99.3,
+   "one": 99.3,
+   "dress": 0.0,
+   "avg_wins": 12.8,
+   "mean": 137.5,
+   "sd": 12.0
+  },
+  {
+   "owner": "Leif",
+   "team": "Joey Lunchbox",
+   "record": "4-2",
+   "pf": 770.6,
+   "playoff": 97.5,
+   "bye": 0.4,
+   "one": 0.4,
+   "dress": 0.0,
+   "avg_wins": 9.0,
+   "mean": 124.0,
+   "sd": 28.6
+  },
+  {
+   "owner": "Christian",
+   "team": "The Aura Farm",
+   "record": "2-4",
+   "pf": 766.1,
+   "playoff": 85.0,
+   "bye": 0.0,
+   "one": 0.0,
+   "dress": 0.3,
+   "avg_wins": 7.3,
+   "mean": 123.6,
+   "sd": 17.5
+  },
+  {
+   "owner": "Peter",
+   "team": "The Basement Of KK",
+   "record": "4-2",
+   "pf": 666.4,
+   "playoff": 84.3,
+   "bye": 0.1,
+   "one": 0.1,
+   "dress": 0.4,
+   "avg_wins": 8.0,
+   "mean": 113.6,
+   "sd": 29.0
+  },
+  {
+   "owner": "John",
+   "team": "Pukachu",
+   "record": "3-3",
+   "pf": 771.3,
+   "playoff": 78.8,
+   "bye": 0.1,
+   "one": 0.1,
+   "dress": 0.3,
+   "avg_wins": 7.1,
+   "mean": 124.1,
+   "sd": 31.6
+  },
+  {
+   "owner": "CJ",
+   "team": "Taylor Gang",
+   "record": "4-2",
+   "pf": 703.2,
+   "playoff": 78.5,
+   "bye": 0.0,
+   "one": 0.0,
+   "dress": 0.1,
+   "avg_wins": 7.3,
+   "mean": 117.3,
+   "sd": 12.0
+  },
+  {
+   "owner": "Logan",
+   "team": "Runnin' Rezac",
+   "record": "2-4",
+   "pf": 713.8,
+   "playoff": 64.7,
+   "bye": 0.0,
+   "one": 0.0,
+   "dress": 1.5,
+   "avg_wins": 6.7,
+   "mean": 118.3,
+   "sd": 27.2
+  },
+  {
+   "owner": "Kaleb",
+   "team": "PA Dive Your Way",
+   "record": "4-2",
+   "pf": 633.1,
+   "playoff": 54.2,
+   "bye": 0.0,
+   "one": 0.0,
+   "dress": 0.8,
+   "avg_wins": 6.8,
+   "mean": 110.3,
+   "sd": 15.5
+  },
+  {
+   "owner": "Grant",
+   "team": "Amon that inhaler",
+   "record": "3-3",
+   "pf": 647.1,
+   "playoff": 28.5,
+   "bye": 0.0,
+   "one": 0.0,
+   "dress": 3.1,
+   "avg_wins": 5.7,
+   "mean": 111.7,
+   "sd": 12.1
+  },
+  {
+   "owner": "Mitchell",
+   "team": "Finding Nico",
+   "record": "1-5",
+   "pf": 667.7,
+   "playoff": 22.7,
+   "bye": 0.0,
+   "one": 0.0,
+   "dress": 12.0,
+   "avg_wins": 5.2,
+   "mean": 113.7,
+   "sd": 26.7
+  },
+  {
+   "owner": "Isaac",
+   "team": "A Slap in the Face",
+   "record": "2-4",
+   "pf": 598.9,
+   "playoff": 3.0,
+   "bye": 0.0,
+   "one": 0.0,
+   "dress": 35.8,
+   "avg_wins": 4.2,
+   "mean": 106.9,
+   "sd": 14.7
+  },
+  {
+   "owner": "Noah",
+   "team": "Wilson Law Firm",
+   "record": "1-5",
+   "pf": 609.3,
+   "playoff": 2.8,
+   "bye": 0.0,
+   "one": 0.0,
+   "dress": 45.7,
+   "avg_wins": 3.9,
+   "mean": 107.9,
+   "sd": 21.5
+  }
+ ],
+ "leverage": [
+  {
+   "week": 7,
+   "home": "Adam",
+   "away": "John",
+   "home_team": "Uncut Cokerr",
+   "away_team": "Pukachu",
+   "sides": {
+    "Adam": {
+     "win": {
+      "dress": 0.0,
+      "playoff": 100.0
+     },
+     "lose": {
+      "dress": 0.0,
+      "playoff": 100.0
+     }
+    },
+    "John": {
+     "win": {
+      "dress": 0.0,
+      "playoff": 90.1
+     },
+     "lose": {
+      "dress": 0.4,
+      "playoff": 72.9
+     }
+    }
+   }
+  },
+  {
+   "week": 7,
+   "home": "Logan",
+   "away": "Isaac",
+   "home_team": "Runnin' Rezac",
+   "away_team": "A Slap in the Face",
+   "sides": {
+    "Logan": {
+     "win": {
+      "dress": 0.4,
+      "playoff": 73.5
+     },
+     "lose": {
+      "dress": 3.4,
+      "playoff": 48.8
+     }
+    },
+    "Isaac": {
+     "win": {
+      "dress": 21.2,
+      "playoff": 6.9
+     },
+     "lose": {
+      "dress": 43.9,
+      "playoff": 0.9
+     }
+    }
+   }
+  },
+  {
+   "week": 7,
+   "home": "Christian",
+   "away": "Grant",
+   "home_team": "The Aura Farm",
+   "away_team": "Amon that inhaler",
+   "sides": {
+    "Christian": {
+     "win": {
+      "dress": 0.1,
+      "playoff": 90.4
+     },
+     "lose": {
+      "dress": 0.8,
+      "playoff": 71.4
+     }
+    },
+    "Grant": {
+     "win": {
+      "dress": 0.6,
+      "playoff": 47.8
+     },
+     "lose": {
+      "dress": 4.1,
+      "playoff": 20.7
+     }
+    }
+   }
+  },
+  {
+   "week": 7,
+   "home": "Leif",
+   "away": "CJ",
+   "home_team": "Joey Lunchbox",
+   "away_team": "Taylor Gang",
+   "sides": {
+    "Leif": {
+     "win": {
+      "dress": 0.0,
+      "playoff": 99.0
+     },
+     "lose": {
+      "dress": 0.0,
+      "playoff": 95.6
+     }
+    },
+    "CJ": {
+     "win": {
+      "dress": 0.0,
+      "playoff": 88.8
+     },
+     "lose": {
+      "dress": 0.2,
+      "playoff": 70.9
+     }
+    }
+   }
+  },
+  {
+   "week": 7,
+   "home": "Mitchell",
+   "away": "Kaleb",
+   "home_team": "Finding Nico",
+   "away_team": "PA Dive Your Way",
+   "sides": {
+    "Mitchell": {
+     "win": {
+      "dress": 7.4,
+      "playoff": 33.6
+     },
+     "lose": {
+      "dress": 17.6,
+      "playoff": 9.9
+     }
+    },
+    "Kaleb": {
+     "win": {
+      "dress": 0.1,
+      "playoff": 70.5
+     },
+     "lose": {
+      "dress": 1.5,
+      "playoff": 40.5
+     }
+    }
+   }
+  },
+  {
+   "week": 7,
+   "home": "Peter",
+   "away": "Noah",
+   "home_team": "The Basement Of KK",
+   "away_team": "Wilson Law Firm",
+   "sides": {
+    "Peter": {
+     "win": {
+      "dress": 0.1,
+      "playoff": 90.9
+     },
+     "lose": {
+      "dress": 0.9,
+      "playoff": 75.8
+     }
+    },
+    "Noah": {
+     "win": {
+      "dress": 32.8,
+      "playoff": 5.1
+     },
+     "lose": {
+      "dress": 55.7,
+      "playoff": 0.9
+     }
+    }
+   }
+  }
+ ]
+}
