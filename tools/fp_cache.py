@@ -25,7 +25,7 @@ OUT = os.path.join(os.path.dirname(__file__), "data", "fantasypros-cache.json")
 def main():
     load_env()
     season = int(sys.argv[1]) if len(sys.argv) > 1 else 2026
-    c = consensus(season)
+    c = consensus(season, fp_rtype="ros")
     rows = sorted(
         (v for v in c.values() if v["consensus_rank"]),
         key=lambda v: v["consensus_rank"],

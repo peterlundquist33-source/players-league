@@ -88,10 +88,11 @@ def _fantasycalc():
 
 # ---------------------------------------------------------------- FantasyPros
 
-def _fantasypros_free(season):
-    """Unauthenticated partner feed — preseason draft ECR only. Always available."""
+def _fantasypros_free(season, rtype="draft"):
+    """Unauthenticated partner feed. Supports the same rtype values as the
+    authenticated endpoint ("draft", "ros", ...) — no auth required."""
     url = ("https://partners.fantasypros.com/api/v1/consensus-rankings.php"
-           f"?sport=NFL&year={season}&week=0&position=ALL&scoring=PPR&type=draft")
+           f"?sport=NFL&year={season}&week=0&position=ALL&scoring=PPR&type={rtype}")
     d = _get_json(url, timeout=25)
     out = {}
     for p in d.get("players", []):
@@ -112,7 +113,7 @@ def _fantasypros(season, week=0, rtype="draft"):
     """
     api_key = os.environ.get("FANTASYPROS_API_KEY")
     if not api_key:
-        return _fantasypros_free(season)
+        return _fantasypros_free(season, rtype=rtype)
 
     url = (f"https://api.fantasypros.com/public/v2/json/nfl/{season}/consensus-rankings"
            f"?type={rtype}&position=ALL&scoring=PPR&week={week}")
@@ -130,7 +131,7 @@ def _fantasypros(season, week=0, rtype="draft"):
             return out
     except Exception as e:
         print(f"FantasyPros authenticated call failed ({e}); falling back to free feed")
-    return _fantasypros_free(season)
+    return _fantasypros_free(season, rtype=rtype)
 
 
 # ---------------------------------------------------------------- Sleeper
@@ -153,12 +154,18 @@ def _sleeper():
 
 # ---------------------------------------------------------------- blend
 
-def consensus(season):
-    """{espn_player_id: {name, pos, adp, ranks{}, consensus_rank}}"""
+def consensus(season, fp_rtype="draft"):
+    """{espn_player_id: {name, pos, adp, ranks{}, consensus_rank}}
+
+    fp_rtype selects the FantasyPros ranking type blended in: "draft" (the
+    default, used by draft grades) or "ros" (rest-of-season, used by the
+    live chat cache — matches what fantasypros.com shows by default once
+    the season is underway).
+    """
     espn_p = _espn_players(season)
     fc = _fantasycalc()
     sl = _sleeper()
-    fp_data = _fantasypros(season)
+    fp_data = _fantasypros(season, rtype=fp_rtype)
     fc_by_espnid = {v["espnId"]: v for v in fc.values() if v["espnId"]}
 
     out = {}
