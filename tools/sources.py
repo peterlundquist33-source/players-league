@@ -8,7 +8,7 @@ Sources (all free, no auth):
 
 Join key: normalized "first last" + position. FantasyCalc's espnId is a backstop.
 """
-import json, re, urllib.request
+import json, os, re, urllib.request
 from lib import espn
 
 _SUFFIX = re.compile(r"\b(jr|sr|ii|iii|iv|v)\b\.?", re.I)
@@ -23,8 +23,9 @@ def norm(name):
     return n
 
 
-def _get_json(url, timeout=40):
-    req = urllib.request.Request(url, headers={"User-Agent": "players-league/1.0"})
+def _get_json(url, timeout=40, headers=None):
+    hdrs = {"User-Agent": "players-league/1.0", **(headers or {})}
+    req = urllib.request.Request(url, headers=hdrs)
     with urllib.request.urlopen(req, timeout=timeout) as r:
         return json.load(r)
 
@@ -87,7 +88,8 @@ def _fantasycalc():
 
 # ---------------------------------------------------------------- FantasyPros
 
-def _fantasypros(season):
+def _fantasypros_free(season):
+    """Unauthenticated partner feed — preseason draft ECR only. Always available."""
     url = ("https://partners.fantasypros.com/api/v1/consensus-rankings.php"
            f"?sport=NFL&year={season}&week=0&position=ALL&scoring=PPR&type=draft")
     d = _get_json(url, timeout=25)
@@ -100,6 +102,35 @@ def _fantasypros(season):
             "pos_rank": p.get("pos_rank"),
         }
     return out
+
+
+def _fantasypros(season, week=0, rtype="draft"):
+    """Expert consensus rank. Uses the authenticated v2 API (weekly rankings,
+    not just preseason) when FANTASYPROS_API_KEY is set; falls back to the
+    free unauthenticated partner feed (preseason draft ECR only) otherwise,
+    and on any failure of the authenticated call so this never breaks a run.
+    """
+    api_key = os.environ.get("FANTASYPROS_API_KEY")
+    if not api_key:
+        return _fantasypros_free(season)
+
+    url = (f"https://api.fantasypros.com/public/v2/json/nfl/{season}/consensus-rankings"
+           f"?type={rtype}&position=ALL&scoring=PPR&week={week}")
+    try:
+        d = _get_json(url, timeout=25, headers={"x-api-key": api_key})
+        out = {}
+        for p in d.get("players", []):
+            out[(norm(p.get("player_name")), p.get("player_position_id"))] = {
+                "rank": p.get("rank_ecr"),
+                "bye": p.get("player_bye_week"),
+                "team": p.get("player_team_id"),
+                "pos_rank": p.get("pos_rank"),
+            }
+        if out:
+            return out
+    except Exception as e:
+        print(f"FantasyPros authenticated call failed ({e}); falling back to free feed")
+    return _fantasypros_free(season)
 
 
 # ---------------------------------------------------------------- Sleeper
