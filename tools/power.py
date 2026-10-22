@@ -6,11 +6,17 @@ The model score (0-100) blends two halves:
   RESULTS  — what you've actually done: all-play win%, real win%, points-for index,
              and recent form (last 3 weeks all-play).
   ROSTER   — what you're holding right now: next week's optimal-lineup projection,
-             plus the draft-grade roster score as a preseason anchor.
+             plus today's roster scored against FantasyPros ROS consensus ranks
+             (same positional-benchmark ladder draft grades use).
 
 The weight shifts from roster to results as the season goes: week 1 is still mostly
-about the roster you drafted, by week 6+ it's ~80% what you've done on the field.
-Preseason (no games played) the score is pure roster — that's the Week 0 board.
+about roster strength, by week 6+ it's ~80% what you've done on the field. Preseason
+(no games played) the score is pure roster — that's the Week 0 board.
+
+The roster-value anchor is TODAY's roster, not draft night — a trade or waiver pickup
+shows up immediately instead of waiting for a frozen draft-grade component to decay
+away. (The draft grade itself is still shown separately in each team's write-up as a
+"how'd your draft age" data point — it just no longer feeds the power score.)
 
 Every number and every rank here is computed, never guessed. The displayed power
 score is the ordering key, so a lower score can never rank above a higher one.
@@ -19,6 +25,7 @@ import json
 from lib import ROOT, load_env
 from lore import owner as canon
 import analytics as AN
+import draft as D
 import league as L
 
 DATA = ROOT / "tools" / "data"
@@ -37,13 +44,14 @@ W_ALLPLAY, W_WINPCT, W_PF, W_FORM = 0.38, 0.18, 0.27, 0.17
 # a metric look decisive no matter how little signal it carries: weekly projections
 # vary by ~2 points between teams while the SAME roster swings 8-9 points week to
 # week, and z-scoring turned that noise into 25-point score gaps.
-K_DRAFT = 1.5    # per point of draft roster score (spread ~3.4)
-K_PROJ = 2.0     # per projected point per week (spread ~2.1)
-K_PF = 0.8       # per point per game of actual scoring
+K_ROSTER_VALUE = 1.5  # per point of roster-value score (spread ~3.4)
+K_PROJ = 2.0          # per projected point per week (spread ~2.1)
+K_PF = 0.8            # per point per game of actual scoring
 
-# The draft grade is the best information available before kickoff, so it carries
-# the preseason board and fades out over the first half of the season.
-DRAFT_W0, DRAFT_DECAY = 0.75, 0.09
+# Preseason there's nothing else to go on, so the roster-value anchor carries the
+# whole board; it fades out over the first half of the season as actual results
+# (and the projection half of the roster score) take over.
+ANCHOR_W0, ANCHOR_DECAY = 0.75, 0.09
 
 # roster strength is averaged over this many upcoming weeks so a bye week
 # doesn't yank a team down the board for a reason nobody controls
@@ -123,6 +131,37 @@ def _draft_anchor(season):
         return {}
     return {t["owner"]: t["roster_score"] for t in g.get("teams", [])
             if t.get("roster_score") is not None}
+
+
+def _roster_value_anchor(sides):
+    """{owner: 0-100 roster-value score} from TODAY's roster scored against
+    FantasyPros ROS consensus pos-ranks, via the same positional-benchmark
+    ladder draft grades use (draft._roster_score) — so this tracks trades and
+    waiver moves immediately instead of only reflecting draft night.
+
+    Falls back to {} (caller then has nothing to blend in for that owner) if
+    the cache is missing or stale enough that nobody's skill players match.
+    """
+    f = DATA / "fantasypros-cache.json"
+    if not f.exists():
+        return {}
+    try:
+        by_name = {p["name"].lower(): p for p in json.loads(f.read_text())["players"]}
+    except Exception:
+        return {}
+
+    out = {}
+    for o, side in sides.items():
+        picks = []
+        for pl in side.get("players", []):
+            if pl["pos"] not in D.SKILL:
+                continue
+            fp = by_name.get(pl["name"].lower())
+            if fp and fp.get("pos_rank") and fp.get("pos") == pl["pos"]:
+                picks.append({"pos": pl["pos"], "pos_rank": fp["pos_rank"]})
+        if picks:
+            out[o] = D._roster_score(picks)
+    return out
 
 
 def _roster_view(season, week):
@@ -232,17 +271,24 @@ def compute(season, through_week=None):
     # ---- roster half ----
     proj_ix = (_index({o: v for o, v in proj_raw.items() if v}, K_PROJ)
                if any(proj_raw.values()) else {})
+    # draft_raw is kept only for the separate "how'd your draft age" display line
+    # below (r["draft_roster"]) — it no longer feeds the power score itself.
     draft_raw = _draft_anchor(season)
-    draft_ix = _index(draft_raw, K_DRAFT) if draft_raw else {}
-    w_draft = max(0.0, DRAFT_W0 - DRAFT_DECAY * gp)
+    value_raw = _roster_value_anchor(sides)
+    value_ix = _index(value_raw, K_ROSTER_VALUE) if value_raw else {}
+    # a team with no FantasyPros match yet (e.g. cache not refreshed since a
+    # trade) falls back to the draft-night grade rather than losing the anchor
+    draft_ix = _index(draft_raw, K_ROSTER_VALUE) if draft_raw else {}
+    w_anchor = max(0.0, ANCHOR_W0 - ANCHOR_DECAY * gp)
 
     roster = {}
     for o in owners:
         parts, wts = [], []
         if o in proj_ix:
-            parts.append(proj_ix[o]); wts.append(1.0 - w_draft)
-        if o in draft_ix and w_draft > 0:
-            parts.append(draft_ix[o]); wts.append(w_draft)
+            parts.append(proj_ix[o]); wts.append(1.0 - w_anchor)
+        anchor_ix = value_ix.get(o, draft_ix.get(o))
+        if anchor_ix is not None and w_anchor > 0:
+            parts.append(anchor_ix); wts.append(w_anchor)
         tot = sum(wts)
         roster[o] = (sum(v * w for v, w in zip(parts, wts)) / tot) if tot else 50.0
 
