@@ -106,23 +106,29 @@ def _fantasypros_free(season, rtype="draft"):
 
 
 def _fantasypros(season, week=0, rtype="draft"):
-    """Expert consensus rank. Uses the authenticated v2 API (weekly rankings,
-    not just preseason) when FANTASYPROS_API_KEY is set; falls back to the
-    free unauthenticated partner feed (preseason draft ECR only) otherwise,
-    and on any failure of the authenticated call so this never breaks a run.
+    """Expert consensus rank, covering as many players as we can get.
+
+    Confirmed 2026-10-22: our FANTASYPROS_API_KEY is on FantasyPros' free API
+    tier, which caps the authenticated response at the top 10 players overall
+    regardless of the `position`/`week` params (response carries limit=10,
+    tier=free) — count is still the real pool size (e.g. 411), just not
+    returned. A paid tier would lift that cap.
+
+    So we always start from the free unauthenticated partner feed (full pool,
+    no key needed) and layer the authenticated call on top when a key is
+    present, so a paid-tier key's players win on conflicts without losing
+    everyone else to the free tier's 10-player cap.
     """
+    out = _fantasypros_free(season, rtype=rtype)
+
     api_key = os.environ.get("FANTASYPROS_API_KEY")
     if not api_key:
-        return _fantasypros_free(season, rtype=rtype)
+        return out
 
     url = (f"https://api.fantasypros.com/public/v2/json/nfl/{season}/consensus-rankings"
            f"?type={rtype}&position=ALL&scoring=PPR&week={week}")
     try:
         d = _get_json(url, timeout=25, headers={"x-api-key": api_key})
-        print(f"FantasyPros authenticated response: count={d.get('count')} "
-              f"players={len(d.get('players', []))} limit={d.get('limit')} "
-              f"tier={d.get('tier')} public_api={d.get('public_api')}")
-        out = {}
         for p in d.get("players", []):
             out[(norm(p.get("player_name")), p.get("player_position_id"))] = {
                 "rank": p.get("rank_ecr"),
@@ -130,11 +136,9 @@ def _fantasypros(season, week=0, rtype="draft"):
                 "team": p.get("player_team_id"),
                 "pos_rank": p.get("pos_rank"),
             }
-        if out:
-            return out
     except Exception as e:
-        print(f"FantasyPros authenticated call failed ({e}); falling back to free feed")
-    return _fantasypros_free(season, rtype=rtype)
+        print(f"FantasyPros authenticated call failed ({e}); using free feed only")
+    return out
 
 
 # ---------------------------------------------------------------- Sleeper
