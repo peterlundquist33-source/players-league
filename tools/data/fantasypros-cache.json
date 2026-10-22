@@ -1,6 +1,6 @@
 {
  "season": 2026,
- "fetched_at": "2026-10-22T19:49:16.055009+00:00",
+ "fetched_at": "2026-10-22T20:03:45.335152+00:00",
  "fantasypros_authenticated": true,
  "players": [
   {
@@ -13,11 +13,11 @@
    "ranks": {
     "espn": 1,
     "adp": 1.75,
-    "fantasypros": 2,
+    "fantasypros": 1,
     "fantasycalc": 1,
     "sleeper": 2
    },
-   "consensus_rank": 1.6,
+   "consensus_rank": 1.4,
    "sources": 5
   },
   {
@@ -30,11 +30,11 @@
    "ranks": {
     "espn": 2,
     "adp": 3.59,
-    "fantasypros": 4,
+    "fantasypros": 2,
     "fantasycalc": 3,
     "sleeper": 1
    },
-   "consensus_rank": 2.7,
+   "consensus_rank": 2.3,
    "sources": 5
   },
   {
@@ -43,15 +43,15 @@
    "pro": "CIN",
    "adp": 6.2,
    "bye": "6",
-   "pos_rank": "WR1",
+   "pos_rank": "WR3",
    "ranks": {
     "espn": 3,
     "adp": 6.2,
-    "fantasypros": 1,
+    "fantasypros": 6,
     "fantasycalc": 7,
     "sleeper": 3
    },
-   "consensus_rank": 4.0,
+   "consensus_rank": 5.0,
    "sources": 5
   },
   {
@@ -60,15 +60,15 @@
    "pro": "LAR",
    "adp": 6.24,
    "bye": "11",
-   "pos_rank": "WR2",
+   "pos_rank": "WR1",
    "ranks": {
     "espn": 4,
     "adp": 6.24,
-    "fantasypros": 3,
+    "fantasypros": 4,
     "fantasycalc": 5,
     "sleeper": 8
    },
-   "consensus_rank": 5.2,
+   "consensus_rank": 5.4,
    "sources": 5
   },
   {
@@ -77,15 +77,15 @@
    "pro": "SEA",
    "adp": 5.34,
    "bye": "11",
-   "pos_rank": "WR4",
+   "pos_rank": "WR2",
    "ranks": {
     "espn": 6,
     "adp": 5.34,
-    "fantasypros": 6,
+    "fantasypros": 5,
     "fantasycalc": 4,
     "sleeper": 9
    },
-   "consensus_rank": 6.1,
+   "consensus_rank": 5.9,
    "sources": 5
   },
   {
@@ -94,15 +94,15 @@
    "pro": "SF",
    "adp": 9.09,
    "bye": "8",
-   "pos_rank": "RB3",
+   "pos_rank": "RB6",
    "ranks": {
     "espn": 7,
     "adp": 9.09,
-    "fantasypros": 7,
+    "fantasypros": 10,
     "fantasycalc": 6,
     "sleeper": 5
    },
-   "consensus_rank": 6.8,
+   "consensus_rank": 7.4,
    "sources": 5
   },
   {
@@ -111,15 +111,15 @@
    "pro": "IND",
    "adp": 9.59,
    "bye": "13",
-   "pos_rank": "RB4",
+   "pos_rank": "RB5",
    "ranks": {
     "espn": 5,
     "adp": 9.59,
-    "fantasypros": 10,
+    "fantasypros": 9,
     "fantasycalc": 8,
     "sleeper": 6
    },
-   "consensus_rank": 7.7,
+   "consensus_rank": 7.5,
    "sources": 5
   },
   {
@@ -128,15 +128,15 @@
    "pro": "DET",
    "adp": 10.4,
    "bye": "6",
-   "pos_rank": "WR3",
+   "pos_rank": "WR4",
    "ranks": {
     "espn": 8,
     "adp": 10.4,
-    "fantasypros": 5,
+    "fantasypros": 7,
     "fantasycalc": 9,
     "sleeper": 11
    },
-   "consensus_rank": 8.7,
+   "consensus_rank": 9.1,
    "sources": 5
   },
   {
@@ -144,33 +144,33 @@
    "pos": "RB",
    "pro": "BUF",
    "adp": 13.01,
-   "bye": null,
-   "pos_rank": null,
+   "bye": "7",
+   "pos_rank": "RB4",
    "ranks": {
     "espn": 9,
     "adp": 13.01,
+    "fantasypros": 8,
     "fantasycalc": 11,
     "sleeper": 7
    },
-   "consensus_rank": 10.0,
-   "sources": 4
+   "consensus_rank": 9.6,
+   "sources": 5
   },
   {
    "name": "CeeDee Lamb",
    "pos": "WR",
    "pro": "DAL",
    "adp": 12.29,
-   "bye": "14",
-   "pos_rank": "WR6",
+   "bye": null,
+   "pos_rank": null,
    "ranks": {
     "espn": 10,
     "adp": 12.29,
-    "fantasypros": 9,
     "fantasycalc": 10,
     "sleeper": 13
    },
-   "consensus_rank": 10.9,
-   "sources": 5
+   "consensus_rank": 11.3,
+   "sources": 4
   },
   {
    "name": "Derrick Henry",
@@ -189,20 +189,20 @@
    "sources": 4
   },
   {
-   "name": "Justin Jefferson",
-   "pos": "WR",
-   "pro": "MIN",
-   "adp": 15.1,
-   "bye": "6",
-   "pos_rank": "WR5",
+   "name": "Kenneth Walker III",
+   "pos": "RB",
+   "pro": "KC",
+   "adp": 10.94,
+   "bye": "5",
+   "pos_rank": "RB3",
    "ranks": {
-    "espn": 11,
-    "adp": 15.1,
-    "fantasypros": 8,
-    "fantasycalc": 15,
-    "sleeper": 19
+    "espn": 28,
+    "adp": 10.94,
+    "fantasypros": 3,
+    "fantasycalc": 2,
+    "sleeper": 26
    },
-   "consensus_rank": 13.6,
+   "consensus_rank": 14.0,
    "sources": 5
   },
   {
@@ -222,19 +222,19 @@
    "sources": 4
   },
   {
-   "name": "Kenneth Walker III",
-   "pos": "RB",
-   "pro": "KC",
-   "adp": 10.94,
+   "name": "Justin Jefferson",
+   "pos": "WR",
+   "pro": "MIN",
+   "adp": 15.1,
    "bye": null,
    "pos_rank": null,
    "ranks": {
-    "espn": 28,
-    "adp": 10.94,
-    "fantasycalc": 2,
-    "sleeper": 26
+    "espn": 11,
+    "adp": 15.1,
+    "fantasycalc": 15,
+    "sleeper": 19
    },
-   "consensus_rank": 16.7,
+   "consensus_rank": 15.0,
    "sources": 4
   },
   {
