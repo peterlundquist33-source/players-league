@@ -119,6 +119,8 @@ def _fantasypros(season, week=0, rtype="draft"):
            f"?type={rtype}&position=ALL&scoring=PPR&week={week}")
     try:
         d = _get_json(url, timeout=25, headers={"x-api-key": api_key})
+        print(f"FantasyPros authenticated response: count={d.get('count')} "
+              f"players={len(d.get('players', []))} keys={list(d.keys())}")
         out = {}
         for p in d.get("players", []):
             out[(norm(p.get("player_name")), p.get("player_position_id"))] = {
