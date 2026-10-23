@@ -44,7 +44,7 @@ jobs:
           txs = d.get('transactions', [])
           print('plain call total:', len(txs))
 
-          filt = '{\"transactions\":{\"limit\":1000,\"offset\":0}}'
+          filt = '{\"transactions\":{\"limit\":1000,\"offset\":0,\"sortType\":{\"value\":\"PROCESSDATE\",\"sortAsc\":false}}}'
           d2 = fetch('view=mTransactions2', filt=filt)
           txs2 = d2.get('transactions', [])
           print('with X-Fantasy-Filter total:', len(txs2))
