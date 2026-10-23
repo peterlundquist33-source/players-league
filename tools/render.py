@@ -481,3 +481,58 @@ def odds_redirect():
     (ROOT / "odds.html").write_text('<!DOCTYPE html><meta charset="utf-8"><meta http-equiv="refresh" content="0; url=rankings.html#odds">'
                                     '<title>Dress Odds — Players League</title><a href="rankings.html#odds">Dress odds moved to the Rankings page.</a>\n')
     return ROOT / "odds.html"
+
+
+# ---------------------------------------------------------------- trades
+
+def _trade_card(t):
+    date = t["date"][:10]
+    owners = list(t["sides"].keys())
+    title = " vs ".join(html.escape(o) for o in owners)
+    approx_note = ('<div class="mx-note">Value at trade time is approximate — this is '
+                  'before weekly tracking started, so it uses the earliest snapshot '
+                  'available instead of the real value on this date.</div>'
+                  if t["approximate"] else "")
+    sides_html = ""
+    for owner, s in t["sides"].items():
+        players = ", ".join(
+            f'{html.escape(p["name"])}'
+            + (f' ({p["value_now"]:.0f})' if p.get("value_now") is not None else "")
+            for p in s["players"]
+        )
+        if s["drift"] is None:
+            drift_html = '<span class="mx-sub">no value data yet</span>'
+        elif s["drift"] > 0:
+            drift_html = f'<span class="up">+{s["drift"]:.1f} better since the trade</span>'
+        elif s["drift"] < 0:
+            drift_html = f'<span class="down">{s["drift"]:.1f} worse since the trade</span>'
+        else:
+            drift_html = '<span class="mx-sub">unchanged (same week as the trade)</span>'
+        sides_html += (f'<div class="mx-body"><div class="mx-head">{html.escape(owner)} received</div>'
+                       f'<p>{players}</p><p>{drift_html}</p></div>')
+    return (f'<article class="mx-card"><div class="mx-hd"><div><div class="mx-owner">{title}</div>'
+            f'<div class="mx-sub">Week {t["week"]} &middot; {date}</div></div></div>'
+            f'{sides_html}{approx_note}</article>')
+
+
+def trades_page(trades, stamp=None):
+    """Every trade this season, graded by FantasyPros ROS value drift since
+    the deal — newest first. FP rank is lower-is-better, so a positive drift
+    means that side's received players have gotten MORE valuable since."""
+    stamp = stamp or datetime.date.today().isoformat()
+    ordered = sorted(trades, key=lambda t: t["date"], reverse=True)
+    cards = "\n".join(_trade_card(t) for t in ordered) or '<p class="mx-intro">No trades yet this season.</p>'
+    body = ('<section class="page-header"><span class="eyebrow">Trades</span>'
+            '<h1>Trade <span class="gold">Grades</span></h1>'
+            '<p>Value drift on FantasyPros rest-of-season consensus rank (lower rank is '
+            'better) &middot; updated weekly &middot; %s</p></section>'
+            '<div class="mx-wrap"><p class="mx-intro">Each side\'s drift tracks how much '
+            'more or less valuable the players it received have become since the trade, '
+            'per FantasyPros\' own weekly ROS rankings — not whether the team itself has '
+            'won more.</p>%s'
+            '<div class="mx-foot">Value-at-trade-time tracking started 2026-10-22; trades '
+            'before that date use the earliest snapshot available as an approximation, '
+            'flagged on the card.</div></div>'
+            % (stamp, cards))
+    (ROOT / "trades.html").write_text(_page("Trades", "Rankings", body, depth=0, page="trades.html"))
+    return ROOT / "trades.html"

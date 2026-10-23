@@ -36,6 +36,8 @@ PAGES = {
                       "Weekly power rankings plus simulated playoff and Dress odds, refreshed every Tuesday."),
     "draft-grades.html": ("Draft Grades — Players League",
                           "Every roster graded against fixed positional benchmarks on a five-source consensus."),
+    "trades.html": ("Trades — Players League",
+                    "Every trade this season, graded at the time on FantasyPros value and tracked since."),
     "matchups/index.html": ("Matchups — Players League",
                             "Weekly previews and recaps for every game."),
     "analytics.html": ("Analytics — Players League",

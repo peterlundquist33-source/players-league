@@ -29,6 +29,18 @@ def _opening(season):
 DATA = ROOT / "tools" / "data"
 
 
+def _update_trades(season):
+    """Refresh trades.html; never let it break a recap run."""
+    try:
+        import trades as TR
+        graded = TR.grade_trades(season)
+        (DATA / f"{season}-trades.json").write_text(json.dumps(graded, indent=1))
+        R.trades_page(graded)
+        print(f"wrote trades.html ({len(graded)} trades)")
+    except Exception as e:
+        print(f"trades page skipped: {e}")
+
+
 def _placeholder(m, phase):
     a, h = m["away"]["owner"], m["home"]["owner"]
     return {"headline": f"{a} at {h}",
@@ -117,6 +129,7 @@ def run(phase_arg, season, week, dry, force=False):
     # self-skips if team-facts.js is still fresh).
     if phase == "recap":
         FA.update(season)
+        _update_trades(season)
 
     if not data["matchups"]:
         print("no matchups for this week — nothing to do"); return None
@@ -347,6 +360,9 @@ def run_render(season):
         d = json.loads(g.read_text())
         print("rendered", R.rankings_page(d["grades"], d["copies"], d["intro"],
                                           stamp=when(d)).relative_to(ROOT))
+    t = DATA / f"{season}-trades.json"
+    if t.exists():
+        print("rendered", R.trades_page(json.loads(t.read_text())).relative_to(ROOT))
     _opening(season)
     import podcast_page as PP
     PP.update()
@@ -356,7 +372,7 @@ if __name__ == "__main__":
     ap = argparse.ArgumentParser()
     ap.add_argument("phase", choices=["auto", "preview", "recap", "madness", "rankings", "power",
                                       "site", "facts", "records", "render", "opening", "probe",
-                                      "podcast", "odds"],
+                                      "podcast", "odds", "trades"],
                     nargs="?", default="auto")
     ap.add_argument("--season", type=int, default=2026)
     ap.add_argument("--week", type=int, default=None)
@@ -392,5 +408,7 @@ if __name__ == "__main__":
         RC.update(a.season)
     elif a.phase == "opening":
         _opening(a.season)
+    elif a.phase == "trades":
+        _update_trades(a.season)
     else:
         run(a.phase, a.season, a.week, a.dry, a.force)
