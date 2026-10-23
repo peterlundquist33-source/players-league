@@ -29,14 +29,15 @@ jobs:
               'Accept': 'application/json',
           })
           d = json.load(urllib.request.urlopen(req, timeout=30))
+          print('top-level keys:', list(d.keys()))
           txs = d.get('transactions', [])
           print('total transactions:', len(txs))
           types = {}
           for t in txs:
               types[t.get('type')] = types.get(t.get('type'), 0) + 1
           print('by type:', types)
-          trades = [t for t in txs if t.get('type') == 'TRADE']
-          print('trades:', len(trades))
-          if trades:
-              print(json.dumps(trades[0], indent=1)[:3000])
+          for t in txs:
+              if t.get('type') in ('TRADE_ACCEPT', 'TRADE_UPHOLD', 'TRADE_PROPOSE'):
+                  print(json.dumps(t, indent=1)[:4000])
+                  print('---')
           "
