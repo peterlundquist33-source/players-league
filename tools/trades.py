@@ -1,4 +1,4 @@
-"""Trade history + value-drift grading.
+"""Trade history + current-value grading, Chabels-Dynasty style.
 
 Built from ESPN's communication/activity feed, NOT the mTransactions2 view —
 that view only returns a recent rolling window and splits each trade into
@@ -11,14 +11,13 @@ Each ACTIVITY_TRANSACTIONS topic tagged messageTypeId=244 ("TRADED") is one
 trade: its `messages` list has one entry per player moved, each carrying
 `from`/`to` ESPN team ids and `targetId` (the ESPN player id).
 
-Grading is value drift on FantasyPros ROS consensus rank (lower is better):
-for each side, sum the ROS rank of players RECEIVED minus players GIVEN UP,
-both at trade time and now. A side trending more negative has gained value
-(its side of the deal looks better in hindsight); more positive means it's
-lost value. "At trade time" uses the nearest `{season}-fp-ros-week-NN.json`
-archive at or before the trade's week; before 2026-10-22 no archive exists,
-so those trades fall back to the earliest archive available and are flagged
-`approximate` rather than silently presented as exact.
+Grading compares each side's players by CURRENT FantasyPros ROS rank only —
+no trade-time snapshot, no drift-over-time, matching
+chabels-dynasty/js/trades-engine.js's model: rank is run through a steep
+decay curve (a WR1 is worth vastly more than a WR40, which a flat rank sum
+would understate), summed per side, and the side with the higher total
+value wins. Because it only ever reads the live cache, the verdict updates
+on its own every week as rankings move — no historical archive needed.
 """
 import datetime
 import json
@@ -33,6 +32,14 @@ from sources import _espn_players
 
 DATA_DIR = os.path.join(os.path.dirname(__file__), "data")
 TRADE_MSG_TYPE = 244
+
+# (abs value diff, label) — same tiers and feel as chabels-dynasty's grader
+GRADE_TIERS = [
+    (5, "EVEN"),
+    (15, "SLIGHT EDGE"),
+    (35, "CLEAR WIN"),
+    (60, "ROBBERY"),
+]
 
 
 # ---------------------------------------------------------------- fetch
@@ -103,104 +110,82 @@ def fetch_trades(season):
 
 # ---------------------------------------------------------------- grading
 
-def _week_for_date(season, dt):
-    """Approximate NFL week from a trade's calendar date. ESPN's league
-    settings don't expose a direct "week 1 start date" field, so this
-    approximates from the known 2026 Week 1 Thursday kickoff and 7-day
-    scoring periods — good enough for archive lookups, which only need
-    "which week's snapshot is closest," not an exact boundary."""
-    week1_start = datetime.datetime(2026, 9, 10, tzinfo=datetime.timezone.utc)
-    days = (dt - week1_start).days
-    return max(1, days // 7 + 1)
-
-
-def _load_ros_archives(season):
-    """{week: {name_lower: {"rank":..., "pos":..., "pos_rank":...}}}, plus the
-    live cache keyed as week 0 = "now"."""
-    out = {}
-    for f in sorted(os.listdir(DATA_DIR)):
-        if f.startswith(f"{season}-fp-ros-week-") and f.endswith(".json"):
-            week = int(f.rsplit("-", 1)[1].split(".")[0])
-            data = json.loads(open(os.path.join(DATA_DIR, f)).read())
-            out[week] = {p["name"].lower(): p for p in data.get("players", [])}
+def _load_live_ros(season):
+    """{name_lower: consensus_rank} from the live FantasyPros ROS cache."""
     live = os.path.join(DATA_DIR, "fantasypros-cache.json")
-    if os.path.exists(live):
-        data = json.loads(open(live).read())
-        out["now"] = {p["name"].lower(): p for p in data.get("players", [])}
-    return out
+    if not os.path.exists(live):
+        return {}
+    data = json.loads(open(live).read())
+    return {p["name"].lower(): p["consensus_rank"] for p in data.get("players", [])}
 
 
-def _value_at(archives, week, name_lower):
-    """ROS consensus_rank for a player at the closest available week <= week,
-    plus whether that lookup was an approximation (no real archive for that
-    week existed, so an earlier one — or the live cache — was substituted)."""
-    if week == "now":
-        p = archives.get("now", {}).get(name_lower)
-        return (p["consensus_rank"] if p else None), False
+def rank_to_value(rank):
+    """ROS rank -> trade value on a steep decay curve — same shape as
+    chabels-dynasty's dynastyRankToTradeValue, so a true WR1 dwarfs a
+    flex-replacement-level player instead of differing by a flat ~1 point
+    the way raw rank would."""
+    if not rank or rank > 450:
+        return 0.5
+    if rank <= 5:
+        return 120 - (rank - 1) * 8        # 120 -> 88
+    if rank <= 15:
+        return 85 - (rank - 5) * 4         # 85 -> 45
+    if rank <= 30:
+        return 45 - (rank - 15) * 1.5      # 45 -> 22.5
+    if rank <= 60:
+        return 22.5 - (rank - 30) * 0.4    # 22.5 -> 10.5
+    if rank <= 100:
+        return 10.5 - (rank - 60) * 0.15   # 10.5 -> 4.5
+    if rank <= 150:
+        return 4.5 - (rank - 100) * 0.05   # 4.5 -> 2
+    if rank <= 250:
+        return 2 - (rank - 150) * 0.01     # 2 -> 1
+    return 0.5
 
-    weeks = sorted(w for w in archives if w != "now")
-    if not weeks:
-        # No historical archive exists yet at all — fall back to the live
-        # cache as the only data available, clearly flagged approximate.
-        p = archives.get("now", {}).get(name_lower)
-        return (p["consensus_rank"] if p else None), True
 
-    exact = week in archives and name_lower in archives[week]
-    use_week = week if exact else max((w for w in weeks if w <= week), default=weeks[0])
-    p = archives.get(use_week, {}).get(name_lower)
-    return (p["consensus_rank"] if p else None), (use_week != week)
+def _grade(abs_diff):
+    for cutoff, label in GRADE_TIERS:
+        if abs_diff < cutoff:
+            return label
+    return "HEIST"
 
 
 def grade_trades(season):
     load_env()
     trades = fetch_trades(season)
     espn_players = _espn_players(season)
-    archives = _load_ros_archives(season)
+    ros = _load_live_ros(season)
 
     out = []
     for tr in trades:
-        week = _week_for_date(season, tr["date"])
         sides = {}
-        any_approx = False
         for owner, pids in tr["sides"].items():
             players = []
-            val_then_sum, val_now_sum, n = 0.0, 0.0, 0
+            total = 0.0
             for pid in pids:
                 meta = espn_players.get(pid, {})
                 name = meta.get("name", f"player {pid}")
-                val_then, approx = _value_at(archives, week, name.lower())
-                val_now, _ = _value_at(archives, "now", name.lower())
-                if approx:
-                    any_approx = True
-                players.append({
-                    "name": name, "pos": meta.get("pos"),
-                    "value_then": val_then, "value_now": val_now,
-                })
-                if val_then is not None:
-                    val_then_sum += val_then
-                    n += 1
-                if val_now is not None:
-                    val_now_sum += val_now
-            sides[owner] = {
-                "players": players,
-                "value_then": round(val_then_sum, 1) if n else None,
-                "value_now": round(val_now_sum, 1) if n else None,
-            }
-        # drift: how much each side's *rank total* improved (negative = better,
-        # lower rank = more valuable) relative to what they gave up — measured
-        # as the swing in value_now - value_then for what they received, since
-        # what they gave up is the other side's "received" by construction.
-        for owner, s in sides.items():
-            if s["value_then"] is not None and s["value_now"] is not None:
-                s["drift"] = round(s["value_then"] - s["value_now"], 1)
-            else:
-                s["drift"] = None
+                rank = ros.get(name.lower())
+                value = rank_to_value(rank)
+                players.append({"name": name, "pos": meta.get("pos"),
+                                 "rank": rank, "value": round(value, 1)})
+                total += value
+            sides[owner] = {"players": players, "value": round(total, 1)}
+
+        owners = list(sides.keys())
+        diff = round(sides[owners[0]]["value"] - sides[owners[1]]["value"], 1) if len(owners) == 2 else 0.0
+        abs_diff = abs(diff)
+        winner = None
+        if len(owners) == 2 and abs_diff >= GRADE_TIERS[0][0]:
+            winner = owners[0] if diff > 0 else owners[1]
+
         out.append({
             "id": tr["id"],
             "date": tr["date"].isoformat(),
-            "week": week,
-            "approximate": any_approx,
             "sides": sides,
+            "winner": winner,
+            "margin": round(abs_diff, 1),
+            "grade": _grade(abs_diff),
         })
     return out
 
@@ -210,7 +195,7 @@ if __name__ == "__main__":
     graded = grade_trades(season)
     print(f"{len(graded)} trades")
     for t in graded:
-        print(f"\n{t['date'][:10]} (week {t['week']}){' [approx]' if t['approximate'] else ''}")
+        print(f"\n{t['date'][:10]} [{t['grade']}] winner={t['winner'] or 'EVEN'} (+{t['margin']})")
         for owner, s in t["sides"].items():
-            names = ", ".join(p["name"] for p in s["players"])
-            print(f"  {owner}: received {names} | then={s['value_then']} now={s['value_now']} drift={s['drift']}")
+            names = ", ".join(f"{p['name']} ({p['value']})" for p in s["players"])
+            print(f"  {owner}: received {names} | total={s['value']}")

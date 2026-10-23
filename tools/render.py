@@ -485,54 +485,57 @@ def odds_redirect():
 
 # ---------------------------------------------------------------- trades
 
+_GRADE_COLOR = {
+    "EVEN": "#888", "SLIGHT EDGE": "#aaa", "CLEAR WIN": "#e3b341",
+    "ROBBERY": "#ff8800", "HEIST": "#ff4444",
+}
+
+
 def _trade_card(t):
     date = t["date"][:10]
     owners = list(t["sides"].keys())
     title = " vs ".join(html.escape(o) for o in owners)
-    approx_note = ('<div class="mx-note">Value at trade time is approximate — this is '
-                  'before weekly tracking started, so it uses the earliest snapshot '
-                  'available instead of the real value on this date.</div>'
-                  if t["approximate"] else "")
+    color = _GRADE_COLOR.get(t["grade"], "#888")
+    grade_badge = (f'<span class="mx-badge" style="color:{color};border-color:{color};'
+                   f'background:{color}1a">{html.escape(t["grade"])}</span>')
+    if t["winner"]:
+        verdict = (f'<span style="color:{color};font-weight:700">Winner: {html.escape(t["winner"])}</span> '
+                   f'<span class="mx-sub">(+{t["margin"]})</span>')
+    else:
+        verdict = '<span class="mx-sub" style="font-weight:700">Even trade</span>'
     sides_html = ""
     for owner, s in t["sides"].items():
         players = ", ".join(
-            f'{html.escape(p["name"])}'
-            + (f' ({p["value_now"]:.0f})' if p.get("value_now") is not None else "")
+            f'{html.escape(p["name"])} <span class="mx-sub">({p["value"]})</span>'
             for p in s["players"]
         )
-        if s["drift"] is None:
-            drift_html = '<span class="mx-sub">no value data yet</span>'
-        elif s["drift"] > 0:
-            drift_html = f'<span class="up">+{s["drift"]:.1f} better since the trade</span>'
-        elif s["drift"] < 0:
-            drift_html = f'<span class="down">{s["drift"]:.1f} worse since the trade</span>'
-        else:
-            drift_html = '<span class="mx-sub">unchanged (same week as the trade)</span>'
-        sides_html += (f'<div class="mx-body"><div class="mx-head">{html.escape(owner)} received</div>'
-                       f'<p>{players}</p><p>{drift_html}</p></div>')
-    return (f'<article class="mx-card"><div class="mx-hd"><div><div class="mx-owner">{title}</div>'
-            f'<div class="mx-sub">Week {t["week"]} &middot; {date}</div></div></div>'
-            f'{sides_html}{approx_note}</article>')
+        sides_html += (f'<div class="mx-body"><div class="mx-head">{html.escape(owner)} received '
+                       f'<span class="mx-sub">({s["value"]} total)</span></div><p>{players}</p></div>')
+    return (f'<article class="mx-card"><div class="mx-hd">'
+            f'<div><div class="mx-owner">{title}</div><div class="mx-sub">{date}</div></div>'
+            f'{grade_badge}</div>'
+            f'{sides_html}<div class="mx-body"><p>{verdict}</p></div></article>')
 
 
 def trades_page(trades, stamp=None):
-    """Every trade this season, graded by FantasyPros ROS value drift since
-    the deal — newest first. FP rank is lower-is-better, so a positive drift
-    means that side's received players have gotten MORE valuable since."""
+    """Every trade this season, graded on CURRENT FantasyPros ROS value only —
+    no trade-time snapshot, no drift tracking. Same model as chabels-dynasty's
+    trade grader: rank run through a steep value curve, summed per side,
+    higher total wins. Updates itself every week as rankings move."""
     stamp = stamp or datetime.date.today().isoformat()
     ordered = sorted(trades, key=lambda t: t["date"], reverse=True)
     cards = "\n".join(_trade_card(t) for t in ordered) or '<p class="mx-intro">No trades yet this season.</p>'
+    legend = " ".join(
+        f'<span class="mx-badge" style="color:{c};border-color:{c};background:{c}1a">{html.escape(g)}</span>'
+        for g, c in _GRADE_COLOR.items())
     body = ('<section class="page-header"><span class="eyebrow">Trades</span>'
             '<h1>Trade <span class="gold">Grades</span></h1>'
-            '<p>Value drift on FantasyPros rest-of-season consensus rank (lower rank is '
-            'better) &middot; updated weekly &middot; %s</p></section>'
-            '<div class="mx-wrap"><p class="mx-intro">Each side\'s drift tracks how much '
-            'more or less valuable the players it received have become since the trade, '
-            'per FantasyPros\' own weekly ROS rankings — not whether the team itself has '
-            'won more.</p>%s'
-            '<div class="mx-foot">Value-at-trade-time tracking started 2026-10-22; trades '
-            'before that date use the earliest snapshot available as an approximation, '
-            'flagged on the card.</div></div>'
-            % (stamp, cards))
+            '<p>Current value on FantasyPros rest-of-season rank, run through a steep '
+            'value curve so a true WR1 outweighs a dozen bench pieces &middot; %s</p></section>'
+            '<div class="mx-wrap"><p class="mx-intro">Every trade graded on what each side '
+            'currently holds — not what it was worth the day of the deal. The verdict updates '
+            'on its own each week as rankings move.</p>'
+            '<div class="mx-tags" style="margin-bottom:1rem">%s</div>%s</div>'
+            % (stamp, legend, cards))
     (ROOT / "trades.html").write_text(_page("Trades", "Rankings", body, depth=0, page="trades.html"))
     return ROOT / "trades.html"
