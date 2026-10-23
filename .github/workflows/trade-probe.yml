@@ -11,37 +11,7 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
-      - name: Inspect espn_api source for transaction filter shape
-        run: |
-          pip install espn_api --quiet
-          python3 -c "
-          import espn_api, os
-          base = os.path.dirname(espn_api.__file__)
-          for root, dirs, files in os.walk(base):
-              for f in files:
-                  if f.endswith('.py'):
-                      path = os.path.join(root, f)
-                      text = open(path, encoding='utf-8', errors='ignore').read()
-                      if 'ransaction' in text or 'sortType' in text or 'Filter' in text:
-                          print('=== ', path, ' ===')
-                          for i, line in enumerate(text.splitlines(), 1):
-                              if 'ransaction' in line or 'sortType' in line or 'Filter' in line or 'filterType' in line:
-                                  print(i, line)
-          "
-      - name: Dump ACTIVITY_MAP and Activity parser
-        run: |
-          python3 -c "
-          import espn_api, os
-          base = os.path.dirname(espn_api.__file__)
-          for root, dirs, files in os.walk(base):
-              for f in files:
-                  if f in ('constant.py', 'activity.py') and 'football' in root:
-                      path = os.path.join(root, f)
-                      print('=== ', path, ' ===')
-                      print(open(path, encoding='utf-8', errors='ignore').read())
-          "
-
-      - name: Live test with the real filter shape
+      - name: Live test with the real filter shape, trades only
         env:
           ESPN_S2: ${{ secrets.ESPN_S2 }}
           ESPN_SWID: ${{ secrets.ESPN_SWID }}
@@ -59,6 +29,7 @@ jobs:
                   'offset': 0,
                   'sortMessageDate': {'sortPriority': 1, 'sortAsc': False},
                   'sortFor': {'sortPriority': 2, 'sortAsc': False},
+                  'filterIncludeMessageTypeIds': {'value': [244]},
               }
           }
           url = ('https://lm-api-reads.fantasy.espn.com/apis/v3/games/ffl/seasons/2026'
@@ -72,9 +43,9 @@ jobs:
           try:
               d = json.load(urllib.request.urlopen(req, timeout=30))
               topics = d.get('topics', [])
-              print('topics:', len(topics))
-              for t in topics[:3]:
-                  print(json.dumps(t, indent=1)[:1800])
+              print('trade topics:', len(topics))
+              for t in topics:
+                  print(json.dumps(t, indent=1)[:2500])
                   print('---')
           except urllib.error.HTTPError as e:
               print('HTTPError', e.code, e.read()[:800])
