@@ -16,10 +16,16 @@ import sys
 from datetime import datetime, timezone
 
 sys.path.insert(0, os.path.dirname(__file__))
-from lib import load_env
+from lib import load_env, espn
 from sources import consensus
 
-OUT = os.path.join(os.path.dirname(__file__), "data", "fantasypros-cache.json")
+DATA_DIR = os.path.join(os.path.dirname(__file__), "data")
+OUT = os.path.join(DATA_DIR, "fantasypros-cache.json")
+
+
+def _current_week(season):
+    d = espn(["mSettings"], season)
+    return d.get("status", {}).get("currentMatchupPeriod", 1)
 
 
 def main():
@@ -36,13 +42,24 @@ def main():
         "fantasypros_authenticated": bool(os.environ.get("FANTASYPROS_API_KEY")),
         "players": rows,
     }
-    os.makedirs(os.path.dirname(OUT), exist_ok=True)
+    os.makedirs(DATA_DIR, exist_ok=True)
     with open(OUT, "w") as f:
         json.dump(snapshot, f, indent=1)
     print(
         f"wrote {OUT}: {len(rows)} players, "
         f"fp authenticated={snapshot['fantasypros_authenticated']}"
     )
+
+    # Weekly historical archive for the trade grader's value-drift calc — one
+    # snapshot per week, written once and never overwritten, so "value at
+    # trade time" has something real to compare against going forward. No
+    # archive exists before 2026-10-22 (this file didn't exist yet).
+    week = _current_week(season)
+    archive = os.path.join(DATA_DIR, f"{season}-fp-ros-week-{week:02d}.json")
+    if not os.path.exists(archive):
+        with open(archive, "w") as f:
+            json.dump(snapshot, f, indent=1)
+        print(f"archived week {week} snapshot: {archive}")
 
 
 if __name__ == "__main__":
