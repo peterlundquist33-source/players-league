@@ -111,12 +111,15 @@ def fetch_trades(season):
 # ---------------------------------------------------------------- grading
 
 def _load_live_ros(season):
-    """{name_lower: consensus_rank} from the live FantasyPros ROS cache."""
+    """{name_lower: fantasypros_rank} from the live cache — FantasyPros' own
+    ROS rank specifically, NOT the blended consensus_rank. ~283/320 players
+    have one (some bench/deep players never get a FantasyPros match); those
+    fall through rank_to_value's None case to the flat 0.5 floor."""
     live = os.path.join(DATA_DIR, "fantasypros-cache.json")
     if not os.path.exists(live):
         return {}
     data = json.loads(open(live).read())
-    return {p["name"].lower(): p["consensus_rank"] for p in data.get("players", [])}
+    return {p["name"].lower(): p["ranks"].get("fantasypros") for p in data.get("players", [])}
 
 
 def rank_to_value(rank):
