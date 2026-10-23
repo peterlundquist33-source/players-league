@@ -20,6 +20,7 @@ NAV = [
     ("home.html", "Home"),
     ("rankings.html", "Rankings"),
     ("matchups/index.html", "Matchups"),
+    ("trades.html", "Trades"),
     ("analytics.html", "Analytics"),
     ("teams.html", "Teams"),
     ("history.html", "History"),
