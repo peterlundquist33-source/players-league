@@ -28,17 +28,54 @@ jobs:
                               if 'ransaction' in line or 'sortType' in line or 'Filter' in line or 'filterType' in line:
                                   print(i, line)
           "
-      - name: Dump the actual activity-fetching method
+      - name: Dump ACTIVITY_MAP and Activity parser
         run: |
           python3 -c "
           import espn_api, os
           base = os.path.dirname(espn_api.__file__)
           for root, dirs, files in os.walk(base):
               for f in files:
-                  if f.endswith('.py'):
+                  if f in ('constant.py', 'activity.py') and 'football' in root:
                       path = os.path.join(root, f)
-                      text = open(path, encoding='utf-8', errors='ignore').read()
-                      if 'def get_recent_activity' in text or 'def recent_activity' in text:
-                          print('=== ', path, ' ===')
-                          print(text)
-          " | head -300
+                      print('=== ', path, ' ===')
+                      print(open(path, encoding='utf-8', errors='ignore').read())
+          "
+
+      - name: Live test with the real filter shape
+        env:
+          ESPN_S2: ${{ secrets.ESPN_S2 }}
+          ESPN_SWID: ${{ secrets.ESPN_SWID }}
+          LEAGUE_ID: ${{ secrets.LEAGUE_ID }}
+        run: |
+          cd tools
+          python3 -c "
+          import urllib.request, json, urllib.error
+          from lib import _get
+          filt = {
+              'topics': {
+                  'filterType': {'value': ['ACTIVITY_TRANSACTIONS']},
+                  'limit': 200,
+                  'limitPerMessageSet': {'value': 25},
+                  'offset': 0,
+                  'sortMessageDate': {'sortPriority': 1, 'sortAsc': False},
+                  'sortFor': {'sortPriority': 2, 'sortAsc': False},
+              }
+          }
+          url = ('https://lm-api-reads.fantasy.espn.com/apis/v3/games/ffl/seasons/2026'
+                 f'/segments/0/leagues/{_get(\"LEAGUE_ID\")}/communication/?view=kona_league_communication')
+          req = urllib.request.Request(url, headers={
+              'Cookie': f'espn_s2={_get(\"ESPN_S2\")}; SWID={_get(\"ESPN_SWID\")}',
+              'User-Agent': 'players-league/1.0',
+              'Accept': 'application/json',
+              'x-fantasy-filter': json.dumps(filt),
+          })
+          try:
+              d = json.load(urllib.request.urlopen(req, timeout=30))
+              topics = d.get('topics', [])
+              print('topics:', len(topics))
+              for t in topics[:3]:
+                  print(json.dumps(t, indent=1)[:1800])
+                  print('---')
+          except urllib.error.HTTPError as e:
+              print('HTTPError', e.code, e.read()[:800])
+          "
