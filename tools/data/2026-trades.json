@@ -2,247 +2,229 @@
  {
   "id": "58b0ef5e-7ef2-46e3-919d-18495e29302c",
   "date": "2026-09-24T13:48:33.569000+00:00",
-  "week": 3,
-  "approximate": true,
   "sides": {
    "Mitchell": {
     "players": [
      {
       "name": "Dak Prescott",
       "pos": "QB",
-      "value_then": 79.5,
-      "value_now": 79.5
+      "rank": 79.7,
+      "value": 7.5
      },
      {
       "name": "Jordan Mason",
       "pos": "RB",
-      "value_then": 127.2,
-      "value_now": 127.2
+      "rank": 127.4,
+      "value": 3.1
      }
     ],
-    "value_then": 206.7,
-    "value_now": 206.7,
-    "drift": 0.0
+    "value": 10.7
    },
    "Peter": {
     "players": [
      {
       "name": "Josh Jacobs",
       "pos": "RB",
-      "value_then": 62.4,
-      "value_now": 62.4
+      "rank": 63.2,
+      "value": 10.0
      },
      {
       "name": "Chris Brooks",
       "pos": "RB",
-      "value_then": 432.2,
-      "value_now": 432.2
+      "rank": 432.5,
+      "value": 0.5
      }
     ],
-    "value_then": 494.6,
-    "value_now": 494.6,
-    "drift": 0.0
+    "value": 10.5
    }
-  }
+  },
+  "winner": null,
+  "margin": 0.2,
+  "grade": "EVEN"
  },
  {
   "id": "bd5ad126-f34b-47b5-ac5f-2360c12a4c5c",
   "date": "2026-09-29T16:45:29.603000+00:00",
-  "week": 3,
-  "approximate": true,
   "sides": {
    "Noah": {
     "players": [
      {
       "name": "Patrick Mahomes",
       "pos": "QB",
-      "value_then": 80.9,
-      "value_now": 80.9
+      "rank": 81.9,
+      "value": 7.2
      }
     ],
-    "value_then": 80.9,
-    "value_now": 80.9,
-    "drift": 0.0
+    "value": 7.2
    },
    "Leif": {
     "players": [
      {
       "name": "Mike Evans",
       "pos": "WR",
-      "value_then": 64.9,
-      "value_now": 64.9
+      "rank": 65.1,
+      "value": 9.7
      }
     ],
-    "value_then": 64.9,
-    "value_now": 64.9,
-    "drift": 0.0
+    "value": 9.7
    }
-  }
+  },
+  "winner": null,
+  "margin": 2.5,
+  "grade": "EVEN"
  },
  {
   "id": "b718bade-c676-4cd0-b735-9e7b945b54dd",
   "date": "2026-10-08T14:34:52.307000+00:00",
-  "week": 5,
-  "approximate": true,
   "sides": {
    "Isaac": {
     "players": [
      {
       "name": "Saquon Barkley",
       "pos": "RB",
-      "value_then": 29.4,
-      "value_now": 29.4
+      "rank": 30.0,
+      "value": 22.5
      },
      {
       "name": "J.K. Dobbins",
       "pos": "RB",
-      "value_then": 112.4,
-      "value_now": 112.4
+      "rank": 113.2,
+      "value": 3.8
      }
     ],
-    "value_then": 141.8,
-    "value_now": 141.8,
-    "drift": 0.0
+    "value": 26.3
    },
    "Logan": {
     "players": [
      {
       "name": "Jaylen Warren",
       "pos": "RB",
-      "value_then": 57.7,
-      "value_now": 57.7
+      "rank": 57.9,
+      "value": 11.3
      },
      {
       "name": "DK Metcalf",
       "pos": "WR",
-      "value_then": 82.7,
-      "value_now": 82.7
+      "rank": 82.6,
+      "value": 7.1
      }
     ],
-    "value_then": 140.4,
-    "value_now": 140.4,
-    "drift": 0.0
+    "value": 18.5
    }
-  }
+  },
+  "winner": "Isaac",
+  "margin": 7.8,
+  "grade": "SLIGHT EDGE"
  },
  {
   "id": "42ea53b8-c7c5-40c2-a874-2045f4dd9922",
   "date": "2026-10-08T15:18:25.025000+00:00",
-  "week": 5,
-  "approximate": true,
   "sides": {
    "CJ": {
     "players": [
      {
       "name": "Juwan Johnson",
       "pos": "TE",
-      "value_then": 139.1,
-      "value_now": 139.1
+      "rank": 139.1,
+      "value": 2.5
      }
     ],
-    "value_then": 139.1,
-    "value_now": 139.1,
-    "drift": 0.0
+    "value": 2.5
    },
    "Grant": {
     "players": [
      {
       "name": "Quinshon Judkins",
       "pos": "RB",
-      "value_then": 61.4,
-      "value_now": 61.4
+      "rank": 61.6,
+      "value": 10.3
      }
     ],
-    "value_then": 61.4,
-    "value_now": 61.4,
-    "drift": 0.0
+    "value": 10.3
    }
-  }
+  },
+  "winner": "Grant",
+  "margin": 7.8,
+  "grade": "SLIGHT EDGE"
  },
  {
   "id": "47386d16-6f02-4240-9805-75a87be4cae0",
   "date": "2026-10-08T18:32:11.337000+00:00",
-  "week": 5,
-  "approximate": true,
   "sides": {
    "CJ": {
     "players": [
      {
       "name": "Emanuel Wilson",
       "pos": "RB",
-      "value_then": 210.6,
-      "value_now": 210.6
+      "rank": 210.8,
+      "value": 1.4
      },
      {
       "name": "Jalen Hurts",
       "pos": "QB",
-      "value_then": 69.4,
-      "value_now": 69.4
+      "rank": 68.7,
+      "value": 9.2
      },
      {
       "name": "DK Metcalf",
       "pos": "WR",
-      "value_then": 82.7,
-      "value_now": 82.7
+      "rank": 82.6,
+      "value": 7.1
      }
     ],
-    "value_then": 362.7,
-    "value_now": 362.7,
-    "drift": 0.0
+    "value": 17.7
    },
    "Logan": {
     "players": [
      {
       "name": "Joe Burrow",
       "pos": "QB",
-      "value_then": 51.5,
-      "value_now": 51.5
+      "rank": 51.1,
+      "value": 14.1
      },
      {
       "name": "Zach Charbonnet",
       "pos": "RB",
-      "value_then": 140.9,
-      "value_now": 140.9
+      "rank": 140.5,
+      "value": 2.5
      }
     ],
-    "value_then": 192.4,
-    "value_now": 192.4,
-    "drift": 0.0
+    "value": 16.5
    }
-  }
+  },
+  "winner": null,
+  "margin": 1.2,
+  "grade": "EVEN"
  },
  {
   "id": "4425e053-b0e2-4281-9250-4760d2472b58",
   "date": "2026-10-21T15:21:23.244000+00:00",
-  "week": 6,
-  "approximate": true,
   "sides": {
    "Grant": {
     "players": [
      {
       "name": "Patrick Mahomes",
       "pos": "QB",
-      "value_then": 80.9,
-      "value_now": 80.9
+      "rank": 81.9,
+      "value": 7.2
      }
     ],
-    "value_then": 80.9,
-    "value_now": 80.9,
-    "drift": 0.0
+    "value": 7.2
    },
    "Noah": {
     "players": [
      {
       "name": "Jaylen Waddle",
       "pos": "WR",
-      "value_then": 64.7,
-      "value_now": 64.7
+      "rank": 64.7,
+      "value": 9.8
      }
     ],
-    "value_then": 64.7,
-    "value_now": 64.7,
-    "drift": 0.0
+    "value": 9.8
    }
-  }
+  },
+  "winner": null,
+  "margin": 2.6,
+  "grade": "EVEN"
  }
 ]
