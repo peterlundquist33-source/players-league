@@ -36,8 +36,12 @@ jobs:
           for t in txs:
               types[t.get('type')] = types.get(t.get('type'), 0) + 1
           print('by type:', types)
+          by_id = {t['id']: t for t in txs if 'id' in t}
           for t in txs:
               if t.get('type') in ('TRADE_ACCEPT', 'TRADE_UPHOLD', 'TRADE_PROPOSE'):
-                  print(json.dumps(t, indent=1)[:4000])
-                  print('---')
+                  rid = t.get('relatedTransactionId')
+                  print('related found:', rid in by_id, '| scoringPeriod:', t.get('scoringPeriodId'))
+          rooster = [t for t in txs if t.get('type') == 'ROSTER']
+          print('ROSTER sample:', json.dumps(rooster[0], indent=1)[:2000] if rooster else 'none')
+          print('scoringPeriod range:', sorted(set(t.get('scoringPeriodId') for t in txs)))
           "
