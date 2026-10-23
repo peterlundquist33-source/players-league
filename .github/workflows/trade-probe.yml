@@ -22,22 +22,30 @@ jobs:
           import urllib.request, json
           from lib import _get
 
-          def fetch(params):
+          def fetch(params, filt=None):
               url = (f'https://lm-api-reads.fantasy.espn.com/apis/v3/games/ffl/seasons/2026'
                      f'/segments/0/leagues/{_get(\"LEAGUE_ID\")}?{params}')
-              req = urllib.request.Request(url, headers={
+              headers = {
                   'Cookie': f'espn_s2={_get(\"ESPN_S2\")}; SWID={_get(\"ESPN_SWID\")}',
                   'User-Agent': 'players-league/1.0',
                   'Accept': 'application/json',
-                  'X-Fantasy-Filter': '{\"transactions\":{\"filterType\":{\"value\":[\"TRADED\"]},\"sortType\":{\"value\":\"NONE\"},\"limit\":1000,\"offset\":0}}',
-              })
-              return json.load(urllib.request.urlopen(req, timeout=30))
+              }
+              if filt:
+                  headers['X-Fantasy-Filter'] = filt
+              req = urllib.request.Request(url, headers=headers)
+              try:
+                  return json.load(urllib.request.urlopen(req, timeout=30))
+              except urllib.error.HTTPError as e:
+                  print('HTTPError', e.code, e.read()[:500])
+                  return {}
 
+          import urllib.error
           d = fetch('view=mTransactions2')
           txs = d.get('transactions', [])
           print('plain call total:', len(txs))
 
-          d2 = fetch('view=mTransactions2&view=mTeam')
+          filt = '{\"transactions\":{\"limit\":1000,\"offset\":0}}'
+          d2 = fetch('view=mTransactions2', filt=filt)
           txs2 = d2.get('transactions', [])
           print('with X-Fantasy-Filter total:', len(txs2))
           types2 = {}
@@ -46,7 +54,7 @@ jobs:
           print('by type (filtered):', types2)
           trades = [t for t in txs2 if 'TRADE' in (t.get('type') or '')]
           print('trade-ish records:', len(trades))
-          for t in trades[:3]:
-              print(json.dumps(t, indent=1)[:2500])
+          for t in trades[:6]:
+              print(json.dumps(t, indent=1)[:2000])
               print('===')
           "
