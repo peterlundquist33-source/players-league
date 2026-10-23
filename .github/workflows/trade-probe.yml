@@ -1,0 +1,44 @@
+name: Trade data probe (temporary)
+
+on:
+  workflow_dispatch: {}
+
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Inspect espn_api source for transaction filter shape
+        run: |
+          pip install espn_api --quiet
+          python3 -c "
+          import espn_api, os
+          base = os.path.dirname(espn_api.__file__)
+          for root, dirs, files in os.walk(base):
+              for f in files:
+                  if f.endswith('.py'):
+                      path = os.path.join(root, f)
+                      text = open(path, encoding='utf-8', errors='ignore').read()
+                      if 'ransaction' in text or 'sortType' in text or 'Filter' in text:
+                          print('=== ', path, ' ===')
+                          for i, line in enumerate(text.splitlines(), 1):
+                              if 'ransaction' in line or 'sortType' in line or 'Filter' in line or 'filterType' in line:
+                                  print(i, line)
+          "
+      - name: Dump the actual activity-fetching method
+        run: |
+          python3 -c "
+          import espn_api, os
+          base = os.path.dirname(espn_api.__file__)
+          for root, dirs, files in os.walk(base):
+              for f in files:
+                  if f.endswith('.py'):
+                      path = os.path.join(root, f)
+                      text = open(path, encoding='utf-8', errors='ignore').read()
+                      if 'def get_recent_activity' in text or 'def recent_activity' in text:
+                          print('=== ', path, ' ===')
+                          print(text)
+          " | head -300
