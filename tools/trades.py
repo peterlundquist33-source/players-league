@@ -133,10 +133,18 @@ def _load_ros_archives(season):
 def _value_at(archives, week, name_lower):
     """ROS consensus_rank for a player at the closest available week <= week,
     plus whether that lookup was an approximation (no real archive for that
-    week existed, so an earlier one was substituted)."""
+    week existed, so an earlier one — or the live cache — was substituted)."""
+    if week == "now":
+        p = archives.get("now", {}).get(name_lower)
+        return (p["consensus_rank"] if p else None), False
+
     weeks = sorted(w for w in archives if w != "now")
     if not weeks:
-        return None, True
+        # No historical archive exists yet at all — fall back to the live
+        # cache as the only data available, clearly flagged approximate.
+        p = archives.get("now", {}).get(name_lower)
+        return (p["consensus_rank"] if p else None), True
+
     exact = week in archives and name_lower in archives[week]
     use_week = week if exact else max((w for w in weeks if w <= week), default=weeks[0])
     p = archives.get(use_week, {}).get(name_lower)
