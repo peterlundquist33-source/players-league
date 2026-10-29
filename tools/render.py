@@ -506,6 +506,9 @@ def _trade_card(t):
     sides_html = ""
     for owner, s in t["sides"].items():
         players = ", ".join(
+            f'{html.escape(p["name"])} '
+            f'<span class="mx-sub">(ROS #{p["rank"]} · {p["value"]})</span>'
+            if p["rank"] else
             f'{html.escape(p["name"])} <span class="mx-sub">({p["value"]})</span>'
             for p in s["players"]
         )
