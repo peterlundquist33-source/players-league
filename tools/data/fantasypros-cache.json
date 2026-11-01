@@ -1,18 +1,18 @@
 {
  "season": 2026,
- "fetched_at": "2026-11-01T17:36:37.800543+00:00",
+ "fetched_at": "2026-11-01T21:40:30.029650+00:00",
  "fantasypros_authenticated": true,
  "players": [
   {
    "name": "Jahmyr Gibbs",
    "pos": "RB",
    "pro": "DET",
-   "adp": 1.72,
+   "adp": 1.73,
    "bye": "6",
    "pos_rank": "RB1",
    "ranks": {
     "espn": 1,
-    "adp": 1.72,
+    "adp": 1.73,
     "fantasypros": 1,
     "fantasycalc": 1,
     "sleeper": 2
@@ -24,12 +24,12 @@
    "name": "Bijan Robinson",
    "pos": "RB",
    "pro": "ATL",
-   "adp": 3.87,
+   "adp": 3.88,
    "bye": "11",
    "pos_rank": "RB2",
    "ranks": {
     "espn": 2,
-    "adp": 3.87,
+    "adp": 3.88,
     "fantasypros": 3,
     "fantasycalc": 3,
     "sleeper": 1
@@ -41,12 +41,12 @@
    "name": "Jaxon Smith-Njigba",
    "pos": "WR",
    "pro": "SEA",
-   "adp": 4.53,
+   "adp": 4.54,
    "bye": "11",
    "pos_rank": "WR1",
    "ranks": {
     "espn": 6,
-    "adp": 4.53,
+    "adp": 4.54,
     "fantasypros": 2,
     "fantasycalc": 2,
     "sleeper": 9
@@ -58,12 +58,12 @@
    "name": "Puka Nacua",
    "pos": "WR",
    "pro": "LAR",
-   "adp": 6.3,
+   "adp": 6.31,
    "bye": "11",
    "pos_rank": "WR2",
    "ranks": {
     "espn": 4,
-    "adp": 6.3,
+    "adp": 6.31,
     "fantasypros": 5,
     "fantasycalc": 5,
     "sleeper": 5
@@ -92,29 +92,29 @@
    "name": "Christian McCaffrey",
    "pos": "RB",
    "pro": "SF",
-   "adp": 9.96,
+   "adp": 10.01,
    "bye": "8",
    "pos_rank": "RB5",
    "ranks": {
     "espn": 7,
-    "adp": 9.96,
+    "adp": 10.01,
     "fantasypros": 9,
-    "fantasycalc": 8,
+    "fantasycalc": 7,
     "sleeper": 6
    },
-   "consensus_rank": 8.0,
+   "consensus_rank": 7.8,
    "sources": 5
   },
   {
    "name": "Jonathan Taylor",
    "pos": "RB",
    "pro": "IND",
-   "adp": 9.67,
+   "adp": 9.69,
    "bye": "13",
    "pos_rank": "RB6",
    "ranks": {
     "espn": 5,
-    "adp": 9.67,
+    "adp": 9.69,
     "fantasypros": 10,
     "fantasycalc": 10,
     "sleeper": 7
@@ -126,17 +126,17 @@
    "name": "Amon-Ra St. Brown",
    "pos": "WR",
    "pro": "DET",
-   "adp": 9.92,
+   "adp": 9.94,
    "bye": "6",
    "pos_rank": "WR4",
    "ranks": {
     "espn": 8,
-    "adp": 9.92,
+    "adp": 9.94,
     "fantasypros": 8,
-    "fantasycalc": 6,
+    "fantasycalc": 8,
     "sleeper": 11
    },
-   "consensus_rank": 8.6,
+   "consensus_rank": 9.0,
    "sources": 5
   },
   {
@@ -167,22 +167,22 @@
     "espn": 10,
     "adp": 11.38,
     "fantasypros": 11,
-    "fantasycalc": 7,
+    "fantasycalc": 6,
     "sleeper": 14
    },
-   "consensus_rank": 10.7,
+   "consensus_rank": 10.5,
    "sources": 5
   },
   {
    "name": "Kenneth Walker III",
    "pos": "RB",
    "pro": "KC",
-   "adp": 11.03,
+   "adp": 11.11,
    "bye": "5",
    "pos_rank": "RB3",
    "ranks": {
     "espn": 28,
-    "adp": 11.03,
+    "adp": 11.11,
     "fantasypros": 4,
     "fantasycalc": 4,
     "sleeper": 26
@@ -194,46 +194,46 @@
    "name": "Derrick Henry",
    "pos": "RB",
    "pro": "BAL",
-   "adp": 19.0,
+   "adp": 19.01,
    "bye": "13",
    "pos_rank": "RB8",
    "ranks": {
     "espn": 16,
-    "adp": 19.0,
+    "adp": 19.01,
     "fantasypros": 17,
-    "fantasycalc": 13,
+    "fantasycalc": 12,
     "sleeper": 10
    },
-   "consensus_rank": 15.0,
+   "consensus_rank": 14.8,
    "sources": 5
   },
   {
    "name": "Josh Allen",
    "pos": "QB",
    "pro": "BUF",
-   "adp": 12.98,
+   "adp": 12.89,
    "bye": "7",
    "pos_rank": "QB1",
    "ranks": {
     "espn": 26,
-    "adp": 12.98,
+    "adp": 12.89,
     "fantasypros": 21,
-    "fantasycalc": 16,
+    "fantasycalc": 15,
     "sleeper": 4
    },
-   "consensus_rank": 16.0,
+   "consensus_rank": 15.8,
    "sources": 5
   },
   {
    "name": "Justin Jefferson",
    "pos": "WR",
    "pro": "MIN",
-   "adp": 15.15,
+   "adp": 15.09,
    "bye": "6",
    "pos_rank": "WR10",
    "ranks": {
     "espn": 11,
-    "adp": 15.15,
+    "adp": 15.09,
     "fantasypros": 19,
     "fantasycalc": 19,
     "sleeper": 19
@@ -245,12 +245,12 @@
    "name": "Drake London",
    "pos": "WR",
    "pro": "ATL",
-   "adp": 22.81,
+   "adp": 22.86,
    "bye": "11",
    "pos_rank": "WR6",
    "ranks": {
     "espn": 18,
-    "adp": 22.81,
+    "adp": 22.86,
     "fantasypros": 12,
     "fantasycalc": 21,
     "sleeper": 25
@@ -262,12 +262,12 @@
    "name": "Ashton Jeanty",
    "pos": "RB",
    "pro": "LV",
-   "adp": 26.08,
+   "adp": 26.18,
    "bye": "13",
    "pos_rank": "RB11",
    "ranks": {
     "espn": 17,
-    "adp": 26.08,
+    "adp": 26.18,
     "fantasypros": 24,
     "fantasycalc": 22,
     "sleeper": 18
@@ -279,29 +279,46 @@
    "name": "Trey McBride",
    "pos": "TE",
    "pro": "ARI",
-   "adp": 19.75,
+   "adp": 19.77,
    "bye": "14",
    "pos_rank": "TE1",
    "ranks": {
     "espn": 21,
-    "adp": 19.75,
+    "adp": 19.77,
     "fantasypros": 28,
-    "fantasycalc": 12,
+    "fantasycalc": 13,
     "sleeper": 30
    },
-   "consensus_rank": 22.1,
+   "consensus_rank": 22.4,
+   "sources": 5
+  },
+  {
+   "name": "Chase Brown",
+   "pos": "RB",
+   "pro": "CIN",
+   "adp": 27.87,
+   "bye": "6",
+   "pos_rank": "RB10",
+   "ranks": {
+    "espn": 14,
+    "adp": 27.87,
+    "fantasypros": 23,
+    "fantasycalc": 28,
+    "sleeper": 21
+   },
+   "consensus_rank": 22.8,
    "sources": 5
   },
   {
    "name": "Kyren Williams",
    "pos": "RB",
    "pro": "LAR",
-   "adp": 30.88,
+   "adp": 31.11,
    "bye": "11",
    "pos_rank": "RB9",
    "ranks": {
     "espn": 32,
-    "adp": 30.88,
+    "adp": 31.11,
     "fantasypros": 18,
     "fantasycalc": 14,
     "sleeper": 20
@@ -310,64 +327,47 @@
    "sources": 5
   },
   {
-   "name": "Chase Brown",
-   "pos": "RB",
-   "pro": "CIN",
-   "adp": 27.88,
-   "bye": "6",
-   "pos_rank": "RB10",
-   "ranks": {
-    "espn": 14,
-    "adp": 27.88,
-    "fantasypros": 23,
-    "fantasycalc": 31,
-    "sleeper": 21
-   },
-   "consensus_rank": 23.4,
-   "sources": 5
-  },
-  {
    "name": "Brock Bowers",
    "pos": "TE",
    "pro": "LV",
-   "adp": 23.38,
+   "adp": 23.37,
    "bye": "13",
    "pos_rank": "TE2",
    "ranks": {
     "espn": 22,
-    "adp": 23.38,
+    "adp": 23.37,
     "fantasypros": 29,
-    "fantasycalc": 15,
+    "fantasycalc": 16,
     "sleeper": 29
    },
-   "consensus_rank": 23.7,
+   "consensus_rank": 23.9,
    "sources": 5
   },
   {
    "name": "De'Von Achane",
    "pos": "RB",
    "pro": "MIA",
-   "adp": 49.14,
+   "adp": 49.01,
    "bye": null,
    "pos_rank": null,
    "ranks": {
     "espn": 12,
-    "adp": 49.14,
+    "adp": 49.01,
     "sleeper": 12
    },
-   "consensus_rank": 24.4,
+   "consensus_rank": 24.3,
    "sources": 3
   },
   {
    "name": "Chris Olave",
    "pos": "WR",
    "pro": "NO",
-   "adp": 29.52,
+   "adp": 29.62,
    "bye": "8",
    "pos_rank": "WR8",
    "ranks": {
     "espn": 24,
-    "adp": 29.52,
+    "adp": 29.62,
     "fantasypros": 14,
     "fantasycalc": 23,
     "sleeper": 39
@@ -379,12 +379,12 @@
    "name": "Malik Nabers",
    "pos": "WR",
    "pro": "NYG",
-   "adp": 29.46,
+   "adp": 29.58,
    "bye": "8",
    "pos_rank": "WR9",
    "ranks": {
     "espn": 33,
-    "adp": 29.46,
+    "adp": 29.58,
     "fantasypros": 15,
     "fantasycalc": 17,
     "sleeper": 37
@@ -413,97 +413,97 @@
    "name": "Javonte Williams",
    "pos": "RB",
    "pro": "DAL",
-   "adp": 32.14,
+   "adp": 32.37,
    "bye": "14",
    "pos_rank": "RB7",
    "ranks": {
     "espn": 31,
-    "adp": 32.14,
+    "adp": 32.37,
     "fantasypros": 16,
     "fantasycalc": 20,
     "sleeper": 40
    },
-   "consensus_rank": 27.8,
+   "consensus_rank": 27.9,
    "sources": 5
   },
   {
    "name": "Saquon Barkley",
    "pos": "RB",
    "pro": "PHI",
-   "adp": 33.46,
+   "adp": 33.2,
    "bye": "10",
    "pos_rank": "RB17",
    "ranks": {
     "espn": 15,
-    "adp": 33.46,
+    "adp": 33.2,
     "fantasypros": 45,
-    "fantasycalc": 36,
+    "fantasycalc": 38,
     "sleeper": 15
    },
-   "consensus_rank": 28.9,
+   "consensus_rank": 29.2,
    "sources": 5
   },
   {
    "name": "Zay Flowers",
    "pos": "WR",
    "pro": "BAL",
-   "adp": 29.16,
+   "adp": 29.37,
    "bye": "13",
    "pos_rank": "WR7",
    "ranks": {
     "espn": 38,
-    "adp": 29.16,
+    "adp": 29.37,
     "fantasypros": 13,
     "fantasycalc": 18,
     "sleeper": 56
    },
-   "consensus_rank": 30.8,
+   "consensus_rank": 30.9,
    "sources": 5
   },
   {
    "name": "George Pickens",
    "pos": "WR",
    "pro": "DAL",
-   "adp": 39.29,
+   "adp": 39.14,
    "bye": "14",
    "pos_rank": "WR16",
    "ranks": {
     "espn": 27,
-    "adp": 39.29,
+    "adp": 39.14,
     "fantasypros": 32,
     "fantasycalc": 35,
     "sleeper": 32
    },
-   "consensus_rank": 33.1,
+   "consensus_rank": 33.0,
    "sources": 5
   },
   {
    "name": "A.J. Brown",
    "pos": "WR",
    "pro": "NE",
-   "adp": 41.8,
+   "adp": 41.93,
    "bye": "11",
    "pos_rank": "WR19",
    "ranks": {
     "espn": 20,
-    "adp": 41.8,
+    "adp": 41.93,
     "fantasypros": 38,
-    "fantasycalc": 47,
+    "fantasycalc": 50,
     "sleeper": 24
    },
-   "consensus_rank": 34.2,
+   "consensus_rank": 34.8,
    "sources": 5
   },
   {
    "name": "Lamar Jackson",
    "pos": "QB",
    "pro": "BAL",
-   "adp": 41.84,
+   "adp": 41.97,
    "bye": "13",
    "pos_rank": "QB4",
    "ranks": {
     "espn": 44,
-    "adp": 41.84,
+    "adp": 41.97,
     "fantasypros": 40,
     "fantasycalc": 41,
     "sleeper": 13
@@ -515,46 +515,46 @@
    "name": "Jeremiyah Love",
    "pos": "RB",
    "pro": "ARI",
-   "adp": 47.62,
+   "adp": 47.48,
    "bye": "14",
    "pos_rank": "RB18",
    "ranks": {
     "espn": 19,
-    "adp": 47.62,
+    "adp": 47.48,
     "fantasypros": 54,
-    "fantasycalc": 45,
+    "fantasycalc": 43,
     "sleeper": 22
    },
-   "consensus_rank": 37.5,
+   "consensus_rank": 37.1,
    "sources": 5
   },
   {
    "name": "Garrett Wilson",
    "pos": "WR",
    "pro": "NYJ",
-   "adp": 45.29,
+   "adp": 45.34,
    "bye": "13",
    "pos_rank": "WR15",
    "ranks": {
     "espn": 29,
-    "adp": 45.29,
+    "adp": 45.34,
     "fantasypros": 31,
-    "fantasycalc": 39,
+    "fantasycalc": 37,
     "sleeper": 50
    },
-   "consensus_rank": 38.9,
+   "consensus_rank": 38.5,
    "sources": 5
   },
   {
    "name": "Tee Higgins",
    "pos": "WR",
    "pro": "CIN",
-   "adp": 47.0,
+   "adp": 47.23,
    "bye": "6",
    "pos_rank": "WR17",
    "ranks": {
     "espn": 42,
-    "adp": 47.0,
+    "adp": 47.23,
     "fantasypros": 33,
     "fantasycalc": 26,
     "sleeper": 47
@@ -566,102 +566,102 @@
    "name": "Drake Maye",
    "pos": "QB",
    "pro": "NE",
-   "adp": 43.91,
+   "adp": 43.88,
    "bye": "11",
    "pos_rank": "QB2",
    "ranks": {
     "espn": 58,
-    "adp": 43.91,
+    "adp": 43.88,
     "fantasypros": 34,
-    "fantasycalc": 43,
+    "fantasycalc": 44,
     "sleeper": 16
    },
-   "consensus_rank": 39.0,
+   "consensus_rank": 39.2,
    "sources": 5
   },
   {
    "name": "Tetairoa McMillan",
    "pos": "WR",
    "pro": "CAR",
-   "adp": 45.64,
+   "adp": 45.78,
    "bye": "5",
    "pos_rank": "WR14",
    "ranks": {
     "espn": 36,
-    "adp": 45.64,
+    "adp": 45.78,
     "fantasypros": 30,
-    "fantasycalc": 40,
+    "fantasycalc": 39,
     "sleeper": 49
    },
-   "consensus_rank": 40.1,
+   "consensus_rank": 40.0,
    "sources": 5
   },
   {
    "name": "Bucky Irving",
    "pos": "RB",
    "pro": "TB",
-   "adp": 54.27,
+   "adp": 54.54,
    "bye": "10",
    "pos_rank": "RB14",
    "ranks": {
     "espn": 50,
-    "adp": 54.27,
+    "adp": 54.54,
     "fantasypros": 36,
-    "fantasycalc": 27,
+    "fantasycalc": 25,
     "sleeper": 41
    },
-   "consensus_rank": 41.7,
+   "consensus_rank": 41.3,
    "sources": 5
   },
   {
    "name": "Rashee Rice",
    "pos": "WR",
    "pro": "KC",
-   "adp": 49.59,
+   "adp": 49.28,
    "bye": "5",
    "pos_rank": "WR25",
    "ranks": {
     "espn": 25,
-    "adp": 49.59,
+    "adp": 49.28,
     "fantasypros": 49,
-    "fantasycalc": 50,
+    "fantasycalc": 49,
     "sleeper": 38
    },
-   "consensus_rank": 42.3,
+   "consensus_rank": 42.1,
    "sources": 5
   },
   {
    "name": "D'Andre Swift",
    "pos": "RB",
    "pro": "CHI",
-   "adp": 50.35,
+   "adp": 50.85,
    "bye": "10",
    "pos_rank": "RB12",
    "ranks": {
     "espn": 47,
-    "adp": 50.35,
+    "adp": 50.85,
     "fantasypros": 25,
-    "fantasycalc": 24,
+    "fantasycalc": 27,
     "sleeper": 65
    },
-   "consensus_rank": 42.3,
+   "consensus_rank": 43.0,
    "sources": 5
   },
   {
    "name": "Omarion Hampton",
    "pos": "RB",
    "pro": "LAC",
-   "adp": 42.36,
+   "adp": 42.24,
    "bye": "7",
    "pos_rank": "RB25",
    "ranks": {
     "espn": 13,
-    "adp": 42.36,
+    "adp": 42.24,
     "fantasypros": 80,
-    "fantasycalc": 68,
+    "fantasycalc": 65,
     "sleeper": 17
    },
-   "consensus_rank": 44.1,
+   "consensus_rank": 43.4,
    "sources": 5
   },
   {
@@ -675,92 +675,92 @@
     "espn": 70,
     "adp": 48.3,
     "fantasypros": 42,
-    "fantasycalc": 37,
+    "fantasycalc": 36,
     "sleeper": 23
    },
-   "consensus_rank": 44.1,
+   "consensus_rank": 43.9,
    "sources": 5
   },
   {
    "name": "Breece Hall",
    "pos": "RB",
    "pro": "NYJ",
-   "adp": 59.17,
+   "adp": 59.3,
    "bye": "13",
    "pos_rank": "RB19",
    "ranks": {
     "espn": 30,
-    "adp": 59.17,
+    "adp": 59.3,
     "fantasypros": 56,
-    "fantasycalc": 44,
+    "fantasycalc": 42,
     "sleeper": 35
    },
-   "consensus_rank": 44.8,
+   "consensus_rank": 44.5,
    "sources": 5
   },
   {
    "name": "DeVonta Smith",
    "pos": "WR",
    "pro": "PHI",
-   "adp": 58.96,
+   "adp": 59.09,
    "bye": "10",
    "pos_rank": "WR21",
    "ranks": {
     "espn": 34,
-    "adp": 58.96,
+    "adp": 59.09,
     "fantasypros": 43,
-    "fantasycalc": 59,
+    "fantasycalc": 62,
     "sleeper": 43
    },
-   "consensus_rank": 47.6,
+   "consensus_rank": 48.2,
    "sources": 5
   },
   {
    "name": "Bhayshul Tuten",
    "pos": "RB",
    "pro": "JAX",
-   "adp": 67.05,
+   "adp": 67.29,
    "bye": "7",
    "pos_rank": "RB16",
    "ranks": {
     "espn": 48,
-    "adp": 67.05,
+    "adp": 67.29,
     "fantasypros": 44,
-    "fantasycalc": 30,
+    "fantasycalc": 31,
     "sleeper": 61
    },
-   "consensus_rank": 50.0,
+   "consensus_rank": 50.3,
    "sources": 5
   },
   {
    "name": "Colston Loveland",
    "pos": "TE",
    "pro": "CHI",
-   "adp": 51.58,
+   "adp": 51.65,
    "bye": "10",
    "pos_rank": "TE4",
    "ranks": {
     "espn": 43,
-    "adp": 51.58,
+    "adp": 51.65,
     "fantasypros": 74,
-    "fantasycalc": 52,
+    "fantasycalc": 54,
     "sleeper": 46
    },
-   "consensus_rank": 53.3,
+   "consensus_rank": 53.7,
    "sources": 5
   },
   {
    "name": "Christian Watson",
    "pos": "WR",
    "pro": "GB",
-   "adp": 64.69,
+   "adp": 65.33,
    "bye": "11",
    "pos_rank": "WR12",
    "ranks": {
     "espn": 81,
-    "adp": 64.69,
+    "adp": 65.33,
     "fantasypros": 22,
-    "fantasycalc": 25,
+    "fantasycalc": 24,
     "sleeper": 85
    },
    "consensus_rank": 55.5,
@@ -770,29 +770,46 @@
    "name": "Luther Burden III",
    "pos": "WR",
    "pro": "CHI",
-   "adp": 79.63,
+   "adp": 80.16,
    "bye": "10",
    "pos_rank": "WR20",
    "ranks": {
     "espn": 64,
-    "adp": 79.63,
+    "adp": 80.16,
     "fantasypros": 39,
     "fantasycalc": 46,
     "sleeper": 55
    },
-   "consensus_rank": 56.7,
+   "consensus_rank": 56.8,
+   "sources": 5
+  },
+  {
+   "name": "Quinshon Judkins",
+   "pos": "RB",
+   "pro": "CLE",
+   "adp": 68.67,
+   "bye": "11",
+   "pos_rank": "RB21",
+   "ranks": {
+    "espn": 40,
+    "adp": 68.67,
+    "fantasypros": 63,
+    "fantasycalc": 53,
+    "sleeper": 63
+   },
+   "consensus_rank": 57.5,
    "sources": 5
   },
   {
    "name": "Emeka Egbuka",
    "pos": "WR",
    "pro": "TB",
-   "adp": 74.76,
+   "adp": 74.82,
    "bye": "10",
    "pos_rank": "WR31",
    "ranks": {
     "espn": 39,
-    "adp": 74.76,
+    "adp": 74.82,
     "fantasypros": 60,
     "fantasycalc": 60,
     "sleeper": 54
@@ -801,205 +818,188 @@
    "sources": 5
   },
   {
-   "name": "Quinshon Judkins",
-   "pos": "RB",
-   "pro": "CLE",
-   "adp": 68.48,
-   "bye": "11",
-   "pos_rank": "RB21",
-   "ranks": {
-    "espn": 40,
-    "adp": 68.48,
-    "fantasypros": 63,
-    "fantasycalc": 54,
-    "sleeper": 63
-   },
-   "consensus_rank": 57.7,
-   "sources": 5
-  },
-  {
    "name": "Jaylen Warren",
    "pos": "RB",
    "pro": "PIT",
-   "adp": 75.85,
+   "adp": 76.16,
    "bye": "9",
    "pos_rank": "RB13",
    "ranks": {
     "espn": 88,
-    "adp": 75.85,
+    "adp": 76.16,
     "fantasypros": 27,
-    "fantasycalc": 33,
+    "fantasycalc": 32,
     "sleeper": 70
    },
-   "consensus_rank": 58.8,
-   "sources": 5
-  },
-  {
-   "name": "Josh Jacobs",
-   "pos": "RB",
-   "pro": "GB",
-   "adp": 80.18,
-   "bye": "11",
-   "pos_rank": "RB22",
-   "ranks": {
-    "espn": 92,
-    "adp": 80.18,
-    "fantasypros": 69,
-    "fantasycalc": 32,
-    "sleeper": 28
-   },
-   "consensus_rank": 60.2,
-   "sources": 5
-  },
-  {
-   "name": "Ladd McConkey",
-   "pos": "WR",
-   "pro": "LAC",
-   "adp": 85.31,
-   "bye": "7",
-   "pos_rank": "WR30",
-   "ranks": {
-    "espn": 41,
-    "adp": 85.31,
-    "fantasypros": 59,
-    "fantasycalc": 76,
-    "sleeper": 42
-   },
-   "consensus_rank": 60.7,
+   "consensus_rank": 58.6,
    "sources": 5
   },
   {
    "name": "Jayden Daniels",
    "pos": "QB",
    "pro": "WSH",
-   "adp": 55.72,
+   "adp": 55.53,
    "bye": "7",
    "pos_rank": "QB13",
    "ranks": {
     "espn": 56,
-    "adp": 55.72,
+    "adp": 55.53,
     "fantasypros": 89,
-    "fantasycalc": 70,
+    "fantasycalc": 68,
     "sleeper": 33
    },
-   "consensus_rank": 60.7,
+   "consensus_rank": 60.3,
+   "sources": 5
+  },
+  {
+   "name": "Josh Jacobs",
+   "pos": "RB",
+   "pro": "GB",
+   "adp": 80.33,
+   "bye": "11",
+   "pos_rank": "RB22",
+   "ranks": {
+    "espn": 92,
+    "adp": 80.33,
+    "fantasypros": 69,
+    "fantasycalc": 33,
+    "sleeper": 28
+   },
+   "consensus_rank": 60.5,
    "sources": 5
   },
   {
    "name": "Cam Skattebo",
    "pos": "RB",
    "pro": "NYG",
-   "adp": 75.03,
+   "adp": 75.16,
    "bye": "8",
    "pos_rank": "RB23",
    "ranks": {
     "espn": 46,
-    "adp": 75.03,
+    "adp": 75.16,
     "fantasypros": 70,
-    "fantasycalc": 66,
+    "fantasycalc": 64,
     "sleeper": 48
    },
-   "consensus_rank": 61.0,
+   "consensus_rank": 60.6,
    "sources": 5
   },
   {
    "name": "Parker Washington",
    "pos": "WR",
    "pro": "JAX",
-   "adp": 67.12,
+   "adp": 67.66,
    "bye": "7",
    "pos_rank": "WR13",
    "ranks": {
     "espn": 87,
-    "adp": 67.12,
+    "adp": 67.66,
     "fantasypros": 26,
     "fantasycalc": 34,
     "sleeper": 91
    },
-   "consensus_rank": 61.0,
+   "consensus_rank": 61.1,
+   "sources": 5
+  },
+  {
+   "name": "Ladd McConkey",
+   "pos": "WR",
+   "pro": "LAC",
+   "adp": 85.07,
+   "bye": "7",
+   "pos_rank": "WR30",
+   "ranks": {
+    "espn": 41,
+    "adp": 85.07,
+    "fantasypros": 59,
+    "fantasycalc": 79,
+    "sleeper": 42
+   },
+   "consensus_rank": 61.2,
    "sources": 5
   },
   {
    "name": "Jameson Williams",
    "pos": "WR",
    "pro": "DET",
-   "adp": 79.21,
+   "adp": 79.43,
    "bye": "6",
    "pos_rank": "WR24",
    "ranks": {
     "espn": 54,
-    "adp": 79.21,
+    "adp": 79.43,
     "fantasypros": 48,
-    "fantasycalc": 64,
+    "fantasycalc": 66,
     "sleeper": 71
    },
-   "consensus_rank": 63.2,
-   "sources": 5
-  },
-  {
-   "name": "Caleb Williams",
-   "pos": "QB",
-   "pro": "CHI",
-   "adp": 83.83,
-   "bye": "10",
-   "pos_rank": "QB7",
-   "ranks": {
-    "espn": 104,
-    "adp": 83.83,
-    "fantasypros": 58,
-    "fantasycalc": 49,
-    "sleeper": 27
-   },
-   "consensus_rank": 64.4,
+   "consensus_rank": 63.7,
    "sources": 5
   },
   {
    "name": "DJ Moore",
    "pos": "WR",
    "pro": "BUF",
-   "adp": 90.9,
+   "adp": 90.45,
    "bye": "7",
    "pos_rank": "WR29",
    "ranks": {
     "espn": 52,
-    "adp": 90.9,
+    "adp": 90.45,
     "fantasypros": 53,
-    "fantasycalc": 61,
+    "fantasycalc": 57,
     "sleeper": 68
    },
-   "consensus_rank": 65.0,
+   "consensus_rank": 64.1,
    "sources": 5
   },
   {
-   "name": "George Kittle",
-   "pos": "TE",
-   "pro": "SF",
-   "adp": 53.52,
-   "bye": "8",
-   "pos_rank": "TE3",
+   "name": "Caleb Williams",
+   "pos": "QB",
+   "pro": "CHI",
+   "adp": 83.8,
+   "bye": "10",
+   "pos_rank": "QB7",
    "ranks": {
-    "espn": 79,
-    "adp": 53.52,
-    "fantasypros": 55,
-    "fantasycalc": 38,
-    "sleeper": 105
+    "espn": 104,
+    "adp": 83.8,
+    "fantasypros": 58,
+    "fantasycalc": 48,
+    "sleeper": 27
    },
-   "consensus_rank": 66.1,
+   "consensus_rank": 64.2,
    "sources": 5
   },
   {
    "name": "Mike Evans",
    "pos": "WR",
    "pro": "SF",
-   "adp": 93.43,
+   "adp": 93.68,
    "bye": "8",
    "pos_rank": "WR22",
    "ranks": {
     "espn": 68,
-    "adp": 93.43,
+    "adp": 93.68,
     "fantasypros": 46,
-    "fantasycalc": 48,
+    "fantasycalc": 47,
     "sleeper": 77
+   },
+   "consensus_rank": 66.3,
+   "sources": 5
+  },
+  {
+   "name": "George Kittle",
+   "pos": "TE",
+   "pro": "SF",
+   "adp": 53.6,
+   "bye": "8",
+   "pos_rank": "TE3",
+   "ranks": {
+    "espn": 79,
+    "adp": 53.6,
+    "fantasypros": 55,
+    "fantasycalc": 40,
+    "sleeper": 105
    },
    "consensus_rank": 66.5,
    "sources": 5
@@ -1008,112 +1008,129 @@
    "name": "Tyler Warren",
    "pos": "TE",
    "pro": "IND",
-   "adp": 67.36,
+   "adp": 67.13,
    "bye": "13",
    "pos_rank": "TE8",
    "ranks": {
     "espn": 53,
-    "adp": 67.36,
+    "adp": 67.13,
     "fantasypros": 93,
-    "fantasycalc": 57,
+    "fantasycalc": 59,
     "sleeper": 67
    },
-   "consensus_rank": 67.5,
+   "consensus_rank": 67.8,
    "sources": 5
   },
   {
    "name": "Jaylen Waddle",
    "pos": "WR",
    "pro": "DEN",
-   "adp": 95.52,
+   "adp": 95.49,
    "bye": "10",
    "pos_rank": "WR28",
    "ranks": {
     "espn": 49,
-    "adp": 95.52,
+    "adp": 95.49,
     "fantasypros": 52,
-    "fantasycalc": 86,
+    "fantasycalc": 85,
     "sleeper": 58
    },
-   "consensus_rank": 68.1,
+   "consensus_rank": 67.9,
    "sources": 5
   },
   {
    "name": "Travis Etienne Jr.",
    "pos": "RB",
    "pro": "NO",
-   "adp": 80.12,
+   "adp": 80.08,
    "bye": "8",
    "pos_rank": "RB31",
    "ranks": {
     "espn": 35,
-    "adp": 80.12,
+    "adp": 80.08,
     "fantasypros": 110,
-    "fantasycalc": 73,
+    "fantasycalc": 71,
     "sleeper": 44
    },
-   "consensus_rank": 68.4,
+   "consensus_rank": 68.0,
    "sources": 5
   },
   {
    "name": "Chuba Hubbard",
    "pos": "RB",
    "pro": "CAR",
-   "adp": 75.18,
+   "adp": 75.49,
    "bye": "5",
    "pos_rank": "RB15",
    "ranks": {
     "espn": 110,
-    "adp": 75.18,
+    "adp": 75.49,
     "fantasypros": 41,
-    "fantasycalc": 28,
+    "fantasycalc": 30,
     "sleeper": 89
    },
-   "consensus_rank": 68.6,
+   "consensus_rank": 69.1,
    "sources": 5
   },
   {
    "name": "Brock Purdy",
    "pos": "QB",
    "pro": "SF",
-   "adp": 66.15,
+   "adp": 66.42,
    "bye": "8",
    "pos_rank": "QB3",
    "ranks": {
     "espn": 118,
-    "adp": 66.15,
+    "adp": 66.42,
     "fantasypros": 37,
-    "fantasycalc": 56,
+    "fantasycalc": 52,
     "sleeper": 73
    },
-   "consensus_rank": 70.0,
+   "consensus_rank": 69.3,
    "sources": 5
   },
   {
    "name": "Jalen Hurts",
    "pos": "QB",
    "pro": "PHI",
-   "adp": 102.66,
+   "adp": 102.7,
    "bye": null,
    "pos_rank": null,
    "ranks": {
     "espn": 73,
-    "adp": 102.66,
+    "adp": 102.7,
     "sleeper": 36
    },
    "consensus_rank": 70.6,
    "sources": 3
   },
   {
+   "name": "Rhamondre Stevenson",
+   "pos": "RB",
+   "pro": "NE",
+   "adp": 102.08,
+   "bye": "11",
+   "pos_rank": "RB20",
+   "ranks": {
+    "espn": 72,
+    "adp": 102.08,
+    "fantasypros": 62,
+    "fantasycalc": 56,
+    "sleeper": 76
+   },
+   "consensus_rank": 73.6,
+   "sources": 5
+  },
+  {
    "name": "Trevor Lawrence",
    "pos": "QB",
    "pro": "JAX",
-   "adp": 88.07,
+   "adp": 88.13,
    "bye": "7",
    "pos_rank": "QB6",
    "ranks": {
     "espn": 113,
-    "adp": 88.07,
+    "adp": 88.13,
     "fantasypros": 57,
     "fantasycalc": 51,
     "sleeper": 59
@@ -1125,80 +1142,63 @@
    "name": "Dak Prescott",
    "pos": "QB",
    "pro": "DAL",
-   "adp": 94.21,
+   "adp": 94.18,
    "bye": "14",
    "pos_rank": "QB9",
    "ranks": {
     "espn": 85,
-    "adp": 94.21,
+    "adp": 94.18,
     "fantasypros": 72,
-    "fantasycalc": 67,
+    "fantasycalc": 69,
     "sleeper": 51
    },
-   "consensus_rank": 73.8,
-   "sources": 5
-  },
-  {
-   "name": "Rhamondre Stevenson",
-   "pos": "RB",
-   "pro": "NE",
-   "adp": 101.78,
-   "bye": "11",
-   "pos_rank": "RB20",
-   "ranks": {
-    "espn": 72,
-    "adp": 101.78,
-    "fantasypros": 62,
-    "fantasycalc": 58,
-    "sleeper": 76
-   },
-   "consensus_rank": 74.0,
+   "consensus_rank": 74.2,
    "sources": 5
   },
   {
    "name": "Carnell Tate",
    "pos": "WR",
    "pro": "TEN",
-   "adp": 109.25,
+   "adp": 109.47,
    "bye": "9",
    "pos_rank": "WR26",
    "ranks": {
     "espn": 67,
-    "adp": 109.25,
+    "adp": 109.47,
     "fantasypros": 50,
-    "fantasycalc": 72,
+    "fantasycalc": 70,
     "sleeper": 78
    },
-   "consensus_rank": 75.2,
+   "consensus_rank": 74.9,
    "sources": 5
   },
   {
    "name": "Sam LaPorta",
    "pos": "TE",
    "pro": "DET",
-   "adp": 77.39,
+   "adp": 77.66,
    "bye": "6",
    "pos_rank": "TE5",
    "ranks": {
     "espn": 89,
-    "adp": 77.39,
+    "adp": 77.66,
     "fantasypros": 75,
-    "fantasycalc": 62,
+    "fantasycalc": 61,
     "sleeper": 75
    },
-   "consensus_rank": 75.7,
+   "consensus_rank": 75.5,
    "sources": 5
   },
   {
    "name": "Terry McLaurin",
    "pos": "WR",
    "pro": "WSH",
-   "adp": 107.23,
+   "adp": 107.34,
    "bye": null,
    "pos_rank": null,
    "ranks": {
     "espn": 51,
-    "adp": 107.23,
+    "adp": 107.34,
     "sleeper": 74
    },
    "consensus_rank": 77.4,
@@ -1208,114 +1208,97 @@
    "name": "Tony Pollard",
    "pos": "RB",
    "pro": "TEN",
-   "adp": 102.49,
+   "adp": 102.44,
    "bye": "9",
    "pos_rank": "RB24",
    "ranks": {
     "espn": 75,
-    "adp": 102.49,
+    "adp": 102.44,
     "fantasypros": 73,
-    "fantasycalc": 65,
+    "fantasycalc": 67,
     "sleeper": 82
    },
-   "consensus_rank": 79.5,
+   "consensus_rank": 79.9,
    "sources": 5
   },
   {
    "name": "Rome Odunze",
    "pos": "WR",
    "pro": "CHI",
-   "adp": 100.3,
+   "adp": 100.39,
    "bye": "10",
    "pos_rank": "WR34",
    "ranks": {
     "espn": 55,
-    "adp": 100.3,
+    "adp": 100.39,
     "fantasypros": 66,
-    "fantasycalc": 101,
+    "fantasycalc": 103,
     "sleeper": 87
    },
-   "consensus_rank": 81.9,
+   "consensus_rank": 82.3,
    "sources": 5
   },
   {
    "name": "DK Metcalf",
    "pos": "WR",
    "pro": "PIT",
-   "adp": 104.7,
+   "adp": 104.75,
    "bye": "9",
    "pos_rank": "WR33",
    "ranks": {
     "espn": 78,
-    "adp": 104.7,
+    "adp": 104.75,
     "fantasypros": 65,
-    "fantasycalc": 80,
+    "fantasycalc": 78,
     "sleeper": 96
    },
-   "consensus_rank": 84.7,
-   "sources": 5
-  },
-  {
-   "name": "David Montgomery",
-   "pos": "RB",
-   "pro": "HOU",
-   "adp": 112.43,
-   "bye": "8",
-   "pos_rank": "RB33",
-   "ranks": {
-    "espn": 60,
-    "adp": 112.43,
-    "fantasypros": 114,
-    "fantasycalc": 84,
-    "sleeper": 57
-   },
-   "consensus_rank": 85.5,
+   "consensus_rank": 84.3,
    "sources": 5
   },
   {
    "name": "Davante Adams",
    "pos": "WR",
    "pro": "LAR",
-   "adp": 89.7,
+   "adp": 89.73,
    "bye": "11",
    "pos_rank": "WR67",
    "ranks": {
     "espn": 45,
-    "adp": 89.7,
+    "adp": 89.73,
     "fantasypros": 150,
-    "fantasycalc": 78,
+    "fantasycalc": 76,
     "sleeper": 66
    },
-   "consensus_rank": 85.7,
+   "consensus_rank": 85.3,
    "sources": 5
   },
   {
-   "name": "Patrick Mahomes",
-   "pos": "QB",
-   "pro": "KC",
-   "adp": 100.01,
-   "bye": "5",
-   "pos_rank": "QB11",
+   "name": "David Montgomery",
+   "pos": "RB",
+   "pro": "HOU",
+   "adp": 112.46,
+   "bye": "8",
+   "pos_rank": "RB33",
    "ranks": {
-    "espn": 131,
-    "adp": 100.01,
-    "fantasypros": 79,
-    "fantasycalc": 77,
-    "sleeper": 53
+    "espn": 60,
+    "adp": 112.46,
+    "fantasypros": 114,
+    "fantasycalc": 86,
+    "sleeper": 57
    },
-   "consensus_rank": 88.0,
+   "consensus_rank": 85.9,
    "sources": 5
   },
   {
    "name": "Michael Wilson",
    "pos": "WR",
    "pro": "ARI",
-   "adp": 114.77,
+   "adp": 115.0,
    "bye": "14",
    "pos_rank": "WR32",
    "ranks": {
     "espn": 100,
-    "adp": 114.77,
+    "adp": 115.0,
     "fantasypros": 64,
     "fantasycalc": 63,
     "sleeper": 100
@@ -1327,46 +1310,63 @@
    "name": "Tucker Kraft",
    "pos": "TE",
    "pro": "GB",
-   "adp": 97.54,
+   "adp": 97.53,
    "bye": "11",
    "pos_rank": "TE7",
    "ranks": {
     "espn": 109,
-    "adp": 97.54,
+    "adp": 97.53,
     "fantasypros": 87,
-    "fantasycalc": 69,
+    "fantasycalc": 73,
     "sleeper": 86
    },
-   "consensus_rank": 89.7,
+   "consensus_rank": 90.5,
+   "sources": 5
+  },
+  {
+   "name": "Patrick Mahomes",
+   "pos": "QB",
+   "pro": "KC",
+   "adp": 99.92,
+   "bye": "5",
+   "pos_rank": "QB11",
+   "ranks": {
+    "espn": 131,
+    "adp": 99.92,
+    "fantasypros": 79,
+    "fantasycalc": 91,
+    "sleeper": 53
+   },
+   "consensus_rank": 90.8,
    "sources": 5
   },
   {
    "name": "Matthew Golden",
    "pos": "WR",
    "pro": "GB",
-   "adp": 82.04,
+   "adp": 82.26,
    "bye": "11",
    "pos_rank": "WR18",
    "ranks": {
     "espn": 123,
-    "adp": 82.04,
+    "adp": 82.26,
     "fantasypros": 35,
-    "fantasycalc": 42,
+    "fantasycalc": 45,
     "sleeper": 169
    },
-   "consensus_rank": 90.2,
+   "consensus_rank": 90.9,
    "sources": 5
   },
   {
    "name": "Jaxson Dart",
    "pos": "QB",
    "pro": "NYG",
-   "adp": 123.24,
+   "adp": 123.15,
    "bye": null,
    "pos_rank": null,
    "ranks": {
     "espn": 91,
-    "adp": 123.24,
+    "adp": 123.15,
     "sleeper": 60
    },
    "consensus_rank": 91.4,
@@ -1376,80 +1376,97 @@
    "name": "TreVeyon Henderson",
    "pos": "RB",
    "pro": "NE",
-   "adp": 119.89,
+   "adp": 120.02,
    "bye": "11",
    "pos_rank": "RB36",
    "ranks": {
     "espn": 66,
-    "adp": 119.89,
+    "adp": 120.02,
     "fantasypros": 129,
-    "fantasycalc": 99,
+    "fantasycalc": 101,
     "sleeper": 52
    },
-   "consensus_rank": 93.2,
+   "consensus_rank": 93.6,
    "sources": 5
   },
   {
    "name": "Harold Fannin Jr.",
    "pos": "TE",
    "pro": "CLE",
-   "adp": 100.69,
+   "adp": 100.65,
    "bye": "11",
    "pos_rank": "TE10",
    "ranks": {
     "espn": 76,
-    "adp": 100.69,
+    "adp": 100.65,
     "fantasypros": 106,
-    "fantasycalc": 107,
+    "fantasycalc": 110,
     "sleeper": 83
    },
-   "consensus_rank": 94.5,
+   "consensus_rank": 95.1,
    "sources": 5
   },
   {
    "name": "Jared Goff",
    "pos": "QB",
    "pro": "DET",
-   "adp": 107.27,
+   "adp": 107.59,
    "bye": "6",
    "pos_rank": "QB8",
    "ranks": {
     "espn": 159,
-    "adp": 107.27,
+    "adp": 107.59,
     "fantasypros": 61,
-    "fantasycalc": 71,
+    "fantasycalc": 72,
     "sleeper": 79
    },
-   "consensus_rank": 95.5,
+   "consensus_rank": 95.7,
    "sources": 5
   },
   {
    "name": "Kyle Pitts Sr.",
    "pos": "TE",
    "pro": "ATL",
-   "adp": 99.45,
+   "adp": 99.57,
    "bye": "11",
    "pos_rank": "TE14",
    "ranks": {
     "espn": 77,
-    "adp": 99.45,
+    "adp": 99.57,
     "fantasypros": 116,
-    "fantasycalc": 97,
+    "fantasycalc": 96,
     "sleeper": 92
    },
-   "consensus_rank": 96.3,
+   "consensus_rank": 96.1,
+   "sources": 5
+  },
+  {
+   "name": "Marvin Harrison Jr.",
+   "pos": "WR",
+   "pro": "HOU",
+   "adp": 121.05,
+   "bye": "8",
+   "pos_rank": "WR49",
+   "ranks": {
+    "espn": 69,
+    "adp": 121.05,
+    "fantasypros": 98,
+    "fantasycalc": 106,
+    "sleeper": 98
+   },
+   "consensus_rank": 98.4,
    "sources": 5
   },
   {
    "name": "Stefon Diggs",
    "pos": "WR",
    "pro": "WSH",
-   "adp": 110.36,
+   "adp": 110.56,
    "bye": "7",
    "pos_rank": "WR27",
    "ranks": {
     "espn": 107,
-    "adp": 110.36,
+    "adp": 110.56,
     "fantasypros": 51,
     "fantasycalc": 75,
     "sleeper": 149
@@ -1458,168 +1475,151 @@
    "sources": 5
   },
   {
-   "name": "Marvin Harrison Jr.",
-   "pos": "WR",
-   "pro": "HOU",
-   "adp": 121.01,
-   "bye": "8",
-   "pos_rank": "WR49",
-   "ranks": {
-    "espn": 69,
-    "adp": 121.01,
-    "fantasypros": 98,
-    "fantasycalc": 110,
-    "sleeper": 98
-   },
-   "consensus_rank": 99.2,
-   "sources": 5
-  },
-  {
    "name": "Isaiah Likely",
    "pos": "TE",
    "pro": "NYG",
-   "adp": 79.66,
+   "adp": 80.14,
    "bye": "8",
    "pos_rank": "TE6",
    "ranks": {
     "espn": 142,
-    "adp": 79.66,
+    "adp": 80.14,
     "fantasypros": 77,
-    "fantasycalc": 53,
+    "fantasycalc": 58,
     "sleeper": 147
    },
-   "consensus_rank": 99.7,
+   "consensus_rank": 100.8,
    "sources": 5
   },
   {
    "name": "Jadarian Price",
    "pos": "RB",
    "pro": "SEA",
-   "adp": 119.47,
+   "adp": 119.5,
    "bye": "11",
    "pos_rank": "RB43",
    "ranks": {
     "espn": 62,
-    "adp": 119.47,
+    "adp": 119.5,
     "fantasypros": 168,
-    "fantasycalc": 85,
+    "fantasycalc": 89,
     "sleeper": 69
    },
-   "consensus_rank": 100.7,
+   "consensus_rank": 101.5,
    "sources": 5
   },
   {
    "name": "Matthew Stafford",
    "pos": "QB",
    "pro": "LAR",
-   "adp": 121.08,
+   "adp": 121.15,
    "bye": "11",
    "pos_rank": "QB12",
    "ranks": {
     "espn": 137,
-    "adp": 121.08,
+    "adp": 121.15,
     "fantasypros": 86,
-    "fantasycalc": 93,
+    "fantasycalc": 97,
     "sleeper": 84
    },
-   "consensus_rank": 104.2,
+   "consensus_rank": 105.0,
    "sources": 5
   },
   {
    "name": "Travis Kelce",
    "pos": "TE",
    "pro": "KC",
-   "adp": 102.87,
+   "adp": 102.94,
    "bye": "5",
    "pos_rank": "TE9",
    "ranks": {
     "espn": 122,
-    "adp": 102.87,
+    "adp": 102.94,
     "fantasypros": 101,
-    "fantasycalc": 83,
+    "fantasycalc": 82,
     "sleeper": 118
    },
-   "consensus_rank": 105.4,
+   "consensus_rank": 105.2,
    "sources": 5
   },
   {
    "name": "Kyle Monangai",
    "pos": "RB",
    "pro": "CHI",
-   "adp": 133.11,
+   "adp": 133.27,
    "bye": "10",
    "pos_rank": "RB30",
    "ranks": {
     "espn": 121,
-    "adp": 133.11,
+    "adp": 133.27,
     "fantasypros": 109,
-    "fantasycalc": 92,
+    "fantasycalc": 90,
     "sleeper": 80
    },
-   "consensus_rank": 107.0,
+   "consensus_rank": 106.7,
    "sources": 5
   },
   {
    "name": "Jakobi Meyers",
    "pos": "WR",
    "pro": "JAX",
-   "adp": 133.63,
+   "adp": 133.6,
    "bye": "7",
    "pos_rank": "WR38",
    "ranks": {
     "espn": 111,
-    "adp": 133.63,
+    "adp": 133.6,
     "fantasypros": 76,
-    "fantasycalc": 122,
+    "fantasycalc": 120,
     "sleeper": 103
    },
-   "consensus_rank": 109.1,
-   "sources": 5
-  },
-  {
-   "name": "Courtland Sutton",
-   "pos": "WR",
-   "pro": "DEN",
-   "adp": 127.29,
-   "bye": "10",
-   "pos_rank": "WR44",
-   "ranks": {
-    "espn": 80,
-    "adp": 127.29,
-    "fantasypros": 88,
-    "fantasycalc": 159,
-    "sleeper": 95
-   },
-   "consensus_rank": 109.9,
+   "consensus_rank": 108.7,
    "sources": 5
   },
   {
    "name": "Blake Corum",
    "pos": "RB",
    "pro": "LAR",
-   "adp": 134.67,
+   "adp": 134.97,
    "bye": "11",
    "pos_rank": "RB28",
    "ranks": {
     "espn": 135,
-    "adp": 134.67,
+    "adp": 134.97,
     "fantasypros": 105,
-    "fantasycalc": 82,
+    "fantasycalc": 77,
     "sleeper": 93
    },
-   "consensus_rank": 109.9,
+   "consensus_rank": 109.0,
+   "sources": 5
+  },
+  {
+   "name": "Courtland Sutton",
+   "pos": "WR",
+   "pro": "DEN",
+   "adp": 127.24,
+   "bye": "10",
+   "pos_rank": "WR44",
+   "ranks": {
+    "espn": 80,
+    "adp": 127.24,
+    "fantasypros": 88,
+    "fantasycalc": 158,
+    "sleeper": 95
+   },
+   "consensus_rank": 109.6,
    "sources": 5
   },
   {
    "name": "Aaron Jones Sr.",
    "pos": "RB",
    "pro": "MIN",
-   "adp": 125.03,
+   "adp": 125.11,
    "bye": "6",
    "pos_rank": "RB32",
    "ranks": {
     "espn": 116,
-    "adp": 125.03,
+    "adp": 125.11,
     "fantasypros": 113,
     "fantasycalc": 88,
     "sleeper": 110
@@ -1628,88 +1628,88 @@
    "sources": 5
   },
   {
-   "name": "Justin Herbert",
-   "pos": "QB",
-   "pro": "LAC",
-   "adp": 130.55,
-   "bye": "7",
-   "pos_rank": "QB25",
-   "ranks": {
-    "espn": 97,
-    "adp": 130.55,
-    "fantasypros": 165,
-    "fantasycalc": 142,
-    "sleeper": 45
-   },
-   "consensus_rank": 115.9,
-   "sources": 5
-  },
-  {
    "name": "Rico Dowdle",
    "pos": "RB",
    "pro": "PIT",
-   "adp": 135.49,
+   "adp": 135.48,
    "bye": "9",
    "pos_rank": "RB38",
    "ranks": {
     "espn": 106,
-    "adp": 135.49,
+    "adp": 135.48,
     "fantasypros": 145,
-    "fantasycalc": 105,
+    "fantasycalc": 104,
     "sleeper": 88
    },
-   "consensus_rank": 115.9,
-   "sources": 5
-  },
-  {
-   "name": "Jalen Coker",
-   "pos": "WR",
-   "pro": "CAR",
-   "adp": 112.0,
-   "bye": "5",
-   "pos_rank": "WR23",
-   "ranks": {
-    "espn": 152,
-    "adp": 112.0,
-    "fantasypros": 47,
-    "fantasycalc": 74,
-    "sleeper": 197
-   },
-   "consensus_rank": 116.4,
+   "consensus_rank": 115.7,
    "sources": 5
   },
   {
    "name": "Jordan Love",
    "pos": "QB",
    "pro": "GB",
-   "adp": 130.69,
+   "adp": 130.47,
    "bye": "11",
    "pos_rank": "QB10",
    "ranks": {
     "espn": 200,
-    "adp": 130.69,
+    "adp": 130.47,
     "fantasypros": 78,
-    "fantasycalc": 90,
+    "fantasycalc": 80,
     "sleeper": 90
    },
-   "consensus_rank": 117.7,
+   "consensus_rank": 115.7,
+   "sources": 5
+  },
+  {
+   "name": "Justin Herbert",
+   "pos": "QB",
+   "pro": "LAC",
+   "adp": 130.5,
+   "bye": "7",
+   "pos_rank": "QB25",
+   "ranks": {
+    "espn": 97,
+    "adp": 130.5,
+    "fantasypros": 165,
+    "fantasycalc": 144,
+    "sleeper": 45
+   },
+   "consensus_rank": 116.3,
+   "sources": 5
+  },
+  {
+   "name": "Jalen Coker",
+   "pos": "WR",
+   "pro": "CAR",
+   "adp": 112.51,
+   "bye": "5",
+   "pos_rank": "WR23",
+   "ranks": {
+    "espn": 152,
+    "adp": 112.51,
+    "fantasypros": 47,
+    "fantasycalc": 74,
+    "sleeper": 197
+   },
+   "consensus_rank": 116.5,
    "sources": 5
   },
   {
    "name": "Wan'Dale Robinson",
    "pos": "WR",
    "pro": "TEN",
-   "adp": 130.17,
+   "adp": 130.18,
    "bye": "9",
    "pos_rank": "WR40",
    "ranks": {
     "espn": 93,
-    "adp": 130.17,
+    "adp": 130.18,
     "fantasypros": 82,
-    "fantasycalc": 135,
+    "fantasycalc": 136,
     "sleeper": 150
    },
-   "consensus_rank": 118.0,
+   "consensus_rank": 118.2,
    "sources": 5
   },
   {
@@ -1723,112 +1723,27 @@
     "espn": 124,
     "adp": 145.18,
     "fantasypros": 83,
-    "fantasycalc": 129,
+    "fantasycalc": 128,
     "sleeper": 113
    },
-   "consensus_rank": 118.8,
+   "consensus_rank": 118.6,
    "sources": 5
   },
   {
    "name": "RJ Harvey",
    "pos": "RB",
    "pro": "DEN",
-   "adp": 143.8,
+   "adp": 144.03,
    "bye": "10",
    "pos_rank": "RB39",
    "ranks": {
     "espn": 130,
-    "adp": 143.8,
+    "adp": 144.03,
     "fantasypros": 147,
-    "fantasycalc": 102,
+    "fantasycalc": 100,
     "sleeper": 72
    },
-   "consensus_rank": 119.0,
-   "sources": 5
-  },
-  {
-   "name": "Dalton Kincaid",
-   "pos": "TE",
-   "pro": "BUF",
-   "adp": 142.48,
-   "bye": "7",
-   "pos_rank": "TE11",
-   "ranks": {
-    "espn": 153,
-    "adp": 142.48,
-    "fantasypros": 107,
-    "fantasycalc": 96,
-    "sleeper": 107
-   },
-   "consensus_rank": 121.1,
-   "sources": 5
-  },
-  {
-   "name": "Bo Nix",
-   "pos": "QB",
-   "pro": "DEN",
-   "adp": 136.89,
-   "bye": "10",
-   "pos_rank": "QB21",
-   "ranks": {
-    "espn": 136,
-    "adp": 136.89,
-    "fantasypros": 131,
-    "fantasycalc": 138,
-    "sleeper": 64
-   },
-   "consensus_rank": 121.2,
-   "sources": 5
-  },
-  {
-   "name": "Dallas Goedert",
-   "pos": "TE",
-   "pro": "PHI",
-   "adp": 130.34,
-   "bye": "10",
-   "pos_rank": "TE12",
-   "ranks": {
-    "espn": 129,
-    "adp": 130.34,
-    "fantasypros": 111,
-    "fantasycalc": 109,
-    "sleeper": 128
-   },
-   "consensus_rank": 121.5,
-   "sources": 5
-  },
-  {
-   "name": "Josh Downs",
-   "pos": "WR",
-   "pro": "IND",
-   "adp": 142.85,
-   "bye": "13",
-   "pos_rank": "WR36",
-   "ranks": {
-    "espn": 128,
-    "adp": 142.85,
-    "fantasypros": 68,
-    "fantasycalc": 112,
-    "sleeper": 157
-   },
-   "consensus_rank": 121.6,
-   "sources": 5
-  },
-  {
-   "name": "Jordan Mason",
-   "pos": "RB",
-   "pro": "MIN",
-   "adp": 150.65,
-   "bye": "6",
-   "pos_rank": "RB27",
-   "ranks": {
-    "espn": 160,
-    "adp": 150.65,
-    "fantasypros": 100,
-    "fantasycalc": 81,
-    "sleeper": 120
-   },
-   "consensus_rank": 122.3,
+   "consensus_rank": 118.6,
    "sources": 5
   },
   {
@@ -1842,39 +1757,141 @@
     "espn": 141,
     "adp": 151.3,
     "fantasypros": 84,
-    "fantasycalc": 116,
+    "fantasycalc": 107,
     "sleeper": 121
    },
-   "consensus_rank": 122.7,
+   "consensus_rank": 120.9,
+   "sources": 5
+  },
+  {
+   "name": "Bo Nix",
+   "pos": "QB",
+   "pro": "DEN",
+   "adp": 136.76,
+   "bye": "10",
+   "pos_rank": "QB21",
+   "ranks": {
+    "espn": 136,
+    "adp": 136.76,
+    "fantasypros": 131,
+    "fantasycalc": 137,
+    "sleeper": 64
+   },
+   "consensus_rank": 121.0,
+   "sources": 5
+  },
+  {
+   "name": "Dallas Goedert",
+   "pos": "TE",
+   "pro": "PHI",
+   "adp": 130.28,
+   "bye": "10",
+   "pos_rank": "TE12",
+   "ranks": {
+    "espn": 129,
+    "adp": 130.28,
+    "fantasypros": 111,
+    "fantasycalc": 111,
+    "sleeper": 128
+   },
+   "consensus_rank": 121.9,
+   "sources": 5
+  },
+  {
+   "name": "Dalton Kincaid",
+   "pos": "TE",
+   "pro": "BUF",
+   "adp": 142.33,
+   "bye": "7",
+   "pos_rank": "TE11",
+   "ranks": {
+    "espn": 153,
+    "adp": 142.33,
+    "fantasypros": 107,
+    "fantasycalc": 102,
+    "sleeper": 107
+   },
+   "consensus_rank": 122.3,
+   "sources": 5
+  },
+  {
+   "name": "Josh Downs",
+   "pos": "WR",
+   "pro": "IND",
+   "adp": 142.82,
+   "bye": "13",
+   "pos_rank": "WR36",
+   "ranks": {
+    "espn": 128,
+    "adp": 142.82,
+    "fantasypros": 68,
+    "fantasycalc": 118,
+    "sleeper": 157
+   },
+   "consensus_rank": 122.8,
+   "sources": 5
+  },
+  {
+   "name": "Jordan Mason",
+   "pos": "RB",
+   "pro": "MIN",
+   "adp": 150.95,
+   "bye": "6",
+   "pos_rank": "RB27",
+   "ranks": {
+    "espn": 160,
+    "adp": 150.95,
+    "fantasypros": 100,
+    "fantasycalc": 84,
+    "sleeper": 120
+   },
+   "consensus_rank": 123.0,
    "sources": 5
   },
   {
    "name": "Jordan Addison",
    "pos": "WR",
    "pro": "MIN",
-   "adp": 138.54,
+   "adp": 138.49,
    "bye": "6",
    "pos_rank": "WR45",
    "ranks": {
     "espn": 127,
-    "adp": 138.54,
+    "adp": 138.49,
     "fantasypros": 90,
-    "fantasycalc": 126,
+    "fantasycalc": 124,
     "sleeper": 138
    },
-   "consensus_rank": 123.9,
+   "consensus_rank": 123.5,
+   "sources": 5
+  },
+  {
+   "name": "Tyler Shough",
+   "pos": "QB",
+   "pro": "NO",
+   "adp": 150.22,
+   "bye": "8",
+   "pos_rank": "QB16",
+   "ranks": {
+    "espn": 155,
+    "adp": 150.22,
+    "fantasypros": 104,
+    "fantasycalc": 99,
+    "sleeper": 112
+   },
+   "consensus_rank": 124.0,
    "sources": 5
   },
   {
    "name": "Brian Thomas Jr.",
    "pos": "WR",
    "pro": "JAX",
-   "adp": 141.95,
+   "adp": 141.92,
    "bye": "7",
    "pos_rank": "WR56",
    "ranks": {
     "espn": 117,
-    "adp": 141.95,
+    "adp": 141.92,
     "fantasypros": 125,
     "fantasycalc": 141,
     "sleeper": 99
@@ -1883,105 +1900,88 @@
    "sources": 5
   },
   {
-   "name": "Tyler Shough",
-   "pos": "QB",
-   "pro": "NO",
-   "adp": 150.11,
-   "bye": "8",
-   "pos_rank": "QB16",
-   "ranks": {
-    "espn": 155,
-    "adp": 150.11,
-    "fantasypros": 104,
-    "fantasycalc": 104,
-    "sleeper": 112
-   },
-   "consensus_rank": 125.0,
-   "sources": 5
-  },
-  {
    "name": "J.K. Dobbins",
    "pos": "RB",
    "pro": "DEN",
-   "adp": 137.35,
+   "adp": 137.44,
    "bye": "10",
    "pos_rank": "RB41",
    "ranks": {
     "espn": 120,
-    "adp": 137.35,
+    "adp": 137.44,
     "fantasypros": 162,
-    "fantasycalc": 113,
+    "fantasycalc": 116,
     "sleeper": 94
    },
-   "consensus_rank": 125.3,
+   "consensus_rank": 125.9,
    "sources": 5
   },
   {
    "name": "KC Concepcion",
    "pos": "WR",
    "pro": "CLE",
-   "adp": 148.01,
+   "adp": 148.3,
    "bye": "11",
    "pos_rank": "WR37",
    "ranks": {
     "espn": 165,
-    "adp": 148.01,
+    "adp": 148.3,
     "fantasypros": 71,
-    "fantasycalc": 95,
+    "fantasycalc": 93,
     "sleeper": 158
    },
-   "consensus_rank": 127.4,
+   "consensus_rank": 127.1,
    "sources": 5
   },
   {
    "name": "Jordyn Tyson",
    "pos": "WR",
    "pro": "NO",
-   "adp": 166.33,
+   "adp": 166.4,
    "bye": "8",
    "pos_rank": "WR48",
    "ranks": {
     "espn": 218,
-    "adp": 166.33,
+    "adp": 166.4,
     "fantasypros": 97,
-    "fantasycalc": 91,
+    "fantasycalc": 92,
     "sleeper": 81
    },
-   "consensus_rank": 130.7,
-   "sources": 5
-  },
-  {
-   "name": "Rachaad White",
-   "pos": "RB",
-   "pro": "WSH",
-   "adp": 134.59,
-   "bye": "7",
-   "pos_rank": "RB35",
-   "ranks": {
-    "espn": 119,
-    "adp": 134.59,
-    "fantasypros": 124,
-    "fantasycalc": 103,
-    "sleeper": 180
-   },
-   "consensus_rank": 132.1,
+   "consensus_rank": 130.9,
    "sources": 5
   },
   {
    "name": "Khalil Shakir",
    "pos": "WR",
    "pro": "BUF",
-   "adp": 142.92,
+   "adp": 142.8,
    "bye": "7",
    "pos_rank": "WR46",
    "ranks": {
     "espn": 132,
-    "adp": 142.92,
+    "adp": 142.8,
     "fantasypros": 91,
-    "fantasycalc": 125,
+    "fantasycalc": 126,
     "sleeper": 172
    },
-   "consensus_rank": 132.6,
+   "consensus_rank": 132.8,
+   "sources": 5
+  },
+  {
+   "name": "Rachaad White",
+   "pos": "RB",
+   "pro": "WSH",
+   "adp": 134.76,
+   "bye": "7",
+   "pos_rank": "RB35",
+   "ranks": {
+    "espn": 119,
+    "adp": 134.76,
+    "fantasypros": 124,
+    "fantasycalc": 108,
+    "sleeper": 180
+   },
+   "consensus_rank": 133.2,
    "sources": 5
   },
   {
@@ -1995,124 +1995,124 @@
     "espn": 108,
     "adp": 140.5,
     "fantasypros": 148,
-    "fantasycalc": 144,
+    "fantasycalc": 147,
     "sleeper": 127
    },
-   "consensus_rank": 133.5,
+   "consensus_rank": 134.1,
    "sources": 5
   },
   {
    "name": "Kyler Murray",
    "pos": "QB",
    "pro": "MIN",
-   "adp": 148.05,
+   "adp": 147.91,
    "bye": "6",
    "pos_rank": "QB20",
    "ranks": {
     "espn": 149,
-    "adp": 148.05,
+    "adp": 147.91,
     "fantasypros": 123,
-    "fantasycalc": 137,
+    "fantasycalc": 138,
     "sleeper": 115
    },
-   "consensus_rank": 134.4,
+   "consensus_rank": 134.6,
    "sources": 5
   },
   {
    "name": "Xavier Worthy",
    "pos": "WR",
    "pro": "KC",
-   "adp": 143.32,
+   "adp": 143.28,
    "bye": "5",
    "pos_rank": "WR39",
    "ranks": {
     "espn": 150,
-    "adp": 143.32,
+    "adp": 143.28,
     "fantasypros": 81,
-    "fantasycalc": 134,
+    "fantasycalc": 133,
     "sleeper": 174
    },
-   "consensus_rank": 136.5,
+   "consensus_rank": 136.3,
    "sources": 5
   },
   {
    "name": "Woody Marks",
    "pos": "RB",
    "pro": "HOU",
-   "adp": 154.43,
+   "adp": 154.54,
    "bye": "8",
    "pos_rank": "RB29",
    "ranks": {
     "espn": 157,
-    "adp": 154.43,
+    "adp": 154.54,
     "fantasypros": 108,
-    "fantasycalc": 115,
+    "fantasycalc": 114,
     "sleeper": 148
    },
-   "consensus_rank": 136.5,
+   "consensus_rank": 136.3,
    "sources": 5
   },
   {
    "name": "Michael Pittman Jr.",
    "pos": "WR",
    "pro": "PIT",
-   "adp": 128.52,
+   "adp": 128.48,
    "bye": "9",
    "pos_rank": "WR64",
    "ranks": {
     "espn": 74,
-    "adp": 128.52,
+    "adp": 128.48,
     "fantasypros": 141,
-    "fantasycalc": 189,
+    "fantasycalc": 188,
     "sleeper": 151
    },
-   "consensus_rank": 136.7,
+   "consensus_rank": 136.5,
    "sources": 5
   },
   {
    "name": "Kenny Gainwell",
    "pos": "RB",
    "pro": "TB",
-   "adp": 132.52,
+   "adp": 132.48,
    "bye": "10",
    "pos_rank": "RB47",
    "ranks": {
     "espn": 90,
-    "adp": 132.52,
+    "adp": 132.48,
     "fantasypros": 184,
-    "fantasycalc": 173,
+    "fantasycalc": 169,
     "sleeper": 111
    },
-   "consensus_rank": 138.1,
+   "consensus_rank": 137.3,
    "sources": 5
   },
   {
    "name": "Jonah Coleman",
    "pos": "RB",
    "pro": "DEN",
-   "adp": 161.05,
+   "adp": 161.09,
    "bye": "10",
    "pos_rank": "RB34",
    "ranks": {
     "espn": 175,
-    "adp": 161.05,
+    "adp": 161.09,
     "fantasypros": 115,
-    "fantasycalc": 79,
+    "fantasycalc": 81,
     "sleeper": 168
    },
-   "consensus_rank": 139.6,
+   "consensus_rank": 140.0,
    "sources": 5
   },
   {
    "name": "Deebo Samuel Sr.",
    "pos": "WR",
    "pro": "SF",
-   "adp": 151.15,
+   "adp": 151.21,
    "bye": "8",
    "pos_rank": "WR51",
    "ranks": {
     "espn": 158,
-    "adp": 151.15,
+    "adp": 151.21,
     "fantasypros": 102,
     "fantasycalc": 98,
     "sleeper": 193
@@ -2124,12 +2124,12 @@
    "name": "Quentin Johnston",
    "pos": "WR",
    "pro": "LAC",
-   "adp": 156.18,
+   "adp": 156.1,
    "bye": "7",
    "pos_rank": "WR54",
    "ranks": {
     "espn": 143,
-    "adp": 156.18,
+    "adp": 156.1,
     "fantasypros": 118,
     "sleeper": 146
    },
@@ -2140,78 +2140,78 @@
    "name": "Zach Charbonnet",
    "pos": "RB",
    "pro": "SEA",
-   "adp": 142.32,
+   "adp": 142.35,
    "bye": "11",
    "pos_rank": "RB44",
    "ranks": {
     "espn": 170,
-    "adp": 142.32,
+    "adp": 142.35,
     "fantasypros": 170,
-    "fantasycalc": 89,
+    "fantasycalc": 87,
     "sleeper": 141
    },
-   "consensus_rank": 142.5,
-   "sources": 5
-  },
-  {
-   "name": "Mark Andrews",
-   "pos": "TE",
-   "pro": "BAL",
-   "adp": 147.76,
-   "bye": "13",
-   "pos_rank": "TE18",
-   "ranks": {
-    "espn": 147,
-    "adp": 147.76,
-    "fantasypros": 134,
-    "fantasycalc": 155,
-    "sleeper": 131
-   },
-   "consensus_rank": 143.0,
+   "consensus_rank": 142.1,
    "sources": 5
   },
   {
    "name": "Hunter Henry",
    "pos": "TE",
    "pro": "NE",
-   "adp": 145.82,
+   "adp": 145.98,
    "bye": "11",
    "pos_rank": "TE19",
    "ranks": {
     "espn": 192,
-    "adp": 145.82,
+    "adp": 145.98,
     "fantasypros": 138,
-    "fantasycalc": 118,
+    "fantasycalc": 113,
     "sleeper": 123
    },
-   "consensus_rank": 143.4,
+   "consensus_rank": 142.4,
+   "sources": 5
+  },
+  {
+   "name": "Mark Andrews",
+   "pos": "TE",
+   "pro": "BAL",
+   "adp": 147.73,
+   "bye": "13",
+   "pos_rank": "TE18",
+   "ranks": {
+    "espn": 147,
+    "adp": 147.73,
+    "fantasypros": 134,
+    "fantasycalc": 155,
+    "sleeper": 131
+   },
+   "consensus_rank": 142.9,
    "sources": 5
   },
   {
    "name": "Jayden Reed",
    "pos": "WR",
    "pro": "GB",
-   "adp": 158.27,
+   "adp": 158.24,
    "bye": null,
    "pos_rank": null,
    "ranks": {
     "espn": 145,
-    "adp": 158.27,
+    "adp": 158.24,
     "sleeper": 137
    },
-   "consensus_rank": 146.8,
+   "consensus_rank": 146.7,
    "sources": 3
   },
   {
    "name": "Jake Ferguson",
    "pos": "TE",
    "pro": "DAL",
-   "adp": 147.81,
+   "adp": 147.85,
    "bye": "14",
    "pos_rank": "TE22",
    "ranks": {
     "espn": 138,
-    "adp": 147.81,
+    "adp": 147.85,
     "fantasypros": 151,
     "fantasycalc": 168,
     "sleeper": 132
@@ -2223,119 +2223,119 @@
    "name": "Juwan Johnson",
    "pos": "TE",
    "pro": "NO",
-   "adp": 158.04,
+   "adp": 158.09,
    "bye": "8",
    "pos_rank": "TE15",
    "ranks": {
     "espn": 181,
-    "adp": 158.04,
+    "adp": 158.09,
     "fantasypros": 130,
-    "fantasycalc": 127,
+    "fantasycalc": 134,
     "sleeper": 142
    },
-   "consensus_rank": 147.6,
+   "consensus_rank": 149.0,
    "sources": 5
   },
   {
    "name": "Baker Mayfield",
    "pos": "QB",
    "pro": "TB",
-   "adp": 164.46,
+   "adp": 164.44,
    "bye": "10",
    "pos_rank": "QB26",
    "ranks": {
     "espn": 174,
-    "adp": 164.46,
+    "adp": 164.44,
     "fantasypros": 166,
-    "fantasycalc": 149,
+    "fantasycalc": 152,
     "sleeper": 101
    },
-   "consensus_rank": 150.9,
+   "consensus_rank": 151.5,
    "sources": 5
   },
   {
    "name": "Denzel Boston",
    "pos": "WR",
    "pro": "CLE",
-   "adp": 146.91,
+   "adp": 147.18,
    "bye": "11",
    "pos_rank": "WR35",
    "ranks": {
     "espn": 207,
-    "adp": 146.91,
+    "adp": 147.18,
     "fantasypros": 67,
-    "fantasycalc": 108,
+    "fantasycalc": 109,
     "sleeper": 228
    },
-   "consensus_rank": 151.4,
-   "sources": 5
-  },
-  {
-   "name": "MarShawn Lloyd",
-   "pos": "RB",
-   "pro": "GB",
-   "adp": 137.72,
-   "bye": "11",
-   "pos_rank": "RB53",
-   "ranks": {
-    "espn": 102,
-    "adp": 137.72,
-    "fantasypros": 209,
-    "fantasycalc": 182,
-    "sleeper": 135
-   },
-   "consensus_rank": 153.1,
+   "consensus_rank": 151.6,
    "sources": 5
   },
   {
    "name": "Jonathon Brooks",
    "pos": "RB",
    "pro": "CAR",
-   "adp": 135.98,
+   "adp": 135.97,
    "bye": "5",
    "pos_rank": "RB58",
    "ranks": {
     "espn": 95,
-    "adp": 135.98,
+    "adp": 135.97,
     "fantasypros": 229,
-    "fantasycalc": 193,
+    "fantasycalc": 191,
     "sleeper": 114
    },
-   "consensus_rank": 153.4,
+   "consensus_rank": 153.0,
+   "sources": 5
+  },
+  {
+   "name": "MarShawn Lloyd",
+   "pos": "RB",
+   "pro": "GB",
+   "adp": 137.7,
+   "bye": "11",
+   "pos_rank": "RB53",
+   "ranks": {
+    "espn": 102,
+    "adp": 137.7,
+    "fantasypros": 209,
+    "fantasycalc": 184,
+    "sleeper": 135
+   },
+   "consensus_rank": 153.5,
    "sources": 5
   },
   {
    "name": "T.J. Hockenson",
    "pos": "TE",
    "pro": "MIN",
-   "adp": 139.79,
+   "adp": 139.93,
    "bye": "6",
    "pos_rank": "TE17",
    "ranks": {
     "espn": 194,
-    "adp": 139.79,
+    "adp": 139.93,
     "fantasypros": 133,
-    "fantasycalc": 117,
+    "fantasycalc": 119,
     "sleeper": 188
    },
-   "consensus_rank": 154.4,
+   "consensus_rank": 154.8,
    "sources": 5
   },
   {
    "name": "Alvin Kamara",
    "pos": "RB",
    "pro": "NO",
-   "adp": 159.62,
+   "adp": 159.76,
    "bye": "8",
    "pos_rank": "RB40",
    "ranks": {
     "espn": 182,
-    "adp": 159.62,
+    "adp": 159.76,
     "fantasypros": 161,
-    "fantasycalc": 111,
+    "fantasycalc": 112,
     "sleeper": 171
    },
-   "consensus_rank": 156.9,
+   "consensus_rank": 157.2,
    "sources": 5
   },
   {
@@ -2359,111 +2359,128 @@
    "name": "Jacory Croskey-Merritt",
    "pos": "RB",
    "pro": "WSH",
-   "adp": 156.46,
+   "adp": 156.44,
    "bye": "7",
    "pos_rank": "RB54",
    "ranks": {
     "espn": 144,
-    "adp": 156.46,
+    "adp": 156.44,
     "fantasypros": 210,
-    "fantasycalc": 157,
+    "fantasycalc": 161,
     "sleeper": 130
    },
-   "consensus_rank": 159.5,
-   "sources": 5
-  },
-  {
-   "name": "C.J. Stroud",
-   "pos": "QB",
-   "pro": "HOU",
-   "adp": 151.9,
-   "bye": "8",
-   "pos_rank": "QB14",
-   "ranks": {
-    "espn": 296,
-    "adp": 151.9,
-    "fantasypros": 95,
-    "fantasycalc": 121,
-    "sleeper": 140
-   },
-   "consensus_rank": 160.8,
+   "consensus_rank": 160.3,
    "sources": 5
   },
   {
    "name": "Seahawks D/ST",
    "pos": "D/ST",
    "pro": "SEA",
-   "adp": 84.03,
+   "adp": 83.86,
    "bye": null,
    "pos_rank": null,
    "ranks": {
     "espn": 238,
-    "adp": 84.03
+    "adp": 83.86
    },
-   "consensus_rank": 161.0,
+   "consensus_rank": 160.9,
    "sources": 2
+  },
+  {
+   "name": "C.J. Stroud",
+   "pos": "QB",
+   "pro": "HOU",
+   "adp": 151.99,
+   "bye": "8",
+   "pos_rank": "QB14",
+   "ranks": {
+    "espn": 296,
+    "adp": 151.99,
+    "fantasypros": 95,
+    "fantasycalc": 123,
+    "sleeper": 140
+   },
+   "consensus_rank": 161.2,
+   "sources": 5
   },
   {
    "name": "Tyler Allgeier",
    "pos": "RB",
    "pro": "ARI",
-   "adp": 168.54,
+   "adp": 168.44,
    "bye": "14",
    "pos_rank": "RB48",
    "ranks": {
     "espn": 185,
-    "adp": 168.54,
+    "adp": 168.44,
     "fantasypros": 185,
-    "fantasycalc": 151,
+    "fantasycalc": 154,
     "sleeper": 116
    },
-   "consensus_rank": 161.1,
+   "consensus_rank": 161.7,
    "sources": 5
   },
   {
    "name": "De'Zhaun Stribling",
    "pos": "WR",
    "pro": "SF",
-   "adp": 158.98,
+   "adp": 158.99,
    "bye": "8",
    "pos_rank": "WR68",
    "ranks": {
     "espn": 148,
-    "adp": 158.98,
+    "adp": 158.99,
     "fantasypros": 156,
-    "fantasycalc": 188,
+    "fantasycalc": 189,
     "sleeper": 159
    },
-   "consensus_rank": 162.0,
+   "consensus_rank": 162.2,
    "sources": 5
   },
   {
    "name": "Brenton Strange",
    "pos": "TE",
    "pro": "JAX",
-   "adp": 155.54,
+   "adp": 155.61,
    "bye": "7",
    "pos_rank": "TE13",
    "ranks": {
     "espn": 288,
-    "adp": 155.54,
+    "adp": 155.61,
     "fantasypros": 112,
-    "fantasycalc": 114,
+    "fantasycalc": 115,
     "sleeper": 143
    },
-   "consensus_rank": 162.5,
+   "consensus_rank": 162.7,
+   "sources": 5
+  },
+  {
+   "name": "Braelon Allen",
+   "pos": "RB",
+   "pro": "NYJ",
+   "adp": 157.04,
+   "bye": "13",
+   "pos_rank": "RB37",
+   "ranks": {
+    "espn": 221,
+    "adp": 157.04,
+    "fantasypros": 144,
+    "fantasycalc": 94,
+    "sleeper": 200
+   },
+   "consensus_rank": 163.2,
    "sources": 5
   },
   {
    "name": "Brandon Aubrey",
    "pos": "K",
    "pro": "DAL",
-   "adp": 94.74,
+   "adp": 94.42,
    "bye": "14",
    "pos_rank": "K1",
    "ranks": {
     "espn": 255,
-    "adp": 94.74,
+    "adp": 94.42,
     "fantasypros": 187,
     "sleeper": 119
    },
@@ -2471,32 +2488,15 @@
    "sources": 4
   },
   {
-   "name": "Braelon Allen",
-   "pos": "RB",
-   "pro": "NYJ",
-   "adp": 157.1,
-   "bye": "13",
-   "pos_rank": "RB37",
-   "ranks": {
-    "espn": 221,
-    "adp": 157.1,
-    "fantasypros": 144,
-    "fantasycalc": 106,
-    "sleeper": 200
-   },
-   "consensus_rank": 165.6,
-   "sources": 5
-  },
-  {
    "name": "Malik Willis",
    "pos": "QB",
    "pro": "MIA",
-   "adp": 166.38,
+   "adp": 166.39,
    "bye": "6",
    "pos_rank": "QB17",
    "ranks": {
     "espn": 215,
-    "adp": 166.38,
+    "adp": 166.39,
     "fantasypros": 119,
     "fantasycalc": 156,
     "sleeper": 176
@@ -2508,122 +2508,139 @@
    "name": "Tre Tucker",
    "pos": "WR",
    "pro": "LV",
-   "adp": 144.92,
+   "adp": 145.33,
    "bye": "13",
    "pos_rank": "WR47",
    "ranks": {
     "espn": 219,
-    "adp": 144.92,
+    "adp": 145.33,
     "fantasypros": 92,
-    "fantasycalc": 94,
+    "fantasycalc": 95,
     "sleeper": 286
    },
-   "consensus_rank": 167.2,
+   "consensus_rank": 167.5,
    "sources": 5
   },
   {
    "name": "Texans D/ST",
    "pos": "D/ST",
    "pro": "HOU",
-   "adp": 103.08,
+   "adp": 102.93,
    "bye": null,
    "pos_rank": null,
    "ranks": {
     "espn": 233,
-    "adp": 103.08
+    "adp": 102.93
    },
    "consensus_rank": 168.0,
+   "sources": 2
+  },
+  {
+   "name": "Broncos D/ST",
+   "pos": "D/ST",
+   "pro": "DEN",
+   "adp": 103.06,
+   "bye": null,
+   "pos_rank": null,
+   "ranks": {
+    "espn": 234,
+    "adp": 103.06
+   },
+   "consensus_rank": 168.5,
    "sources": 2
   },
   {
    "name": "Brian Robinson Jr.",
    "pos": "RB",
    "pro": "ATL",
-   "adp": 167.63,
+   "adp": 167.6,
    "bye": "11",
    "pos_rank": "RB50",
    "ranks": {
     "espn": 203,
-    "adp": 167.63,
+    "adp": 167.6,
     "fantasypros": 199,
-    "fantasycalc": 169,
+    "fantasycalc": 170,
     "sleeper": 104
    },
-   "consensus_rank": 168.5,
+   "consensus_rank": 168.7,
    "sources": 5
-  },
-  {
-   "name": "Broncos D/ST",
-   "pos": "D/ST",
-   "pro": "DEN",
-   "adp": 103.22,
-   "bye": null,
-   "pos_rank": null,
-   "ranks": {
-    "espn": 234,
-    "adp": 103.22
-   },
-   "consensus_rank": 168.6,
-   "sources": 2
   },
   {
    "name": "Steelers D/ST",
    "pos": "D/ST",
    "pro": "PIT",
-   "adp": 103.63,
+   "adp": 103.39,
    "bye": null,
    "pos_rank": null,
    "ranks": {
     "espn": 235,
-    "adp": 103.63
+    "adp": 103.39
    },
-   "consensus_rank": 169.3,
+   "consensus_rank": 169.2,
    "sources": 2
   },
   {
    "name": "Bryce Young",
    "pos": "QB",
    "pro": "CAR",
-   "adp": 144.38,
+   "adp": 144.5,
    "bye": "5",
    "pos_rank": "QB15",
    "ranks": {
     "espn": 320,
-    "adp": 144.38,
+    "adp": 144.5,
     "fantasypros": 96,
-    "fantasycalc": 100,
+    "fantasycalc": 105,
     "sleeper": 198
    },
-   "consensus_rank": 171.7,
+   "consensus_rank": 172.7,
+   "sources": 5
+  },
+  {
+   "name": "Omar Cooper Jr.",
+   "pos": "WR",
+   "pro": "NYJ",
+   "adp": 152.05,
+   "bye": "13",
+   "pos_rank": "WR52",
+   "ranks": {
+    "espn": 309,
+    "adp": 152.05,
+    "fantasypros": 103,
+    "fantasycalc": 83,
+    "sleeper": 225
+   },
+   "consensus_rank": 174.4,
    "sources": 5
   },
   {
    "name": "Keenan Allen",
    "pos": "WR",
    "pro": "IND",
-   "adp": 165.88,
+   "adp": 165.92,
    "bye": "13",
    "pos_rank": "WR50",
    "ranks": {
     "espn": 198,
-    "adp": 165.88,
+    "adp": 165.92,
     "fantasypros": 99,
-    "fantasycalc": 132,
+    "fantasycalc": 131,
     "sleeper": 279
    },
-   "consensus_rank": 174.8,
+   "consensus_rank": 174.6,
    "sources": 5
   },
   {
    "name": "Sam Darnold",
    "pos": "QB",
    "pro": "SEA",
-   "adp": 165.67,
+   "adp": 165.59,
    "bye": "11",
    "pos_rank": "QB23",
    "ranks": {
     "espn": 297,
-    "adp": 165.67,
+    "adp": 165.59,
     "fantasypros": 149,
     "fantasycalc": 139,
     "sleeper": 125
@@ -2632,66 +2649,49 @@
    "sources": 5
   },
   {
-   "name": "Omar Cooper Jr.",
-   "pos": "WR",
-   "pro": "NYJ",
-   "adp": 151.51,
-   "bye": "13",
-   "pos_rank": "WR52",
-   "ranks": {
-    "espn": 309,
-    "adp": 151.51,
-    "fantasypros": 103,
-    "fantasycalc": 87,
-    "sleeper": 225
-   },
-   "consensus_rank": 175.1,
-   "sources": 5
-  },
-  {
    "name": "Kenyon Sadiq",
    "pos": "TE",
    "pro": "NYJ",
-   "adp": 166.4,
+   "adp": 166.43,
    "bye": "13",
    "pos_rank": "TE26",
    "ranks": {
     "espn": 226,
-    "adp": 166.4,
+    "adp": 166.43,
     "fantasypros": 159,
-    "fantasycalc": 175,
+    "fantasycalc": 179,
     "sleeper": 153
    },
-   "consensus_rank": 175.9,
+   "consensus_rank": 176.7,
    "sources": 5
   },
   {
    "name": "Mike Washington Jr.",
    "pos": "RB",
    "pro": "LV",
-   "adp": 168.87,
+   "adp": 168.88,
    "bye": "13",
    "pos_rank": "RB45",
    "ranks": {
     "espn": 197,
-    "adp": 168.87,
+    "adp": 168.88,
     "fantasypros": 175,
-    "fantasycalc": 165,
+    "fantasycalc": 166,
     "sleeper": 178
    },
-   "consensus_rank": 176.8,
+   "consensus_rank": 177.0,
    "sources": 5
   },
   {
    "name": "Tyjae Spears",
    "pos": "RB",
    "pro": "TEN",
-   "adp": 164.52,
+   "adp": 164.46,
    "bye": "9",
    "pos_rank": "RB56",
    "ranks": {
     "espn": 154,
-    "adp": 164.52,
+    "adp": 164.46,
     "fantasypros": 216,
     "fantasycalc": 190,
     "sleeper": 175
@@ -2703,45 +2703,29 @@
    "name": "Terrance Ferguson",
    "pos": "TE",
    "pro": "LAR",
-   "adp": 168.75,
+   "adp": 168.74,
    "bye": "11",
    "pos_rank": "TE20",
    "ranks": {
     "espn": 205,
-    "adp": 168.75,
+    "adp": 168.74,
     "fantasypros": 142,
-    "fantasycalc": 174,
+    "fantasycalc": 176,
     "sleeper": 212
    },
-   "consensus_rank": 180.3,
+   "consensus_rank": 180.7,
    "sources": 5
-  },
-  {
-   "name": "Travis Hunter",
-   "pos": "WR",
-   "pro": "JAX",
-   "adp": 153.56,
-   "bye": "7",
-   "pos_rank": "WR92",
-   "ranks": {
-    "espn": 187,
-    "adp": 153.56,
-    "fantasypros": 253,
-    "sleeper": 145
-   },
-   "consensus_rank": 184.6,
-   "sources": 4
   },
   {
    "name": "Rashid Shaheed",
    "pos": "WR",
    "pro": "SEA",
-   "adp": 167.57,
+   "adp": 167.58,
    "bye": "11",
    "pos_rank": "WR65",
    "ranks": {
     "espn": 206,
-    "adp": 167.57,
+    "adp": 167.58,
     "fantasypros": 146,
     "sleeper": 221
    },
@@ -2752,46 +2736,63 @@
    "name": "Dalton Schultz",
    "pos": "TE",
    "pro": "HOU",
-   "adp": 167.88,
+   "adp": 167.9,
    "bye": "8",
    "pos_rank": "TE21",
    "ranks": {
     "espn": 305,
-    "adp": 167.88,
+    "adp": 167.9,
     "fantasypros": 143,
-    "fantasycalc": 178,
+    "fantasycalc": 174,
     "sleeper": 136
    },
-   "consensus_rank": 186.0,
+   "consensus_rank": 185.2,
+   "sources": 5
+  },
+  {
+   "name": "Chris Rodriguez Jr.",
+   "pos": "RB",
+   "pro": "JAX",
+   "adp": 168.55,
+   "bye": "7",
+   "pos_rank": "RB55",
+   "ranks": {
+    "espn": 179,
+    "adp": 168.55,
+    "fantasypros": 214,
+    "fantasycalc": 187,
+    "sleeper": 181
+   },
+   "consensus_rank": 185.9,
    "sources": 5
   },
   {
    "name": "Rams D/ST",
    "pos": "D/ST",
    "pro": "LAR",
-   "adp": 132.69,
+   "adp": 132.68,
    "bye": null,
    "pos_rank": null,
    "ranks": {
     "espn": 240,
-    "adp": 132.69
+    "adp": 132.68
    },
    "consensus_rank": 186.3,
    "sources": 2
   },
   {
-   "name": "Chris Rodriguez Jr.",
-   "pos": "RB",
+   "name": "Travis Hunter",
+   "pos": "WR",
    "pro": "JAX",
-   "adp": 168.57,
+   "adp": 153.36,
    "bye": "7",
-   "pos_rank": "RB55",
+   "pos_rank": "WR92",
    "ranks": {
-    "espn": 179,
-    "adp": 168.57,
-    "fantasypros": 214,
-    "fantasycalc": 191,
-    "sleeper": 181
+    "espn": 187,
+    "adp": 153.36,
+    "fantasypros": 253,
+    "fantasycalc": 195,
+    "sleeper": 145
    },
    "consensus_rank": 186.7,
    "sources": 5
@@ -2800,119 +2801,102 @@
    "name": "Caleb Douglas",
    "pos": "WR",
    "pro": "MIA",
-   "adp": 165.8,
+   "adp": 165.89,
    "bye": "6",
    "pos_rank": "WR53",
    "ranks": {
     "espn": 214,
-    "adp": 165.8,
+    "adp": 165.89,
     "fantasypros": 117,
-    "fantasycalc": 136,
+    "fantasycalc": 132,
     "sleeper": 307
    },
-   "consensus_rank": 188.0,
+   "consensus_rank": 187.2,
    "sources": 5
   },
   {
    "name": "Daniel Jones",
    "pos": "QB",
    "pro": "IND",
-   "adp": 168.2,
+   "adp": 168.17,
    "bye": "13",
    "pos_rank": "QB30",
    "ranks": {
     "espn": 180,
-    "adp": 168.2,
+    "adp": 168.17,
     "fantasypros": 220,
-    "fantasycalc": 181,
+    "fantasycalc": 177,
     "sleeper": 194
    },
-   "consensus_rank": 188.6,
-   "sources": 5
-  },
-  {
-   "name": "Adonai Mitchell",
-   "pos": "WR",
-   "pro": "NYJ",
-   "adp": 169.52,
-   "bye": "13",
-   "pos_rank": "WR59",
-   "ranks": {
-    "espn": 213,
-    "adp": 169.52,
-    "fantasypros": 128,
-    "fantasycalc": 192,
-    "sleeper": 242
-   },
-   "consensus_rank": 188.9,
+   "consensus_rank": 187.8,
    "sources": 5
   },
   {
    "name": "Dylan Sampson",
    "pos": "RB",
    "pro": "CLE",
-   "adp": 169.14,
+   "adp": 169.11,
    "bye": "11",
    "pos_rank": "RB59",
    "ranks": {
     "espn": 189,
-    "adp": 169.14,
+    "adp": 169.11,
     "fantasypros": 230,
-    "fantasycalc": 167,
+    "fantasycalc": 163,
     "sleeper": 191
    },
-   "consensus_rank": 189.2,
+   "consensus_rank": 188.4,
+   "sources": 5
+  },
+  {
+   "name": "Adonai Mitchell",
+   "pos": "WR",
+   "pro": "NYJ",
+   "adp": 169.49,
+   "bye": "13",
+   "pos_rank": "WR59",
+   "ranks": {
+    "espn": 213,
+    "adp": 169.49,
+    "fantasypros": 128,
+    "fantasycalc": 194,
+    "sleeper": 242
+   },
+   "consensus_rank": 189.3,
    "sources": 5
   },
   {
    "name": "Ja'Kobi Lane",
    "pos": "WR",
    "pro": "BAL",
-   "adp": 167.74,
+   "adp": 167.79,
    "bye": "13",
    "pos_rank": "WR63",
    "ranks": {
     "espn": 294,
-    "adp": 167.74,
+    "adp": 167.79,
     "fantasypros": 140,
     "fantasycalc": 140,
     "sleeper": 217
    },
-   "consensus_rank": 191.7,
+   "consensus_rank": 191.8,
    "sources": 5
   },
   {
    "name": "Jason Myers",
    "pos": "K",
    "pro": "SEA",
-   "adp": 124.15,
+   "adp": 123.96,
    "bye": "11",
    "pos_rank": "K4",
    "ranks": {
     "espn": 259,
-    "adp": 124.15,
+    "adp": 123.96,
     "fantasypros": 202,
     "sleeper": 183
    },
    "consensus_rank": 192.0,
    "sources": 4
-  },
-  {
-   "name": "Germie Bernard",
-   "pos": "WR",
-   "pro": "PIT",
-   "adp": 156.98,
-   "bye": "9",
-   "pos_rank": "WR43",
-   "ranks": {
-    "espn": 300,
-    "adp": 156.98,
-    "fantasypros": 85,
-    "fantasycalc": 120,
-    "sleeper": 300
-   },
-   "consensus_rank": 192.4,
-   "sources": 5
   },
   {
    "name": "Keaton Mitchell",
@@ -2925,36 +2909,53 @@
     "espn": 190,
     "adp": 169.4,
     "fantasypros": 201,
-    "fantasycalc": 187,
+    "fantasycalc": 183,
     "sleeper": 219
    },
-   "consensus_rank": 193.3,
+   "consensus_rank": 192.5,
+   "sources": 5
+  },
+  {
+   "name": "Germie Bernard",
+   "pos": "WR",
+   "pro": "PIT",
+   "adp": 157.24,
+   "bye": "9",
+   "pos_rank": "WR43",
+   "ranks": {
+    "espn": 300,
+    "adp": 157.24,
+    "fantasypros": 85,
+    "fantasycalc": 121,
+    "sleeper": 300
+   },
+   "consensus_rank": 192.6,
    "sources": 5
   },
   {
    "name": "Ravens D/ST",
    "pos": "D/ST",
    "pro": "BAL",
-   "adp": 146.17,
+   "adp": 146.09,
    "bye": null,
    "pos_rank": null,
    "ranks": {
     "espn": 241,
-    "adp": 146.17
+    "adp": 146.09
    },
-   "consensus_rank": 193.6,
+   "consensus_rank": 193.5,
    "sources": 2
   },
   {
    "name": "Chig Okonkwo",
    "pos": "TE",
    "pro": "WSH",
-   "adp": 167.99,
+   "adp": 168.01,
    "bye": "7",
    "pos_rank": "TE16",
    "ranks": {
     "espn": 318,
-    "adp": 167.99,
+    "adp": 168.01,
     "fantasypros": 132,
     "fantasycalc": 146,
     "sleeper": 206
@@ -2966,12 +2967,12 @@
    "name": "Ka'imi Fairbairn",
    "pos": "K",
    "pro": "HOU",
-   "adp": 135.54,
+   "adp": 135.8,
    "bye": "8",
    "pos_rank": "K2",
    "ranks": {
     "espn": 265,
-    "adp": 135.54,
+    "adp": 135.8,
     "fantasypros": 189,
     "sleeper": 190
    },
@@ -2982,46 +2983,46 @@
    "name": "Devaughn Vele",
    "pos": "WR",
    "pro": "NO",
-   "adp": 163.21,
+   "adp": 163.39,
    "bye": "8",
    "pos_rank": "WR62",
    "ranks": {
     "espn": 229,
-    "adp": 163.21,
+    "adp": 163.39,
     "fantasypros": 139,
-    "fantasycalc": 124,
+    "fantasycalc": 122,
     "sleeper": 325
    },
-   "consensus_rank": 196.0,
+   "consensus_rank": 195.7,
    "sources": 5
   },
   {
    "name": "Antonio Williams",
    "pos": "WR",
    "pro": "WSH",
-   "adp": 169.04,
+   "adp": 169.07,
    "bye": "7",
    "pos_rank": "WR57",
    "ranks": {
     "espn": 337,
-    "adp": 169.04,
+    "adp": 169.07,
     "fantasypros": 126,
-    "fantasycalc": 128,
+    "fantasycalc": 129,
     "sleeper": 232
    },
-   "consensus_rank": 198.4,
+   "consensus_rank": 198.6,
    "sources": 5
   },
   {
    "name": "Eagles D/ST",
    "pos": "D/ST",
    "pro": "PHI",
-   "adp": 155.79,
+   "adp": 155.72,
    "bye": null,
    "pos_rank": null,
    "ranks": {
     "espn": 242,
-    "adp": 155.79
+    "adp": 155.72
    },
    "consensus_rank": 198.9,
    "sources": 2
@@ -3030,59 +3031,42 @@
    "name": "Cam Little",
    "pos": "K",
    "pro": "JAX",
-   "adp": 131.86,
+   "adp": 131.55,
    "bye": "7",
    "pos_rank": "K3",
    "ranks": {
     "espn": 275,
-    "adp": 131.86,
+    "adp": 131.55,
     "fantasypros": 190,
     "sleeper": 199
    },
-   "consensus_rank": 199.0,
+   "consensus_rank": 198.9,
    "sources": 4
   },
   {
    "name": "Browns D/ST",
    "pos": "D/ST",
    "pro": "CLE",
-   "adp": 155.9,
+   "adp": 155.88,
    "bye": null,
    "pos_rank": null,
    "ranks": {
     "espn": 244,
-    "adp": 155.9
+    "adp": 155.88
    },
    "consensus_rank": 199.9,
    "sources": 2
   },
   {
-   "name": "Emmett Johnson",
-   "pos": "RB",
-   "pro": "KC",
-   "adp": 169.09,
-   "bye": "5",
-   "pos_rank": "RB42",
-   "ranks": {
-    "espn": 345,
-    "adp": 169.09,
-    "fantasypros": 167,
-    "fantasycalc": 160,
-    "sleeper": 160
-   },
-   "consensus_rank": 200.2,
-   "sources": 5
-  },
-  {
    "name": "Cameron Dicker",
    "pos": "K",
    "pro": "LAC",
-   "adp": 131.63,
+   "adp": 131.42,
    "bye": "7",
    "pos_rank": "K13",
    "ranks": {
     "espn": 258,
-    "adp": 131.63,
+    "adp": 131.42,
     "fantasypros": 246,
     "sleeper": 166
    },
@@ -3090,15 +3074,32 @@
    "sources": 4
   },
   {
+   "name": "Emmett Johnson",
+   "pos": "RB",
+   "pro": "KC",
+   "adp": 169.08,
+   "bye": "5",
+   "pos_rank": "RB42",
+   "ranks": {
+    "espn": 345,
+    "adp": 169.08,
+    "fantasypros": 167,
+    "fantasycalc": 162,
+    "sleeper": 160
+   },
+   "consensus_rank": 200.6,
+   "sources": 5
+  },
+  {
    "name": "Patriots D/ST",
    "pos": "D/ST",
    "pro": "NE",
-   "adp": 155.44,
+   "adp": 155.47,
    "bye": null,
    "pos_rank": null,
    "ranks": {
     "espn": 246,
-    "adp": 155.44
+    "adp": 155.47
    },
    "consensus_rank": 200.7,
    "sources": 2
@@ -3107,17 +3108,17 @@
    "name": "Kaelon Black",
    "pos": "RB",
    "pro": "SF",
-   "adp": 167.72,
+   "adp": 167.73,
    "bye": "8",
    "pos_rank": "RB46",
    "ranks": {
     "espn": 292,
-    "adp": 167.72,
+    "adp": 167.73,
     "fantasypros": 182,
-    "fantasycalc": 130,
+    "fantasycalc": 127,
     "sleeper": 239
    },
-   "consensus_rank": 202.1,
+   "consensus_rank": 201.5,
    "sources": 5
   },
   {
@@ -3145,42 +3146,58 @@
     "espn": 228,
     "adp": 168.92,
     "fantasypros": 121,
-    "fantasycalc": 185,
+    "fantasycalc": 186,
     "sleeper": 315
    },
-   "consensus_rank": 203.6,
+   "consensus_rank": 203.8,
    "sources": 5
   },
   {
    "name": "Malik Washington",
    "pos": "WR",
    "pro": "MIA",
-   "adp": 166.62,
+   "adp": 166.64,
    "bye": "6",
    "pos_rank": "WR58",
    "ranks": {
     "espn": 312,
-    "adp": 166.62,
+    "adp": 166.64,
     "fantasypros": 127,
-    "fantasycalc": 147,
+    "fantasycalc": 145,
     "sleeper": 269
    },
-   "consensus_rank": 204.3,
+   "consensus_rank": 203.9,
    "sources": 5
   },
   {
    "name": "Lions D/ST",
    "pos": "D/ST",
    "pro": "DET",
-   "adp": 161.48,
+   "adp": 161.34,
    "bye": null,
    "pos_rank": null,
    "ranks": {
     "espn": 248,
-    "adp": 161.48
+    "adp": 161.34
    },
    "consensus_rank": 204.7,
    "sources": 2
+  },
+  {
+   "name": "Jerry Jeudy",
+   "pos": "WR",
+   "pro": "CLE",
+   "adp": 168.67,
+   "bye": "11",
+   "pos_rank": "WR80",
+   "ranks": {
+    "espn": 208,
+    "adp": 168.67,
+    "fantasypros": 208,
+    "sleeper": 236
+   },
+   "consensus_rank": 205.2,
+   "sources": 4
   },
   {
    "name": "AJ Barner",
@@ -3193,38 +3210,21 @@
     "espn": 319,
     "adp": 168.38,
     "fantasypros": 155,
-    "fantasycalc": 198,
     "sleeper": 184
    },
-   "consensus_rank": 204.9,
-   "sources": 5
-  },
-  {
-   "name": "Jerry Jeudy",
-   "pos": "WR",
-   "pro": "CLE",
-   "adp": 168.69,
-   "bye": "11",
-   "pos_rank": "WR80",
-   "ranks": {
-    "espn": 208,
-    "adp": 168.69,
-    "fantasypros": 208,
-    "sleeper": 236
-   },
-   "consensus_rank": 205.2,
+   "consensus_rank": 206.6,
    "sources": 4
   },
   {
    "name": "Jalen McMillan",
    "pos": "WR",
    "pro": "TB",
-   "adp": 167.75,
+   "adp": 167.74,
    "bye": "10",
    "pos_rank": "WR91",
    "ranks": {
     "espn": 167,
-    "adp": 167.75,
+    "adp": 167.74,
     "fantasypros": 249,
     "sleeper": 248
    },
@@ -3235,12 +3235,12 @@
    "name": "Chargers D/ST",
    "pos": "D/ST",
    "pro": "LAC",
-   "adp": 167.75,
+   "adp": 167.73,
    "bye": null,
    "pos_rank": null,
    "ranks": {
     "espn": 252,
-    "adp": 167.75
+    "adp": 167.73
    },
    "consensus_rank": 209.9,
    "sources": 2
@@ -3265,29 +3265,29 @@
    "name": "Emanuel Wilson",
    "pos": "RB",
    "pro": "SEA",
-   "adp": 167.15,
+   "adp": 167.2,
    "bye": "11",
    "pos_rank": "RB49",
    "ranks": {
     "espn": 358,
-    "adp": 167.15,
+    "adp": 167.2,
     "fantasypros": 198,
-    "fantasycalc": 119,
+    "fantasycalc": 117,
     "sleeper": 240
    },
-   "consensus_rank": 216.4,
+   "consensus_rank": 216.0,
    "sources": 5
   },
   {
    "name": "Jauan Jennings",
    "pos": "WR",
    "pro": "MIN",
-   "adp": 169.3,
+   "adp": 169.28,
    "bye": "6",
    "pos_rank": "WR84",
    "ranks": {
     "espn": 298,
-    "adp": 169.3,
+    "adp": 169.28,
     "fantasypros": 224,
     "sleeper": 177
    },
@@ -3298,12 +3298,12 @@
    "name": "Ryan Flournoy",
    "pos": "WR",
    "pro": "DAL",
-   "adp": 168.34,
+   "adp": 168.33,
    "bye": "14",
    "pos_rank": "WR69",
    "ranks": {
     "espn": 303,
-    "adp": 168.34,
+    "adp": 168.33,
     "fantasypros": 157,
     "fantasycalc": 150,
     "sleeper": 309
@@ -3315,29 +3315,29 @@
    "name": "Cam Ward",
    "pos": "QB",
    "pro": "TEN",
-   "adp": 169.02,
+   "adp": 168.97,
    "bye": "9",
    "pos_rank": "QB32",
    "ranks": {
     "espn": 321,
-    "adp": 169.02,
+    "adp": 168.97,
     "fantasypros": 267,
-    "fantasycalc": 170,
+    "fantasycalc": 171,
     "sleeper": 162
    },
-   "consensus_rank": 217.8,
+   "consensus_rank": 218.0,
    "sources": 5
   },
   {
    "name": "Tank Bigsby",
    "pos": "RB",
    "pro": "PHI",
-   "adp": 169.64,
+   "adp": 169.62,
    "bye": "10",
    "pos_rank": "RB66",
    "ranks": {
     "espn": 222,
-    "adp": 169.64,
+    "adp": 169.62,
     "fantasypros": 266,
     "sleeper": 216
    },
@@ -3348,12 +3348,12 @@
    "name": "Jake Bates",
    "pos": "K",
    "pro": "DET",
-   "adp": 158.1,
+   "adp": 158.02,
    "bye": "6",
    "pos_rank": "K8",
    "ranks": {
     "espn": 278,
-    "adp": 158.1,
+    "adp": 158.02,
     "fantasypros": 222,
     "sleeper": 220
    },
@@ -3380,45 +3380,45 @@
    "name": "Tank Dell",
    "pos": "WR",
    "pro": "HOU",
-   "adp": 160.28,
+   "adp": 160.4,
    "bye": "8",
    "pos_rank": "WR116",
    "ranks": {
     "espn": 169,
-    "adp": 160.28,
+    "adp": 160.4,
     "fantasypros": 323,
-    "fantasycalc": 158,
+    "fantasycalc": 157,
     "sleeper": 291
    },
-   "consensus_rank": 220.3,
+   "consensus_rank": 220.1,
    "sources": 5
   },
   {
    "name": "Will Reichard",
    "pos": "K",
    "pro": "MIN",
-   "adp": 104.06,
+   "adp": 104.51,
    "bye": "6",
    "pos_rank": "K11",
    "ranks": {
     "espn": 285,
-    "adp": 104.06,
+    "adp": 104.51,
     "fantasypros": 235,
     "sleeper": 257
    },
-   "consensus_rank": 220.3,
+   "consensus_rank": 220.4,
    "sources": 4
   },
   {
    "name": "Tyler Loop",
    "pos": "K",
    "pro": "BAL",
-   "adp": 161.86,
+   "adp": 161.85,
    "bye": "13",
    "pos_rank": "K7",
    "ranks": {
     "espn": 279,
-    "adp": 161.86,
+    "adp": 161.85,
     "fantasypros": 219,
     "sleeper": 222
    },
@@ -3429,12 +3429,12 @@
    "name": "Tre' Harris",
    "pos": "WR",
    "pro": "LAC",
-   "adp": 169.88,
+   "adp": 169.87,
    "bye": "7",
    "pos_rank": "WR60",
    "ranks": {
     "espn": 302,
-    "adp": 169.88,
+    "adp": 169.87,
     "fantasypros": 135,
     "sleeper": 276
    },
@@ -3445,12 +3445,12 @@
    "name": "Harrison Butker",
    "pos": "K",
    "pro": "KC",
-   "adp": 145.82,
+   "adp": 145.74,
    "bye": "5",
    "pos_rank": "K12",
    "ranks": {
     "espn": 272,
-    "adp": 145.82,
+    "adp": 145.74,
     "fantasypros": 237,
     "sleeper": 230
    },
@@ -3468,44 +3468,44 @@
     "espn": 313,
     "adp": 169.58,
     "fantasypros": 231,
-    "fantasycalc": 184,
+    "fantasycalc": 185,
     "sleeper": 211
    },
-   "consensus_rank": 221.7,
+   "consensus_rank": 221.9,
    "sources": 5
   },
   {
    "name": "Aaron Rodgers",
    "pos": "QB",
    "pro": "PIT",
-   "adp": 164.77,
+   "adp": 164.75,
    "bye": "9",
    "pos_rank": "QB19",
    "ranks": {
     "espn": 390,
-    "adp": 164.77,
+    "adp": 164.75,
     "fantasypros": 122,
-    "fantasycalc": 154,
+    "fantasycalc": 149,
     "sleeper": 289
    },
-   "consensus_rank": 224.0,
+   "consensus_rank": 222.9,
    "sources": 5
   },
   {
    "name": "Jacoby Brissett",
    "pos": "QB",
    "pro": "ARI",
-   "adp": 169.19,
+   "adp": 169.16,
    "bye": "14",
    "pos_rank": "QB27",
    "ranks": {
     "espn": 322,
-    "adp": 169.19,
+    "adp": 169.16,
     "fantasypros": 177,
-    "fantasycalc": 143,
+    "fantasycalc": 142,
     "sleeper": 317
    },
-   "consensus_rank": 225.6,
+   "consensus_rank": 225.4,
    "sources": 5
   },
   {
@@ -3528,12 +3528,12 @@
    "name": "Rashod Bateman",
    "pos": "WR",
    "pro": "BAL",
-   "adp": 168.75,
+   "adp": 168.77,
    "bye": "13",
    "pos_rank": "WR78",
    "ranks": {
     "espn": 227,
-    "adp": 168.75,
+    "adp": 168.77,
     "fantasypros": 197,
     "sleeper": 316
    },
@@ -3544,12 +3544,12 @@
    "name": "Pat Freiermuth",
    "pos": "TE",
    "pro": "PIT",
-   "adp": 164.32,
+   "adp": 164.31,
    "bye": "9",
    "pos_rank": "TE23",
    "ranks": {
     "espn": 304,
-    "adp": 164.32,
+    "adp": 164.31,
     "fantasypros": 152,
     "fantasycalc": 153,
     "sleeper": 365
@@ -3561,12 +3561,12 @@
    "name": "Ray Davis",
    "pos": "RB",
    "pro": "BUF",
-   "adp": 169.11,
+   "adp": 169.09,
    "bye": "7",
    "pos_rank": "RB63",
    "ranks": {
     "espn": 231,
-    "adp": 169.11,
+    "adp": 169.09,
     "fantasypros": 260,
     "sleeper": 254
    },
@@ -3577,12 +3577,12 @@
    "name": "Harrison Mevis",
    "pos": "K",
    "pro": "FA",
-   "adp": 154.01,
+   "adp": 153.84,
    "bye": null,
    "pos_rank": "K16",
    "ranks": {
     "espn": 262,
-    "adp": 154.01,
+    "adp": 153.84,
     "fantasypros": 269,
     "sleeper": 229
    },
@@ -3593,28 +3593,28 @@
    "name": "Eddy Pineiro",
    "pos": "K",
    "pro": "SF",
-   "adp": 159.84,
+   "adp": 159.77,
    "bye": "8",
    "pos_rank": "K9",
    "ranks": {
     "espn": 268,
-    "adp": 159.84,
+    "adp": 159.77,
     "fantasypros": 223,
     "sleeper": 265
    },
-   "consensus_rank": 229.0,
+   "consensus_rank": 228.9,
    "sources": 4
   },
   {
    "name": "Kayshon Boutte",
    "pos": "WR",
    "pro": "HOU",
-   "adp": 169.84,
+   "adp": 169.85,
    "bye": "8",
    "pos_rank": "WR75",
    "ranks": {
     "espn": 311,
-    "adp": 169.84,
+    "adp": 169.85,
     "fantasypros": 191,
     "sleeper": 245
    },
@@ -3625,46 +3625,46 @@
    "name": "Malachi Fields",
    "pos": "WR",
    "pro": "NYG",
-   "adp": 169.19,
+   "adp": 169.18,
    "bye": "8",
    "pos_rank": "WR72",
    "ranks": {
     "espn": 299,
-    "adp": 169.19,
+    "adp": 169.18,
     "fantasypros": 173,
-    "fantasycalc": 194,
+    "fantasycalc": 198,
     "sleeper": 312
    },
-   "consensus_rank": 229.4,
+   "consensus_rank": 230.2,
    "sources": 5
   },
   {
    "name": "Keon Coleman",
    "pos": "WR",
    "pro": "BUF",
-   "adp": 167.49,
+   "adp": 167.47,
    "bye": "7",
    "pos_rank": "WR71",
    "ranks": {
     "espn": 361,
-    "adp": 167.49,
+    "adp": 167.47,
     "fantasypros": 169,
-    "fantasycalc": 131,
+    "fantasycalc": 135,
     "sleeper": 320
    },
-   "consensus_rank": 229.7,
+   "consensus_rank": 230.5,
    "sources": 5
   },
   {
    "name": "Isiah Pacheco",
    "pos": "RB",
    "pro": "DET",
-   "adp": 167.41,
+   "adp": 167.36,
    "bye": "6",
    "pos_rank": "RB98",
    "ranks": {
     "espn": 173,
-    "adp": 167.41,
+    "adp": 167.36,
     "fantasypros": 359,
     "sleeper": 223
    },
@@ -3675,12 +3675,12 @@
    "name": "Jaylin Noel",
    "pos": "WR",
    "pro": "HOU",
-   "adp": 169.61,
+   "adp": 169.6,
    "bye": null,
    "pos_rank": null,
    "ranks": {
     "espn": 230,
-    "adp": 169.61,
+    "adp": 169.6,
     "sleeper": 294
    },
    "consensus_rank": 231.2,
@@ -3690,33 +3690,33 @@
    "name": "Tyrone Tracy Jr.",
    "pos": "RB",
    "pro": "NYG",
-   "adp": 169.59,
+   "adp": 169.6,
    "bye": "8",
    "pos_rank": "RB64",
    "ranks": {
     "espn": 351,
-    "adp": 169.59,
+    "adp": 169.6,
     "fantasypros": 261,
     "sleeper": 155
    },
-   "consensus_rank": 234.1,
+   "consensus_rank": 234.2,
    "sources": 4
   },
   {
    "name": "Geno Smith",
    "pos": "QB",
    "pro": "NYJ",
-   "adp": 169.1,
+   "adp": 169.08,
    "bye": "13",
    "pos_rank": "QB22",
    "ranks": {
     "espn": 388,
-    "adp": 169.1,
+    "adp": 169.08,
     "fantasypros": 137,
-    "fantasycalc": 152,
+    "fantasycalc": 151,
     "sleeper": 329
    },
-   "consensus_rank": 235.0,
+   "consensus_rank": 234.8,
    "sources": 5
   },
   {
@@ -3736,32 +3736,15 @@
    "sources": 4
   },
   {
-   "name": "Fernando Mendoza",
-   "pos": "QB",
-   "pro": "LV",
-   "adp": 169.22,
-   "bye": "13",
-   "pos_rank": "QB33",
-   "ranks": {
-    "espn": 389,
-    "adp": 169.22,
-    "fantasypros": 295,
-    "fantasycalc": 186,
-    "sleeper": 154
-   },
-   "consensus_rank": 238.6,
-   "sources": 5
-  },
-  {
    "name": "Cairo Santos",
    "pos": "K",
    "pro": "CHI",
-   "adp": 165.41,
+   "adp": 165.36,
    "bye": "10",
    "pos_rank": "K6",
    "ranks": {
     "espn": 281,
-    "adp": 165.41,
+    "adp": 165.36,
     "fantasypros": 217,
     "sleeper": 295
    },
@@ -3772,12 +3755,12 @@
    "name": "Cade Otton",
    "pos": "TE",
    "pro": "TB",
-   "adp": 169.89,
+   "adp": 169.88,
    "bye": "10",
    "pos_rank": "TE30",
    "ranks": {
     "espn": 377,
-    "adp": 169.89,
+    "adp": 169.88,
     "fantasypros": 195,
     "sleeper": 218
    },
@@ -3785,15 +3768,32 @@
    "sources": 4
   },
   {
+   "name": "Fernando Mendoza",
+   "pos": "QB",
+   "pro": "LV",
+   "adp": 169.23,
+   "bye": "13",
+   "pos_rank": "QB33",
+   "ranks": {
+    "espn": 389,
+    "adp": 169.23,
+    "fantasypros": 295,
+    "fantasycalc": 193,
+    "sleeper": 154
+   },
+   "consensus_rank": 240.0,
+   "sources": 5
+  },
+  {
    "name": "Evan McPherson",
    "pos": "K",
    "pro": "CIN",
-   "adp": 163.78,
+   "adp": 163.76,
    "bye": "6",
    "pos_rank": "K5",
    "ranks": {
     "espn": 366,
-    "adp": 163.78,
+    "adp": 163.76,
     "fantasypros": 206,
     "sleeper": 226
    },
@@ -3804,12 +3804,12 @@
    "name": "Chris Bell",
    "pos": "WR",
    "pro": "MIA",
-   "adp": 169.75,
+   "adp": 169.76,
    "bye": "6",
    "pos_rank": "WR70",
    "ranks": {
     "espn": 335,
-    "adp": 169.75,
+    "adp": 169.76,
     "fantasypros": 160,
     "sleeper": 304
    },
@@ -3820,12 +3820,12 @@
    "name": "Najee Harris",
    "pos": "RB",
    "pro": "FA",
-   "adp": 169.51,
+   "adp": 169.48,
    "bye": null,
    "pos_rank": "RB78",
    "ranks": {
     "espn": 232,
-    "adp": 169.51,
+    "adp": 169.48,
     "fantasypros": 310,
     "sleeper": 258
    },
@@ -3833,15 +3833,32 @@
    "sources": 4
   },
   {
+   "name": "Cooper Kupp",
+   "pos": "WR",
+   "pro": "SEA",
+   "adp": 166.58,
+   "bye": "11",
+   "pos_rank": "WR83",
+   "ranks": {
+    "espn": 325,
+    "adp": 166.58,
+    "fantasypros": 221,
+    "fantasycalc": 199,
+    "sleeper": 301
+   },
+   "consensus_rank": 242.5,
+   "sources": 5
+  },
+  {
    "name": "Chris Boswell",
    "pos": "K",
    "pro": "PIT",
-   "adp": 158.04,
+   "adp": 157.98,
    "bye": "9",
    "pos_rank": "K14",
    "ranks": {
     "espn": 343,
-    "adp": 158.04,
+    "adp": 157.98,
     "fantasypros": 247,
     "sleeper": 224
    },
@@ -3859,25 +3876,42 @@
     "espn": 398,
     "adp": 169.93,
     "fantasypros": 207,
-    "fantasycalc": 176,
+    "fantasycalc": 182,
     "sleeper": 280
    },
-   "consensus_rank": 246.2,
+   "consensus_rank": 247.4,
    "sources": 5
   },
   {
    "name": "Buccaneers D/ST",
    "pos": "D/ST",
    "pro": "TB",
-   "adp": 155.42,
+   "adp": 155.31,
    "bye": null,
    "pos_rank": null,
    "ranks": {
     "espn": 340,
-    "adp": 155.42
+    "adp": 155.31
    },
    "consensus_rank": 247.7,
    "sources": 2
+  },
+  {
+   "name": "Michael Penix Jr.",
+   "pos": "QB",
+   "pro": "ATL",
+   "adp": 167.93,
+   "bye": "11",
+   "pos_rank": "QB18",
+   "ranks": {
+    "espn": 446,
+    "adp": 167.93,
+    "fantasypros": 120,
+    "fantasycalc": 143,
+    "sleeper": 362
+   },
+   "consensus_rank": 247.8,
+   "sources": 5
   },
   {
    "name": "Jaylen Wright",
@@ -3894,23 +3928,6 @@
    },
    "consensus_rank": 248.2,
    "sources": 4
-  },
-  {
-   "name": "Michael Penix Jr.",
-   "pos": "QB",
-   "pro": "ATL",
-   "adp": 167.9,
-   "bye": "11",
-   "pos_rank": "QB18",
-   "ranks": {
-    "espn": 446,
-    "adp": 167.9,
-    "fantasypros": 120,
-    "fantasycalc": 145,
-    "sleeper": 362
-   },
-   "consensus_rank": 248.2,
-   "sources": 5
   },
   {
    "name": "Pat Bryant",
@@ -3932,42 +3949,26 @@
    "name": "Packers D/ST",
    "pos": "D/ST",
    "pro": "GB",
-   "adp": 162.68,
+   "adp": 162.6,
    "bye": null,
    "pos_rank": null,
    "ranks": {
     "espn": 342,
-    "adp": 162.68
+    "adp": 162.6
    },
    "consensus_rank": 252.3,
    "sources": 2
   },
   {
-   "name": "Cooper Kupp",
-   "pos": "WR",
-   "pro": "SEA",
-   "adp": 166.66,
-   "bye": "11",
-   "pos_rank": "WR83",
-   "ranks": {
-    "espn": 325,
-    "adp": 166.66,
-    "fantasypros": 221,
-    "sleeper": 301
-   },
-   "consensus_rank": 253.4,
-   "sources": 4
-  },
-  {
    "name": "Sean Tucker",
    "pos": "RB",
    "pro": "TB",
-   "adp": 169.93,
+   "adp": 169.91,
    "bye": "10",
    "pos_rank": "RB67",
    "ranks": {
     "espn": 354,
-    "adp": 169.93,
+    "adp": 169.91,
     "fantasypros": 268,
     "sleeper": 231
    },
@@ -3978,12 +3979,12 @@
    "name": "Colby Parkinson",
    "pos": "TE",
    "pro": "LAR",
-   "adp": 169.71,
+   "adp": 169.73,
    "bye": "11",
    "pos_rank": "TE32",
    "ranks": {
     "espn": 448,
-    "adp": 169.71,
+    "adp": 169.73,
     "fantasypros": 212,
     "sleeper": 204
    },
@@ -3994,12 +3995,12 @@
    "name": "Zachariah Branch",
    "pos": "WR",
    "pro": "ATL",
-   "adp": 169.66,
+   "adp": 169.67,
    "bye": "11",
    "pos_rank": "WR98",
    "ranks": {
     "espn": 307,
-    "adp": 169.66,
+    "adp": 169.67,
     "fantasypros": 270,
     "sleeper": 288
    },
@@ -4010,12 +4011,12 @@
    "name": "David Njoku",
    "pos": "TE",
    "pro": "LAC",
-   "adp": 170.05,
+   "adp": 170.04,
    "bye": "7",
    "pos_rank": "TE39",
    "ranks": {
     "espn": 417,
-    "adp": 170.05,
+    "adp": 170.04,
     "fantasypros": 257,
     "sleeper": 196
    },
@@ -4026,43 +4027,26 @@
    "name": "Jaguars D/ST",
    "pos": "D/ST",
    "pro": "JAX",
-   "adp": 157.67,
+   "adp": 157.55,
    "bye": null,
    "pos_rank": null,
    "ranks": {
     "espn": 363,
-    "adp": 157.67
+    "adp": 157.55
    },
    "consensus_rank": 260.3,
    "sources": 2
   },
   {
-   "name": "Kirk Cousins",
-   "pos": "QB",
-   "pro": "LV",
-   "adp": 164.53,
-   "bye": "13",
-   "pos_rank": "QB24",
-   "ranks": {
-    "espn": 432,
-    "adp": 164.53,
-    "fantasypros": 163,
-    "fantasycalc": 123,
-    "sleeper": 420
-   },
-   "consensus_rank": 260.5,
-   "sources": 5
-  },
-  {
    "name": "Isaac TeSlaa",
    "pos": "WR",
    "pro": "DET",
-   "adp": 169.05,
+   "adp": 169.06,
    "bye": "6",
    "pos_rank": "WR85",
    "ranks": {
     "espn": 362,
-    "adp": 169.05,
+    "adp": 169.06,
     "fantasypros": 227,
     "sleeper": 285
    },
@@ -4073,12 +4057,12 @@
    "name": "Chase McLaughlin",
    "pos": "K",
    "pro": "TB",
-   "adp": 160.61,
+   "adp": 160.59,
    "bye": "10",
    "pos_rank": "K10",
    "ranks": {
     "espn": 344,
-    "adp": 160.61,
+    "adp": 160.59,
     "fantasypros": 233,
     "sleeper": 306
    },
@@ -4086,45 +4070,62 @@
    "sources": 4
   },
   {
+   "name": "Kirk Cousins",
+   "pos": "QB",
+   "pro": "LV",
+   "adp": 164.54,
+   "bye": "13",
+   "pos_rank": "QB24",
+   "ranks": {
+    "espn": 432,
+    "adp": 164.54,
+    "fantasypros": 163,
+    "fantasycalc": 125,
+    "sleeper": 420
+   },
+   "consensus_rank": 260.9,
+   "sources": 5
+  },
+  {
    "name": "Bam Knight",
    "pos": "RB",
    "pro": "ARI",
-   "adp": 170.09,
+   "adp": 170.08,
    "bye": "14",
    "pos_rank": "RB68",
    "ranks": {
     "espn": 433,
-    "adp": 170.09,
+    "adp": 170.08,
     "fantasypros": 273,
-    "fantasycalc": 177
+    "fantasycalc": 178
    },
-   "consensus_rank": 263.3,
+   "consensus_rank": 263.5,
    "sources": 4
   },
   {
    "name": "Vikings D/ST",
    "pos": "D/ST",
    "pro": "MIN",
-   "adp": 99.64,
+   "adp": 99.8,
    "bye": null,
    "pos_rank": null,
    "ranks": {
     "espn": 428,
-    "adp": 99.64
+    "adp": 99.8
    },
-   "consensus_rank": 263.8,
+   "consensus_rank": 263.9,
    "sources": 2
   },
   {
    "name": "James Conner",
    "pos": "RB",
    "pro": "ARI",
-   "adp": 170.12,
+   "adp": 170.11,
    "bye": "14",
    "pos_rank": "RB85",
    "ranks": {
     "espn": 442,
-    "adp": 170.12,
+    "adp": 170.11,
     "fantasypros": 324,
     "sleeper": 122
    },
@@ -4135,12 +4136,12 @@
    "name": "Greg Dulcich",
    "pos": "TE",
    "pro": "MIA",
-   "adp": 169.69,
+   "adp": 169.7,
    "bye": "6",
    "pos_rank": "TE25",
    "ranks": {
     "espn": 372,
-    "adp": 169.69,
+    "adp": 169.7,
     "fantasypros": 158,
     "sleeper": 367
    },
@@ -4151,26 +4152,43 @@
    "name": "Saints D/ST",
    "pos": "D/ST",
    "pro": "NO",
-   "adp": 169.54,
+   "adp": 169.51,
    "bye": null,
    "pos_rank": null,
    "ranks": {
     "espn": 364,
-    "adp": 169.54
+    "adp": 169.51
    },
    "consensus_rank": 266.8,
    "sources": 2
   },
   {
+   "name": "J.J. McCarthy",
+   "pos": "QB",
+   "pro": "NYG",
+   "adp": 165.67,
+   "bye": "8",
+   "pos_rank": "QB29",
+   "ranks": {
+    "espn": 451,
+    "adp": 165.67,
+    "fantasypros": 204,
+    "fantasycalc": 159,
+    "sleeper": 355
+   },
+   "consensus_rank": 266.9,
+   "sources": 5
+  },
+  {
    "name": "Justice Hill",
    "pos": "RB",
    "pro": "BAL",
-   "adp": 168.84,
+   "adp": 168.86,
    "bye": "13",
    "pos_rank": "RB65",
    "ranks": {
     "espn": 289,
-    "adp": 168.84,
+    "adp": 168.86,
     "fantasypros": 264,
     "sleeper": 348
    },
@@ -4178,32 +4196,15 @@
    "sources": 4
   },
   {
-   "name": "J.J. McCarthy",
-   "pos": "QB",
-   "pro": "NYG",
-   "adp": 165.69,
-   "bye": "8",
-   "pos_rank": "QB29",
-   "ranks": {
-    "espn": 451,
-    "adp": 165.69,
-    "fantasypros": 204,
-    "fantasycalc": 162,
-    "sleeper": 355
-   },
-   "consensus_rank": 267.5,
-   "sources": 5
-  },
-  {
    "name": "Ted Hurst III",
    "pos": "WR",
    "pro": "TB",
-   "adp": 170.06,
+   "adp": 170.07,
    "bye": "10",
    "pos_rank": "WR79",
    "ranks": {
     "espn": 397,
-    "adp": 170.06,
+    "adp": 170.07,
     "fantasypros": 205,
     "sleeper": 303
    },
@@ -4262,17 +4263,17 @@
    "name": "Deshaun Watson",
    "pos": "QB",
    "pro": "CLE",
-   "adp": 168.83,
+   "adp": 168.76,
    "bye": "11",
    "pos_rank": "QB28",
    "ranks": {
     "espn": 391,
-    "adp": 168.83,
+    "adp": 168.76,
     "fantasypros": 186,
-    "fantasycalc": 163,
+    "fantasycalc": 164,
     "sleeper": 480
    },
-   "consensus_rank": 277.8,
+   "consensus_rank": 278.0,
    "sources": 5
   },
   {
@@ -4309,12 +4310,12 @@
    "name": "Darnell Mooney",
    "pos": "WR",
    "pro": "NYG",
-   "adp": 169.9,
+   "adp": 169.87,
    "bye": "8",
    "pos_rank": "WR93",
    "ranks": {
     "espn": 409,
-    "adp": 169.9,
+    "adp": 169.87,
     "fantasypros": 254,
     "sleeper": 298
    },
@@ -4341,12 +4342,12 @@
    "name": "Marvin Mims Jr.",
    "pos": "WR",
    "pro": "DEN",
-   "adp": 169.98,
+   "adp": 169.96,
    "bye": "10",
    "pos_rank": "WR108",
    "ranks": {
     "espn": 382,
-    "adp": 169.98,
+    "adp": 169.96,
     "fantasypros": 290,
     "sleeper": 297
    },
@@ -4387,12 +4388,12 @@
    "name": "Trey Smack",
    "pos": "K",
    "pro": "GB",
-   "adp": 168.71,
+   "adp": 168.72,
    "bye": "11",
    "pos_rank": "K18",
    "ranks": {
     "espn": 413,
-    "adp": 168.71,
+    "adp": 168.72,
     "fantasypros": 287,
     "sleeper": 299
    },
@@ -4403,12 +4404,12 @@
    "name": "Jack Bech",
    "pos": "WR",
    "pro": "LV",
-   "adp": 170.04,
+   "adp": 170.03,
    "bye": "13",
    "pos_rank": "WR104",
    "ranks": {
     "espn": 395,
-    "adp": 170.04,
+    "adp": 170.03,
     "fantasypros": 282,
     "sleeper": 322
    },
@@ -4419,26 +4420,26 @@
    "name": "Bengals D/ST",
    "pos": "D/ST",
    "pro": "CIN",
-   "adp": 163.04,
+   "adp": 163.12,
    "bye": null,
    "pos_rank": null,
    "ranks": {
     "espn": 429,
-    "adp": 163.04
+    "adp": 163.12
    },
-   "consensus_rank": 296.0,
+   "consensus_rank": 296.1,
    "sources": 2
   },
   {
    "name": "Cowboys D/ST",
    "pos": "D/ST",
    "pro": "DAL",
-   "adp": 168.37,
+   "adp": 168.35,
    "bye": null,
    "pos_rank": null,
    "ranks": {
     "espn": 425,
-    "adp": 168.37
+    "adp": 168.35
    },
    "consensus_rank": 296.7,
    "sources": 2
@@ -4463,12 +4464,12 @@
    "name": "Colts D/ST",
    "pos": "D/ST",
    "pro": "IND",
-   "adp": 169.83,
+   "adp": 169.8,
    "bye": null,
    "pos_rank": null,
    "ranks": {
     "espn": 427,
-    "adp": 169.83
+    "adp": 169.8
    },
    "consensus_rank": 298.4,
    "sources": 2
@@ -4493,29 +4494,29 @@
    "name": "Ollie Gordon II",
    "pos": "RB",
    "pro": "MIA",
-   "adp": 123.53,
+   "adp": 124.27,
    "bye": "6",
    "pos_rank": "RB26",
    "ranks": {
     "espn": 316,
-    "adp": 123.53,
+    "adp": 124.27,
     "fantasypros": 94,
     "fantasycalc": 55,
     "sleeper": 928
    },
-   "consensus_rank": 303.3,
+   "consensus_rank": 303.5,
    "sources": 5
   },
   {
    "name": "Jake Tonges",
    "pos": "TE",
    "pro": "SF",
-   "adp": 169.93,
+   "adp": 169.92,
    "bye": "8",
    "pos_rank": "TE52",
    "ranks": {
     "espn": 447,
-    "adp": 169.93,
+    "adp": 169.92,
     "fantasypros": 369,
     "sleeper": 275
    },
@@ -4526,12 +4527,12 @@
    "name": "Shedeur Sanders",
    "pos": "QB",
    "pro": "CLE",
-   "adp": 169.76,
+   "adp": 169.75,
    "bye": "11",
    "pos_rank": "QB36",
    "ranks": {
     "espn": 430,
-    "adp": 169.76,
+    "adp": 169.75,
     "fantasypros": 326,
     "sleeper": 359
    },
@@ -4542,29 +4543,29 @@
    "name": "Seth McGowan",
    "pos": "RB",
    "pro": "IND",
-   "adp": 169.45,
+   "adp": 169.46,
    "bye": "13",
    "pos_rank": "RB61",
    "ranks": {
     "espn": 355,
-    "adp": 169.45,
+    "adp": 169.46,
     "fantasypros": 236,
-    "fantasycalc": 133,
+    "fantasycalc": 130,
     "sleeper": 726
    },
-   "consensus_rank": 323.9,
+   "consensus_rank": 323.3,
    "sources": 5
   },
   {
    "name": "Nick Folk",
    "pos": "K",
    "pro": "ATL",
-   "adp": 169.13,
+   "adp": 169.14,
    "bye": "11",
    "pos_rank": "K25",
    "ranks": {
     "espn": 369,
-    "adp": 169.13,
+    "adp": 169.14,
     "fantasypros": 377,
     "sleeper": 400
    },
@@ -4575,12 +4576,12 @@
    "name": "Tua Tagovailoa",
    "pos": "QB",
    "pro": "ATL",
-   "adp": 169.75,
+   "adp": 169.74,
    "bye": "11",
    "pos_rank": "QB41",
    "ranks": {
     "espn": 424,
-    "adp": 169.75,
+    "adp": 169.74,
     "fantasypros": 368,
     "sleeper": 380
    },
@@ -4591,12 +4592,12 @@
    "name": "Darren Waller",
    "pos": "TE",
    "pro": "CAR",
-   "adp": 169.23,
+   "adp": 169.24,
    "bye": "5",
    "pos_rank": "TE27",
    "ranks": {
     "espn": 374,
-    "adp": 169.23,
+    "adp": 169.24,
     "fantasypros": 171,
     "sleeper": 648
    },
@@ -4607,17 +4608,17 @@
    "name": "Samaje Perine",
    "pos": "RB",
    "pro": "CIN",
-   "adp": 168.87,
+   "adp": 168.86,
    "bye": "6",
    "pos_rank": "RB57",
    "ranks": {
     "espn": 199,
-    "adp": 168.87,
+    "adp": 168.86,
     "fantasypros": 228,
-    "fantasycalc": 179,
+    "fantasycalc": 175,
     "sleeper": 955
    },
-   "consensus_rank": 346.0,
+   "consensus_rank": 345.2,
    "sources": 5
   },
   {
@@ -4640,12 +4641,12 @@
    "name": "Michael Mayer",
    "pos": "TE",
    "pro": "LV",
-   "adp": 167.91,
+   "adp": 167.93,
    "bye": "13",
    "pos_rank": "TE33",
    "ranks": {
     "espn": 421,
-    "adp": 167.91,
+    "adp": 167.93,
     "fantasypros": 213,
     "fantasycalc": 172,
     "sleeper": 852
@@ -4657,45 +4658,45 @@
    "name": "Spencer Shrader",
    "pos": "K",
    "pro": "IND",
-   "adp": 126.57,
+   "adp": 127.05,
    "bye": "13",
    "pos_rank": "K20",
    "ranks": {
     "espn": 414,
-    "adp": 126.57,
+    "adp": 127.05,
     "fantasypros": 293,
     "sleeper": 645
    },
-   "consensus_rank": 369.6,
+   "consensus_rank": 369.8,
    "sources": 4
   },
   {
    "name": "Mike Gesicki",
    "pos": "TE",
    "pro": "CIN",
-   "adp": 168.09,
+   "adp": 168.06,
    "bye": "6",
    "pos_rank": "TE28",
    "ranks": {
     "espn": 419,
-    "adp": 168.09,
+    "adp": 168.06,
     "fantasypros": 174,
-    "fantasycalc": 171,
+    "fantasycalc": 173,
     "sleeper": 923
    },
-   "consensus_rank": 371.0,
+   "consensus_rank": 371.4,
    "sources": 5
   },
   {
    "name": "DeMario Douglas",
    "pos": "WR",
    "pro": "NE",
-   "adp": 168.39,
+   "adp": 168.4,
    "bye": "11",
    "pos_rank": "WR74",
    "ranks": {
     "espn": 336,
-    "adp": 168.39,
+    "adp": 168.4,
     "fantasypros": 181,
     "fantasycalc": 148,
     "sleeper": 1058
@@ -4707,12 +4708,12 @@
    "name": "George Holani",
    "pos": "RB",
    "pro": "SEA",
-   "adp": 169.86,
+   "adp": 169.84,
    "bye": "11",
    "pos_rank": "RB69",
    "ranks": {
     "espn": 350,
-    "adp": 169.86,
+    "adp": 169.84,
     "fantasypros": 274,
     "sleeper": 947
    },
@@ -4739,12 +4740,12 @@
    "name": "Evan Engram",
    "pos": "TE",
    "pro": "DEN",
-   "adp": 169.72,
+   "adp": 169.73,
    "bye": "10",
    "pos_rank": "TE31",
    "ranks": {
     "espn": 416,
-    "adp": 169.72,
+    "adp": 169.73,
     "fantasypros": 200,
     "sleeper": 969
    },
@@ -4771,12 +4772,12 @@
    "name": "Mac Jones",
    "pos": "QB",
    "pro": "SF",
-   "adp": 169.84,
+   "adp": 169.85,
    "bye": "8",
    "pos_rank": "QB42",
    "ranks": {
     "espn": 458,
-    "adp": 169.84,
+    "adp": 169.85,
     "fantasypros": 388,
     "sleeper": 780
    },
@@ -4787,28 +4788,28 @@
    "name": "Darnell Washington",
    "pos": "TE",
    "pro": "PIT",
-   "adp": 168.04,
+   "adp": 167.98,
    "bye": "9",
    "pos_rank": "TE38",
    "ranks": {
     "espn": 450,
-    "adp": 168.04,
+    "adp": 167.98,
     "fantasypros": 248,
     "sleeper": 991
    },
-   "consensus_rank": 464.3,
+   "consensus_rank": 464.2,
    "sources": 4
   },
   {
    "name": "Malik Davis",
    "pos": "RB",
    "pro": "DAL",
-   "adp": 169.72,
+   "adp": 169.71,
    "bye": null,
    "pos_rank": null,
    "ranks": {
     "espn": 329,
-    "adp": 169.72,
+    "adp": 169.71,
     "sleeper": 901
    },
    "consensus_rank": 466.6,
@@ -4818,12 +4819,12 @@
    "name": "Jahan Dotson",
    "pos": "WR",
    "pro": "ATL",
-   "adp": 169.68,
+   "adp": 169.67,
    "bye": "11",
    "pos_rank": "WR95",
    "ranks": {
     "espn": 331,
-    "adp": 169.68,
+    "adp": 169.67,
     "fantasypros": 258,
     "sleeper": 1138
    },
@@ -4850,15 +4851,15 @@
    "name": "KaVontae Turpin",
    "pos": "WR",
    "pro": "DAL",
-   "adp": 169.66,
+   "adp": 169.64,
    "bye": null,
    "pos_rank": null,
    "ranks": {
     "espn": 394,
-    "adp": 169.66,
+    "adp": 169.64,
     "sleeper": 914
    },
-   "consensus_rank": 492.6,
+   "consensus_rank": 492.5,
    "sources": 3
   },
   {
@@ -4881,12 +4882,12 @@
    "name": "Justin Fields",
    "pos": "QB",
    "pro": "KC",
-   "adp": 169.78,
+   "adp": 169.76,
    "bye": null,
    "pos_rank": null,
    "ranks": {
     "espn": 454,
-    "adp": 169.78,
+    "adp": 169.76,
     "sleeper": 870
    },
    "consensus_rank": 497.9,
@@ -4928,12 +4929,12 @@
    "name": "Xavier Legette",
    "pos": "WR",
    "pro": "CAR",
-   "adp": 169.92,
+   "adp": 169.91,
    "bye": "5",
    "pos_rank": "WR112",
    "ranks": {
     "espn": 330,
-    "adp": 169.92,
+    "adp": 169.91,
     "fantasypros": 301,
     "sleeper": 1217
    },
@@ -4960,12 +4961,12 @@
    "name": "Tyquan Thornton",
    "pos": "WR",
    "pro": "KC",
-   "adp": 169.85,
+   "adp": 169.86,
    "bye": "5",
    "pos_rank": "WR117",
    "ranks": {
     "espn": 338,
-    "adp": 169.85,
+    "adp": 169.86,
     "fantasypros": 328,
     "sleeper": 1194
    },
@@ -5008,12 +5009,12 @@
    "name": "Ty Johnson",
    "pos": "RB",
    "pro": "BUF",
-   "adp": 169.41,
+   "adp": 169.35,
    "bye": "7",
    "pos_rank": "RB80",
    "ranks": {
     "espn": 323,
-    "adp": 169.41,
+    "adp": 169.35,
     "fantasypros": 312,
     "sleeper": 1246
    },
@@ -5024,12 +5025,12 @@
    "name": "Joe Flacco",
    "pos": "QB",
    "pro": "CIN",
-   "adp": 169.66,
+   "adp": 169.67,
    "bye": "6",
    "pos_rank": "QB44",
    "ranks": {
     "espn": 457,
-    "adp": 169.66,
+    "adp": 169.67,
     "fantasypros": 399,
     "sleeper": 1070
    },
@@ -5040,12 +5041,12 @@
    "name": "Sione Vaki",
    "pos": "RB",
    "pro": "DET",
-   "adp": 169.76,
+   "adp": 169.73,
    "bye": "6",
    "pos_rank": "RB84",
    "ranks": {
     "espn": 407,
-    "adp": 169.76,
+    "adp": 169.73,
     "fantasypros": 321,
     "sleeper": 1216
    },
@@ -5056,12 +5057,12 @@
    "name": "Erick All Jr.",
    "pos": "TE",
    "pro": "CIN",
-   "adp": 169.99,
+   "adp": 170.0,
    "bye": "6",
    "pos_rank": "TE47",
    "ranks": {
     "espn": 449,
-    "adp": 169.99,
+    "adp": 170.0,
     "fantasypros": 333,
     "sleeper": 1376
    },
@@ -5072,12 +5073,12 @@
    "name": "Jalen Tolbert",
    "pos": "WR",
    "pro": "MIA",
-   "adp": 169.93,
+   "adp": 169.92,
    "bye": "6",
    "pos_rank": "WR123",
    "ranks": {
     "espn": 333,
-    "adp": 169.93,
+    "adp": 169.92,
     "fantasypros": 378,
     "sleeper": 1600
    },
@@ -5119,12 +5120,12 @@
    "name": "Xavier Hutchinson",
    "pos": "WR",
    "pro": "HOU",
-   "adp": 169.84,
+   "adp": 169.81,
    "bye": "8",
    "pos_rank": "WR106",
    "ranks": {
     "espn": 332,
-    "adp": 169.84,
+    "adp": 169.81,
     "fantasypros": 285,
     "sleeper": 2063
    },
@@ -5135,12 +5136,12 @@
    "name": "Dylan Laube",
    "pos": "RB",
    "pro": "LV",
-   "adp": 170.0,
+   "adp": 169.99,
    "bye": null,
    "pos_rank": null,
    "ranks": {
     "espn": 434,
-    "adp": 170.0,
+    "adp": 169.99,
     "sleeper": 1539
    },
    "consensus_rank": 714.3,
@@ -5213,12 +5214,12 @@
    "name": "Rasheen Ali",
    "pos": "RB",
    "pro": "BAL",
-   "adp": 169.92,
+   "adp": 169.93,
    "bye": null,
    "pos_rank": null,
    "ranks": {
     "espn": 402,
-    "adp": 169.92,
+    "adp": 169.93,
     "sleeper": 2092
    },
    "consensus_rank": 888.0,
@@ -5228,12 +5229,12 @@
    "name": "Jam Miller",
    "pos": "RB",
    "pro": "FA",
-   "adp": 170.07,
+   "adp": 170.06,
    "bye": null,
    "pos_rank": null,
    "ranks": {
     "espn": 459,
-    "adp": 170.07,
+    "adp": 170.06,
     "sleeper": 2061
    },
    "consensus_rank": 896.7,
@@ -5243,12 +5244,12 @@
    "name": "Kene Nwangwu",
    "pos": "RB",
    "pro": "NYJ",
-   "adp": 170.12,
+   "adp": 170.1,
    "bye": null,
    "pos_rank": null,
    "ranks": {
     "espn": 408,
-    "adp": 170.12,
+    "adp": 170.1,
     "sleeper": 2255
    },
    "consensus_rank": 944.4,
