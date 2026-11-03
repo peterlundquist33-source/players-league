@@ -11,10 +11,10 @@
    "record": "6-2",
    "pf": 1117.0,
    "playoff": 100.0,
-   "bye": 73.9,
-   "one": 73.9,
+   "bye": 74.2,
+   "one": 74.2,
    "dress": 0.0,
-   "avg_wins": 10.4,
+   "avg_wins": 10.3,
    "mean": 131.9,
    "sd": 21.8
   },
@@ -23,9 +23,9 @@
    "team": "Pukachu",
    "record": "5-3",
    "pf": 1064.1,
-   "playoff": 96.9,
-   "bye": 11.2,
-   "one": 11.2,
+   "playoff": 96.8,
+   "bye": 10.9,
+   "one": 10.9,
    "dress": 0.0,
    "avg_wins": 8.5,
    "mean": 127.5,
@@ -37,8 +37,8 @@
    "record": "6-2",
    "pf": 928.1,
    "playoff": 96.5,
-   "bye": 11.7,
-   "one": 11.7,
+   "bye": 11.6,
+   "one": 11.6,
    "dress": 0.0,
    "avg_wins": 9.2,
    "mean": 116.2,
@@ -49,11 +49,11 @@
    "team": "The Basement Of KK",
    "record": "5-3",
    "pf": 899.0,
-   "playoff": 85.3,
-   "bye": 2.3,
-   "one": 2.3,
+   "playoff": 85.1,
+   "bye": 2.1,
+   "one": 2.1,
    "dress": 0.1,
-   "avg_wins": 8.1,
+   "avg_wins": 8.0,
    "mean": 113.8,
    "sd": 25.3
   },
@@ -62,9 +62,9 @@
    "team": "The Aura Farm",
    "record": "3-5",
    "pf": 1011.9,
-   "playoff": 73.1,
-   "bye": 0.2,
-   "one": 0.2,
+   "playoff": 73.6,
+   "bye": 0.1,
+   "one": 0.1,
    "dress": 0.4,
    "avg_wins": 6.9,
    "mean": 123.2,
@@ -75,49 +75,49 @@
    "team": "Runnin' Rezac",
    "record": "3-5",
    "pf": 979.1,
-   "playoff": 59.4,
-   "bye": 0.1,
-   "one": 0.1,
+   "playoff": 58.3,
+   "bye": 0.0,
+   "one": 0.0,
    "dress": 1.0,
    "avg_wins": 6.5,
    "mean": 120.4,
    "sd": 25.2
   },
   {
-   "owner": "Kaleb",
-   "team": "PA Dive Your Way",
-   "record": "5-3",
-   "pf": 827.3,
-   "playoff": 56.3,
-   "bye": 0.5,
-   "one": 0.5,
-   "dress": 0.7,
-   "avg_wins": 7.2,
-   "mean": 107.8,
-   "sd": 22.1
-  },
-  {
    "owner": "Grant",
    "team": "Amon that inhaler",
    "record": "4-4",
    "pf": 918.3,
-   "playoff": 55.8,
-   "bye": 0.1,
-   "one": 0.1,
+   "playoff": 56.8,
+   "bye": 0.3,
+   "one": 0.3,
    "dress": 0.8,
    "avg_wins": 6.7,
    "mean": 115.4,
    "sd": 19.6
   },
   {
+   "owner": "Kaleb",
+   "team": "PA Dive Your Way",
+   "record": "5-3",
+   "pf": 827.3,
+   "playoff": 56.6,
+   "bye": 0.6,
+   "one": 0.6,
+   "dress": 0.7,
+   "avg_wins": 7.2,
+   "mean": 107.8,
+   "sd": 22.1
+  },
+  {
    "owner": "CJ",
    "team": "Taylor Gang",
    "record": "4-4",
    "pf": 889.3,
-   "playoff": 44.0,
+   "playoff": 44.5,
    "bye": 0.1,
    "one": 0.1,
-   "dress": 1.6,
+   "dress": 1.4,
    "avg_wins": 6.4,
    "mean": 113.0,
    "sd": 14.4
@@ -127,9 +127,9 @@
    "team": "A Slap in the Face",
    "record": "4-4",
    "pf": 838.3,
-   "playoff": 27.0,
-   "bye": 0.0,
-   "one": 0.0,
+   "playoff": 26.7,
+   "bye": 0.1,
+   "one": 0.1,
    "dress": 5.0,
    "avg_wins": 6.1,
    "mean": 108.7,
@@ -140,10 +140,10 @@
    "team": "I Didn't Hear No Bell",
    "record": "2-6",
    "pf": 860.3,
-   "playoff": 4.0,
+   "playoff": 3.7,
    "bye": 0.0,
    "one": 0.0,
-   "dress": 34.3,
+   "dress": 34.5,
    "avg_wins": 4.4,
    "mean": 110.5,
    "sd": 23.0
@@ -153,10 +153,10 @@
    "team": "Finding Nico",
    "record": "1-7",
    "pf": 855.6,
-   "playoff": 1.7,
+   "playoff": 1.5,
    "bye": 0.0,
    "one": 0.0,
-   "dress": 56.2,
+   "dress": 55.9,
    "avg_wins": 3.8,
    "mean": 110.1,
    "sd": 25.4
@@ -177,16 +177,16 @@
      },
      "lose": {
       "dress": 0.0,
-      "playoff": 99.9
+      "playoff": 99.8
      }
     },
     "Grant": {
      "win": {
-      "dress": 0.2,
-      "playoff": 74.2
+      "dress": 0.1,
+      "playoff": 76.7
      },
      "lose": {
-      "dress": 1.0,
+      "dress": 1.2,
       "playoff": 48.4
      }
     }
@@ -202,21 +202,21 @@
     "Logan": {
      "win": {
       "dress": 0.2,
-      "playoff": 72.9
+      "playoff": 71.3
      },
      "lose": {
-      "dress": 2.1,
-      "playoff": 39.3
+      "dress": 2.3,
+      "playoff": 38.7
      }
     },
     "CJ": {
      "win": {
       "dress": 0.3,
-      "playoff": 64.7
+      "playoff": 64.6
      },
      "lose": {
-      "dress": 2.4,
-      "playoff": 30.1
+      "dress": 2.2,
+      "playoff": 31.2
      }
     }
    }
@@ -231,21 +231,21 @@
     "Christian": {
      "win": {
       "dress": 0.1,
-      "playoff": 81.4
+      "playoff": 82.0
      },
      "lose": {
       "dress": 1.0,
-      "playoff": 52.4
+      "playoff": 51.9
      }
     },
     "Kaleb": {
      "win": {
       "dress": 0.0,
-      "playoff": 80.8
+      "playoff": 81.6
      },
      "lose": {
       "dress": 1.0,
-      "playoff": 46.5
+      "playoff": 47.0
      }
     }
    }
@@ -264,17 +264,17 @@
      },
      "lose": {
       "dress": 0.0,
-      "playoff": 93.5
+      "playoff": 93.4
      }
     },
     "Noah": {
      "win": {
-      "dress": 22.7,
-      "playoff": 7.7
+      "dress": 23.7,
+      "playoff": 6.9
      },
      "lose": {
-      "dress": 43.6,
-      "playoff": 1.0
+      "dress": 43.2,
+      "playoff": 1.2
      }
     }
    }
@@ -288,22 +288,22 @@
    "sides": {
     "Mitchell": {
      "win": {
-      "dress": 41.0,
-      "playoff": 4.1
+      "dress": 39.9,
+      "playoff": 3.4
      },
      "lose": {
-      "dress": 63.6,
-      "playoff": 0.5
+      "dress": 63.7,
+      "playoff": 0.6
      }
     },
     "John": {
      "win": {
       "dress": 0.0,
-      "playoff": 99.1
+      "playoff": 98.9
      },
      "lose": {
       "dress": 0.0,
-      "playoff": 92.5
+      "playoff": 92.4
      }
     }
    }
@@ -318,21 +318,21 @@
     "Peter": {
      "win": {
       "dress": 0.0,
-      "playoff": 93.6
+      "playoff": 93.4
      },
      "lose": {
       "dress": 0.3,
-      "playoff": 74.6
+      "playoff": 74.3
      }
     },
     "Isaac": {
      "win": {
-      "dress": 1.1,
-      "playoff": 43.0
+      "dress": 1.2,
+      "playoff": 42.9
      },
      "lose": {
       "dress": 8.0,
-      "playoff": 14.6
+      "playoff": 14.4
      }
     }
    }

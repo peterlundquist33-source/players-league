@@ -1,5 +1,5 @@
 {
-  "generated": "2026-11-03T14:57:11",
+  "generated": "2026-11-03T18:08:58",
   "board": {
     "season": 2026,
     "week": 8,
@@ -12,7 +12,7 @@
         "team": "Uncut Cokerr",
         "score": 71.2,
         "results_score": 69.2,
-        "roster_score": 79.2,
+        "roster_score": 78.9,
         "gp": 8,
         "record": "6-2",
         "streak": "L2",
@@ -45,8 +45,8 @@
           7,
           103.02
         ],
-        "proj_next": 139.3,
-        "proj_avg": 133.6,
+        "proj_next": 138.7,
+        "proj_avg": 133.5,
         "next_opp": "Grant",
         "draft_roster": 88.7,
         "base_rank": 1,
@@ -67,9 +67,9 @@
       {
         "owner": "John",
         "team": "Pukachu",
-        "score": 66.1,
+        "score": 66.6,
         "results_score": 67.0,
-        "roster_score": 62.2,
+        "roster_score": 65.1,
         "gp": 8,
         "record": "5-3",
         "streak": "W2",
@@ -102,8 +102,8 @@
           2,
           81.72
         ],
-        "proj_next": 131.1,
-        "proj_avg": 125.1,
+        "proj_next": 132.6,
+        "proj_avg": 126.6,
         "next_opp": "Mitchell",
         "draft_roster": 80.5,
         "base_rank": 2,
@@ -124,9 +124,9 @@
       {
         "owner": "Christian",
         "team": "The Aura Farm",
-        "score": 60.8,
+        "score": 60.7,
         "results_score": 57.6,
-        "roster_score": 74.0,
+        "roster_score": 73.4,
         "gp": 8,
         "record": "3-5",
         "streak": "W1",
@@ -159,8 +159,8 @@
           5,
           103.14
         ],
-        "proj_next": 134.6,
-        "proj_avg": 131.1,
+        "proj_next": 134.5,
+        "proj_avg": 130.9,
         "next_opp": "Kaleb",
         "draft_roster": 88.7,
         "base_rank": 3,
@@ -181,9 +181,9 @@
       {
         "owner": "Logan",
         "team": "Runnin' Rezac",
-        "score": 56.6,
+        "score": 56.2,
         "results_score": 58.7,
-        "roster_score": 47.9,
+        "roster_score": 45.9,
         "gp": 8,
         "record": "3-5",
         "streak": "W1",
@@ -216,8 +216,8 @@
           3,
           82.52
         ],
-        "proj_next": 117.7,
-        "proj_avg": 117.7,
+        "proj_next": 116.4,
+        "proj_avg": 116.8,
         "next_opp": "CJ",
         "draft_roster": 85.7,
         "base_rank": 4,
@@ -240,7 +240,7 @@
         "team": "Joey Lunchbox",
         "score": 51.0,
         "results_score": 50.6,
-        "roster_score": 52.3,
+        "roster_score": 52.4,
         "gp": 8,
         "record": "6-2",
         "streak": "W4",
@@ -273,8 +273,8 @@
           8,
           64.66
         ],
-        "proj_next": 125.1,
-        "proj_avg": 120.2,
+        "proj_next": 125.2,
+        "proj_avg": 120.3,
         "next_opp": "Noah",
         "draft_roster": 79.5,
         "base_rank": 5,
@@ -297,7 +297,7 @@
         "team": "Amon that inhaler",
         "score": 48.6,
         "results_score": 51.1,
-        "roster_score": 38.7,
+        "roster_score": 38.6,
         "gp": 8,
         "record": "4-4",
         "streak": "L1",
@@ -352,9 +352,9 @@
       {
         "owner": "CJ",
         "team": "Taylor Gang",
-        "score": 46.3,
+        "score": 46.1,
         "results_score": 44.8,
-        "roster_score": 52.3,
+        "roster_score": 51.5,
         "gp": 8,
         "record": "4-4",
         "streak": "L2",
@@ -387,8 +387,8 @@
           7,
           90.92
         ],
-        "proj_next": 114.9,
-        "proj_avg": 120.1,
+        "proj_next": 114.5,
+        "proj_avg": 119.8,
         "next_opp": "Logan",
         "draft_roster": 83.3,
         "base_rank": 7,
@@ -444,8 +444,8 @@
           6,
           78.98
         ],
-        "proj_next": 123.4,
-        "proj_avg": 123.4,
+        "proj_next": 123.3,
+        "proj_avg": 123.5,
         "next_opp": "Peter",
         "draft_roster": 80.5,
         "base_rank": 8,
@@ -466,9 +466,9 @@
       {
         "owner": "Peter",
         "team": "The Basement Of KK",
-        "score": 40.7,
+        "score": 40.6,
         "results_score": 47.3,
-        "roster_score": 14.4,
+        "roster_score": 13.8,
         "gp": 8,
         "record": "5-3",
         "streak": "L1",
@@ -501,8 +501,8 @@
           6,
           69.78
         ],
-        "proj_next": 114.8,
-        "proj_avg": 100.6,
+        "proj_next": 114.9,
+        "proj_avg": 100.3,
         "next_opp": "Isaac",
         "draft_roster": 89.1,
         "base_rank": 9,
@@ -523,9 +523,9 @@
       {
         "owner": "Noah",
         "team": "I Didn't Hear No Bell",
-        "score": 40.0,
+        "score": 40.2,
         "results_score": 40.1,
-        "roster_score": 39.6,
+        "roster_score": 40.7,
         "gp": 8,
         "record": "2-6",
         "streak": "W1",
@@ -558,8 +558,8 @@
           3,
           79.56
         ],
-        "proj_next": 119.5,
-        "proj_avg": 113.4,
+        "proj_next": 120.6,
+        "proj_avg": 114.0,
         "next_opp": "Leif",
         "draft_roster": 86.0,
         "base_rank": 10,
@@ -582,7 +582,7 @@
         "team": "PA Dive Your Way",
         "score": 38.9,
         "results_score": 43.3,
-        "roster_score": 21.2,
+        "roster_score": 21.5,
         "gp": 8,
         "record": "5-3",
         "streak": "L1",
@@ -615,8 +615,8 @@
           8,
           62.74
         ],
-        "proj_next": 107.9,
-        "proj_avg": 104.1,
+        "proj_next": 108.0,
+        "proj_avg": 104.4,
         "next_opp": "Christian",
         "draft_roster": 86.0,
         "base_rank": 11,
@@ -639,7 +639,7 @@
         "team": "Finding Nico",
         "score": 35.2,
         "results_score": 29.2,
-        "roster_score": 59.3,
+        "roster_score": 59.2,
         "gp": 8,
         "record": "1-7",
         "streak": "L5",
@@ -696,65 +696,65 @@
   },
   "copies": [
     {
-      "headline": "Still First, Still Coasting Downhill",
-      "body": "Adam remains No. 1 because the math refuses to look anywhere else: 139.6 per game, first of twelve, and a 66-22 all-play that says 6-2 is if anything a discount. That said, two straight losses and a last-three stretch of 132.7, 103.0, 108.9 \u2014 52% all-play, sixth of twelve \u2014 is the first time all year his floor has shown up uninvited. Luck is dead even, so nobody got robbed. The roster still projects 134 a week, best in the league, with Jaxon Smith-Njigba and Kenneth Walker III carrying. Mr. Consistent being inconsistent is new.",
+      "headline": "Still Number One, Suddenly Mortal",
+      "body": "Adam is 6-2 with a 66-22 all-play, 75 percent, best in the league, and 139.6 a game, also first. That's not a hot start, that's a r\u00e9sum\u00e9. The two-week slide is real though \u2014 103.0 in Week 7 was his season low, and the last three weeks he's all-play 52 percent, sixth. The roster still projects 134 a week, first of twelve, with Jaxon Smith-Njigba and Kenneth Walker III anchoring it, and 139 projected against Grant. Mr. Consistent being mildly inconsistent is the only story here.",
       "pick": null
     },
     {
-      "headline": "John's Rams Stack Is Doing Everything",
-      "body": "The 5-3 record undersells it: John's all-play is 61-27, 69%, 2nd of 12, and his 133.0 per game is also 2nd of 12. Luck sits at -0.5, meaning he's actually been scoring his way out of wins, not into them. The last three weeks \u2014 100.1, 127.7, 165.1 \u2014 produced a 24-9 all-play. Puka Nacua projects 24 next week, Brock Bowers 18, Kyren Williams 17, and the whole thing hums at 125 a week, 3rd of 12. A draft-night grade of 80, T-9th, and he's here anyway. Big brother business as usual.",
+      "headline": "John's 80-Grade Draft Keeps Outrunning Itself",
+      "body": "The draft-night roster scored 80 out of 100, T-9th of 12, and John has turned it into 133.0 points a game, 2nd of 12. That's not luck \u2014 luck has him at minus-0.5 wins, meaning 5-3 understates him. The all-play is 61-27, 69%, also 2nd. Last three weeks: 100.1, 127.7, 165.1, a 24-9 all-play stretch. Puka Nacua projects 24, Brock Bowers 18, and the lineup profiles at 127 a week, 3rd of 12. He gets Mitchell with a 133 projection. Peter leads this series 6-3 all-time the other way; John's just quietly better right now.",
       "pick": null
     },
     {
-      "headline": "Christian Scores Like a Contender, Loses Like a Bystander",
-      "body": "Christian is 3-5 and it's close to fraudulent in the other direction. He's averaging 126.5 a game, 3rd of 12, with a 54-34 all-play \u2014 61%, T-3rd \u2014 and he's sitting 1.9 wins below expectation, T-11th-luckiest of 12. The last three weeks are a metronome: 124.3, 122.3, 123.5, good for a 70% all-play. His draft board graded out at 89, T-2nd of 12, and the roster still projects 131 a week, 2nd of 12. CeeDee Lamb and George Kittle aren't the problem. The schedule is.",
+      "headline": "Christian Keeps Scoring, Keeps Losing, Keeps Waiting",
+      "body": "A 3-5 team with the 3rd-best scoring average in the league and a 54-34 all-play is not a bad team, it's a mugging victim. Christian is 1.9 wins below expectation, which is the statistical version of getting your lunch taken every Sunday. The draft graded T-2nd at 89, and the roster still projects 131 a week, 2nd of 12, with Lamb, Kittle and Chase Brown doing honest work. Last three weeks: 124.3, 122.3, 123.5, a metronome. Week 9 projects 134 against Kaleb. Eventually math pays.",
       "pick": null
     },
     {
-      "headline": "Logan Is 3-5 And Robbed Blind",
-      "body": "Logan is 3-5 and it's a crime scene. 979.1 points for, 122.4 a game, fourth in the league \u2014 and 1075.7 against, the most anyone has absorbed. All-play 54-34, luck minus 1.9. Over the last three weeks he's gone 152.5, 118.9, 146.4 and posted an 82% all-play, best in the league for that stretch. Burrow, Jefferson, McMillan: the scoring is real. The man who took two #1 seeds and won nothing now can't buy a win he's earned. Week 9 projects 118 against CJ.",
+      "headline": "Logan Is 3-5 And Playing Great",
+      "body": "The record says 3-5. Everything else says otherwise: 122.4 a game, 4th of 12, an all-play mark of 54-34 that's T-3rd, and 1,075.7 points against \u2014 nobody in this league has been shot at harder. Luck sits at -1.9 wins. Over the last three weeks he's gone 152.5, 118.9, 146.4 and posted a 27-6 all-play, best in the league. The man who took the top seed twice and won nothing is now scoring like a contender with a losing record. The roster only projects 117, 8th of 12, so Burrow and Jefferson have to keep carrying.",
       "pick": null
     },
     {
-      "headline": "Six-And-Two On Fumes And Favors",
-      "body": "Leif is 6-2 with a four-game win streak, which sounds like a contender until you notice the all-play is 43-45 and the luck is +2.1 wins, the luckiest mark of the twelve. Points against of 879.1, second-fewest, has done a lot of heavy lifting. The last three weeks are the problem: 112.3, 92.9, then 64.7, a season low, for a 10-23 all-play stretch that's 11th of 12. Christian McCaffrey and Mike Evans are both questionable. The roster projects 120 a week, sixth. Noah's up next, and Noah doesn't care about your record.",
+      "headline": "6-2 Built On Fumes And Favorable Schedules",
+      "body": "Leif is 6-2 with a four-game win streak and an all-play record of 43-45, which is the gap between a good team and a lucky one. The luck column says +2.1 wins, first-luckiest of 12. The last three weeks: 112.3, 92.9, then 64.7, an all-play of 10-23 over that stretch. His draft-night roster graded 80, 12th of 12, and he's been outrunning it ever since. Christian McCaffrey, Mike Evans and David Montgomery are all questionable. Noah's next, and Noah doesn't miss when it counts.",
       "pick": null
     },
     {
-      "headline": "Grant Is Exactly 4-4, No Argument",
-      "body": "Grant sits at 4-4 with a 42-46 all-play, 114.8 a week, luck of plus-0.2 \u2014 which is to say the record isn't a trick, it's just who he is. The last three weeks have been genuinely good, 21-12 all-play, built on a 158.6 in Week 7 that looks like an outlier next to the 84.4 in Week 3. The concern is the roster index at 39 and a 113-a-week projection, 10th of 12. Amon-Ra St. Brown and Mahomes are carrying a lot. Week 9 is Adam. Good luck with that.",
+      "headline": "Grant Is Exactly What The Numbers Say",
+      "body": "Grant is 4-4, all-play 42-46, luck +0.2 \u2014 a team so precisely average it's almost a statement. The 918.3 points for ranks 6th of 12, the scoring average is 114.8, and the power score lands at 48.6. There is no scam here and no hidden gem. The problem is what's coming: a roster index of 39 and a projection of 113 a week, 10th of 12, with Amon-Ra St. Brown doing heavy lifting and Christian Watson and Kyler Murray both questionable. Week 9 is Adam. Good luck.",
       "pick": null
     },
     {
-      "headline": "CJ Rises Two Spots Scoring Ninety",
-      "body": "CJ moved up two places by doing nothing in particular, which is the most Taylor Gang thing imaginable. Back-to-back duds of 90.9 and 95.1 have the last three weeks at 36% all-play, T-9th of 12, and the season average sits at 111.2, 8th in the league. The 4-4 record is honestly earned \u2014 luck is +0.4, basically neutral. Jonathan Taylor and Chuba Hubbard are a real backfield, but Mason Taylor at 8 projected points is a tight end in the loosest sense. Week 9 projects 115 against Logan.",
+      "headline": "CJ Climbs While Scoring Less Than Ever",
+      "body": "CJ moved up two spots on the strength of other people's failures, which is the most Taylor Gang thing imaginable. The last three weeks: 125.5, then 90.9, then 95.1, an all-play of 12-21 over that stretch \u2014 36 percent, T-9th of 12. The season average is 111.2, 8th of 12, and the 40-48 all-play says 4-4 is exactly what he's earned. The backfield is real \u2014 Jonathan Taylor at 20 projected, Chuba Hubbard at 18 \u2014 but Tyler Shough at 15 is the ceiling problem. Logan's next, 114 projected.",
       "pick": null
     },
     {
-      "headline": "4-4 On Vibes And A Schedule",
-      "body": "Isaac is 4-4 and riding a two-game streak, which sounds fine until you see the all-play: 31-57, 35%, 11th of 12. That's the real number. The 104.8 per game is 11th too, and the only reason the record isn't ugly is 906.3 points against, 6th-fewest, plus +1.2 wins of luck. The roster says this shouldn't be happening \u2014 123 a week projected, 5th of 12, with Ja'Marr Chase, Nabers and Saquon. Week 6's 79.0 is the honest version. Week 9 is Peter. Score something.",
+      "headline": "Isaac Is 4-4 On Vibes Alone",
+      "body": "Two straight wins, and Isaac is climbing on a roster that still averages 104.8 per game, 11th of 12. The all-play tells the real story: 31-57, 35%, also 11th. That's not a contender, that's a guy +1.2 wins over expected riding the fourth-luckiest schedule in the league. The confusing part is the talent \u2014 Ja'Marr Chase, Malik Nabers, Saquon Barkley, and a lineup projecting 124 a week, 5th of 12. Week 6's 79.0 shouldn't be possible with that roster. Peter's next. Start scoring like the names suggest.",
       "pick": null
     },
     {
-      "headline": "Best Draft On Paper, Worst Roster Going Forward",
-      "body": "Peter won draft night \u2014 89 out of 100, first of twelve \u2014 and he's been coasting on it ever since. The 5-3 record is a costume: all-play is 40-48, luck is +1.4 wins, and points against are the 4th-fewest in the league. Over the last three weeks he's gone 12-21 all-play with a 69.8 somewhere in there, which is how a Week 4 163.0 team ends up here. The roster projects 101 a week, 12th of 12. Lamar Jackson is OUT. Enjoy 5-3 while it lasts.",
+      "headline": "Best Draft, Worst Projection, Living On Luck",
+      "body": "Peter drafted the best board in the league on paper \u2014 89 out of 100, first of twelve \u2014 and has turned it into a roster that projects 100 a week, twelfth of twelve. The 5-3 record is a costume: all-play 40-48, luck +1.4 wins, third-luckiest in the league. The last three weeks tell it straight: 69.8, 114.6, 118.1, a 36% all-play clip. Lamar Jackson is OUT, A.J. Brown and Kyle Monangai questionable, and Justin Herbert projects 12. The 2022 champ is being carried by points against, not points.",
       "pick": null
     },
     {
-      "headline": "Noah's Cinderella Window Is Closing Fast",
-      "body": "Noah's 143.1 in Week 8 was the first time all season this roster looked like it belonged, and it still only pushed him to 2-6. The context is uglier than the record: 107.5 a game, 9th of 12, an all-play mark of 33-55 that says the losses are earned, not stolen. Luck is -1.0, so there's a sliver of a case, but 38% is 38%. The postseason assassin reputation requires reaching the postseason. Drake Maye and James Cook III project 120 against Leif. Start there.",
+      "headline": "Noah's January Form Arrives Three Months Early",
+      "body": "Noah finally cleared 140 for the first time all season, and it moved him exactly one spot. That's what 2-6 buys you. The all-play is 33-55, 38%, 10th of 12 \u2014 this isn't a scheduling conspiracy, it's a 107.5 per game offense that bottomed out at 79.6 in Week 3. The last three weeks are genuinely better, 58% all-play, 5th of 12. The draft night roster graded 86, T-4th, which makes the 2-6 more annoying, not less. The postseason assassin has to reach the postseason first. Leif's next, 121 projected.",
       "pick": null
     },
     {
-      "headline": "5-3 Is A Magic Trick, Not A Team",
-      "body": "Kaleb is 5-3 with the fewest points against in the league and 103.4 a game, which is 12th of 12. That's not a r\u00e9sum\u00e9, that's a schedule. The all-play is 34-54, 39%, and luck sits at +1.9 wins \u2014 second-luckiest of 12 \u2014 so nearly two of those wins belong to the bracket, not the lineup. Week 8's 62.7 was the floor finding itself. The draft graded 86, T-4th of 12, and the roster index is 21, which is the whole story: Goff, London and Jeanty, then silence. 108 projected against Christian.",
+      "headline": "5-3 On The Thinnest Possible Evidence",
+      "body": "Kaleb is 5-3 and the schedule gets all the credit: 103.4 points a game, 12th of 12, and 805.8 points against, the fewest in the league. The all-play says 34-54, 39%, 9th of 12. The luck column says +1.9 wins, 2nd-highest. Week 8 was 62.7, a season low, and the roster index of 22 says the bailout isn't coming \u2014 Goff, Jeanty, London and a questionable Breece Hall project this thing at 104 a week. The 86 draft grade, T-4th, has aged into a cautionary tale. Christian's next.",
       "pick": null
     },
     {
       "headline": "Nico Found, Everything Else Still Missing",
-      "body": "Mitchell's roster projects for 124 a week, fourth-best in the league, and he's averaging 106.9. That gap is the whole story. The 30-58 all-play is last of twelve, and the last three weeks \u2014 85.5, 79.4, 108.5 \u2014 produced a 5-28 all-play, also last. This isn't bad luck; he's minus-1.7 wins, meaning he's underperforming his own bad scores. Gibbs projects 26, Golden 17, Kelce is still here. The 85 draft grade bought him a 1-7 record and a dress fitting. Week 9 is John.",
+      "body": "Mitchell's roster projects for 124 a week, 4th of 12, and he's averaging 106.9. That gap is the whole season. The all-play is 30-58, 12th of 12, and the last three weeks are 5-28 \u2014 85.5, 79.4, 108.5 while Jahmyr Gibbs, Dak Prescott and Nico Collins all sit on his roster. Luck is -1.7, so there's a sliver of sympathy available, but a team that scores 73.0 in Week 2 earns most of its 1-7. Week 9 projects 127 against John. Start the right nine.",
       "pick": null
     }
   ],
-  "intro": "Adam stays at the top and it isn't close: 139.6 a game, a 75% all-play mark, and a 6-2 record built with exactly zero luck equity, which is the annoying part for everyone else. At the bottom sits Mitchell, 1-7 with a 15% form rating, though 106.9 a game and a -1.7 luck figure suggest he's been bad and unlucky rather than simply bad \u2014 his 127 projection is the highest in the bottom four. The week's loudest fall is Leif, down from third to fifth despite also being 6-2, because a 49% all-play, a 30% form number and +2.1 in luck is a 116.0-per-game team wearing Adam's record. Kaleb's slide from eighth to eleventh is the same story with worse ingredients: 103.4 a game, a 39% all-play, and +1.9 in luck holding up a 5-3 that nobody believes."
+  "intro": "Adam holds the top spot and it isn't close: 139.6 per game, a 75% all-play, and a 6-2 record built on zero luck, which is the rudest part of it. Mitchell sits at the bottom at 1-7 with a 15% form rating, though 106.9 per game and a 127 projection next week say he's been beaten up more than he's been bad \u2014 his -1.7 luck is the second-worst on the board. The week's ugliest slide belongs to Kaleb, who dropped from 8th to 11th while somehow still carrying a 5-3 record; 103.4 points per game and +1.9 luck is a house built on sand. Leif's fall from 3rd to 5th is the same story with better wallpaper: 6-2, 49% all-play, and a 30% form number that's heading the wrong direction."
 }

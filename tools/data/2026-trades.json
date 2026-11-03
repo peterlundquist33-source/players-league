@@ -179,21 +179,21 @@
      {
       "name": "Joe Burrow",
       "pos": "QB",
-      "rank": 33,
-      "value": 21.3
+      "rank": 29,
+      "value": 24.0
      },
      {
       "name": "Zach Charbonnet",
       "pos": "RB",
-      "rank": 149,
+      "rank": 150,
       "value": 2.0
      }
     ],
-    "value": 23.4
+    "value": 26.0
    }
   },
   "winner": "Logan",
-  "margin": 12.1,
+  "margin": 14.7,
   "grade": "SLIGHT EDGE"
  },
  {
