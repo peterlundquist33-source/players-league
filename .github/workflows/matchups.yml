@@ -6,10 +6,15 @@ on:
     # split by month: 9-10 are CDT (UTC-5), 11-12,1 are CST (UTC-6).
     # DST ends Sun Nov 1, 2026, which is why the split lands on the month boundary.
     # Wednesday 7pm CT fires as Thursday in UTC, hence DOW 4.
+    #
+    # The Tuesday recap lines were removed 2026-11-17. GitHub runs this repo's
+    # scheduled triggers about 7 hours late (recaps landed 18:08 and 18:22 UTC
+    # against an 11:00 target), and recap has no already-exists guard — a late
+    # run rewrites the page the league read that morning. The recap is now
+    # dispatched on time by an OpenClaw automation calling `gh workflow run`.
+    # Preview and madness are unaffected by the lateness, so they stay here.
     - cron: "17 0 * 9-10 4"     # Wednesdays 7pm CDT — previews
     - cron: "17 1 * 11-12,1 4"  # Wednesdays 7pm CST — previews
-    - cron: "0 10 * 9-10 2"     # Tuesdays   5am CDT — recaps
-    - cron: "0 11 * 11-12,1 2"  # Tuesdays   5am CST — recaps
     - cron: "0 18 * 9-12,1 1"   # Mondays    1pm CDT / 12pm CST — Monday Night Madness
   workflow_dispatch:
     inputs:
