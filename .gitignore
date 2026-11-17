@@ -10,3 +10,6 @@ __pycache__/
 # os
 .DS_Store
 _mobile.html
+
+# refetched from Sleeper on every CI run; committing it is pure churn
+tools/data/sleeper-injuries.json

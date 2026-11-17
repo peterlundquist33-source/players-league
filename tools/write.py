@@ -1,5 +1,6 @@
 """Turn a normalized matchup into a Claude-written preview or recap."""
 import re
+import injuries
 from lib import claude, PRO
 from lore import LEAGUE_FACTS, NOTES, OWNERS, RIVALRIES, rivalry_between
 
@@ -310,6 +311,8 @@ def _matchup_facts(m, phase, ctx=None):
     lines += _positional_edges(a_tot, h_tot, A, H)
 
     if phase == "recap":
+        inj = injuries.load()
+        hurt = []
         for who in (a, h):
             busts = sorted((s for s in who["starters"]
                             if s["proj"] - s["actual"] >= 6 and s["slot"] not in ("K", "D/ST")),
@@ -318,6 +321,21 @@ def _matchup_facts(m, phase, ctx=None):
                 lines.append(f'{who["owner"]} underperformers: '
                              + ", ".join(f'{s["name"]} {s["actual"]:.1f} on {s["proj"]:.1f} proj'
                                          for s in busts))
+            for s in who["starters"]:
+                if s["slot"] in ("K", "D/ST"):
+                    continue
+                det = injuries.describe(s, inj)
+                if det:
+                    hurt.append(f'  {who["owner"]} started {s["name"]} ({s["pos"]}) — '
+                                f'{s["actual"]:.1f} on {s["proj"]:.1f} proj — now listed {det}.')
+        if hurt:
+            lines.append('\nInjury context — these starters currently carry an injury '
+                         'designation. Use it to explain a bad score where it fits; this is '
+                         'the reason a number cratered, not an excuse to pity the owner. '
+                         'State only the status and body part given here. You do NOT know '
+                         'when in the game it happened, how long they are out, or whether '
+                         'the owner could have known — never imply any of those:')
+            lines += hurt
         bench = _bench_block(a) + _bench_block(h)
         if bench:
             lines.append('\nBench regrets:')
