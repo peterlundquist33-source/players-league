@@ -1,0 +1,58 @@
+name: Beat the Board
+
+# Rebuilds board.html: rolls the open week forward when a new preview lands, and
+# scores the week that just finished. Deliberately separate from matchups.yml —
+# it needs no secrets (it reads this repo's committed data plus Firestore's public
+# read API) and must not be able to disturb the AI copy pipeline.
+#
+# Daily, because GitHub runs this repo's scheduled triggers about 7 hours late:
+# a fixed "right after the preview" slot would miss. A run with nothing new to
+# say writes no diff and commits nothing.
+
+on:
+  schedule:
+    - cron: "0 16 * 9-12,1 *"   # daily, 11am CDT / 10am CST — season months only
+  workflow_dispatch:
+    inputs:
+      season:
+        description: "season year"
+        default: "2026"
+      refresh_locks:
+        description: "re-fetch NFL kickoff times (lock table)"
+        type: boolean
+        default: false
+
+permissions:
+  contents: write
+
+concurrency:
+  group: board
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Build board.html
+        run: |
+          python3 tools/board.py "${{ github.event.inputs.season || '2026' }}" \
+            ${{ github.event.inputs.refresh_locks == 'true' && '--refresh-locks' || '' }}
+
+      - name: Commit & push if changed
+        run: |
+          PATHS="board.html tools/data/2026-board-locks.json tools/data/2026-board-scores.json"
+          if [ -n "$(git status --porcelain $PATHS)" ]; then
+            git config user.name  "players-league-bot"
+            git config user.email "actions@users.noreply.github.com"
+            git add $PATHS
+            git commit -m "Beat the Board rebuild $(date -u +%Y-%m-%d)"
+            git push
+          else
+            echo "no changes"
+          fi

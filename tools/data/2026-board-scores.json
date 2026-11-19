@@ -1,0 +1,150 @@
+{
+ "season": 2026,
+ "open_week": 11,
+ "scored_weeks": [
+  1,
+  2,
+  3,
+  4,
+  5,
+  6,
+  7,
+  8,
+  9,
+  10
+ ],
+ "rows": [
+  {
+   "owner": "Adam Stockwell",
+   "first": "Adam",
+   "total": 0,
+   "played": 0,
+   "hits": 0,
+   "pick_pts": 0,
+   "bonus": 0,
+   "best": 0,
+   "avg": 0.0
+  },
+  {
+   "owner": "CJ Woda",
+   "first": "CJ",
+   "total": 0,
+   "played": 0,
+   "hits": 0,
+   "pick_pts": 0,
+   "bonus": 0,
+   "best": 0,
+   "avg": 0.0
+  },
+  {
+   "owner": "Christian Massett",
+   "first": "Christian",
+   "total": 0,
+   "played": 0,
+   "hits": 0,
+   "pick_pts": 0,
+   "bonus": 0,
+   "best": 0,
+   "avg": 0.0
+  },
+  {
+   "owner": "Grant Sawyer",
+   "first": "Grant",
+   "total": 0,
+   "played": 0,
+   "hits": 0,
+   "pick_pts": 0,
+   "bonus": 0,
+   "best": 0,
+   "avg": 0.0
+  },
+  {
+   "owner": "Isaac Douglas",
+   "first": "Isaac",
+   "total": 0,
+   "played": 0,
+   "hits": 0,
+   "pick_pts": 0,
+   "bonus": 0,
+   "best": 0,
+   "avg": 0.0
+  },
+  {
+   "owner": "John Lundquist",
+   "first": "John",
+   "total": 0,
+   "played": 0,
+   "hits": 0,
+   "pick_pts": 0,
+   "bonus": 0,
+   "best": 0,
+   "avg": 0.0
+  },
+  {
+   "owner": "Kaleb Feahn",
+   "first": "Kaleb",
+   "total": 0,
+   "played": 0,
+   "hits": 0,
+   "pick_pts": 0,
+   "bonus": 0,
+   "best": 0,
+   "avg": 0.0
+  },
+  {
+   "owner": "Leif Engen",
+   "first": "Leif",
+   "total": 0,
+   "played": 0,
+   "hits": 0,
+   "pick_pts": 0,
+   "bonus": 0,
+   "best": 0,
+   "avg": 0.0
+  },
+  {
+   "owner": "Logan Rezac",
+   "first": "Logan",
+   "total": 0,
+   "played": 0,
+   "hits": 0,
+   "pick_pts": 0,
+   "bonus": 0,
+   "best": 0,
+   "avg": 0.0
+  },
+  {
+   "owner": "Mitchell Max",
+   "first": "Mitchell",
+   "total": 0,
+   "played": 0,
+   "hits": 0,
+   "pick_pts": 0,
+   "bonus": 0,
+   "best": 0,
+   "avg": 0.0
+  },
+  {
+   "owner": "Noah Thesing",
+   "first": "Noah",
+   "total": 0,
+   "played": 0,
+   "hits": 0,
+   "pick_pts": 0,
+   "bonus": 0,
+   "best": 0,
+   "avg": 0.0
+  },
+  {
+   "owner": "Peter Lundquist",
+   "first": "Peter",
+   "total": 0,
+   "played": 0,
+   "hits": 0,
+   "pick_pts": 0,
+   "bonus": 0,
+   "best": 0,
+   "avg": 0.0
+  }
+ ]
+}
