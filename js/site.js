@@ -20,6 +20,38 @@
     });
   }
 
+  // Nav dropdowns. CSS already opens them on hover and focus-within, which
+  // covers mouse and keyboard; this is what makes them work on touch, where
+  // neither fires.
+  var groups = [].slice.call(document.querySelectorAll(".nav-group"));
+  function closeGroups(except) {
+    groups.forEach(function (g) {
+      if (g === except) return;
+      g.classList.remove("open");
+      var b = g.querySelector(".nav-group-btn");
+      if (b) b.setAttribute("aria-expanded", "false");
+    });
+  }
+  groups.forEach(function (g) {
+    var btn = g.querySelector(".nav-group-btn");
+    if (!btn) return;
+    btn.addEventListener("click", function (e) {
+      e.stopPropagation();
+      var open = !g.classList.contains("open");
+      closeGroups(g);
+      g.classList.toggle("open", open);
+      btn.setAttribute("aria-expanded", String(open));
+    });
+  });
+  if (groups.length) {
+    document.addEventListener("click", function (e) {
+      if (e.target && e.target.closest && !e.target.closest(".nav-group")) closeGroups(null);
+    });
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape") closeGroups(null);
+    });
+  }
+
   // ---------- tables ----------
   var NUM = /^[\s+\-−–]?\$?\d[\d,]*(\.\d+)?%?\s*$/;   // 12  1,939.3  -4.5  +3.6  61%
   function cellValue(td) {

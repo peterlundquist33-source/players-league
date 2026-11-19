@@ -13,22 +13,41 @@ overwrite it in place. Before this, all six navs had drifted apart.
 import re
 from lib import ROOT
 
-STYLE_VERSION = "5"
+STYLE_VERSION = "6"
 
-# (href, label) — the order the nav shows them in
+# The nav, in display order. An item is either a leaf ("href", "Label") or a
+# dropdown ("Label", [leaf, ...]) — told apart by whether the second element is
+# a list. Dropdowns are one level deep; nothing here supports nesting further.
 NAV = [
     ("home.html", "Home"),
     ("rankings.html", "Rankings"),
     ("matchups/index.html", "Matchups"),
     ("board.html", "Board"),
-    ("trades.html", "Trades"),
     ("analytics.html", "Analytics"),
-    ("teams.html", "Teams"),
-    ("history.html", "History"),
-    ("awards.html", "Awards"),
     ("weekend.html", "Weekend"),
     ("podcast.html", "Podcast"),
+    ("Other", [
+        ("teams.html", "Teams"),
+        ("history.html", "History"),
+        ("awards.html", "Awards"),
+        ("trades.html", "Trades"),
+    ]),
 ]
+
+
+def _is_group(item):
+    return isinstance(item[1], (list, tuple))
+
+
+def nav_leaves():
+    """Every (href, label) in the nav, dropdown children included."""
+    out = []
+    for item in NAV:
+        if _is_group(item):
+            out.extend(item[1])
+        else:
+            out.append(item)
+    return out
 
 # per-page title + meta description. Pages not listed keep their own <title>.
 PAGES = {
@@ -101,6 +120,7 @@ ICONS = {
     "crown":  "M4 18h16 M4 18L3 8l5 4 4-6 4 6 5-4-1 10",
     "star":   "M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1L3.2 9.5l6.1-.9L12 3z",
     "chart":  "M4 19h16 M7 16V9 M12 16V5 M17 16v-6",
+    "caret":  "M6 9.5l6 5.5 6-5.5",
 }
 
 
@@ -113,10 +133,26 @@ def icons():
 def nav(active, depth=0):
     """`active` is a nav label ("Home") or a page href."""
     up = _rel(depth)
-    links = []
-    for href, label in NAV:
+
+    def leaf(href, label):
         attrs = ' class="active" aria-current="page"' if active in (label, href) else ""
-        links.append(f'<a href="{up}{href}"{attrs}>{label}</a>')
+        return f'<a href="{up}{href}"{attrs}>{label}</a>'
+
+    links = []
+    for item in NAV:
+        if not _is_group(item):
+            links.append(leaf(*item))
+            continue
+        label, kids = item
+        # The dropdown's own tab lights up when the page you're on lives inside it.
+        on = any(active in (k_label, k_href) for k_href, k_label in kids)
+        links.append(
+            f'<div class="nav-group{" is-active" if on else ""}">'
+            f'<button class="nav-group-btn" type="button" aria-expanded="false" aria-haspopup="true">'
+            f'{label}<svg class="caret" aria-hidden="true"><use href="#i-caret"/></svg></button>'
+            f'<div class="nav-menu">{"".join(leaf(h, l) for h, l in kids)}</div>'
+            f'</div>'
+        )
     return (
         icons() +
         '<nav class="nav" aria-label="Primary"><div class="nav-inner">'
@@ -134,7 +170,9 @@ def footer():
 
 
 def scripts(depth=0):
-    return f'<script src="{_rel(depth)}js/site.js"></script>'
+    # Versioned for the same reason the stylesheet is: the nav dropdown needs
+    # this file, and a cached copy leaves it dead to the touch on phones.
+    return f'<script src="{_rel(depth)}js/site.js?v={STYLE_VERSION}"></script>'
 
 
 # ---------------------------------------------------------------- stamping
@@ -145,7 +183,7 @@ _HEAD_RE = re.compile(r"(<!-- HEAD:start -->.*?<!-- HEAD:end -->)", re.S)
 
 
 def _active_for(page):
-    for href, label in NAV:
+    for href, label in nav_leaves():
         if page == href:
             return label
     if page == "draft-grades.html":
@@ -180,7 +218,13 @@ def stamp_text(html, page, depth):
     html = re.sub(r'\s*<script src="[^"]*js/(?:gate|polish)\.js[^"]*"></script>', "", html)
     html = _OLD_TOGGLE.sub("", html)
     html = re.sub(r"<script>\s*</script>\s*", "", html)
-    if "js/site.js" not in html:
+    # Normalise an existing tag rather than only adding a missing one, or the
+    # hand-written pages keep whatever unversioned src they were born with and
+    # never pick up a new site.js.
+    if "js/site.js" in html:
+        html = re.sub(r'<script src="[^"]*js/site\.js(?:\?[^"]*)?"></script>',
+                      lambda _: scripts(depth), html, count=1)
+    else:
         html = re.sub(r"</body>", scripts(depth) + "\n</body>", html, count=1)
 
     html = html.replace('<body class="polish">', "<body>")
