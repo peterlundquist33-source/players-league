@@ -801,6 +801,13 @@ _TEMPLATE_BODY = r'''<style>
   .bd-msg {{ font-size: var(--fs-13); color: var(--text-2); }}
   .bd-msg.is-bad {{ color: var(--neg); }}
   .bd-msg.is-good {{ color: var(--accent); }}
+  .bd-thanks {{
+    display: flex; align-items: center; gap: var(--s-3);
+    background: var(--accent-tint); border: 1px solid var(--accent-line);
+    border-radius: var(--r-sm); padding: var(--s-2) var(--s-3);
+  }}
+  .bd-thanks-img {{ width: 44px; height: 44px; border-radius: 50%; object-fit: cover; border: 2px solid var(--accent); display: block; }}
+  .bd-thanks-text {{ font-family: var(--font-display); font-weight: 700; font-size: var(--fs-13); color: var(--accent); }}
   button.bd-side, button.btn {{ font: inherit; }}
   .btn[disabled] {{ opacity: .5; cursor: not-allowed; }}
 

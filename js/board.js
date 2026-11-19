@@ -371,6 +371,16 @@
     go.addEventListener("click", submit);
     act.appendChild(go);
     if (state.msg) act.appendChild(el("span", "bd-msg" + (state.msgKind ? " is-" + state.msgKind : ""), state.msg));
+    if (state.msgKind === "good") {
+      var thanks = el("div", "bd-thanks");
+      var img = document.createElement("img");
+      img.className = "bd-thanks-img";
+      img.src = "img/peter-thumbs-up.jpg";
+      img.alt = "Peter giving a thumbs up";
+      thanks.appendChild(img);
+      thanks.appendChild(el("span", "bd-thanks-text", "Thanks for being a GOOOD BOYYYY"));
+      act.appendChild(thanks);
+    }
     f.appendChild(act);
     return f;
   }
