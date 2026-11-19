@@ -23,7 +23,8 @@
    "pick_pts": 0,
    "bonus": 0,
    "best": 0,
-   "avg": 0.0
+   "avg": 0.0,
+   "miss": null
   },
   {
    "owner": "CJ Woda",
@@ -34,7 +35,8 @@
    "pick_pts": 0,
    "bonus": 0,
    "best": 0,
-   "avg": 0.0
+   "avg": 0.0,
+   "miss": null
   },
   {
    "owner": "Christian Massett",
@@ -45,7 +47,8 @@
    "pick_pts": 0,
    "bonus": 0,
    "best": 0,
-   "avg": 0.0
+   "avg": 0.0,
+   "miss": null
   },
   {
    "owner": "Grant Sawyer",
@@ -56,7 +59,8 @@
    "pick_pts": 0,
    "bonus": 0,
    "best": 0,
-   "avg": 0.0
+   "avg": 0.0,
+   "miss": null
   },
   {
    "owner": "Isaac Douglas",
@@ -67,7 +71,8 @@
    "pick_pts": 0,
    "bonus": 0,
    "best": 0,
-   "avg": 0.0
+   "avg": 0.0,
+   "miss": null
   },
   {
    "owner": "John Lundquist",
@@ -78,7 +83,8 @@
    "pick_pts": 0,
    "bonus": 0,
    "best": 0,
-   "avg": 0.0
+   "avg": 0.0,
+   "miss": null
   },
   {
    "owner": "Kaleb Feahn",
@@ -89,7 +95,8 @@
    "pick_pts": 0,
    "bonus": 0,
    "best": 0,
-   "avg": 0.0
+   "avg": 0.0,
+   "miss": null
   },
   {
    "owner": "Leif Engen",
@@ -100,7 +107,8 @@
    "pick_pts": 0,
    "bonus": 0,
    "best": 0,
-   "avg": 0.0
+   "avg": 0.0,
+   "miss": null
   },
   {
    "owner": "Logan Rezac",
@@ -111,7 +119,8 @@
    "pick_pts": 0,
    "bonus": 0,
    "best": 0,
-   "avg": 0.0
+   "avg": 0.0,
+   "miss": null
   },
   {
    "owner": "Mitchell Max",
@@ -122,7 +131,8 @@
    "pick_pts": 0,
    "bonus": 0,
    "best": 0,
-   "avg": 0.0
+   "avg": 0.0,
+   "miss": null
   },
   {
    "owner": "Noah Thesing",
@@ -133,7 +143,8 @@
    "pick_pts": 0,
    "bonus": 0,
    "best": 0,
-   "avg": 0.0
+   "avg": 0.0,
+   "miss": null
   },
   {
    "owner": "Peter Lundquist",
@@ -144,7 +155,8 @@
    "pick_pts": 0,
    "bonus": 0,
    "best": 0,
-   "avg": 0.0
+   "avg": 0.0,
+   "miss": null
   }
  ]
 }

@@ -1,8 +1,8 @@
 /* Beat the Board — CHANNEL 11.
    The only page on this site that writes. Everything it needs to know about the
-   week (slate, lock time, the twelve names) is baked into window.BOARD by
-   tools/board.py; the live part is Firestore, same project and same
-   no-accounts trust model as the pick'em and the wedding to-do list.
+   week (slate, lock time, the twelve names, the featured player) is baked into
+   window.BOARD by tools/board.py; the live part is Firestore, same project and
+   same no-accounts trust model as the pick'em and the wedding to-do list.
 
    The leaderboard is NOT scored here — tools/board.py owns the math and bakes
    it into the page. This file only collects a card and shows who has filed one. */
@@ -16,13 +16,18 @@
   var RANKS = [];
   for (var i = 1; i <= MAX; i++) RANKS.push(String(i));
 
+  // The week's featured player, or null if none could be drawn. When it's null
+  // there is nothing to predict, so the card carries pred 0 and the page says
+  // the bonus is off — the slate still scores normally.
+  var FEAT = B.featured || null;
+  var CAP = B.predCap || 100;
+
   var db = null;
   var state = {
     me: "",
     picks: {},          // matchupId -> winner first name
     conf: {},           // matchupId -> "1".."6"
-    high: "",
-    margin: "",
+    pred: "",           // predicted full-PPR total for the featured player
     entries: {},        // owner full name -> entry, this week, live
     msg: "",
     msgKind: "",
@@ -93,8 +98,16 @@
       if (entry.picks && entry.picks[g.id]) state.picks[g.id] = entry.picks[g.id];
       if (entry.conf && entry.conf[g.id]) state.conf[g.id] = String(entry.conf[g.id]);
     });
-    state.high = entry.high == null ? "" : String(entry.high);
-    state.margin = entry.margin == null ? "" : String(entry.margin);
+    state.pred = entry.pred == null ? "" : String(entry.pred);
+  }
+
+  // Strict on purpose: parseFloat("12abc") is 12, which would quietly file a
+  // number nobody typed. Only a plain decimal counts.
+  function predValue() {
+    var raw = String(state.pred).trim();
+    if (!/^\d+(\.\d+)?$/.test(raw)) return null;
+    var v = Number(raw);
+    return isFinite(v) ? v : null;
   }
 
   /* ------------------------------------------------------------ validation */
@@ -118,8 +131,14 @@
       dupes.sort();
       out.push("Rank " + dupes.join(" and ") + " used more than once — each of 1 to " + MAX + " exactly once.");
     }
-    if (!(parseFloat(state.high) > 0)) out.push("Enter a predicted highest team score.");
-    if (!(parseFloat(state.margin) >= 0)) out.push("Enter a predicted smallest margin.");
+    if (FEAT) {
+      var p = predValue();
+      if (p === null) {
+        out.push("Enter " + FEAT.name + "'s full-PPR total — a number, to a tenth.");
+      } else if (p > CAP) {
+        out.push("That prediction is over " + CAP + " — nobody scores that.");
+      }
+    }
     return out;
   }
 
@@ -159,8 +178,9 @@
       owner: state.me,
       picks: state.picks,
       conf: conf,
-      high: parseFloat(state.high),
-      margin: parseFloat(state.margin),
+      // No featured player means nothing to predict, but the rules still
+      // require the field, so a tiebreaker-less week files a flat 0.
+      pred: FEAT ? predValue() : 0,
       updated: firebase.firestore.FieldValue.serverTimestamp()
     };
     state.saving = true;
@@ -217,7 +237,8 @@
     head.appendChild(el("h2", null, "Your card — Week " + B.week));
     head.appendChild(el("p", null,
       "Pick a winner in all " + B.games.length + ", then rank every matchup 1 to " + MAX +
-      " using each number once. 1 is your shakiest call, " + MAX + " your surest."));
+      " using each number once. 1 is your shakiest call, " + MAX + " your surest." +
+      (FEAT ? " Then call " + FEAT.name + "'s full-PPR total for the tiebreaker." : "")));
     f.appendChild(head);
 
     // who
@@ -311,26 +332,33 @@
       f.appendChild(row);
     });
 
-    // tiebreakers
-    [["high", "Highest team score", "Any one team's best total this week", "0.1"],
-     ["margin", "Smallest margin", "The week's closest game, in points", "0.1"]
-    ].forEach(function (t) {
-      var row = el("div", "bd-field");
-      row.appendChild(el("span", "bd-label", t[1]));
+    // the one tiebreaker — the featured player's full-PPR total
+    var tb = el("div", "bd-field");
+    if (FEAT) {
+      tb.appendChild(el("span", "bd-label", FEAT.name));
       var inp = el("input", "bd-input");
       inp.type = "number";
-      inp.step = t[3];
+      inp.step = "0.1";
       inp.min = "0";
-      inp.value = state[t[0]];
-      inp.setAttribute("aria-label", t[1]);
+      inp.max = String(CAP);
+      inp.value = state.pred;
+      inp.setAttribute("aria-label", FEAT.name + " full-PPR points");
       inp.addEventListener("input", function () {
-        state[t[0]] = inp.value;
+        state.pred = inp.value;
         state.msg = "";
       });
-      row.appendChild(inp);
-      row.appendChild(el("span", "bd-hint", t[2]));
-      f.appendChild(row);
-    });
+      tb.appendChild(inp);
+      var where = (FEAT.home ? "vs " : "at ") + FEAT.opp;
+      tb.appendChild(el("span", "bd-hint",
+        "His full-PPR points this week, to a tenth" +
+        (FEAT.opp ? " — " + FEAT.team + " " + where : "") +
+        (FEAT.kickoffLabel ? ", " + FEAT.kickoffLabel : "")));
+    } else {
+      tb.appendChild(el("span", "bd-label", "Tiebreaker"));
+      tb.appendChild(el("span", "bd-hint",
+        "No featured player this week, so there's nothing to call — the slate scores on its own."));
+    }
+    f.appendChild(tb);
 
     // actions
     var act = el("div", "bd-actions");
@@ -354,8 +382,7 @@
     var thead = el("thead"), hr = el("tr");
     hr.appendChild(el("th", null, "Owner"));
     B.games.forEach(function (g) { hr.appendChild(el("th", null, g.away + " / " + g.home)); });
-    hr.appendChild(el("th", null, "High"));
-    hr.appendChild(el("th", null, "Margin"));
+    hr.appendChild(el("th", null, "Guess"));
     thead.appendChild(hr);
     t.appendChild(thead);
     var tb = el("tbody");
@@ -375,8 +402,7 @@
         }
         tr.appendChild(td);
       });
-      tr.appendChild(el("td", "muted", e.high == null ? "—" : String(e.high)));
-      tr.appendChild(el("td", "muted", e.margin == null ? "—" : String(e.margin)));
+      tr.appendChild(el("td", "muted", e.pred == null ? "—" : String(e.pred)));
       tb.appendChild(tr);
     });
     t.appendChild(tb);

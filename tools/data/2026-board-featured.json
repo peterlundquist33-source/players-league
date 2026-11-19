@@ -1,0 +1,30 @@
+{
+ "11": {
+  "season": 2026,
+  "week": 11,
+  "player_id": "8130",
+  "name": "Trey McBride",
+  "pos": "TE",
+  "team": "ARI",
+  "opp": "KC",
+  "home": false,
+  "kickoff": "2026-11-22 18:00",
+  "kickoff_label": "Sun Nov 22, 12:00 PM CT",
+  "chosen_at": "2026-11-19T20:57:18Z",
+  "seed": "2026-11",
+  "pool_rank": 23,
+  "eligible_pool": 21,
+  "season_ppr": 171.5,
+  "ppg": 17.15,
+  "games": 10,
+  "evidence": {
+   "scheduled_game": true,
+   "on_bye": false,
+   "injury_tag": "",
+   "sleeper_status": "Active"
+  },
+  "actual": null,
+  "played": null,
+  "final": false
+ }
+}
