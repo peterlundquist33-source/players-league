@@ -806,7 +806,9 @@ _TEMPLATE_BODY = r'''<style>
     background: var(--accent-tint); border: 1px solid var(--accent-line);
     border-radius: var(--r-sm); padding: var(--s-2) var(--s-3);
   }}
-  .bd-thanks-img {{ width: 44px; height: 44px; border-radius: 50%; object-fit: cover; border: 2px solid var(--accent); display: block; }}
+  .bd-thanks-pic {{ position: relative; display: block; width: 44px; height: 44px; flex: 0 0 auto; }}
+  .bd-thanks-img {{ width: 44px; height: 44px; border-radius: 50%; object-fit: cover; object-position: top; border: 2px solid var(--accent); display: block; background: var(--surface-2); }}
+  .bd-thanks-badge {{ position: absolute; right: -4px; bottom: -4px; font-size: 16px; line-height: 1; }}
   .bd-thanks-text {{ font-family: var(--font-display); font-weight: 700; font-size: var(--fs-13); color: var(--accent); }}
   button.bd-side, button.btn {{ font: inherit; }}
   .btn[disabled] {{ opacity: .5; cursor: not-allowed; }}
