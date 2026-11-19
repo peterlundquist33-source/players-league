@@ -496,7 +496,7 @@ def build(season=2026, refresh_locks=False):
 </head>
 <body>
 <!-- NAV:start -->
-{SITE.nav("", 0)}
+{SITE.nav("board.html", 0)}
 <!-- NAV:end -->
 {body}
 <!-- FOOTER:start -->

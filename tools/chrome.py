@@ -20,6 +20,7 @@ NAV = [
     ("home.html", "Home"),
     ("rankings.html", "Rankings"),
     ("matchups/index.html", "Matchups"),
+    ("board.html", "Board"),
     ("trades.html", "Trades"),
     ("analytics.html", "Analytics"),
     ("teams.html", "Teams"),
@@ -200,7 +201,7 @@ def stamp(path):
 
 STATIC = ["home.html", "teams.html", "awards.html", "history.html",
           "analytics.html", "weekend.html", "rankings.html", "draft-grades.html",
-          "matchups/index.html", "podcast.html"]
+          "matchups/index.html", "podcast.html", "trades.html"]
 
 
 def stamp_all(extra=()):
