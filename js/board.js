@@ -341,6 +341,9 @@
       inp.step = "0.1";
       inp.min = "0";
       inp.max = String(CAP);
+      // type=number alone gets iOS to a keypad, but not reliably one with a
+      // decimal point — and the guess is to a tenth.
+      inp.setAttribute("inputmode", "decimal");
       inp.value = state.pred;
       inp.setAttribute("aria-label", FEAT.name + " full-PPR points");
       inp.addEventListener("input", function () {

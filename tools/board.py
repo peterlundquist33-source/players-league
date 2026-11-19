@@ -443,7 +443,7 @@ def _leaderboard_html(lb, slates_):
             f'<td class="muted">{miss}</td>'
             f'{"".join(cells)}</tr>')
     return (
-        '<div class="table-scroll"><table class="data-table sticky-first">'
+        '<div class="table-scroll"><table class="data-table sticky-first bd-lb">'
         '<thead><tr><th>#</th><th>Owner</th><th>Pts</th><th>Wks</th><th>Hits</th>'
         f'<th>Bonus</th><th>Avg</th><th>Best</th><th>Miss</th>{head}</tr></thead>'
         f'<tbody>{"".join(body)}</tbody></table></div>')
@@ -717,7 +717,20 @@ _FB_CONFIG = {
 # Components use .bd-* classes defined in the page's own <style> block so this
 # channel can't change how any other page renders.
 _TEMPLATE_BODY = r'''<style>
-  .bd-wrap {{ max-width: var(--measure); margin: 0 auto; padding: 0 var(--s-6) var(--s-8); }}
+  /* --s-5 is used all through this block but has never been defined in
+     css/style.css, so every `padding: ... var(--s-5)` below was invalid at
+     computed-value time and collapsed to 0 — the form had no padding at all,
+     on any screen. Defined here rather than in the shared sheet so the repair
+     stays on this page. */
+  .bd-wrap {{
+    --s-5: 20px;
+    max-width: var(--measure); margin: 0 auto;
+    /* notch and home indicator: a phone in landscape puts the left inset over
+       the form, and the submit row ends up under the indicator in portrait */
+    padding-left: max(var(--s-6), env(safe-area-inset-left, 0px));
+    padding-right: max(var(--s-6), env(safe-area-inset-right, 0px));
+    padding-bottom: calc(var(--s-8) + env(safe-area-inset-bottom, 0px));
+  }}
   .bd-state {{
     display: flex; align-items: center; gap: var(--s-3); flex-wrap: wrap;
     background: var(--surface); border: var(--hair); border-left: 2px solid var(--accent);
@@ -741,10 +754,20 @@ _TEMPLATE_BODY = r'''<style>
   .bd-label {{ font-size: var(--fs-12); font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-3); min-width: 150px; }}
   .bd-input, .bd-select {{
     background: var(--surface-2); color: var(--text); border: 1px solid var(--line-2);
-    border-radius: var(--r-sm); padding: 8px var(--s-3); font: inherit; min-height: 38px;
+    border-radius: var(--r-sm); padding: 8px var(--s-3); font: inherit;
+    /* 16px and 44px are not style choices. iOS Safari zooms the whole page when
+       a control under 16px takes focus, and body is 14px, so tapping the
+       prediction field used to zoom the page and need a pinch to get back.
+       Declared unconditionally rather than inside the phone query — there is
+       then no viewport width at which the zoom can return. 44px is Apple's
+       minimum touch target. */
+    font-size: var(--fs-16); min-height: 44px;
   }}
   .bd-select {{ min-width: 240px; }}
   .bd-input {{ width: 120px; font-variant-numeric: tabular-nums; }}
+  /* the spinner arrows cost ~20px of a 375px line and nobody taps them */
+  .bd-input::-webkit-outer-spin-button, .bd-input::-webkit-inner-spin-button {{ -webkit-appearance: none; margin: 0; }}
+  .bd-input[type="number"] {{ -moz-appearance: textfield; appearance: textfield; }}
   .bd-input:focus-visible, .bd-select:focus-visible {{ outline: 2px solid var(--accent); outline-offset: 1px; }}
   .bd-hint {{ font-size: var(--fs-12); color: var(--text-3); }}
 
@@ -754,7 +777,6 @@ _TEMPLATE_BODY = r'''<style>
     display: block; text-align: left; background: var(--surface-2); border: 1px solid var(--line-2);
     border-radius: var(--r-sm); padding: var(--s-3); transition: var(--transition);
   }}
-  .bd-side:hover {{ border-color: var(--text-3); }}
   .bd-side.is-on {{ border-color: var(--accent); background: var(--accent-tint); box-shadow: inset 0 0 0 1px var(--accent-line); }}
   .bd-side-own {{ font-family: var(--font-display); font-weight: 700; font-size: var(--fs-16); }}
   .bd-side-team {{ display: block; font-size: var(--fs-12); color: var(--text-2); margin-top: 2px; }}
@@ -762,13 +784,12 @@ _TEMPLATE_BODY = r'''<style>
   .bd-conf .bd-label {{ min-width: 0; }}
   .bd-conf-opts {{ display: grid; grid-template-columns: repeat(6, 1fr); gap: var(--s-2); }}
   .bd-rank {{
-    display: flex; align-items: center; justify-content: center; min-height: 38px; padding: 0;
+    display: flex; align-items: center; justify-content: center; min-height: 44px; padding: 0;
     font-family: var(--font-display); font-weight: 700; font-size: var(--fs-16);
     font-variant-numeric: tabular-nums; color: var(--text-3);
     background: var(--surface-2); border: 1px solid var(--line-2);
     border-radius: var(--r-sm); transition: var(--transition);
   }}
-  .bd-rank:hover {{ border-color: var(--text-3); color: var(--text); }}
   .bd-rank.is-on {{
     color: var(--text); border-color: var(--accent); background: var(--accent-tint);
     box-shadow: inset 0 0 0 1px var(--accent-line);
@@ -815,10 +836,42 @@ _TEMPLATE_BODY = r'''<style>
   }}
   .bd-feat.is-void {{ border-left-color: var(--neg); }}
   .bd-feat.is-void .bd-feat-res {{ color: var(--neg); }}
+  /* Guarded: an unguarded :hover sticks to whatever a finger last touched, so
+     on a phone a tapped rank button keeps the hover look and reads as chosen.
+     Same pattern css/style.css already uses for the team tiles. */
+  @media (hover: hover) {{
+    .bd-side:hover {{ border-color: var(--text-3); }}
+    .bd-rank:hover {{ border-color: var(--text-3); color: var(--text); }}
+  }}
+
+  /* ---- phones. Cards get filed from a phone more than from a desktop, so
+     this is the primary layout, not a fallback. ---- */
   @media (max-width: 560px) {{
     .bd-game {{ grid-template-columns: 1fr; }}
     .bd-sides {{ grid-template-columns: 1fr; }}
     .bd-select, .bd-input {{ width: 100%; min-width: 0; }}
+    /* label above the control instead of the two fighting over a 375px line */
+    .bd-field {{ flex-direction: column; align-items: stretch; gap: var(--s-2); }}
+    .bd-label {{ min-width: 0; }}
+    /* six across leaves each rank button ~41px wide on a 375px iPhone SE;
+       3x2 gives ~90x48 instead, and 1-6 still reads in order */
+    .bd-conf-opts {{ grid-template-columns: repeat(3, 1fr); }}
+    .bd-rank {{ min-height: 48px; font-size: var(--fs-18); }}
+    .bd-feat {{ flex-direction: column; align-items: flex-start; gap: var(--s-2); }}
+    .bd-actions {{ flex-direction: column; align-items: stretch; }}
+    .bd-actions .btn {{ justify-content: center; min-height: 44px; }}
+    /* tighter cells fit more of the wide tables per screenful */
+    .bd-wrap .data-table th, .bd-wrap .data-table td {{ padding: 6px var(--s-2); }}
+    /* The leaderboard's first column is the rank number, so `sticky-first`
+       pins "1" and the owner's name is what scrolls out of sight. Drop the
+       number — the rows are already in rank order — and pin the name. */
+    .bd-lb th:first-child, .bd-lb td:first-child {{ display: none; }}
+    .bd-lb th:nth-child(2), .bd-lb td:nth-child(2) {{
+      position: sticky; left: 0; z-index: 1;
+      background: var(--surface); box-shadow: inset -1px 0 0 var(--line);
+    }}
+    .bd-lb thead th:nth-child(2) {{ z-index: 3; background: var(--surface-2); }}
+    .bd-lb tr.row-hi td:nth-child(2) {{ box-shadow: inset 2px 0 0 var(--accent), inset -1px 0 0 var(--line); }}
   }}
 </style>
 
