@@ -557,7 +557,7 @@ _TEMPLATE_BODY = r'''<style>
   .bd-input:focus-visible, .bd-select:focus-visible {{ outline: 2px solid var(--accent); outline-offset: 1px; }}
   .bd-hint {{ font-size: var(--fs-12); color: var(--text-3); }}
 
-  .bd-game {{ display: grid; grid-template-columns: 1fr 96px; gap: var(--s-3); align-items: center; padding: var(--s-4) var(--s-5); border-bottom: var(--hair); }}
+  .bd-game {{ display: grid; grid-template-columns: 1fr 236px; gap: var(--s-4); align-items: center; padding: var(--s-4) var(--s-5); border-bottom: var(--hair); }}
   .bd-sides {{ display: grid; grid-template-columns: 1fr 1fr; gap: var(--s-2); }}
   .bd-side {{
     display: block; text-align: left; background: var(--surface-2); border: 1px solid var(--line-2);
@@ -567,10 +567,24 @@ _TEMPLATE_BODY = r'''<style>
   .bd-side.is-on {{ border-color: var(--accent); background: var(--accent-tint); box-shadow: inset 0 0 0 1px var(--accent-line); }}
   .bd-side-own {{ font-family: var(--font-display); font-weight: 700; font-size: var(--fs-16); }}
   .bd-side-team {{ display: block; font-size: var(--fs-12); color: var(--text-2); margin-top: 2px; }}
-  .bd-conf {{ display: flex; flex-direction: column; gap: 4px; }}
+  .bd-conf {{ display: flex; flex-direction: column; gap: 6px; }}
   .bd-conf .bd-label {{ min-width: 0; }}
-  .bd-conf select {{ width: 100%; }}
-  .bd-conf.is-dupe select {{ border-color: var(--neg); background: var(--neg-tint); }}
+  .bd-conf-opts {{ display: grid; grid-template-columns: repeat(6, 1fr); gap: var(--s-2); }}
+  .bd-rank {{
+    display: flex; align-items: center; justify-content: center; min-height: 38px; padding: 0;
+    font-family: var(--font-display); font-weight: 700; font-size: var(--fs-16);
+    font-variant-numeric: tabular-nums; color: var(--text-3);
+    background: var(--surface-2); border: 1px solid var(--line-2);
+    border-radius: var(--r-sm); transition: var(--transition);
+  }}
+  .bd-rank:hover {{ border-color: var(--text-3); color: var(--text); }}
+  .bd-rank.is-on {{
+    color: var(--text); border-color: var(--accent); background: var(--accent-tint);
+    box-shadow: inset 0 0 0 1px var(--accent-line);
+  }}
+  .bd-rank.is-taken {{ color: var(--text-3); opacity: .45; }}
+  .bd-rank:focus-visible {{ outline: 2px solid var(--accent); outline-offset: 1px; }}
+  .bd-conf.is-dupe .bd-rank.is-on {{ border-color: var(--neg); background: var(--neg-tint); box-shadow: none; }}
   .bd-actions {{ display: flex; align-items: center; gap: var(--s-4); flex-wrap: wrap; padding: var(--s-5); }}
   .bd-msg {{ font-size: var(--fs-13); color: var(--text-2); }}
   .bd-msg.is-bad {{ color: var(--neg); }}

@@ -274,23 +274,39 @@
 
       var cw = el("div", "bd-conf" + (bad[g.id] ? " is-dupe" : ""));
       cw.appendChild(el("span", "bd-label", "Confidence"));
-      var cs = el("select");
-      cs.setAttribute("aria-label", "Confidence rank for " + g.away + " at " + g.home);
-      var blank = el("option", null, "—");
-      blank.value = "";
-      cs.appendChild(blank);
+      var opts = el("div", "bd-conf-opts");
+      opts.setAttribute("role", "group");
+      opts.setAttribute("aria-label", "Confidence rank for " + g.away + " at " + g.home);
       RANKS.forEach(function (r) {
-        var op = el("option", null, r);
-        op.value = r;
-        if (state.conf[g.id] === r) op.selected = true;
-        cs.appendChild(op);
+        var mine = state.conf[g.id] === r;
+        // Which other matchup, if any, is already holding this rank.
+        var heldBy = null;
+        Object.keys(state.conf).forEach(function (k) {
+          if (k !== g.id && state.conf[k] === r) heldBy = k;
+        });
+        var cls = "bd-rank" + (mine ? " is-on" : "") + (!mine && heldBy ? " is-taken" : "");
+        var rb = el("button", cls, r);
+        rb.type = "button";
+        rb.setAttribute("aria-pressed", mine ? "true" : "false");
+        rb.setAttribute("aria-label", "Rank " + r + " of " + MAX);
+        rb.addEventListener("click", function () {
+          if (mine) {
+            delete state.conf[g.id];
+          } else if (heldBy) {
+            // Ranks are a permutation, so trade with the matchup that holds it
+            // instead of creating a duplicate.
+            var prev = state.conf[g.id];
+            if (prev) state.conf[heldBy] = prev; else delete state.conf[heldBy];
+            state.conf[g.id] = r;
+          } else {
+            state.conf[g.id] = r;
+          }
+          state.msg = "";
+          render();
+        });
+        opts.appendChild(rb);
       });
-      cs.addEventListener("change", function () {
-        if (cs.value) state.conf[g.id] = cs.value; else delete state.conf[g.id];
-        state.msg = "";
-        render();
-      });
-      cw.appendChild(cs);
+      cw.appendChild(opts);
       row.appendChild(cw);
       f.appendChild(row);
     });
