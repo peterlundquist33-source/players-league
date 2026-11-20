@@ -392,7 +392,7 @@
       img.src = "img/peter-thumbs-up.jpg";
       img.alt = "Peter giving a thumbs up";
       pop.appendChild(img);
-      pop.appendChild(el("span", "bd-popup-text", "Thanks for being a GOOOD BOYYYY"));
+      pop.appendChild(el("span", "bd-popup-text", "Thanks for being a good member of our league!"));
       document.body.appendChild(pop);
     }
     clearTimeout(popupTimer);
