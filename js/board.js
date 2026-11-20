@@ -192,6 +192,7 @@
       state.msg = "Card filed for Week " + B.week + ". Resubmit any time before the lock.";
       state.msgKind = "good";
       render();
+      thanksPopup();
     }).catch(function (e) {
       state.saving = false;
       // A rules rejection here means the lock passed between load and submit,
@@ -371,18 +372,37 @@
     go.addEventListener("click", submit);
     act.appendChild(go);
     if (state.msg) act.appendChild(el("span", "bd-msg" + (state.msgKind ? " is-" + state.msgKind : ""), state.msg));
-    if (state.msgKind === "good") {
-      var thanks = el("div", "bd-thanks");
-      var img = document.createElement("img");
-      img.className = "bd-thanks-img";
-      img.src = "img/peter-thumbs-up.jpg";
-      img.alt = "Peter giving a thumbs up";
-      thanks.appendChild(img);
-      thanks.appendChild(el("span", "bd-thanks-text", "Thanks for being a GOOOD BOYYYY"));
-      act.appendChild(thanks);
-    }
     f.appendChild(act);
     return f;
+  }
+
+  // Fires once on a successful file/resubmit — a full-screen "thanks" flash,
+  // not part of the regular render() cycle so it survives the next render()
+  // call (which rebuilds the whole form and would otherwise wipe a DOM node
+  // living inside it). Appended to <body> instead, auto-dismissed on a timer.
+  var POPUP_MS = 1800;
+  var popupTimer = null;
+  function thanksPopup() {
+    var pop = document.getElementById("bd-popup");
+    if (!pop) {
+      pop = el("div", "bd-popup");
+      pop.id = "bd-popup";
+      var img = document.createElement("img");
+      img.className = "bd-popup-img";
+      img.src = "img/peter-thumbs-up.jpg";
+      img.alt = "Peter giving a thumbs up";
+      pop.appendChild(img);
+      pop.appendChild(el("span", "bd-popup-text", "Thanks for being a GOOOD BOYYYY"));
+      document.body.appendChild(pop);
+    }
+    clearTimeout(popupTimer);
+    // rAF so the class add lands after layout, or the opacity transition
+    // doesn't run and the popup just snaps straight to visible.
+    pop.classList.remove("is-on");
+    requestAnimationFrame(function () { requestAnimationFrame(function () {
+      pop.classList.add("is-on");
+    }); });
+    popupTimer = setTimeout(function () { pop.classList.remove("is-on"); }, POPUP_MS);
   }
 
   function cardsTable() {

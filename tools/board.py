@@ -60,6 +60,7 @@ BONUS = 3                   # the featured-player tiebreaker bonus
 MAX_WEEK_PTS = sum(range(1, MAX_CONF + 1)) + BONUS      # 24
 PRED_CAP = 100              # a sanity ceiling on a single player's PPR week
 LOCK_HOUR = 19              # 7:00pm CT, nominal Thursday lock
+SHOW_LEADERBOARD = False    # Peter asked to hide the season leaderboard section for now (2026-11-19)
 
 FB_PROJECT = "rizzlers-pickems"
 FB_KEY = "AIzaSyCtUp7DYEjdE5i_Vt9oTqzpmNAgHP32xy8"   # public web API key, not a secret
@@ -671,7 +672,13 @@ def build(season=2026, refresh_locks=False):
         featured_name=_esc(rec["name"]) if rec else "this week's featured player",
         featured=_featured_card(rec, out),
         ppr_label=_esc(FEAT.PPR_LABEL),
-        leaderboard=_leaderboard_html(lb, sl),
+        leaderboard_section=(f'''  <section class="section" style="padding-left:0;padding-right:0">
+    <span class="eyebrow">Standings</span>
+    <h2 class="section-title">Season leaderboard</h2>
+    <p class="section-sub">Scored by this site's pipeline, not by the browser &mdash; {("Weeks " + ", ".join(str(w) for w in lb["weeks"])) if lb["weeks"] else "nothing yet"}.
+       Pts = confidence points plus bonuses. Hits = correct picks. Wks = weeks entered.</p>
+    {_leaderboard_html(lb, sl)}
+  </section>''' if SHOW_LEADERBOARD else ""),
         receipts=_results_html(lb, sl, feat_recs, feat_res),
         scored=("Weeks " + ", ".join(str(w) for w in lb["weeks"])) if lb["weeks"] else "nothing yet",
         config=json.dumps(cfg, separators=(",", ":")),
@@ -801,13 +808,27 @@ _TEMPLATE_BODY = r'''<style>
   .bd-msg {{ font-size: var(--fs-13); color: var(--text-2); }}
   .bd-msg.is-bad {{ color: var(--neg); }}
   .bd-msg.is-good {{ color: var(--accent); }}
-  .bd-thanks {{
-    display: flex; align-items: center; gap: var(--s-3);
-    background: var(--accent-tint); border: 1px solid var(--accent-line);
-    border-radius: var(--r-sm); padding: var(--s-2) var(--s-3);
+  /* Full-screen flash on a successful file/resubmit. Fixed + z-index so it
+     sits above everything regardless of scroll position; opacity-only
+     transition (not display) so the timed dismiss in board.js can animate
+     out instead of vanishing mid-frame. aria-hidden via inert styling — it's
+     a celebratory flash, not content, so it isn't in the tab order. */
+  .bd-popup {{
+    position: fixed; inset: 0; z-index: 999;
+    display: flex; flex-direction: column; align-items: center; justify-content: center; gap: var(--s-5);
+    background: var(--bg);
+    opacity: 0; pointer-events: none;
+    transition: opacity .25s ease;
   }}
-  .bd-thanks-img {{ width: 44px; height: 44px; border-radius: 50%; object-fit: cover; object-position: top; border: 2px solid var(--accent); display: block; flex: 0 0 auto; background: var(--surface-2); }}
-  .bd-thanks-text {{ font-family: var(--font-display); font-weight: 700; font-size: var(--fs-13); color: var(--accent); }}
+  .bd-popup.is-on {{ opacity: 1; }}
+  .bd-popup-img {{
+    width: min(55vw, 260px); height: min(55vw, 260px); border-radius: 50%;
+    object-fit: cover; object-position: top; border: 4px solid var(--accent);
+  }}
+  .bd-popup-text {{
+    font-family: var(--font-display); font-weight: 700; color: var(--accent);
+    font-size: clamp(28px, 7vw, 48px); text-align: center; padding: 0 var(--s-6);
+  }}
   button.bd-side, button.btn {{ font: inherit; }}
   .btn[disabled] {{ opacity: .5; cursor: not-allowed; }}
 
@@ -909,13 +930,7 @@ _TEMPLATE_BODY = r'''<style>
 
   <div id="bd-live"></div>
 
-  <section class="section" style="padding-left:0;padding-right:0">
-    <span class="eyebrow">Standings</span>
-    <h2 class="section-title">Season leaderboard</h2>
-    <p class="section-sub">Scored by this site's pipeline, not by the browser &mdash; {scored}.
-       Pts = confidence points plus bonuses. Hits = correct picks. Wks = weeks entered.</p>
-    {leaderboard}
-  </section>
+{leaderboard_section}
 
   <section class="section" style="padding-left:0;padding-right:0">
     <span class="eyebrow">Receipts</span>
