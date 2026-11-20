@@ -376,7 +376,7 @@
       var pic = el("span", "bd-thanks-pic");
       var img = document.createElement("img");
       img.className = "bd-thanks-img";
-      img.src = "img/peter-thumbs-up.png";
+      img.src = "img/peter-thumbs-up.jpg";
       img.alt = "Peter";
       pic.appendChild(img);
       pic.appendChild(el("span", "bd-thanks-badge", "👍"));
