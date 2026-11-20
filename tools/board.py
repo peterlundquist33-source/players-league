@@ -61,6 +61,7 @@ MAX_WEEK_PTS = sum(range(1, MAX_CONF + 1)) + BONUS      # 24
 PRED_CAP = 100              # a sanity ceiling on a single player's PPR week
 LOCK_HOUR = 19              # 7:00pm CT, nominal Thursday lock
 SHOW_LEADERBOARD = False    # Peter asked to hide the season leaderboard section for now (2026-11-19)
+SHOW_RECEIPTS = False       # Peter asked to show only this week's picks, nothing else below the form (2026-11-19)
 
 FB_PROJECT = "rizzlers-pickems"
 FB_KEY = "AIzaSyCtUp7DYEjdE5i_Vt9oTqzpmNAgHP32xy8"   # public web API key, not a secret
@@ -679,7 +680,11 @@ def build(season=2026, refresh_locks=False):
        Pts = confidence points plus bonuses. Hits = correct picks. Wks = weeks entered.</p>
     {_leaderboard_html(lb, sl)}
   </section>''' if SHOW_LEADERBOARD else ""),
-        receipts=_results_html(lb, sl, feat_recs, feat_res),
+        receipts_section=(f'''  <section class="section" style="padding-left:0;padding-right:0">
+    <span class="eyebrow">Receipts</span>
+    <h2 class="section-title">How each week actually went</h2>
+    {_results_html(lb, sl, feat_recs, feat_res)}
+  </section>''' if SHOW_RECEIPTS else ""),
         scored=("Weeks " + ", ".join(str(w) for w in lb["weeks"])) if lb["weeks"] else "nothing yet",
         config=json.dumps(cfg, separators=(",", ":")),
         firebase=json.dumps(_FB_CONFIG, separators=(",", ":")),
@@ -931,13 +936,7 @@ _TEMPLATE_BODY = r'''<style>
   <div id="bd-live"></div>
 
 {leaderboard_section}
-
-  <section class="section" style="padding-left:0;padding-right:0">
-    <span class="eyebrow">Receipts</span>
-    <h2 class="section-title">How each week actually went</h2>
-    {receipts}
-  </section>
-
+{receipts_section}
   <section class="section" style="padding-left:0;padding-right:0">
     <span class="eyebrow">The rules</span>
     <h2 class="section-title">Scoring</h2>
