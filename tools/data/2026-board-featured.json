@@ -26,5 +26,33 @@
   "actual": 14.8,
   "played": true,
   "final": true
+ },
+ "12": {
+  "season": 2026,
+  "week": 12,
+  "player_id": "7564",
+  "name": "Ja'Marr Chase",
+  "pos": "WR",
+  "team": "CIN",
+  "opp": "NO",
+  "home": true,
+  "kickoff": "2026-11-29 18:00",
+  "kickoff_label": "Sun Nov 29, 12:00 PM CT",
+  "chosen_at": "2026-11-24T13:39:18Z",
+  "seed": "2026-12",
+  "pool_rank": 12,
+  "eligible_pool": 27,
+  "season_ppr": 201.9,
+  "ppg": 20.19,
+  "games": 10,
+  "evidence": {
+   "scheduled_game": true,
+   "on_bye": false,
+   "injury_tag": "",
+   "sleeper_status": "Active"
+  },
+  "actual": null,
+  "played": null,
+  "final": false
  }
 }
