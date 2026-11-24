@@ -60,7 +60,7 @@ BONUS = 3                   # the featured-player tiebreaker bonus
 MAX_WEEK_PTS = sum(range(1, MAX_CONF + 1)) + BONUS      # 24
 PRED_CAP = 100              # a sanity ceiling on a single player's PPR week
 LOCK_HOUR = 19              # 7:00pm CT, nominal Thursday lock
-SHOW_LEADERBOARD = False    # Peter asked to hide the season leaderboard section for now (2026-11-19)
+SHOW_LEADERBOARD = True     # Peter asked for the season-long leaderboard back, below the picks (2026-11-24)
 SHOW_RECEIPTS = False       # Peter asked to show only this week's picks, nothing else below the form (2026-11-19)
 
 FB_PROJECT = "rizzlers-pickems"
