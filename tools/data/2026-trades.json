@@ -8,39 +8,39 @@
      {
       "name": "Dak Prescott",
       "pos": "QB",
-      "rank": 78,
-      "value": 7.8
+      "rank": 49,
+      "value": 14.9
      },
      {
       "name": "Jordan Mason",
       "pos": "RB",
-      "rank": 144,
-      "value": 2.3
+      "rank": 145,
+      "value": 2.2
      }
     ],
-    "value": 10.1
+    "value": 17.1
    },
    "Peter": {
     "players": [
      {
       "name": "Josh Jacobs",
       "pos": "RB",
-      "rank": 94,
-      "value": 5.4
+      "rank": 111,
+      "value": 4.0
      },
      {
       "name": "Chris Brooks",
       "pos": "RB",
-      "rank": 315,
+      "rank": 291,
       "value": 0.5
      }
     ],
-    "value": 5.9
+    "value": 4.5
    }
   },
-  "winner": null,
-  "margin": 4.2,
-  "grade": "EVEN"
+  "winner": "Mitchell",
+  "margin": 12.6,
+  "grade": "SLIGHT EDGE"
  },
  {
   "id": "bd5ad126-f34b-47b5-ac5f-2360c12a4c5c",
@@ -51,22 +51,22 @@
      {
       "name": "Patrick Mahomes",
       "pos": "QB",
-      "rank": 76,
-      "value": 8.1
+      "rank": 52,
+      "value": 13.7
      }
     ],
-    "value": 8.1
+    "value": 13.7
    },
    "Leif": {
     "players": [
      {
       "name": "Mike Evans",
       "pos": "WR",
-      "rank": 49,
-      "value": 14.9
+      "rank": 35,
+      "value": 20.5
      }
     ],
-    "value": 14.9
+    "value": 20.5
    }
   },
   "winner": "Leif",
@@ -82,38 +82,38 @@
      {
       "name": "Saquon Barkley",
       "pos": "RB",
-      "rank": 68,
-      "value": 9.3
+      "rank": 81,
+      "value": 7.3
      },
      {
       "name": "J.K. Dobbins",
       "pos": "RB",
-      "rank": 240,
-      "value": 1.1
+      "rank": 234,
+      "value": 1.2
      }
     ],
-    "value": 10.4
+    "value": 8.5
    },
    "Logan": {
     "players": [
      {
       "name": "Jaylen Warren",
       "pos": "RB",
-      "rank": 23,
-      "value": 33.0
+      "rank": 33,
+      "value": 21.3
      },
      {
       "name": "DK Metcalf",
       "pos": "WR",
-      "rank": 70,
-      "value": 9.0
+      "rank": 89,
+      "value": 6.2
      }
     ],
-    "value": 42.0
+    "value": 27.5
    }
   },
   "winner": "Logan",
-  "margin": 31.6,
+  "margin": 19.0,
   "grade": "CLEAR WIN"
  },
  {
@@ -125,26 +125,26 @@
      {
       "name": "Juwan Johnson",
       "pos": "TE",
-      "rank": 148,
-      "value": 2.1
+      "rank": 137,
+      "value": 2.6
      }
     ],
-    "value": 2.1
+    "value": 2.6
    },
    "Grant": {
     "players": [
      {
       "name": "Quinshon Judkins",
       "pos": "RB",
-      "rank": 109,
-      "value": 4.0
+      "rank": 97,
+      "value": 5.0
      }
     ],
-    "value": 4.0
+    "value": 5.0
    }
   },
   "winner": null,
-  "margin": 1.9,
+  "margin": 2.4,
   "grade": "EVEN"
  },
  {
@@ -156,7 +156,7 @@
      {
       "name": "Emanuel Wilson",
       "pos": "RB",
-      "rank": 291,
+      "rank": 289,
       "value": 0.5
      },
      {
@@ -168,33 +168,33 @@
      {
       "name": "DK Metcalf",
       "pos": "WR",
-      "rank": 70,
-      "value": 9.0
+      "rank": 89,
+      "value": 6.2
      }
     ],
-    "value": 10.0
+    "value": 7.2
    },
    "Logan": {
     "players": [
      {
       "name": "Joe Burrow",
       "pos": "QB",
-      "rank": 27,
-      "value": 27.0
+      "rank": 23,
+      "value": 33.0
      },
      {
       "name": "Zach Charbonnet",
       "pos": "RB",
-      "rank": 57,
-      "value": 11.7
+      "rank": 65,
+      "value": 9.8
      }
     ],
-    "value": 38.7
+    "value": 42.8
    }
   },
   "winner": "Logan",
-  "margin": 28.7,
-  "grade": "CLEAR WIN"
+  "margin": 35.6,
+  "grade": "ROBBERY"
  },
  {
   "id": "4425e053-b0e2-4281-9250-4760d2472b58",
@@ -205,26 +205,26 @@
      {
       "name": "Patrick Mahomes",
       "pos": "QB",
-      "rank": 76,
-      "value": 8.1
+      "rank": 52,
+      "value": 13.7
      }
     ],
-    "value": 8.1
+    "value": 13.7
    },
    "Noah": {
     "players": [
      {
       "name": "Jaylen Waddle",
       "pos": "WR",
-      "rank": 65,
-      "value": 9.8
+      "rank": 60,
+      "value": 10.5
      }
     ],
-    "value": 9.8
+    "value": 10.5
    }
   },
   "winner": null,
-  "margin": 1.7,
+  "margin": 3.2,
   "grade": "EVEN"
  },
  {
@@ -247,15 +247,64 @@
      {
       "name": "Tee Higgins",
       "pos": "WR",
-      "rank": 13,
-      "value": 53
+      "rank": 14,
+      "value": 49
      }
     ],
-    "value": 53.0
+    "value": 49.0
    }
   },
   "winner": "John",
-  "margin": 21.5,
+  "margin": 17.5,
   "grade": "CLEAR WIN"
+ },
+ {
+  "id": "73f5c968-d39c-439c-9a7c-0ca2144afc19",
+  "date": "2026-11-18T16:04:19.111000+00:00",
+  "sides": {
+   "Noah": {
+    "players": [
+     {
+      "name": "Antonio Williams",
+      "pos": "WR",
+      "rank": 84,
+      "value": 6.9
+     },
+     {
+      "name": "Sam LaPorta",
+      "pos": "TE",
+      "rank": 92,
+      "value": 5.7
+     },
+     {
+      "name": "Jayden Daniels",
+      "pos": "QB",
+      "rank": 79,
+      "value": 7.7
+     }
+    ],
+    "value": 20.2
+   },
+   "Adam": {
+    "players": [
+     {
+      "name": "Colston Loveland",
+      "pos": "TE",
+      "rank": 71,
+      "value": 8.8
+     },
+     {
+      "name": "Mike Washington Jr.",
+      "pos": "RB",
+      "rank": 177,
+      "value": 1.7
+     }
+    ],
+    "value": 10.6
+   }
+  },
+  "winner": "Noah",
+  "margin": 9.6,
+  "grade": "SLIGHT EDGE"
  }
 ]
