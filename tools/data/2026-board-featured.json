@@ -23,8 +23,8 @@
    "injury_tag": "",
    "sleeper_status": "Active"
   },
-  "actual": null,
-  "played": null,
-  "final": false
+  "actual": 14.8,
+  "played": true,
+  "final": true
  }
 }
